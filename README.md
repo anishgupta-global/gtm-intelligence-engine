@@ -9,7 +9,7 @@ The engine is the product; capabilities ship as **decision packs** on one shared
 [![CI](https://github.com/anishgupta-global/gtm-intelligence-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/anishgupta-global/gtm-intelligence-engine/actions)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%E2%89%A522.13-brightgreen)
-![Version](https://img.shields.io/badge/version-1.3.0-blue)
+![Version](https://img.shields.io/badge/version-1.3.1-blue)
 
 **▶ Live demo:** https://anishgupta-global.github.io/gtm-intelligence-engine/ — the dashboard over a snapshot of the demo pipeline (fictional dataset, no signup).
 

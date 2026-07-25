@@ -13,6 +13,8 @@ async function api(path) {
     const res = await fetch('demo-data.json');
     DEMO = await res.json();
     document.getElementById('mode-badge').textContent = 'static demo snapshot';
+    document.getElementById('conn-dot').classList.add('static');
+    document.getElementById('powered').innerHTML = 'Deterministic pipeline · <b>$0</b>';
     const note = document.createElement('div');
     note.className = 'static-note';
     note.textContent = 'Static snapshot of the demo pipeline (fictional Northwind AI dataset). Clone the repo and run "npm run demo && npm run dev" for the live engine.';
@@ -281,7 +283,10 @@ document.querySelectorAll('.tab').forEach((btn) => {
 
 (async () => {
   const health = await api('/api/summary');
-  if (LIVE) document.getElementById('mode-badge').textContent = `live · ${health.provider} provider`;
+  if (LIVE) {
+    document.getElementById('mode-badge').textContent = `live · ${health.provider} provider`;
+    if (health.provider === 'anthropic') document.getElementById('powered').innerHTML = 'Powered by <b>Claude</b>';
+  }
   await renderExecutive();
   await renderBusiness();
   await renderAudience();

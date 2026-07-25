@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.1 — 2026-07-25
+
+Dashboard header + footer redesigned, adopting the design language of the sibling AI Customer Intelligence Platform:
+
+- **Sticky translucent topbar** (backdrop blur, hairline border) with logo square, product name, workspace pill; right side: live-status pulsing dot (`live · mock provider` / amber static dot for the Pages snapshot) and a "Decision loop · $0 mock mode" pill that switches to "Powered by Claude" when the Anthropic provider is active
+- **Underline-style tabs** inside the sticky header (replace the solid navy tab bar)
+- **Page intro**: uppercase eyebrow, the wedge question as the H1, one-line honest subtitle
+- **Reference-style footer**: bordered, muted footnote explaining exactly what the demo is (fictional workspace, deterministic pipeline, ~25k synthetic people, `npm run demo` to reproduce) + Intelligence Law line + GitHub link
+- Mobile: pills/status collapse under 680px; reduced-motion disables the dot ping
+
 ## 1.3.0 — 2026-07-25
 
 Marketplace at real scale: ~25,000 people (5,200+ new users/week) + 180 restaurant partners, generated deterministically. Fixes the round-7 audit's scale miss and everything the small dataset was hiding.
