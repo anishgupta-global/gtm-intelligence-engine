@@ -1,0 +1,12 @@
+[
+  { "signalType": "newsletter_open", "externalId": "open:m1:maya", "daysAgo": 6, "actor": { "email": "maya.chen@lumenpay.io", "name": "Maya Chen" }, "props": { "campaign": "launch-week" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_click", "externalId": "click:m1:maya", "daysAgo": 5, "actor": { "email": "maya.chen@lumenpay.io", "name": "Maya Chen" }, "props": { "campaign": "launch-week", "topic": "benchmarks" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_open", "externalId": "open:m1:alexk", "daysAgo": 8, "actor": { "email": "alex@kumarlabs.dev", "name": "Alex Kumar", "company": "Kumar Labs" }, "props": { "campaign": "launch-week" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_click", "externalId": "click:m1:alexk", "daysAgo": 7, "actor": { "email": "alex@kumarlabs.dev", "name": "Alex Kumar", "company": "Kumar Labs" }, "props": { "campaign": "launch-week", "topic": "changelog" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_open", "externalId": "open:m1:priya", "daysAgo": 9, "actor": { "email": "priya.nair@quantabio.com", "name": "Priya Nair" }, "props": { "campaign": "launch-week" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_click", "externalId": "click:m2:priya", "daysAgo": 3, "actor": { "email": "priya.nair@quantabio.com", "name": "Priya Nair" }, "props": { "campaign": "case-study", "topic": "benchmarks" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_click", "externalId": "click:m2:sam", "daysAgo": 2, "actor": { "email": "sam.okafor@brightqueue.io", "name": "Sam Okafor" }, "props": { "campaign": "case-study", "topic": "architecture" } },
+  { "signalType": "newsletter_open", "externalId": "open:m0a:elena", "daysAgo": 45, "actor": { "email": "elena.petrova@nordwind-labs.com", "name": "Elena Petrova" }, "props": { "campaign": "release-notes" }, "consentBasis": "contract" },
+  { "signalType": "newsletter_open", "externalId": "open:m0b:elena", "daysAgo": 50, "actor": { "email": "elena.petrova@nordwind-labs.com", "name": "Elena Petrova" }, "props": { "campaign": "release-notes" }, "consentBasis": "contract" },
+  { "signalType": "newsletter_click", "externalId": "click:m0:elena", "daysAgo": 40, "actor": { "email": "elena.petrova@nordwind-labs.com", "name": "Elena Petrova" }, "props": { "campaign": "release-notes", "topic": "changelog" }, "consentBasis": "contract" }
+]

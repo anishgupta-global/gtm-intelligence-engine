@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GTM Intelligence Engine</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo">GTM</span>
+    <div>
+      <h1>GTM Intelligence Engine</h1>
+      <p class="tagline">Who should you talk to this week — and why</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <span id="mode-badge" class="badge"></span>
+    <span id="ws-badge" class="badge badge-muted">Northwind AI workspace</span>
+  </div>
+</header>
+
+<nav>
+  <button class="tab active" data-tab="overview">Leads</button>
+  <button class="tab" data-tab="people">People</button>
+  <button class="tab" data-tab="decisions">Decisions</button>
+  <button class="tab" data-tab="cost">Cost &amp; health</button>
+</nav>
+
+<main>
+  <section id="tab-overview" class="tab-panel active">
+    <div id="kpis" class="kpi-row"></div>
+    <div class="grid-2">
+      <div class="card">
+        <h2>Segment momentum <span class="hint">7d vs prior 7d</span></h2>
+        <div id="segments"></div>
+      </div>
+      <div class="card">
+        <h2>Going quiet</h2>
+        <div id="fading"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Hot leads — who to contact this week</h2>
+      <div id="hot-leads"></div>
+    </div>
+  </section>
+
+  <section id="tab-people" class="tab-panel">
+    <div class="card">
+      <h2>Resolved people <span class="hint">virtual identity clusters — merges are reversible</span></h2>
+      <div id="people"></div>
+    </div>
+    <div class="card">
+      <h2>Identity review queue <span class="hint">probabilistic matches 0.70–0.90 wait for a human</span></h2>
+      <div id="review-queue"></div>
+    </div>
+  </section>
+
+  <section id="tab-decisions" class="tab-panel">
+    <div class="card">
+      <h2>Decisions <span class="hint">every recommendation: evidence → hypothesis → reasoning → confidence → outcome</span></h2>
+      <div id="decisions"></div>
+    </div>
+    <div class="card">
+      <h2>Evaluation <span class="hint">expected vs actual — is the engine improving?</span></h2>
+      <div id="evaluation"></div>
+    </div>
+  </section>
+
+  <section id="tab-cost" class="tab-panel">
+    <div class="card">
+      <h2>AI cost pyramid <span class="hint">AI is a last resort, not the default</span></h2>
+      <div id="cost"></div>
+    </div>
+    <div class="card">
+      <h2>Weekly digest</h2>
+      <pre id="digest"></pre>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>GTM Intelligence Engine · open source (Apache-2.0) · <a href="https://github.com/anishgupta-global/gtm-intelligence-engine">GitHub</a></span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

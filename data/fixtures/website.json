@@ -1,0 +1,13 @@
+[
+  { "signalType": "pricing_view", "externalId": "pv:9001", "daysAgo": 1, "actor": { "email": "maya.chen@lumenpay.io" }, "props": { "path": "/pricing" } },
+  { "signalType": "pricing_view", "externalId": "pv:9002", "daysAgo": 2, "actor": { "email": "maya.chen@lumenpay.io" }, "props": { "path": "/pricing" } },
+  { "signalType": "docs_view", "externalId": "dv:9003", "daysAgo": 3, "actor": { "email": "maya.chen@lumenpay.io" }, "props": { "path": "/docs/streaming", "topic": "streaming" } },
+  { "signalType": "pricing_view", "externalId": "pv:9004", "daysAgo": 4, "actor": { "email": "sam.okafor@brightqueue.io" }, "props": { "path": "/pricing" } },
+  { "signalType": "website_visit", "externalId": "wv:9005", "daysAgo": 6, "actor": { "email": "sam.okafor@brightqueue.io" }, "props": { "path": "/blog/scaling-pipelines" } },
+  { "signalType": "website_visit", "externalId": "wv:9006", "daysAgo": 5, "actor": { "email": "lin.zhang@vectorloom.ai" }, "props": { "path": "/blog/launch" } },
+  { "signalType": "docs_view", "externalId": "dv:9007", "daysAgo": 4, "actor": { "email": "lin.zhang@vectorloom.ai" }, "props": { "path": "/docs/quickstart" } },
+  { "signalType": "pricing_view", "externalId": "pv:9008", "daysAgo": 12, "actor": { "email": "priya.nair@quantabio.com" }, "props": { "path": "/pricing" } },
+  { "signalType": "docs_view", "externalId": "dv:9009", "daysAgo": 8, "actor": { "email": "jorge.rodriguez@helioscloud.io" }, "props": { "path": "/docs/deployment", "topic": "deployment" } },
+  { "signalType": "website_visit", "externalId": "wv:9010", "daysAgo": 38, "actor": { "email": "elena.petrova@nordwind-labs.com" }, "props": { "path": "/changelog" } },
+  { "signalType": "docs_view", "externalId": "dv:9011", "daysAgo": 35, "actor": { "email": "elena.petrova@nordwind-labs.com" }, "props": { "path": "/docs/alerts", "topic": "alerting" } }
+]

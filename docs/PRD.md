@@ -1,0 +1,126 @@
+# PRD — GTM Intelligence Engine
+
+Status: v1.0.0 shipped · Owner: Anish Gupta · Last updated: 2026-07-25
+
+## 1. Vision
+
+Build an open-source intelligence engine that transforms fragmented audience data — CRM, community, product, payments, web, social exports — into **GTM decisions**: who to talk to, what to do about it, and whether it worked. The canonical object is a **Person**, never a follower or a platform profile. The moat is not the data graph (graphs are commodities); it is the **decision loop**: reasoning → decision → outcome → evaluation → learning. People don't buy graphs. They buy decisions.
+
+## 2. North Star & primary design principle
+
+> **Maximize intelligence generated per dollar of compute. AI is a last resort, not the default.**
+
+Enforced mechanisms (all implemented, all tested):
+
+| Mechanism | Implementation |
+| --- | --- |
+| AI cost pyramid | L0 rules/SQL (free) → L1 local embeddings (free) → L2 small LLM → L3 large LLM. Every operation ledgered with its level; target ≥70% at L0 is asserted in CI (`test/pipeline.test.ts`). |
+| LLMs never see raw data | Prompt builders accept only a typed `Aggregates` object (~50 numbers). There is no code path that passes records to a model. PII is regex-redacted besides. |
+| Intelligence cache | AI outputs keyed by input hash + data version with TTL; unchanged input = cache hit = $0. |
+| Meaningful-change gate | A recommendation regenerates only when the aggregates hash changes — never on a schedule. |
+| Confidence gating | Deterministic extractors first (title → role at 0.95, free); the small model is consulted only when rules can't answer. |
+| Budget manager | Per-workspace monthly budget. Modes: full → lean (small model) → exhausted (deterministic fallback). Degradation is explicit and visible, never an error and never silent overspend. |
+| Cost per insight | First-class KPI at `/api/cost`: total AI spend ÷ insights generated. |
+
+## 3. The Intelligence Law
+
+**No AI output may exist without evidence, provenance, confidence, cost, and reproducibility.**
+Every enrichment, score, and decision stores: supporting observation IDs, producing model + version, a confidence value, its ledger entry, and the input hash that regenerates it.
+
+## 4. The wedge (day-one problem)
+
+For founder-led GTM teams (devtools, SaaS, creators): **"Who in my existing audience should I talk to this week, and why?"** Everything in v1 serves this weekly loop — ranked hot leads and fading champions with evidence, one reasoned recommendation, one digest. Broader audience analytics is a byproduct, not the pitch.
+
+Scope guard: *if a feature doesn't improve the weekly question, it doesn't ship in v1.*
+
+## 5. Architecture (12 layers)
+
+```
+L1  Connectors            official APIs / CSV / universal webhook — produce observations only
+L2  Observations          append-only, typed via the Signal Registry, idempotent, consent-tagged
+L3  Identity resolution   deterministic co-occurrence → probabilistic match → human review queue
+L4  Knowledge graph       entities + typed edges with provenance (enabler, not the moat)
+L5  Behavior engine       time-windowed aggregates per person
+L6  Audience intelligence L0 scores (intent, fading, ICP fit) with factor breakdowns; segments
+L7  Reasoning engine      evidence → hypothesis → reasoning → recommendation → confidence
+L8  Decision engine       decision objects with lifecycle + decision memory (similarity priors)
+L9  Learning engine       outcome capture → calibration → memory priors (damped, honest)
+L10 Optimization engine   goal → ranked strategy plan (v2; interface reserved)
+L11 Automation engine     weekly digest → file/Slack, destination-allowlisted, audit-logged
+L12 Executive reports     the digest + evaluation metrics
+```
+
+AI appears only at L7+, after reliable data is established. The same spine later powers customer/sales/community/creator/recruitment intelligence as connector families + intelligence packs.
+
+## 6. Audit — loopholes found, closures, trade-offs
+
+### Round 1 (architecture review)
+
+| # | Loophole | Closure | Trade-off accepted |
+|---|----------|---------|--------------------|
+| 1 | Social scraping connectors not legally buildable (platform ToS + GDPR) | Official-API / export / webhook connectors only; connector SDK; scraping documented out of scope | Weaker social story at launch; exports still get the data in |
+| 2 | GDPR vs cross-source identity resolution | Consent basis per observation; DSAR export + erasure (payload hard-delete + tombstone); PII redaction pre-LLM; crypto-shredding = v2 ADR | Tombstoned replay is lossy by design |
+| 3 | Wrong merges poison everything downstream | Never physically merge: virtual clusters via membership rows (confidence/method/evidence/engine-version); ≥0.90 auto, 0.70–0.90 human review; retraction = clean split | Queries join through memberships (fine at v1 scale) |
+| 4 | Enrichment hallucination + cost blowup | Tiered enrichment; input-hash skip; budget + ledger; confidence/provenance/model on every field; ungroundable → `unknown`, never guessed | Sparse fields — correct behavior |
+| 5 | "Incremental everything" vs graph-global scores | v1 scores are local/egocentric and incremental; global algorithms deferred as scheduled batches | Influence-style scores absent in v1 |
+| 6 | Graph DB + vector store + feature store = ops sprawl | Single SQLite file behind repository functions; Postgres/pgvector/Neo4j swap path documented (ADR-0004) | Multi-hop graph queries limited; honest ceiling |
+| 7 | Marketplace = remote-code-execution risk | Only first-party in-repo plugins; sandbox spec in ADR-0011; marketplace deferred | No ecosystem at launch, no RCE either |
+| 8 | Prediction cold start | Transparent heuristics with factor breakdowns; model interfaces reserved | Honest heuristics over fake ML |
+| 9 | Multi-tenant leakage | v1 = single workspace, `tenant` column throughout; Postgres RLS path in ADR-0012 | Multi-tenancy is v2 |
+| 10 | Automations = exfiltration surface | Digest sends aggregates + allowlisted fields; outbound sends audit-logged | Less rich Slack payloads |
+| 11 | Re-sync duplication / replay | Idempotent observations (source, external_id, content_hash); cursors; append-only event log | Append-only growth; retention policy handles it |
+
+### Round 2 (product review)
+
+| # | Concern | Design response | Trade-off |
+|---|---------|-----------------|-----------|
+| 12 | Six products in one; no day-one problem | The wedge (§4); connectors cut to 6; dashboard cut to 4 pages | Narrower launch surface |
+| 13 | Graph mistaken for the moat | Moat re-declared as the decision loop (L7–L9); graph demoted to enabler | Less "knowledge graph" marketing shine |
+| 14 | No learning after automation | Learning engine: outcome capture → calibration → memory priors | Attribution is a correlation window, labeled as such; small samples damped |
+| 15 | No decision memory | `decisions` + `outcomes` tables; embedded context; similarity priors in every new decision | Memory only as good as recorded outcomes |
+| 16 | No explicit reasoning layer | Structured trace stored on every decision, rendered in UI + digest | One structured L3 call per decision — bounded by cache + change gate |
+| 17 | Reports but no optimization | Goal-driven optimization engine deferred to v2 (cut by the wedge rule — it answers "how do I hit +30%?", not "who this week?") | v1 proposes, doesn't plan campaigns |
+| 18 | Cost efficiency not the core principle | §2 — pyramid, router, cache, gating, budget, cost-per-insight, CI-enforced distribution | Insights degrade to L0/L1 under budget pressure — deliberate and visible |
+
+### Round 3 (final review — integrated)
+
+| Change | Status |
+| --- | --- |
+| Rename: drop "Audience Evaluation", keep **GTM Intelligence Engine**; wedge moves to the tagline | Done |
+| Intelligence Law at the top of the README | Done (§3) |
+| **Evaluation engine** — expected vs actual, the one missing subsystem | Built (`src/decisions/evaluate.ts`): attainment, verdicts, calibration error, acceptance/success rates. Decision recall / false negatives need ground truth that doesn't exist yet — listed as `notMeasuredYet`, never fabricated |
+| **Signal registry** — typed signals between connectors and observations | Built (`src/signals/registry.ts`): zod-validated, 12 signal types, identifier extraction |
+| **ENGINEERING_PRINCIPLES.md** | Written (12 principles) |
+| Replace Uber Eats with a fictional company | Demo dataset = **Northwind AI** (fictional data-tools vendor); avoids trademark exposure and keeps the project universal |
+
+## 7. v1 scope (shipped)
+
+- **Working end to end:** L1–L9, L11–L12 on the wedge. 5 connectors (CSV CRM, GitHub official API/fixture, newsletter/website/payments fixtures, universal webhook), identity resolution with review queue, graph, behavior + 3 scores with factors, segments, reasoning traces, decision memory, evaluation, calibration learning, weekly digest, DSAR, 4-page dashboard, REST API.
+- **Deferred with contracts reserved:** optimization engine (L10), marketplace/plugins, trained predictions, multi-tenancy, Postgres swap.
+- **Quality gates in CI:** typecheck, 16 tests including identity golden pairs (incl. adversarial same-name), cost-pyramid distribution assertion (≥70% L0), budget degradation, cache behavior, full e2e decision loop, DSAR.
+
+## 8. Dashboard (4 pages)
+
+| Page | Shows |
+| --- | --- |
+| Leads | KPI row (people, companies, hot leads, fading, cost/insight) · segment momentum bars · hot leads with intent, signals, evidence IDs, suggested action · fading champions |
+| People | Resolved persons with identifier counts · identity review queue with approve/keep-separate |
+| Decisions | Every decision with full trace (evidence → hypothesis → reasoning → action), confidence, memory chip, accept/dismiss/record-outcome · evaluation table (expected vs actual, verdicts) |
+| Cost & health | Budget bar, level distribution (pyramid), cache hits, cost per insight · the weekly digest |
+
+## 9. Success metrics
+
+- Time-to-first-insight after `git clone`: **< 3 minutes** (npm install + npm run demo).
+- ≥70% of pipeline operations resolved at L0 (CI-enforced).
+- Cost per insight in $0 mock mode: $0.00; with Claude on the demo dataset: < $0.10.
+- Every recommendation traceable to observation IDs (structurally guaranteed).
+- Decision-loop demonstrable in one demo run: outcome → calibration shift → memory prior on the next decision.
+
+## 10. Risks
+
+| Risk | Mitigation |
+| --- | --- |
+| Feature creep (the #1 execution risk) | The wedge rule (§4) is written into this PRD and the README roadmap |
+| Mock provider oversold as AI | Every output labels its model + level; README is explicit about the $0 mode |
+| Identity false merges | Review queue + reversibility + adversarial tests |
+| LLM spend surprises | Budget modes + ledger + cache; exhaustion degrades, never errors |

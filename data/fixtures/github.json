@@ -1,0 +1,7 @@
+[
+  { "signalType": "repo_star", "externalId": "star:mayac-dev", "daysAgo": 6, "actor": { "handle": "mayac-dev", "email": "maya.chen@lumenpay.io", "name": "Maya Chen" }, "props": { "repo": "northwind-ai/pipeline-lens" } },
+  { "signalType": "repo_issue", "externalId": "issue:412", "daysAgo": 4, "actor": { "handle": "mayac-dev", "email": "maya.chen@lumenpay.io", "name": "Maya Chen" }, "props": { "repo": "northwind-ai/pipeline-lens", "topic": "streaming" } },
+  { "signalType": "repo_star", "externalId": "star:jrodz", "daysAgo": 5, "actor": { "handle": "jrodz", "name": "Jorge R.", "company": "Helios Cloud" }, "props": { "repo": "northwind-ai/pipeline-lens" } },
+  { "signalType": "repo_star", "externalId": "star:devkarthik", "daysAgo": 3, "actor": { "handle": "devkarthik", "name": "Karthik Iyer" }, "props": { "repo": "northwind-ai/pipeline-lens" } },
+  { "signalType": "repo_issue", "externalId": "issue:418", "daysAgo": 2, "actor": { "handle": "devkarthik", "name": "Karthik Iyer" }, "props": { "repo": "northwind-ai/pipeline-lens", "topic": "alerting" } }
+]

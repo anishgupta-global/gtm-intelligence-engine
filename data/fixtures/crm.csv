@@ -1,0 +1,9 @@
+name,email,company,title,employees,industry,stage,consent,days_ago
+Maya Chen,maya.chen@lumenpay.io,LumenPay,Head of Data Platform,320,fintech,prospect,consent,40
+Jorge Rodriguez,jorge.rodriguez@helioscloud.io,Helios Cloud,VP Engineering,450,cloud,prospect,legitimate_interest,60
+Alex Kumar,alex.kumar@stellarpay.io,StellarPay,Data Engineering Lead,180,fintech,lead,consent,35
+Priya Nair,priya.nair@quantabio.com,Quanta Bio,Analytics Manager,90,biotech,lead,consent,50
+Tomas Silva,tomas.silva@ferrostack.dev,FerroStack,Co-Founder & CEO,25,software,customer,contract,90
+Elena Petrova,elena.petrova@nordwind-labs.com,Nordwind Labs,Director of Data,240,data,customer,contract,120
+Sam Okafor,sam.okafor@brightqueue.io,BrightQueue,CTO,60,software,prospect,legitimate_interest,20
+Lin Zhang,lin.zhang@vectorloom.ai,VectorLoom,Head of Growth,40,software,lead,consent,15

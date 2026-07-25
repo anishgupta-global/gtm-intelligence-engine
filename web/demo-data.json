@@ -1,0 +1,516 @@
+{
+  "generatedAt": "2026-07-25T10:33:29.645Z",
+  "demoNote": "Static snapshot of the demo pipeline (Northwind AI fictional dataset). Run the engine locally for the live version.",
+  "summary": {
+    "people": 10,
+    "newPeople7": 10,
+    "companies": 10,
+    "observations": 39,
+    "segments": [
+      {
+        "segment": "Enterprise",
+        "current": 12,
+        "previous": 1,
+        "deltaPct": 1100
+      },
+      {
+        "segment": "Mid-market",
+        "current": 6,
+        "previous": 2,
+        "deltaPct": 200
+      },
+      {
+        "segment": "Developers",
+        "current": 2,
+        "previous": 0,
+        "deltaPct": 200
+      },
+      {
+        "segment": "Startups & SMB",
+        "current": 0,
+        "previous": 3,
+        "deltaPct": -100
+      }
+    ],
+    "hotLeads": 6,
+    "fading": 1,
+    "provider": "mock",
+    "budget": {
+      "budgetUsd": 15,
+      "spentUsd": 0,
+      "remainingUsd": 15,
+      "mode": "full"
+    }
+  },
+  "hot": [
+    {
+      "personId": "per_21e1ad6039343982",
+      "name": "Maya Chen",
+      "company": "LumenPay",
+      "title": "Head of Data Platform",
+      "role": "executive",
+      "intent": 0.93,
+      "icpFit": 1,
+      "signals": {
+        "pricing_view": {
+          "count": 2,
+          "points": 46.43
+        },
+        "trial_started": {
+          "count": 1,
+          "points": 25.71
+        },
+        "docs_view": {
+          "count": 1,
+          "points": 6.86
+        },
+        "repo_issue": {
+          "count": 1,
+          "points": 12.14
+        },
+        "newsletter_click": {
+          "count": 1,
+          "points": 4.57
+        },
+        "newsletter_open": {
+          "count": 1,
+          "points": 1.43
+        },
+        "repo_star": {
+          "count": 1,
+          "points": 8.57
+        }
+      },
+      "evidence": [
+        "obs_459e5b4b13b919bc",
+        "obs_e37de4a819fc4e70",
+        "obs_f3511bc1fb3b1dd9",
+        "obs_d4b032a838909dc6",
+        "obs_67ddef90d730bd4c"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_d12f87141421b139",
+      "name": "Dana Wolf",
+      "company": "Skyforge Systems",
+      "title": "Head of Data",
+      "role": "executive",
+      "intent": 0.83,
+      "icpFit": 1,
+      "signals": {
+        "form_submit": {
+          "count": 1,
+          "points": 15
+        },
+        "demo_request": {
+          "count": 1,
+          "points": 30
+        },
+        "pricing_view": {
+          "count": 1,
+          "points": 25
+        }
+      },
+      "evidence": [
+        "obs_72db9e7dc331b37a",
+        "obs_a985bf4f246c0b6c",
+        "obs_4e39d15adc2a8a9e"
+      ],
+      "action": "Direct sales outreach — explicit hand-raise"
+    },
+    {
+      "personId": "per_73cdb0155654c619",
+      "name": "Sam Okafor",
+      "company": "BrightQueue",
+      "title": "CTO",
+      "role": "executive",
+      "intent": 0.77,
+      "icpFit": 0.9,
+      "signals": {
+        "demo_request": {
+          "count": 1,
+          "points": 30
+        },
+        "newsletter_click": {
+          "count": 1,
+          "points": 5.43
+        },
+        "pricing_view": {
+          "count": 1,
+          "points": 20.24
+        },
+        "website_visit": {
+          "count": 1,
+          "points": 2.86
+        }
+      },
+      "evidence": [
+        "obs_54d731d59532295b",
+        "obs_5dc9520a283ce4c2",
+        "obs_86a04a7db1ed7ce7",
+        "obs_99cec716d0296d40"
+      ],
+      "action": "Direct sales outreach — explicit hand-raise"
+    },
+    {
+      "personId": "per_b00b6271237b2c10",
+      "name": "Priya Nair",
+      "company": "Quanta Bio",
+      "title": "Analytics Manager",
+      "role": "unknown",
+      "intent": 0.65,
+      "icpFit": 0.3,
+      "signals": {
+        "pricing_view": {
+          "count": 2,
+          "points": 35.71
+        },
+        "newsletter_click": {
+          "count": 1,
+          "points": 5.14
+        },
+        "newsletter_open": {
+          "count": 1,
+          "points": 1.14
+        }
+      },
+      "evidence": [
+        "obs_5845722858594c0c",
+        "obs_a183446d639e6e00",
+        "obs_9fe3344746da76bd",
+        "obs_5a438281d40fcaa7"
+      ],
+      "action": "Direct sales outreach — pricing intent"
+    },
+    {
+      "personId": "per_ba69b0cba8e5bd93",
+      "name": "Karthik Iyer",
+      "company": null,
+      "title": null,
+      "role": "developer",
+      "intent": 0.45,
+      "icpFit": 0.25,
+      "signals": {
+        "repo_issue": {
+          "count": 1,
+          "points": 13.57
+        },
+        "repo_star": {
+          "count": 1,
+          "points": 10.29
+        }
+      },
+      "evidence": [
+        "obs_5f49f09f53b82e7a",
+        "obs_b3db755daef61f1f"
+      ],
+      "action": "Send integration/API onboarding material"
+    },
+    {
+      "personId": "per_80f18d25609da0d9",
+      "name": "Jorge Rodriguez",
+      "company": "Helios Cloud",
+      "title": "VP Engineering",
+      "role": "executive",
+      "intent": 0.3,
+      "icpFit": 1,
+      "signals": {
+        "repo_star": {
+          "count": 1,
+          "points": 9.14
+        },
+        "docs_view": {
+          "count": 1,
+          "points": 4.95
+        }
+      },
+      "evidence": [
+        "obs_b0ebcd2fd588c910",
+        "obs_6f80a4d1316b3ce5"
+      ],
+      "action": "Send integration/API onboarding material"
+    }
+  ],
+  "fading": [
+    {
+      "personId": "per_d30ddddfc6da899f",
+      "name": "Elena Petrova",
+      "company": "Nordwind Labs",
+      "title": "Director of Data",
+      "drop": 1,
+      "factors": {
+        "prior30": 6,
+        "last14": 0,
+        "lastActiveDays": 33
+      },
+      "action": "Retention check-in — engagement dropped sharply"
+    }
+  ],
+  "people": [
+    {
+      "id": "per_1e74ab76b6aef8dc",
+      "name": "Alex Kumar",
+      "email": "alex@kumarlabs.dev",
+      "company": "Kumar Labs",
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_21e1ad6039343982",
+      "name": "Maya Chen",
+      "email": "maya.chen@lumenpay.io",
+      "company": "LumenPay",
+      "title": "Head of Data Platform",
+      "identifiers": 2
+    },
+    {
+      "id": "per_5cd39641e4c13310",
+      "name": "Alex Kumar",
+      "email": "alex.kumar@stellarpay.io",
+      "company": "StellarPay",
+      "title": "Data Engineering Lead",
+      "identifiers": 1
+    },
+    {
+      "id": "per_73cdb0155654c619",
+      "name": "Sam Okafor",
+      "email": "sam.okafor@brightqueue.io",
+      "company": "BrightQueue",
+      "title": "CTO",
+      "identifiers": 1
+    },
+    {
+      "id": "per_80f18d25609da0d9",
+      "name": "Jorge Rodriguez",
+      "email": "jorge.rodriguez@helioscloud.io",
+      "company": "Helios Cloud",
+      "title": "VP Engineering",
+      "identifiers": 2
+    },
+    {
+      "id": "per_b00b6271237b2c10",
+      "name": "Priya Nair",
+      "email": "priya.nair@quantabio.com",
+      "company": "Quanta Bio",
+      "title": "Analytics Manager",
+      "identifiers": 1
+    },
+    {
+      "id": "per_ba69b0cba8e5bd93",
+      "name": "Karthik Iyer",
+      "email": null,
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_d12f87141421b139",
+      "name": "Dana Wolf",
+      "email": "dana.wolf@skyforge.dev",
+      "company": "Skyforge Systems",
+      "title": "Head of Data",
+      "identifiers": 1
+    },
+    {
+      "id": "per_d30ddddfc6da899f",
+      "name": "Elena Petrova",
+      "email": "elena.petrova@nordwind-labs.com",
+      "company": "Nordwind Labs",
+      "title": "Director of Data",
+      "identifiers": 1
+    },
+    {
+      "id": "per_f2f2012373b1c8a0",
+      "name": "Tomas Silva",
+      "email": "tomas.silva@ferrostack.dev",
+      "company": "FerroStack",
+      "title": "Co-Founder & CEO",
+      "identifiers": 1
+    }
+  ],
+  "decisions": [
+    {
+      "id": "dec_b8509bbeddf4685e",
+      "kind": "weekly_gtm",
+      "title": "Prioritize Enterprise: pricing view campaign + route 6 hot leads to outreach",
+      "trace": {
+        "evidence": [
+          "obs_459e5b4b13b919bc",
+          "obs_e37de4a819fc4e70",
+          "obs_f3511bc1fb3b1dd9",
+          "obs_d4b032a838909dc6",
+          "obs_67ddef90d730bd4c",
+          "obs_72db9e7dc331b37a",
+          "obs_a985bf4f246c0b6c",
+          "obs_4e39d15adc2a8a9e",
+          "obs_54d731d59532295b",
+          "obs_5dc9520a283ce4c2",
+          "obs_86a04a7db1ed7ce7",
+          "obs_99cec716d0296d40"
+        ],
+        "hypothesis": "Enterprise engagement moved +1100% week over week (12 vs 1 signals), led by pricing view.",
+        "reasoning": "The strongest momentum is in Enterprise while Startups & SMB is at -33%. 6 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
+        "action": "Publish one pricing view-focused piece for Enterprise and start outreach with the 6 hot leads; open retention conversations with the 1 fading champions."
+      },
+      "confidence": 0.87,
+      "baseConfidence": 0.79,
+      "priors": [
+        {
+          "decisionId": "dec_2990df7e96d6b46b",
+          "title": "Prioritize Enterprise: newsletter click campaign + route 4 hot leads to outreach",
+          "similarity": 0.86,
+          "verdict": "winner",
+          "attainment": 1.5,
+          "outcome": "{\"achieved\":3}"
+        }
+      ],
+      "expected": {
+        "metric": "qualified_conversations",
+        "target": 3
+      },
+      "status": "proposed",
+      "model": "mock",
+      "resolutionLevel": 0,
+      "createdAt": "2026-07-25T10:33:29.623Z",
+      "reused": false,
+      "verdict": null,
+      "attainment": null,
+      "calibrationError": null,
+      "outcome": null
+    },
+    {
+      "id": "dec_2990df7e96d6b46b",
+      "kind": "weekly_gtm",
+      "title": "Prioritize Enterprise: newsletter click campaign + route 4 hot leads to outreach",
+      "trace": {
+        "evidence": [
+          "obs_459e5b4b13b919bc",
+          "obs_e37de4a819fc4e70",
+          "obs_f3511bc1fb3b1dd9",
+          "obs_d4b032a838909dc6",
+          "obs_67ddef90d730bd4c",
+          "obs_5dc9520a283ce4c2",
+          "obs_86a04a7db1ed7ce7",
+          "obs_99cec716d0296d40",
+          "obs_5f49f09f53b82e7a",
+          "obs_b3db755daef61f1f",
+          "obs_a183446d639e6e00",
+          "obs_9fe3344746da76bd"
+        ],
+        "hypothesis": "Enterprise engagement moved +800% week over week (9 vs 1 signals), led by newsletter click.",
+        "reasoning": "The strongest momentum is in Enterprise while Startups & SMB is at -33%. 4 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
+        "action": "Publish one newsletter click-focused piece for Enterprise and start outreach with the 4 hot leads; open retention conversations with the 1 fading champions."
+      },
+      "confidence": 0.76,
+      "baseConfidence": 0.76,
+      "priors": [],
+      "expected": {
+        "metric": "qualified_conversations",
+        "target": 2
+      },
+      "status": "completed",
+      "model": "mock",
+      "resolutionLevel": 0,
+      "createdAt": "2026-07-25T10:33:29.603Z",
+      "reused": false,
+      "verdict": "winner",
+      "attainment": 1.5,
+      "calibrationError": -0.24,
+      "outcome": {
+        "metrics": {
+          "achieved": 3
+        },
+        "note": "demo: outreach ran, conversations booked"
+      }
+    }
+  ],
+  "evaluation": {
+    "decisionsTotal": 2,
+    "accepted": 1,
+    "dismissed": 0,
+    "acceptanceRate": 1,
+    "evaluated": 1,
+    "successRate": 1,
+    "meanCalibrationError": 0.24,
+    "costPerInsight": 0,
+    "history": [
+      {
+        "decisionId": "dec_2990df7e96d6b46b",
+        "title": "Prioritize Enterprise: newsletter click campaign + route 4 hot leads to outreach",
+        "expected": {
+          "metric": "qualified_conversations",
+          "target": 2
+        },
+        "actual": {
+          "achieved": 3
+        },
+        "attainment": 1.5,
+        "verdict": "winner",
+        "calibrationError": -0.24
+      }
+    ],
+    "notMeasuredYet": [
+      "decision_recall",
+      "false_negative_rate"
+    ]
+  },
+  "cost": {
+    "budget": {
+      "budgetUsd": 15,
+      "spentUsd": 0,
+      "remainingUsd": 15,
+      "mode": "full"
+    },
+    "levels": [
+      {
+        "level": 0,
+        "label": "L0 rules/SQL",
+        "ops": 25,
+        "pct": 78,
+        "costUsd": 0
+      },
+      {
+        "level": 1,
+        "label": "L1 embeddings",
+        "ops": 2,
+        "pct": 6,
+        "costUsd": 0
+      },
+      {
+        "level": 2,
+        "label": "L2 small LLM",
+        "ops": 5,
+        "pct": 16,
+        "costUsd": 0
+      }
+    ],
+    "totalSpendUsd": 0,
+    "insights": 15,
+    "costPerInsight": 0,
+    "cacheHits": 0,
+    "cacheEntries": 7
+  },
+  "digest": "# Weekly GTM digest\n\n**Audience:** 10 people · 10 companies · +10 people this week · 39 observations\n\n## Segment momentum (7d vs prior 7d)\n- Enterprise: 12 signals (+1100%)\n- Mid-market: 6 signals (+200%)\n- Developers: 2 signals (+200%)\n- Startups & SMB: 0 signals (-100%)\n\n## Who to talk to this week\n1. **Maya Chen** — Head of Data Platform, LumenPay · intent 0.93 · Expansion conversation — active buying motion\n   signals: pricing_view×2, trial_started×1, docs_view×1, repo_issue×1, newsletter_click×1, newsletter_open×1, repo_star×1 · evidence: obs_459e5b4b13b919bc, obs_e37de4a819fc4e70, obs_f3511bc1fb3b1dd9\n2. **Dana Wolf** — Head of Data, Skyforge Systems · intent 0.83 · Direct sales outreach — explicit hand-raise\n   signals: form_submit×1, demo_request×1, pricing_view×1 · evidence: obs_72db9e7dc331b37a, obs_a985bf4f246c0b6c, obs_4e39d15adc2a8a9e\n3. **Sam Okafor** — CTO, BrightQueue · intent 0.77 · Direct sales outreach — explicit hand-raise\n   signals: demo_request×1, newsletter_click×1, pricing_view×1, website_visit×1 · evidence: obs_54d731d59532295b, obs_5dc9520a283ce4c2, obs_86a04a7db1ed7ce7\n4. **Priya Nair** — Analytics Manager, Quanta Bio · intent 0.65 · Direct sales outreach — pricing intent\n   signals: pricing_view×2, newsletter_click×1, newsletter_open×1 · evidence: obs_5845722858594c0c, obs_a183446d639e6e00, obs_9fe3344746da76bd\n5. **Karthik Iyer** — developer, unknown · intent 0.45 · Send integration/API onboarding material\n   signals: repo_issue×1, repo_star×1 · evidence: obs_5f49f09f53b82e7a, obs_b3db755daef61f1f\n\n## Going quiet\n- **Elena Petrova** (Nordwind Labs) — engagement down 100% · Retention check-in — engagement dropped sharply\n\n## Recommendation — Prioritize Enterprise: pricing view campaign + route 6 hot leads to outreach\n- Hypothesis: Enterprise engagement moved +1100% week over week (12 vs 1 signals), led by pricing view.\n- Reasoning: The strongest momentum is in Enterprise while Startups & SMB is at -33%. 6 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.\n- Action: Publish one pricing view-focused piece for Enterprise and start outreach with the 6 hot leads; open retention conversations with the 1 fading champions.\n- Confidence: 0.87 · memory prior: 86% similar to a past winner\n- Expected: 3 qualified_conversations\n- Evidence: obs_459e5b4b13b919bc, obs_e37de4a819fc4e70, obs_f3511bc1fb3b1dd9, obs_d4b032a838909dc6, obs_67ddef90d730bd4c\n\n## Engine health\n- Decisions: 2 total · acceptance 1 · success 1 · mean calibration error 0.24\n- AI spend: $0 of $15 (full) · cost per insight $0 · cache hits 0\n- Work distribution: L0 rules/SQL 78% · L1 embeddings 6% · L2 small LLM 16%",
+  "reviewQueue": [
+    {
+      "from": {
+        "id": "per_e8f40e8dccb66f8a",
+        "display_name": "Jorge R.",
+        "company": "Helios Cloud"
+      },
+      "to": {
+        "id": "per_80f18d25609da0d9",
+        "display_name": "Jorge Rodriguez",
+        "company": "Helios Cloud"
+      },
+      "confidence": 0.845,
+      "evidence": [
+        "obs_b0ebcd2fd588c910"
+      ],
+      "keys": [
+        "handle:github:jrodz"
+      ]
+    }
+  ]
+}
