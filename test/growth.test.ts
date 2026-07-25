@@ -36,12 +36,14 @@ test('platform stats: grounded per-source rollups with recommendations', async (
   const github = stats.find((s) => s.source === 'github')!;
   assert.equal(github.people, 1);
   assert.equal(github.signals7, 2);
-  assert.equal(github.recommendation, 'double down');
+  // growing channel with no merchant leads and no order conversion = B2C awareness, not double down
+  assert.equal(github.recommendation, 'maintain (B2C awareness)');
   const newsletter = stats.find((s) => s.source === 'newsletter')!;
   assert.equal(newsletter.signals7, 0, 'quiet channel has no current signals');
   assert.notEqual(newsletter.recommendation, 'double down');
+  assert.ok(!stats.some((s) => s.source === 'crm'), 'crm is not an investable acquisition channel');
   // stats carry factors — the Intelligence Law applies to L0 too
-  assert.ok(github.factors.avgIntent !== undefined);
+  assert.ok(github.factors.avgIntentActive !== undefined);
 });
 
 test('allocation decision: created with trace + evidence, reused when nothing changed', async () => {
@@ -49,7 +51,7 @@ test('allocation decision: created with trace + evidence, reused when nothing ch
   await seed(db);
   const d1 = generateAllocationDecision(db)!;
   assert.equal(d1.kind, 'platform_allocation');
-  assert.match(d1.title, /Invest in (github|website)/); // both are Ada's active channels — quality ties
+  assert.match(d1.title, /Invest more in (github|website)/); // both are Ada's active channels — quality ties
   assert.ok(d1.trace.evidence.length > 0, 'allocation carries observation evidence');
   assert.ok(d1.expected.target >= 1);
   const d2 = generateAllocationDecision(db)!;
@@ -77,5 +79,6 @@ test('hot leads: caller controls limit and filters — no hardcoded top-N', asyn
   assert.equal(hotLeads(db, { limit: 1 }).length, 1);
   const execs = hotLeads(db, { role: 'executive' });
   assert.ok(execs.every((l: any) => l.role === 'executive'));
+  assert.ok(hotLeads(db, { side: 'merchant' }).every((l: any) => l.side === 'merchant' && l.company));
   assert.equal(hotLeads(db, { minIntent: 0.99 }).length, 0);
 });

@@ -18,6 +18,7 @@ export type Actor = z.infer<typeof Actor>;
 
 export const SIGNAL_TYPES = [
   'crm_contact',
+  'signup',
   'website_visit',
   'pricing_view',
   'docs_view',

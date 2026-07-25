@@ -27,7 +27,8 @@ const KIND_LABEL: Record<string, string> = {
 
 export function buildDigest(db: DB): string {
   const s = audienceSummary(db);
-  const hot = hotLeads(db, { limit: 5 });
+  const hot = hotLeads(db, { limit: 5, side: 'merchant' });
+  const topConsumers = hotLeads(db, { limit: 3, side: 'consumer' });
   const fading = fadingChampions(db, 3);
   const decisions = listDecisions(db);
   const open = decisions
@@ -56,19 +57,22 @@ export function buildDigest(db: DB): string {
   });
 
   lines.push(
-    `## Platform comparison (observed engagement per source)`,
-    ...platforms.map((p) => `- **${p.source}** — ${p.people} people · ${p.signals7} signals 7d (${p.growthPct >= 0 ? '+' : ''}${p.growthPct}%) · quality ${p.quality}/100 · intent ${p.avgIntent} → **${p.recommendation}**`),
+    `## Platform comparison (observed engagement per source — never follower counts)`,
+    ...platforms.map((p) => `- **${p.source}** — ${p.people.toLocaleString()} people · +${p.newUsers7.toLocaleString()} new/wk · signals ${p.growthPct >= 0 ? '+' : ''}${p.growthPct}% · conversion ${Math.round(p.conversion * 100)}% · repeat ${Math.round(p.repeatRate * 100)}% · ${p.merchantLeads14} merchant leads · quality ${p.quality}/100 → **${p.recommendation}**`),
     ``,
-    `## Hot leads (evidence for the who-to-contact decision)`,
+    `## Merchant leads (evidence for the who-to-contact decision)`,
     ...hot.map((l: any, i: number) =>
-      `${i + 1}. **${l.name}** — ${l.title ?? l.role}, ${l.company ?? 'consumer'} · intent ${l.intent} · ${l.action}\n   signals: ${Object.entries(l.signals ?? {}).map(([t, v]: any) => `${t}×${v.count}`).join(', ')} · evidence: ${(l.evidence ?? []).slice(0, 3).join(', ')}`
+      `${i + 1}. **${l.name}** — ${l.title ?? l.role}, ${l.company} · intent ${l.intent} · ${l.action}\n   signals: ${Object.entries(l.signals ?? {}).map(([t, v]: any) => `${t}×${v.count}`).join(', ')} · evidence: ${(l.evidence ?? []).slice(0, 3).join(', ')}`
     ),
     ``,
+    `Top consumers: ${topConsumers.map((l: any) => `${l.name} (${l.intent} — ${l.action})`).join(' · ') || '—'}`,
+    ``,
     `## Going quiet`,
-    ...(fading.length ? fading.map((f: any) => `- **${f.name}** (${f.company ?? 'unknown'}) — engagement down ${Math.round(f.drop * 100)}% · ${f.action}`) : ['- none this week']),
+    ...(fading.length ? fading.map((f: any) => `- **${f.name}** (${f.company ?? 'consumer'}) — engagement down ${Math.round(f.drop * 100)}% · ${f.action}`) : ['- none this week']),
     ``,
     `## Audience`,
-    `- ${s.people} people · ${s.companies} restaurant partners · +${s.newPeople7} people this week · ${s.observations} observations`,
+    `- ${s.people.toLocaleString()} people (${s.consumers.toLocaleString()} consumers · ${s.merchants} merchant contacts) · +${s.newPeople7.toLocaleString()} new users this week`,
+    `- ${s.ordersThisWeek.toLocaleString()} orders this week (€${s.orderRevenue7.toLocaleString()}) · ${s.companies} restaurant partners · ${s.observations.toLocaleString()} observations`,
     ``,
     `## Engine health`,
     `- Decisions: ${ev.decisionsTotal} total · acceptance ${ev.acceptanceRate ?? 'n/a'} · success ${ev.successRate ?? 'n/a'} · mean calibration error ${ev.meanCalibrationError ?? 'n/a'}`,

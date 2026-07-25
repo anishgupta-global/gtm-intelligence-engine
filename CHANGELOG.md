@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.3.0 — 2026-07-25
+
+Marketplace at real scale: ~25,000 people (5,200+ new users/week) + 180 restaurant partners, generated deterministically. Fixes the round-7 audit's scale miss and everything the small dataset was hiding.
+
+- **Seeded synthetic generator** (`scripts/synth.ts`): channel-attributed signups (the honest, observable version of "5k+ followed us" — UTM-attributed registrations on your own app), engagement, orders, partner payouts, merchant enquiries; internally consistent per-channel economics; `scale` parameter (tests run at 5%, demo at 100%)
+- **Performance for 25k+**: transactional ingestion + scoring, bulk workspace loader (one scan instead of 25k per-person queries), email-cluster fast path in identity resolution (O(N) instead of O(N²) name matching), entity cache in graph build. Full demo: ~30s
+- **Cost gate for signal-sparse consumers**: no title + no company + <5 signals → role classification skipped at L0 instead of paying L2 for a guaranteed "unknown". L0 share at 25k scale: **99%** (fixes the round-7 trade-off, restores the ≥70% CI assertion)
+- **Channel cohort economics** in platform intelligence: first-touch attribution, new users/wk, order conversion, repeat rate, avg order value, merchant-lead yield; quality judges the *active* cohort (not years of dormant users)
+- **Differentiated platform calls**: double down · increase budget · maintain (B2C awareness) · protect · expand incentives · nurture · re-engage · reduce effort; `orders`/`crm`/`webhook` excluded from investable channels
+- **As-of-window segmentation**: last week's "New consumers" compared against last week's new cohort — kills the "+719,700%" artifact; marketplace segments (Merchant partners / New / Returning / High-value / Browsing consumers)
+- **Side-aware intelligence**: merchant vs consumer leads (side pushed into SQL), consumer-appropriate actions (loyalty invite, first-order promo), digest splits merchant leads from top consumers
+- **Decision hygiene**: a fresh decision supersedes prior *proposed* (never-acted-on) decisions of the same kind — one open call per question; retention scoped per company, capped at top-3 revenue-at-risk
+- Allocation decision prefers the strategic "double down" channel and folds the tactical budget bump + awareness-hold + cut into one action
+- Scale-safe API: `/api/people` paginated with total; `side` filter on leads; KPIs show consumers/merchants/orders/revenue
+
 ## 1.2.0 — 2026-07-25
 
 Demo dataset swap: the engine is now demonstrated on a fictional two-sided food-delivery marketplace (Northwind Eats). Same architecture, decision loop, APIs, database schema, evaluation, and cost system — only fixtures, dashboard labels, and digest wording change.

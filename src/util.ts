@@ -57,6 +57,17 @@ export function localEmbed(text: string, dims = 128): number[] {
   return v.map((x) => x / norm);
 }
 
+/** Seeded PRNG (mulberry32) — the synthetic demo dataset is deterministic and reproducible. */
+export function seededRng(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 export function cosine(a: number[], b: number[]): number {
   let dot = 0;
   for (let i = 0; i < Math.min(a.length, b.length); i++) dot += a[i] * b[i];

@@ -1,21 +1,49 @@
 {
-  "generatedAt": "2026-07-25T11:27:10.619Z",
+  "generatedAt": "2026-07-25T12:08:18.236Z",
   "demoNote": "Static snapshot of the demo pipeline (Northwind AI fictional dataset). Run the engine locally for the live version.",
   "summary": {
-    "people": 28,
-    "newPeople7": 28,
-    "companies": 13,
-    "observations": 97,
+    "people": 24870,
+    "consumers": 24670,
+    "merchants": 200,
+    "newPeople7": 5219,
+    "ordersThisWeek": 4271,
+    "orderRevenue7": 136158,
+    "companies": 200,
+    "observations": 40838,
     "segments": [
       {
-        "segment": "Startups & SMB",
-        "current": 61,
-        "previous": 21,
-        "deltaPct": 190
+        "segment": "New consumers",
+        "current": 7869,
+        "previous": 4912,
+        "deltaPct": 60
+      },
+      {
+        "segment": "Returning consumers",
+        "current": 1636,
+        "previous": 893,
+        "deltaPct": 83
+      },
+      {
+        "segment": "Browsing consumers",
+        "current": 1279,
+        "previous": 1086,
+        "deltaPct": 18
+      },
+      {
+        "segment": "High-value consumers",
+        "current": 1020,
+        "previous": 324,
+        "deltaPct": 215
+      },
+      {
+        "segment": "Merchant partners",
+        "current": 77,
+        "previous": 57,
+        "deltaPct": 35
       }
     ],
-    "hotLeads": 22,
-    "fading": 1,
+    "hotLeads": 1349,
+    "fading": 10,
     "provider": "mock",
     "budget": {
       "budgetUsd": 15,
@@ -26,35 +54,41 @@
   },
   "hot": [
     {
-      "personId": "per_951ca213b9be1017",
-      "name": "Ken Yamada",
-      "company": "Sushi Rocket",
-      "title": "Managing Director",
-      "role": "executive",
+      "personId": "per_004b7313f5f98d2c",
+      "name": "Eli Fischer",
+      "company": "Skybite Pizza",
+      "title": "Owner",
+      "side": "merchant",
+      "role": "founder",
       "intent": 0.83,
       "icpFit": 0.9,
       "signals": {
         "demo_request": {
-          "count": 2,
-          "points": 55.71
-        },
-        "payment": {
           "count": 1,
-          "points": 16.19
+          "points": 30
+        },
+        "form_submit": {
+          "count": 1,
+          "points": 15
+        },
+        "pricing_view": {
+          "count": 1,
+          "points": 25
         }
       },
       "evidence": [
-        "obs_cb552691a9ca3c4a",
-        "obs_3f6a6536ee7d77bf",
-        "obs_b3730915238eb65d"
+        "obs_ca6098774a81f093",
+        "obs_23de10da28624ce2",
+        "obs_a061321808c8d059"
       ],
-      "action": "Expansion conversation — active buying motion"
+      "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_7fabbc05a12ae212",
+      "personId": "per_0ea2e37379f78721",
       "name": "Sara Kim",
       "company": "Green Bowl",
       "title": "Founder & CEO",
+      "side": "merchant",
       "role": "founder",
       "intent": 0.76,
       "icpFit": 0.9,
@@ -69,50 +103,48 @@
         }
       },
       "evidence": [
-        "obs_e087747834cb476d",
-        "obs_8af4969ddc7b228e",
-        "obs_476bc02a7ab08691",
-        "obs_08cd27f17151d5ad"
+        "obs_710f0fda525b8083",
+        "obs_c42e84f0ee301e67",
+        "obs_7c72a593c611e577",
+        "obs_6dee77d80966ced9"
       ],
-      "action": "Expansion conversation — active buying motion"
+      "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_f8b12be57081dc75",
-      "name": "Eli Fischer",
-      "company": "Skybite Pizza",
-      "title": "Owner",
-      "role": "unknown",
+      "personId": "per_d557a8c4bc094989",
+      "name": "Ken Yamada",
+      "company": "Sushi Rocket",
+      "title": "Managing Director",
+      "side": "merchant",
+      "role": "founder",
       "intent": 0.83,
-      "icpFit": 0.6,
+      "icpFit": 0.45,
       "signals": {
-        "form_submit": {
-          "count": 1,
-          "points": 15
-        },
         "demo_request": {
-          "count": 1,
-          "points": 30
+          "count": 2,
+          "points": 55.71
         },
-        "pricing_view": {
+        "payment": {
           "count": 1,
-          "points": 25
+          "points": 16.19
         }
       },
       "evidence": [
-        "obs_b2b425b28a34f4a0",
-        "obs_cd2e240af946dd60",
-        "obs_8d8ad1d0820f13e3"
+        "obs_7eb537425c487eed",
+        "obs_fbd42e7cbd7931e9",
+        "obs_04d0c3eedefecce1"
       ],
-      "action": "Direct sales outreach — explicit hand-raise"
+      "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_4134b6214246d314",
+      "personId": "per_8320eae0f26fc995",
       "name": "Lena Ortiz",
       "company": "Burger Factory",
       "title": "Owner",
-      "role": "unknown",
+      "side": "merchant",
+      "role": "founder",
       "intent": 0.82,
-      "icpFit": 0.6,
+      "icpFit": 0.45,
       "signals": {
         "form_submit": {
           "count": 1,
@@ -128,57 +160,19 @@
         }
       },
       "evidence": [
-        "obs_702b2ad5f78f97cb",
-        "obs_32841bd07245f0a5",
-        "obs_ba3788e1ddbab7e0",
-        "obs_481a8e5057c576a8"
+        "obs_6a9a11774058a6ee",
+        "obs_ed423a0e29f75037",
+        "obs_7e14c6fcb8128d13",
+        "obs_0617e2276b7428b8"
       ],
-      "action": "Expansion conversation — active buying motion"
+      "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_387c64bbdd986781",
-      "name": "Ben Novak",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.89,
-      "icpFit": 0.15,
-      "signals": {
-        "payment": {
-          "count": 2,
-          "points": 31.43
-        },
-        "pricing_view": {
-          "count": 2,
-          "points": 39.29
-        },
-        "website_visit": {
-          "count": 4,
-          "points": 11.05
-        },
-        "newsletter_open": {
-          "count": 2,
-          "points": 2.76
-        },
-        "newsletter_click": {
-          "count": 1,
-          "points": 5.14
-        }
-      },
-      "evidence": [
-        "obs_ba0aff404f0cf413",
-        "obs_44d7dac375d5fda6",
-        "obs_2a4d5df68d70730b",
-        "obs_cbe24160d8d86a0f",
-        "obs_b6d1dc365c2615ff"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_33e40ebc068ccb67",
+      "personId": "per_7d384aaa5617cf7f",
       "name": "Priya Sharma",
       "company": "Vegan Vista",
       "title": "Co-Founder",
+      "side": "merchant",
       "role": "founder",
       "intent": 0.6,
       "icpFit": 0.75,
@@ -193,819 +187,2918 @@
         }
       },
       "evidence": [
-        "obs_ac7e6bcd575cc72a",
-        "obs_010fcd91fc4b7c5e"
+        "obs_0e1e7af7b3991180",
+        "obs_a9c4f79561e8d7a8"
       ],
-      "action": "Direct sales outreach — explicit hand-raise"
+      "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_7cefcc1e87fcd589",
-      "name": "Alice Müller",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.78,
-      "icpFit": 0.15,
-      "signals": {
-        "payment": {
-          "count": 2,
-          "points": 30.48
-        },
-        "pricing_view": {
-          "count": 1,
-          "points": 23.81
-        },
-        "website_visit": {
-          "count": 2,
-          "points": 6.29
-        }
-      },
-      "evidence": [
-        "obs_2c4195038373cb0d",
-        "obs_58cf333b1de88398",
-        "obs_07f2d915508ae60c",
-        "obs_18f6c8b7a8ae8e81",
-        "obs_cc500917a9283702"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_680ff7198ec04d45",
-      "name": "Carla Rossi",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.69,
-      "icpFit": 0.15,
-      "signals": {
-        "payment": {
-          "count": 2,
-          "points": 27.62
-        },
-        "website_visit": {
-          "count": 2,
-          "points": 6.86
-        },
-        "pricing_view": {
-          "count": 1,
-          "points": 11.9
-        }
-      },
-      "evidence": [
-        "obs_cf39d45e73a5d079",
-        "obs_88999cb3f35acb5b",
-        "obs_d05659d4cbe084f7",
-        "obs_a4d3072a2ecb74ba",
-        "obs_8d96f4e00d800936"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_bdb236db221c6f35",
-      "name": "Emma Dubois",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.68,
-      "icpFit": 0.15,
-      "signals": {
-        "pricing_view": {
-          "count": 1,
-          "points": 22.62
-        },
-        "website_visit": {
-          "count": 2,
-          "points": 6.48
-        },
-        "payment": {
-          "count": 1,
-          "points": 16.19
-        }
-      },
-      "evidence": [
-        "obs_5341bf9397e3d364",
-        "obs_767047d94f9705ee",
-        "obs_08e74117c8f60caf",
-        "obs_0d4220ebc890a840"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_0ac7f171a96d91b1",
-      "name": "David Lin",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.66,
-      "icpFit": 0.15,
-      "signals": {
-        "pricing_view": {
-          "count": 1,
-          "points": 22.62
-        },
-        "payment": {
-          "count": 1,
-          "points": 17.14
-        },
-        "website_visit": {
-          "count": 1,
-          "points": 3.43
-        }
-      },
-      "evidence": [
-        "obs_de3e64f8be68e946",
-        "obs_6653b4d3e452d591",
-        "obs_761f49f71989cf65"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_fc1d779775d8b8d7",
-      "name": "Felipe Silva",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.66,
-      "icpFit": 0.15,
-      "signals": {
-        "pricing_view": {
-          "count": 1,
-          "points": 21.43
-        },
-        "website_visit": {
-          "count": 2,
-          "points": 6.29
-        },
-        "payment": {
-          "count": 1,
-          "points": 15.24
-        }
-      },
-      "evidence": [
-        "obs_8994d09be9393658",
-        "obs_28f59dbf5f47c7e6",
-        "obs_000cb5aa93374df7",
-        "obs_e8b690df2092a2ba"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_6fa6c13af6e9e6b4",
-      "name": "Arjun Patel",
-      "company": "Golden Curry",
+      "personId": "per_8c7cd8a950a9638c",
+      "name": "Mila Braun",
+      "company": "Little Taverna go1",
       "title": "Owner",
-      "role": "unknown",
-      "intent": 0.5,
-      "icpFit": 0.6,
-      "signals": {
-        "form_submit": {
-          "count": 1,
-          "points": 12.86
-        },
-        "payment": {
-          "count": 1,
-          "points": 15.24
-        }
-      },
-      "evidence": [
-        "obs_a55cb95a33ef5281",
-        "obs_de9a337e4310b4be"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_5fc7bbaece6dcd52",
-      "name": "Greta Svensson",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.61,
-      "icpFit": 0.15,
-      "signals": {
-        "newsletter_open": {
-          "count": 2,
-          "points": 2.48
-        },
-        "pricing_view": {
-          "count": 1,
-          "points": 19.05
-        },
-        "website_visit": {
-          "count": 1,
-          "points": 3.05
-        },
-        "payment": {
-          "count": 1,
-          "points": 10.48
-        },
-        "newsletter_click": {
-          "count": 1,
-          "points": 2.57
-        }
-      },
-      "evidence": [
-        "obs_28c82f120805882a",
-        "obs_7e353e484b95a5a0",
-        "obs_e7b8c0e1cfa04fca",
-        "obs_ae7a9f3c3b6bab54",
-        "obs_f39ec46e942e7d9b"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_65b3a273d0bd467c",
-      "name": "Nadja Horvath",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.6,
-      "icpFit": 0.15,
-      "signals": {
-        "payment": {
-          "count": 1,
-          "points": 19.05
-        },
-        "form_submit": {
-          "count": 1,
-          "points": 13.57
-        },
-        "website_visit": {
-          "count": 1,
-          "points": 3.62
-        }
-      },
-      "evidence": [
-        "obs_1852f5a3a703186f",
-        "obs_707fc6336150f23f",
-        "obs_2159e2e3c0f4455e"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_08721381c81be9bd",
-      "name": "Iris O'Connor",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.47,
-      "icpFit": 0.15,
-      "signals": {
-        "newsletter_click": {
-          "count": 1,
-          "points": 5.71
-        },
-        "newsletter_open": {
-          "count": 1,
-          "points": 1.9
-        },
-        "payment": {
-          "count": 1,
-          "points": 18.1
-        }
-      },
-      "evidence": [
-        "obs_15fa95462bbc4d53",
-        "obs_56da3c2b821dc939",
-        "obs_9dc7fc360877cc5c"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_add46188910a45d5",
-      "name": "Wei Liu",
-      "company": "Boba Bay",
-      "title": "Founder",
+      "side": "merchant",
       "role": "founder",
-      "intent": 0.3,
+      "intent": 0.5,
       "icpFit": 0.9,
       "signals": {
-        "payment": {
+        "demo_request": {
           "count": 1,
-          "points": 14.29
+          "points": 27.69
         }
       },
       "evidence": [
-        "obs_afc202c9cbaa2c25"
+        "obs_da364ed103cdeed9"
       ],
-      "action": "Expansion conversation — active buying motion"
+      "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_31ab1c47f781ebe9",
-      "name": "Ana Vasquez",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.33,
-      "icpFit": 0.15,
+      "personId": "per_6c66c5f421d4446d",
+      "name": "Amin Krämer",
+      "company": "Fresh Tandoor li1",
+      "title": "Owner",
+      "side": "merchant",
+      "role": "founder",
+      "intent": 0.48,
+      "icpFit": 0.9,
+      "signals": {
+        "demo_request": {
+          "count": 1,
+          "points": 26.13
+        }
+      },
+      "evidence": [
+        "obs_9551dd3c27e1046a"
+      ],
+      "action": "Sales outreach — explicit partner hand-raise"
+    },
+    {
+      "personId": "per_b2eeeeaf6bcd539e",
+      "name": "Ivan Baumann",
+      "company": "Alpen Trattoria in5",
+      "title": "Owner",
+      "side": "merchant",
+      "role": "founder",
+      "intent": 0.46,
+      "icpFit": 0.9,
+      "signals": {
+        "demo_request": {
+          "count": 1,
+          "points": 24.7
+        }
+      },
+      "evidence": [
+        "obs_6bb1123a62b723f7"
+      ],
+      "action": "Sales outreach — explicit partner hand-raise"
+    },
+    {
+      "personId": "per_b36d67a0404cb81f",
+      "name": "Nia Lorenz",
+      "company": "Wild Smokehouse",
+      "title": "Owner",
+      "side": "merchant",
+      "role": "founder",
+      "intent": 0.53,
+      "icpFit": 0.45,
       "signals": {
         "payment": {
-          "count": 1,
-          "points": 16.19
-        }
-      },
-      "evidence": [
-        "obs_5ad6ed4a4d341fd8"
-      ],
-      "action": "Expansion conversation — active buying motion"
-    },
-    {
-      "personId": "per_d333878eb57241f7",
-      "name": "Luca Romano",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.33,
-      "icpFit": 0.15,
-      "signals": {
-        "website_visit": {
-          "count": 1,
-          "points": 3.81
-        },
-        "form_submit": {
-          "count": 1,
-          "points": 12.14
-        }
-      },
-      "evidence": [
-        "obs_5e9370e90fd60d87",
-        "obs_94c4e45b0e315ff5"
-      ],
-      "action": "Direct sales outreach — explicit hand-raise"
-    },
-    {
-      "personId": "per_f27d27051461c381",
-      "name": "Sara K.",
-      "company": "Green Bowl",
-      "title": null,
-      "role": "unknown",
-      "intent": 0.25,
-      "icpFit": 0.6,
-      "signals": {
-        "form_submit": {
-          "count": 1,
-          "points": 11.43
-        }
-      },
-      "evidence": [
-        "obs_08cd27f17151d5ad"
-      ],
-      "action": "Direct sales outreach — explicit hand-raise"
-    },
-    {
-      "personId": "per_7a8259e564eab771",
-      "name": "Hasan Demir",
-      "company": null,
-      "title": null,
-      "role": "unknown",
-      "intent": 0.3,
-      "icpFit": 0.15,
-      "signals": {
-        "website_visit": {
           "count": 2,
-          "points": 5.72
-        },
-        "payment": {
-          "count": 1,
-          "points": 8.57
+          "points": 30.23
         }
       },
       "evidence": [
-        "obs_fd56727674b91fd8",
-        "obs_41e7b2000b0497de",
-        "obs_2ec7eed7ececb0d8"
+        "obs_1e37b261639fe856",
+        "obs_35ed0e927b49b09b"
       ],
-      "action": "Expansion conversation — active buying motion"
+      "action": "Expansion conversation — active partner"
+    },
+    {
+      "personId": "per_0ef2ff12ab6d2a49",
+      "name": "Finn Schuster",
+      "company": "Silk Cantina",
+      "title": "Owner",
+      "side": "merchant",
+      "role": "founder",
+      "intent": 0.52,
+      "icpFit": 0.45,
+      "signals": {
+        "payment": {
+          "count": 2,
+          "points": 28.95
+        }
+      },
+      "evidence": [
+        "obs_61081cbdac8ab0a7",
+        "obs_1f38ea0d8924920a"
+      ],
+      "action": "Expansion conversation — active partner"
+    },
+    {
+      "personId": "per_237756af37be2ec5",
+      "name": "Tara Fuchs",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.97,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 6,
+          "points": 110.32
+        },
+        "pricing_view": {
+          "count": 1,
+          "points": 21.81
+        },
+        "signup": {
+          "count": 1,
+          "points": 4.42
+        }
+      },
+      "evidence": [
+        "obs_8bff8137f7c8385c",
+        "obs_828e3d9a30e837e9",
+        "obs_c1129ec47c508c76",
+        "obs_0bdd515b53a84112",
+        "obs_b642f1f2d217f5d7"
+      ],
+      "action": "Second-order nudge — personalized picks"
+    },
+    {
+      "personId": "per_723e94fa37b1e971",
+      "name": "Anton Groß",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.95,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 6,
+          "points": 111.95
+        },
+        "signup": {
+          "count": 1,
+          "points": 5.1
+        }
+      },
+      "evidence": [
+        "obs_34eb0a58dd64418c",
+        "obs_b7cf59ba82fcf572",
+        "obs_ebcec33170dd01e7",
+        "obs_1ccdcfda3157975e",
+        "obs_a6b308cd4b88c5de"
+      ],
+      "action": "Second-order nudge — personalized picks"
+    },
+    {
+      "personId": "per_1dbfb7c3db2b3854",
+      "name": "Paul Schubert",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.94,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 6,
+          "points": 106.14
+        },
+        "signup": {
+          "count": 1,
+          "points": 4.99
+        }
+      },
+      "evidence": [
+        "obs_80707c86dd6673b4",
+        "obs_9949f561d9302dd1",
+        "obs_620a3c40569b795d",
+        "obs_fd8f6884618b890e",
+        "obs_fbb72bcd2fc475c5"
+      ],
+      "action": "Second-order nudge — personalized picks"
+    },
+    {
+      "personId": "per_b538a8d78c20cb1f",
+      "name": "Clara Groß",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.94,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 6,
+          "points": 94.02
+        },
+        "pricing_view": {
+          "count": 1,
+          "points": 15.39
+        },
+        "signup": {
+          "count": 1,
+          "points": 3.5
+        }
+      },
+      "evidence": [
+        "obs_d6e8e862850b768d",
+        "obs_0fccaa96fbd4c380",
+        "obs_0125a8a9098214a8",
+        "obs_a85851691f66e842",
+        "obs_4e5f72e435f1203e"
+      ],
+      "action": "Second-order nudge — personalized picks"
+    },
+    {
+      "personId": "per_3f57c6b51cf5ccbd",
+      "name": "Gül Schulte",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.93,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 6,
+          "points": 96.81
+        },
+        "newsletter_click": {
+          "count": 1,
+          "points": 4.98
+        },
+        "signup": {
+          "count": 1,
+          "points": 2.64
+        }
+      },
+      "evidence": [
+        "obs_8d222d12dc52814b",
+        "obs_1ecf5352f094057c",
+        "obs_abde06fc268284b3",
+        "obs_0c477eb87ef3f954",
+        "obs_d5241e05a2940fb4"
+      ],
+      "action": "Second-order nudge — personalized picks"
+    },
+    {
+      "personId": "per_ffdde76e9fa71773",
+      "name": "Mila Roth",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.93,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 5,
+          "points": 84.23
+        },
+        "pricing_view": {
+          "count": 1,
+          "points": 17.74
+        },
+        "signup": {
+          "count": 1,
+          "points": 2.88
+        }
+      },
+      "evidence": [
+        "obs_0663758caaecc97e",
+        "obs_3d3563484317fc13",
+        "obs_d72ab5f2aff5b218",
+        "obs_667951f5a155a727",
+        "obs_cc038838d19f2898"
+      ],
+      "action": "Second-order nudge — personalized picks"
+    },
+    {
+      "personId": "per_42bd02aa56a7f411",
+      "name": "Leon Lang",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.91,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 4,
+          "points": 78.37
+        },
+        "newsletter_click": {
+          "count": 2,
+          "points": 11.38
+        },
+        "signup": {
+          "count": 1,
+          "points": 5.69
+        }
+      },
+      "evidence": [
+        "obs_6756353f9e434f35",
+        "obs_afa09b9c6caec1f1",
+        "obs_d3b4855910016184",
+        "obs_42b18bb5d9c9a50d",
+        "obs_6bc3ec776cb92213"
+      ],
+      "action": "Invite to loyalty / referral program"
+    },
+    {
+      "personId": "per_6e10679edbf5a0aa",
+      "name": "Jin Braun",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.91,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 5,
+          "points": 86.95
+        },
+        "newsletter_click": {
+          "count": 1,
+          "points": 5.45
+        },
+        "signup": {
+          "count": 1,
+          "points": 3.69
+        }
+      },
+      "evidence": [
+        "obs_9aeacba1d8ea347c",
+        "obs_77f64fa3770aebe0",
+        "obs_ef402e26605c4bd0",
+        "obs_5e924781fa3f9a1a",
+        "obs_1b5f407acf951247"
+      ],
+      "action": "Second-order nudge — personalized picks"
+    },
+    {
+      "personId": "per_a79b9e141b91b2bd",
+      "name": "Maja Schuster",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.91,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 5,
+          "points": 91.4
+        },
+        "signup": {
+          "count": 1,
+          "points": 4.74
+        }
+      },
+      "evidence": [
+        "obs_d2c64f96e748ab79",
+        "obs_fc25a7f6117337c3",
+        "obs_ec62397efb300112",
+        "obs_b2d75cbf85339be1",
+        "obs_588a6662ea9a4038"
+      ],
+      "action": "Second-order nudge — personalized picks"
+    },
+    {
+      "personId": "per_c380c2d6b84e2c90",
+      "name": "Zoe Haas",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "role": "unknown",
+      "intent": 0.91,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 5,
+          "points": 91.47
+        },
+        "signup": {
+          "count": 1,
+          "points": 5.04
+        }
+      },
+      "evidence": [
+        "obs_6ce9ce7de7a157e0",
+        "obs_fd2b328f64cfe7fa",
+        "obs_5a4fade9047435c2",
+        "obs_f28617b3add63035",
+        "obs_365fd52394ed7129"
+      ],
+      "action": "Second-order nudge — personalized picks"
     }
   ],
   "fading": [
     {
-      "personId": "per_9b8d9556e98937db",
+      "personId": "per_0b2f6f6b02a7ef1f",
+      "name": "Sven Roth",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 23
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_253aa1331df5423c",
       "name": "Marco Rossi",
       "company": "Pizza Corner",
       "title": "Owner",
+      "side": "merchant",
       "drop": 1,
       "factors": {
         "prior30": 3,
         "last14": 0,
         "lastActiveDays": 42
       },
-      "action": "Retention check-in — engagement dropped sharply"
+      "action": "Partner retention check-in — engagement dropped sharply"
+    },
+    {
+      "personId": "per_2824048fa419cf18",
+      "name": "Emil Albrecht",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 4,
+        "last14": 0,
+        "lastActiveDays": 47
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_429389c9223bc786",
+      "name": "Paul Baumann",
+      "company": "Golden Wok",
+      "title": "Owner",
+      "side": "merchant",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 38
+      },
+      "action": "Partner retention check-in — engagement dropped sharply"
+    },
+    {
+      "personId": "per_473130c8afeceb8f",
+      "name": "Nora Seidel",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 32
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_4ce3b4cefcd3a82f",
+      "name": "Amin Brandt",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 33
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_551847a61719dc03",
+      "name": "Ava Groß",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 36
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_6195c8c3dfd3d0c1",
+      "name": "Max Krämer",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 36
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_68ad121fa4c14d56",
+      "name": "Ruth Kraus",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 46
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_6b4ef90395116392",
+      "name": "Jin Braun",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 31
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_6b6f29946c77b09a",
+      "name": "Kim Ludwig",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 31
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_829b2c2257eda9d6",
+      "name": "Erik Ludwig",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 16
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_8b4bccf59e24b434",
+      "name": "Erik Böhm",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 40
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_8e86b7603b8ed230",
+      "name": "Lia Haas",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 38
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_92f0b4074aa24fe4",
+      "name": "Theo Jäger",
+      "company": "Golden Tandoor",
+      "title": "Owner",
+      "side": "merchant",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 38
+      },
+      "action": "Partner retention check-in — engagement dropped sharply"
+    },
+    {
+      "personId": "per_9cfea271b8b8d2a3",
+      "name": "Theo Lorenz",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 44
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_9f89cba38b98a288",
+      "name": "Lena2 Jäger",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 4,
+        "last14": 0,
+        "lastActiveDays": 38
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_a338376b323bb372",
+      "name": "Jin Schulte",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 30
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_d3ee71ad21855f8b",
+      "name": "Ella Ziegler",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 28
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_f0a4a1648d4de533",
+      "name": "Juan Dietrich",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 37
+      },
+      "action": "Win-back offer — lapsed customer"
     }
   ],
-  "people": [
-    {
-      "id": "per_08721381c81be9bd",
-      "name": "Iris O'Connor",
-      "email": "iris.oconnor@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_0ac7f171a96d91b1",
-      "name": "David Lin",
-      "email": "david.lin@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_1d7a22edae7d8b12",
-      "name": "Mia Torres",
-      "email": "mia.torres@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_31ab1c47f781ebe9",
-      "name": "Ana Vasquez",
-      "email": "ana.v@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_33e40ebc068ccb67",
-      "name": "Priya Sharma",
-      "email": "priya@veganvista.de",
-      "company": "Vegan Vista",
-      "title": "Co-Founder",
-      "identifiers": 1
-    },
-    {
-      "id": "per_387c64bbdd986781",
-      "name": "Ben Novak",
-      "email": "ben.novak@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_4134b6214246d314",
-      "name": "Lena Ortiz",
-      "email": "lena@burgerfactory.de",
-      "company": "Burger Factory",
-      "title": "Owner",
-      "identifiers": 1
-    },
-    {
-      "id": "per_4197352a8c0e48d4",
-      "name": "Nina Berg",
-      "email": "nina@waffleworld.de",
-      "company": "Waffle World",
-      "title": "Owner",
-      "identifiers": 1
-    },
-    {
-      "id": "per_59e5bec98e762288",
-      "name": "Jules Moreau",
-      "email": "jules.moreau@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_5fc7bbaece6dcd52",
-      "name": "Greta Svensson",
-      "email": "greta.svensson@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_65b3a273d0bd467c",
-      "name": "Nadja Horvath",
-      "email": "nadja.horvath@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_680ff7198ec04d45",
-      "name": "Carla Rossi",
-      "email": "carla.rossi@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_6910f2a6aef0fccc",
-      "name": "Kayla Chen",
-      "email": "kayla.chen@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_6fa6c13af6e9e6b4",
-      "name": "Arjun Patel",
-      "email": "arjun@goldencurry.de",
-      "company": "Golden Curry",
-      "title": "Owner",
-      "identifiers": 1
-    },
-    {
-      "id": "per_7a8259e564eab771",
-      "name": "Hasan Demir",
-      "email": "hasan.demir@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_7cefcc1e87fcd589",
-      "name": "Alice Müller",
-      "email": "alice.mueller@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_7fabbc05a12ae212",
-      "name": "Sara Kim",
-      "email": "sara@greenbowl.de",
-      "company": "Green Bowl",
-      "title": "Founder & CEO",
-      "identifiers": 2
-    },
-    {
-      "id": "per_8d1dfef99ce32a37",
-      "name": "Kai Andersen",
-      "email": "kai@pokepoint.de",
-      "company": "Poké Point",
-      "title": "Owner",
-      "identifiers": 1
-    },
-    {
-      "id": "per_951ca213b9be1017",
-      "name": "Ken Yamada",
-      "email": "ken@sushirocket.de",
-      "company": "Sushi Rocket",
-      "title": "Managing Director",
-      "identifiers": 1
-    },
-    {
-      "id": "per_9b8d9556e98937db",
-      "name": "Marco Rossi",
-      "email": "marco@pizza-corner.de",
-      "company": "Pizza Corner",
-      "title": "Owner",
-      "identifiers": 1
-    },
-    {
-      "id": "per_add46188910a45d5",
-      "name": "Wei Liu",
-      "email": "wei@bobabay.de",
-      "company": "Boba Bay",
-      "title": "Founder",
-      "identifiers": 1
-    },
-    {
-      "id": "per_bdb236db221c6f35",
-      "name": "Emma Dubois",
-      "email": "emma.dubois@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_d333878eb57241f7",
-      "name": "Luca Romano",
-      "email": "luca.romano@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    },
-    {
-      "id": "per_deb9b98c598e766e",
-      "name": "Hiro Suzuki",
-      "email": "hiro@ramenrhapsody.de",
-      "company": "Ramen Rhapsody",
-      "title": "Head Chef",
-      "identifiers": 1
-    },
-    {
-      "id": "per_f7a4db48ccb7f6e8",
-      "name": "Ana Vasquez",
-      "email": "ana@tacopiso.de",
-      "company": "Taco Piso",
-      "title": "Owner",
-      "identifiers": 1
-    },
-    {
-      "id": "per_f844b83df6a8bf30",
-      "name": "Louis Dupont",
-      "email": "louis@croissantcafe.de",
-      "company": "Croissant Cafe",
-      "title": "Owner",
-      "identifiers": 1
-    },
-    {
-      "id": "per_f8b12be57081dc75",
-      "name": "Eli Fischer",
-      "email": "eli@skybite.de",
-      "company": "Skybite Pizza",
-      "title": "Owner",
-      "identifiers": 1
-    },
-    {
-      "id": "per_fc1d779775d8b8d7",
-      "name": "Felipe Silva",
-      "email": "felipe.silva@example.com",
-      "company": null,
-      "title": null,
-      "identifiers": 1
-    }
-  ],
+  "people": {
+    "total": 24870,
+    "people": [
+      {
+        "id": "per_004b7313f5f98d2c",
+        "name": "Eli Fischer",
+        "email": "eli@skybite.de",
+        "company": "Skybite Pizza",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.83,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d557a8c4bc094989",
+        "name": "Ken Yamada",
+        "email": "ken@sushirocket.de",
+        "company": "Sushi Rocket",
+        "title": "Managing Director",
+        "identifiers": 1,
+        "intent": 0.83,
+        "side": "merchant"
+      },
+      {
+        "id": "per_8320eae0f26fc995",
+        "name": "Lena Ortiz",
+        "email": "lena@burgerfactory.de",
+        "company": "Burger Factory",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.82,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0ea2e37379f78721",
+        "name": "Sara Kim",
+        "email": "sara@greenbowl.de",
+        "company": "Green Bowl",
+        "title": "Founder & CEO",
+        "identifiers": 2,
+        "intent": 0.76,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7d384aaa5617cf7f",
+        "name": "Priya Sharma",
+        "email": "priya@veganvista.de",
+        "company": "Vegan Vista",
+        "title": "Co-Founder",
+        "identifiers": 1,
+        "intent": 0.6,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b36d67a0404cb81f",
+        "name": "Nia Lorenz",
+        "email": "owner71@wildsmokehouse.example",
+        "company": "Wild Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.53,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0ef2ff12ab6d2a49",
+        "name": "Finn Schuster",
+        "email": "owner78@silkcantina.example",
+        "company": "Silk Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.52,
+        "side": "merchant"
+      },
+      {
+        "id": "per_403f9bcf5ce133c2",
+        "name": "Lia Krämer",
+        "email": "owner93@cosmobrasserie.example",
+        "company": "Cosmo Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.52,
+        "side": "merchant"
+      },
+      {
+        "id": "per_10aa0fa7f582759b",
+        "name": "Raj Busch",
+        "email": "owner66@wildcantina.example",
+        "company": "Wild Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.51,
+        "side": "merchant"
+      },
+      {
+        "id": "per_40e304a83c6e3d41",
+        "name": "Ruth Lorenz",
+        "email": "owner114@neoncantina.example",
+        "company": "Neon Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.51,
+        "side": "merchant"
+      },
+      {
+        "id": "per_74eb8b363d3db160",
+        "name": "Yara Heinrich",
+        "email": "owner159@velvetbistro.example",
+        "company": "Velvet Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.51,
+        "side": "merchant"
+      },
+      {
+        "id": "per_caa55c5658f04980",
+        "name": "Theo Busch",
+        "email": "owner167@velvetsmokehouse.example",
+        "company": "Velvet Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.51,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e405dc179f5807f7",
+        "name": "Lia Seidel",
+        "email": "owner81@silkbrasserie.example",
+        "company": "Silk Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.51,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e81db5e2a11a3a0e",
+        "name": "Ava Seidel",
+        "email": "owner153@copperbrasserie.example",
+        "company": "Copper Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.51,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2ee99932bf428e2c",
+        "name": "Maja Ludwig",
+        "email": "owner142@bluetaverna.example",
+        "company": "Blue Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_59f8e6d6c309bd6d",
+        "name": "Arjun Patel",
+        "email": "arjun@goldencurry.de",
+        "company": "Golden Curry",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6bb59a47c26f0212",
+        "name": "Anton Vogt",
+        "email": "owner127@rustictrattoria.example",
+        "company": "Rustic Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_8782cec34a5a73d7",
+        "name": "Raj Dietrich",
+        "email": "owner51@freshbistro.example",
+        "company": "Fresh Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_8c7cd8a950a9638c",
+        "name": "Mila Braun",
+        "email": "prospect.google.1@littletavernago1.example",
+        "company": "Little Taverna go1",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a7be00b9bff50162",
+        "name": "Mila Martin",
+        "email": "owner46@royaltaverna.example",
+        "company": "Royal Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a9d20c5a0c39ae72",
+        "name": "Tara Ludwig",
+        "email": "owner112@neonkitchen.example",
+        "company": "Neon Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ad3c55660d63cd1f",
+        "name": "Nora Braun",
+        "email": "owner133@bluetandoor.example",
+        "company": "Blue Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_aff5b5232c299788",
+        "name": "Nils Böhm",
+        "email": "owner30@littlecantina.example",
+        "company": "Little Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f61273e940f97ced",
+        "name": "Maja Lorenz",
+        "email": "owner56@freshdiner.example",
+        "company": "Fresh Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_245900d00eedb3c4",
+        "name": "Sven Jäger",
+        "email": "owner37@royaltandoor.example",
+        "company": "Royal Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2cd89f335012ec2b",
+        "name": "Eva Wolf",
+        "email": "owner104@alpendiner.example",
+        "company": "Alpen Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_346c736b7918fcbf",
+        "name": "Nia Haas",
+        "email": "owner149@copperdeli.example",
+        "company": "Copper Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_42c0413167da1e9d",
+        "name": "Ruth Busch",
+        "email": "owner124@rustickitchen.example",
+        "company": "Rustic Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_5f8d9973190096c3",
+        "name": "Timo Fuchs",
+        "email": "owner10@goldentaverna.example",
+        "company": "Golden Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7561732f2d9c008b",
+        "name": "Erik Groß",
+        "email": "owner5@goldendeli.example",
+        "company": "Golden Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_cd9d6cd904b98f11",
+        "name": "Kim Schulte",
+        "email": "owner97@alpentandoor.example",
+        "company": "Alpen Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ff4330b69800464e",
+        "name": "Tara Krämer",
+        "email": "owner110@neongrill.example",
+        "company": "Neon Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_00da863ddd3a3f1e",
+        "name": "Ava Peters",
+        "email": "owner20@urbandiner.example",
+        "company": "Urban Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.48,
+        "side": "merchant"
+      },
+      {
+        "id": "per_5a94ee4e9c20f822",
+        "name": "Zoe Schulte",
+        "email": "owner139@bluetrattoria.example",
+        "company": "Blue Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.48,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6c66c5f421d4446d",
+        "name": "Amin Krämer",
+        "email": "prospect.linkedin.1@freshtandoorli1.example",
+        "company": "Fresh Tandoor li1",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.48,
+        "side": "merchant"
+      },
+      {
+        "id": "per_cd0bdb9cb4510871",
+        "name": "Timo Beck",
+        "email": "owner119@neonsmokehouse.example",
+        "company": "Neon Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.48,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f2da47a5ce5c6bad",
+        "name": "Zoe Roth",
+        "email": "owner24@littlewok.example",
+        "company": "Little Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.48,
+        "side": "merchant"
+      },
+      {
+        "id": "per_1ecae90580537e11",
+        "name": "Lia Groß",
+        "email": "owner6@goldencantina.example",
+        "company": "Golden Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.47,
+        "side": "merchant"
+      },
+      {
+        "id": "per_27df44d63891513c",
+        "name": "Noah Stein",
+        "email": "owner48@freshwok.example",
+        "company": "Fresh Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.47,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a6be2c660191fd3e",
+        "name": "Ella Haas",
+        "email": "owner60@wildwok.example",
+        "company": "Wild Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.47,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f44c52f9a1666b34",
+        "name": "Tom Lorenz",
+        "email": "owner143@bluesmokehouse.example",
+        "company": "Blue Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.47,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b2eeeeaf6bcd539e",
+        "name": "Ivan Baumann",
+        "email": "prospect.instagram.5@alpentrattoriain5.example",
+        "company": "Alpen Trattoria in5",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.46,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b73a2e73a90400ac",
+        "name": "Tom Böhm",
+        "email": "owner15@urbanbistro.example",
+        "company": "Urban Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.46,
+        "side": "merchant"
+      },
+      {
+        "id": "per_c8758e5bbd62824c",
+        "name": "Maja Graf",
+        "email": "owner136@bluekitchen.example",
+        "company": "Blue Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.46,
+        "side": "merchant"
+      },
+      {
+        "id": "per_cf58de7601edede1",
+        "name": "Tom Stein",
+        "email": "owner26@littlegrill.example",
+        "company": "Little Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.46,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d7228a9c0d3509b2",
+        "name": "Lia Krämer",
+        "email": "owner34@littletaverna.example",
+        "company": "Little Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.46,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0bb1c57045511894",
+        "name": "Nia Frank",
+        "email": "owner156@velvetwok.example",
+        "company": "Velvet Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.45,
+        "side": "merchant"
+      },
+      {
+        "id": "per_24517cb8e599705a",
+        "name": "Theo Jäger",
+        "email": "owner88@cosmokitchen.example",
+        "company": "Cosmo Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.45,
+        "side": "merchant"
+      },
+      {
+        "id": "per_44bfe3190c6dd2a2",
+        "name": "Lia Heinrich",
+        "email": "owner85@cosmotandoor.example",
+        "company": "Cosmo Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.45,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4b9bf875a900fc63",
+        "name": "Max Brandt",
+        "email": "owner107@alpensmokehouse.example",
+        "company": "Alpen Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.45,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6e1c07f613749f72",
+        "name": "Sven Roth",
+        "email": "owner115@neontrattoria.example",
+        "company": "Neon Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.45,
+        "side": "merchant"
+      },
+      {
+        "id": "per_8c6b54b8d7fbf290",
+        "name": "Emil Weber",
+        "email": "owner122@rusticgrill.example",
+        "company": "Rustic Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.45,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6e8257611e6bc991",
+        "name": "Ivan Simon",
+        "email": "owner109@neontandoor.example",
+        "company": "Neon Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.44,
+        "side": "merchant"
+      },
+      {
+        "id": "per_82d762817a35cd8c",
+        "name": "Theo Haas",
+        "email": "owner33@littlebrasserie.example",
+        "company": "Little Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.44,
+        "side": "merchant"
+      },
+      {
+        "id": "per_c3d6dfdd49bcc8d9",
+        "name": "Raj Beck",
+        "email": "owner35@littlesmokehouse.example",
+        "company": "Little Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.44,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d20ec85c7f917b52",
+        "name": "Noah Fuchs",
+        "email": "owner39@royalbistro.example",
+        "company": "Royal Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.44,
+        "side": "merchant"
+      },
+      {
+        "id": "per_850f32ad993ba1e2",
+        "name": "Sven Krämer",
+        "email": "prospect.linkedin.5@goldentavernali5.example",
+        "company": "Golden Taverna li5",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.4,
+        "side": "merchant"
+      },
+      {
+        "id": "per_32d5a3b0b1516047",
+        "name": "Nora Ziegler",
+        "email": "prospect.instagram.7@silkwokin7.example",
+        "company": "Silk Wok in7",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.31,
+        "side": "merchant"
+      },
+      {
+        "id": "per_dca13785f4f53a1f",
+        "name": "Paul Schubert",
+        "email": "prospect.linkedin.2@velvetdinerli2.example",
+        "company": "Velvet Diner li2",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.31,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e25f40b2eb3a2817",
+        "name": "Sven Kraus",
+        "email": "prospect.linkedin.4@littlebrasserieli4.example",
+        "company": "Little Brasserie li4",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.31,
+        "side": "merchant"
+      },
+      {
+        "id": "per_03bae31b936de06d",
+        "name": "Kim Schreiber",
+        "email": "prospect.referral.0@rustictrattoriare0.example",
+        "company": "Rustic Trattoria re0",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.3,
+        "side": "merchant"
+      },
+      {
+        "id": "per_68c34b4c26f9d5d3",
+        "name": "Wei Liu",
+        "email": "wei@bobabay.de",
+        "company": "Boba Bay",
+        "title": "Founder",
+        "identifiers": 1,
+        "intent": 0.3,
+        "side": "merchant"
+      },
+      {
+        "id": "per_9d9daf645c0395e5",
+        "name": "Paul Haas",
+        "email": "prospect.instagram.1@rustickitchenin1.example",
+        "company": "Rustic Kitchen in1",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.3,
+        "side": "merchant"
+      },
+      {
+        "id": "per_77b64b9772983b17",
+        "name": "Paul Kraus",
+        "email": "prospect.instagram.6@freshbrasseriein6.example",
+        "company": "Fresh Brasserie in6",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.29,
+        "side": "merchant"
+      },
+      {
+        "id": "per_9233735b9d020a62",
+        "name": "Finn Ludwig",
+        "email": "prospect.instagram.2@rustictavernain2.example",
+        "company": "Rustic Taverna in2",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.28,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d0d805de4dcc3791",
+        "name": "Leon Lorenz",
+        "email": "prospect.newsletter.0@littlebistrone0.example",
+        "company": "Little Bistro ne0",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.26,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0e7b4d49cad1b43d",
+        "name": "Juan Schubert",
+        "email": "prospect.tiktok.0@littlewokti0.example",
+        "company": "Little Wok ti0",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.25,
+        "side": "merchant"
+      },
+      {
+        "id": "per_14e063f30181b9c8",
+        "name": "Timo Winter",
+        "email": "prospect.instagram.3@freshtrattoriain3.example",
+        "company": "Fresh Trattoria in3",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.25,
+        "side": "merchant"
+      },
+      {
+        "id": "per_05bf2985008670fb",
+        "name": "Timo Winter",
+        "email": "prospect.linkedin.3@copperwokli3.example",
+        "company": "Copper Wok li3",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.24,
+        "side": "merchant"
+      },
+      {
+        "id": "per_cc59e4cf7944a3fc",
+        "name": "Nora Simon",
+        "email": "prospect.instagram.0@coppertavernain0.example",
+        "company": "Copper Taverna in0",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.23,
+        "side": "merchant"
+      },
+      {
+        "id": "per_46336f4f91db1aa7",
+        "name": "Clara Schubert",
+        "email": "prospect.google.0@cosmotavernago0.example",
+        "company": "Cosmo Taverna go0",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.2,
+        "side": "merchant"
+      },
+      {
+        "id": "per_24387a259a78772d",
+        "name": "Hiro Suzuki",
+        "email": "hiro@ramenrhapsody.de",
+        "company": "Ramen Rhapsody",
+        "title": "Head Chef",
+        "identifiers": 1,
+        "intent": 0.19,
+        "side": "merchant"
+      },
+      {
+        "id": "per_eb38cda94e8a1616",
+        "name": "Pia Winter",
+        "email": "prospect.instagram.4@urbantavernain4.example",
+        "company": "Urban Taverna in4",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.17,
+        "side": "merchant"
+      },
+      {
+        "id": "per_545ebfebdd2c46d7",
+        "name": "Nina Berg",
+        "email": "nina@waffleworld.de",
+        "company": "Waffle World",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.16,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7c5b94c378b3350d",
+        "name": "Juan Otto",
+        "email": "prospect.linkedin.0@rusticsmokehouseli0.example",
+        "company": "Rustic Smokehouse li0",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.14,
+        "side": "merchant"
+      },
+      {
+        "id": "per_002ab01c77ed568c",
+        "name": "Mila Fuchs",
+        "email": "owner73@silktandoor.example",
+        "company": "Silk Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_031cb0987d0749bf",
+        "name": "Gül Haas",
+        "email": "owner50@freshgrill.example",
+        "company": "Fresh Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0342368ac74cefe4",
+        "name": "Theo Schubert",
+        "email": "owner101@alpendeli.example",
+        "company": "Alpen Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_034656ef1b622633",
+        "name": "Timo Brandt",
+        "email": "owner19@urbantrattoria.example",
+        "company": "Urban Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_06a9e73e4e4f7781",
+        "name": "Juan Winter",
+        "email": "owner84@cosmowok.example",
+        "company": "Cosmo Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_088210df918686b9",
+        "name": "Ruth Haas",
+        "email": "owner86@cosmogrill.example",
+        "company": "Cosmo Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_09f6d0d93a1eca04",
+        "name": "Ivan Winter",
+        "email": "owner132@bluewok.example",
+        "company": "Blue Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0a99fe62e6a9e0cc",
+        "name": "Paul Vogt",
+        "email": "owner118@neontaverna.example",
+        "company": "Neon Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0cd92ecb8d35098d",
+        "name": "Aldo Berger",
+        "email": "owner126@rusticcantina.example",
+        "company": "Rustic Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0f6faf8b51589037",
+        "name": "Max Beck",
+        "email": "owner131@rusticsmokehouse.example",
+        "company": "Rustic Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0f9e6f94a06f27b4",
+        "name": "Omar Busch",
+        "email": "owner58@freshtaverna.example",
+        "company": "Fresh Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_0faa793a60ed17e3",
+        "name": "Leon Krämer",
+        "email": "owner137@bluedeli.example",
+        "company": "Blue Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_11747fb2e61c1e8d",
+        "name": "Finn Frank",
+        "email": "owner70@wildtaverna.example",
+        "company": "Wild Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_125e692cfc0ae113",
+        "name": "Mila Lorenz",
+        "email": "owner53@freshdeli.example",
+        "company": "Fresh Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_15cfc53b65486d6d",
+        "name": "Ava Graf",
+        "email": "owner154@coppertaverna.example",
+        "company": "Copper Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_1d256135816a9123",
+        "name": "Omar Vogt",
+        "email": "owner75@silkbistro.example",
+        "company": "Silk Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_1dfe041b2bab8060",
+        "name": "Emil Jäger",
+        "email": "owner111@neonbistro.example",
+        "company": "Neon Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_1e07adf12674d185",
+        "name": "Noah Winkler",
+        "email": "owner43@royaltrattoria.example",
+        "company": "Royal Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_23495429c4f75840",
+        "name": "Lia Lang",
+        "email": "owner125@rusticdeli.example",
+        "company": "Rustic Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_23c2fc7c17983c6f",
+        "name": "Omar Winkler",
+        "email": "owner36@royalwok.example",
+        "company": "Royal Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_253aa1331df5423c",
+        "name": "Marco Rossi",
+        "email": "marco@pizza-corner.de",
+        "company": "Pizza Corner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_254e1c88b6d65dc4",
+        "name": "Amin Schreiber",
+        "email": "owner140@bluediner.example",
+        "company": "Blue Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2634209701f71137",
+        "name": "Gül Ziegler",
+        "email": "owner63@wildbistro.example",
+        "company": "Wild Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_26bbafe5ffc63504",
+        "name": "Nils Jäger",
+        "email": "owner8@goldendiner.example",
+        "company": "Golden Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_26d5674f5530449f",
+        "name": "Eva Graf",
+        "email": "owner128@rusticdiner.example",
+        "company": "Rustic Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_270cfb544155dcb4",
+        "name": "Theo Sommer",
+        "email": "owner103@alpentrattoria.example",
+        "company": "Alpen Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_29f41e57ef08df9c",
+        "name": "Lena2 Otto",
+        "email": "owner157@velvettandoor.example",
+        "company": "Velvet Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2bf55427117ad3e4",
+        "name": "Ruth Martin",
+        "email": "owner113@neondeli.example",
+        "company": "Neon Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2c85f24a0c551dd9",
+        "name": "Anton Jäger",
+        "email": "owner47@royalsmokehouse.example",
+        "company": "Royal Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2d0e17e71994af5b",
+        "name": "Jin Schulte",
+        "email": "owner96@alpenwok.example",
+        "company": "Alpen Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2f6ac76da88b9630",
+        "name": "Sofia Graf",
+        "email": "owner67@wildtrattoria.example",
+        "company": "Wild Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_300fc412ec5d829d",
+        "name": "Mila Ziegler",
+        "email": "owner28@littlekitchen.example",
+        "company": "Little Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_30fe9ead4bcc5527",
+        "name": "Maja Baumann",
+        "email": "owner129@rusticbrasserie.example",
+        "company": "Rustic Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_360088af8892fa2d",
+        "name": "Erik Graf",
+        "email": "owner87@cosmobistro.example",
+        "company": "Cosmo Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_38967e1b89c93c75",
+        "name": "Zoe Schulte",
+        "email": "owner117@neonbrasserie.example",
+        "company": "Neon Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_3bb7c9678275cb65",
+        "name": "Jin Ziegler",
+        "email": "owner25@littletandoor.example",
+        "company": "Little Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_3c93a12978496438",
+        "name": "Timo Böhm",
+        "email": "owner13@urbantandoor.example",
+        "company": "Urban Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_3d5bd6f42ebd4e94",
+        "name": "Ella Sommer",
+        "email": "owner163@velvettrattoria.example",
+        "company": "Velvet Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_3e0bea4a27ff21f7",
+        "name": "Maja Sommer",
+        "email": "owner18@urbancantina.example",
+        "company": "Urban Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_3f65d8c70d50475c",
+        "name": "Anton Braun",
+        "email": "owner65@wilddeli.example",
+        "company": "Wild Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_429389c9223bc786",
+        "name": "Paul Baumann",
+        "email": "owner0@goldenwok.example",
+        "company": "Golden Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4463fd70865b4aa1",
+        "name": "Nils Seidel",
+        "email": "owner9@goldenbrasserie.example",
+        "company": "Golden Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_44b5df5b55dde6ef",
+        "name": "Emil Groß",
+        "email": "owner83@silksmokehouse.example",
+        "company": "Silk Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_466ee13253ac00f9",
+        "name": "Paul Heinrich",
+        "email": "owner77@silkdeli.example",
+        "company": "Silk Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_473ba8dd9833f10b",
+        "name": "Nia Schubert",
+        "email": "owner102@alpencantina.example",
+        "company": "Alpen Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4837ae57521527d2",
+        "name": "Sven Lorenz",
+        "email": "owner42@royalcantina.example",
+        "company": "Royal Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4ae0379e07022333",
+        "name": "Pia Ziegler",
+        "email": "owner31@littletrattoria.example",
+        "company": "Little Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4be4a286947f7b63",
+        "name": "Nora Brandt",
+        "email": "owner141@bluebrasserie.example",
+        "company": "Blue Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4bfd6e3af0aa4f04",
+        "name": "Noah Albrecht",
+        "email": "owner38@royalgrill.example",
+        "company": "Royal Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4c6efefbb485e446",
+        "name": "Ruth Jäger",
+        "email": "owner2@goldengrill.example",
+        "company": "Golden Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4d2fff0d1b88d8c4",
+        "name": "Juan Ludwig",
+        "email": "owner165@velvetbrasserie.example",
+        "company": "Velvet Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4d848986d72da914",
+        "name": "Noah Dietrich",
+        "email": "owner22@urbantaverna.example",
+        "company": "Urban Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4dfdb0bdeb18032f",
+        "name": "Ava Kraus",
+        "email": "owner49@freshtandoor.example",
+        "company": "Fresh Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_50aad1ae87baf4cb",
+        "name": "Theo Krüger",
+        "email": "owner144@copperwok.example",
+        "company": "Copper Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_511acf556d0ac7ff",
+        "name": "Emil Roth",
+        "email": "owner106@alpentaverna.example",
+        "company": "Alpen Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_59a195080e105b12",
+        "name": "Amin Heinrich",
+        "email": "owner95@cosmosmokehouse.example",
+        "company": "Cosmo Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_5c1b3694bfc7b59c",
+        "name": "Amin Otto",
+        "email": "owner145@coppertandoor.example",
+        "company": "Copper Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_5dc12288222c5614",
+        "name": "Yara Groß",
+        "email": "owner29@littledeli.example",
+        "company": "Little Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6414d694746ea924",
+        "name": "Eva Wolf",
+        "email": "owner16@urbankitchen.example",
+        "company": "Urban Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6568687e27dfb416",
+        "name": "Kim Seidel",
+        "email": "owner12@urbanwok.example",
+        "company": "Urban Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_679149b4bdb96231",
+        "name": "Sofia Otto",
+        "email": "owner17@urbandeli.example",
+        "company": "Urban Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_699640508e433874",
+        "name": "Emil Schreiber",
+        "email": "owner164@velvetdiner.example",
+        "company": "Velvet Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_69f2c1c12eb144e7",
+        "name": "Sofia Ziegler",
+        "email": "owner4@goldenkitchen.example",
+        "company": "Golden Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6a09d06575d34b0a",
+        "name": "Zoe Lang",
+        "email": "owner62@wildgrill.example",
+        "company": "Wild Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6b69cf78eefc58b0",
+        "name": "Sofia Braun",
+        "email": "owner3@goldenbistro.example",
+        "company": "Golden Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7078efdf4c7a918c",
+        "name": "Anton Beck",
+        "email": "owner105@alpenbrasserie.example",
+        "company": "Alpen Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_72c63649c7ed2952",
+        "name": "Theo Albrecht",
+        "email": "owner21@urbanbrasserie.example",
+        "company": "Urban Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_734347a58044e698",
+        "name": "Tom Albrecht",
+        "email": "owner152@copperdiner.example",
+        "company": "Copper Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_73f42f919bcd409e",
+        "name": "Louis Dupont",
+        "email": "louis@croissantcafe.de",
+        "company": "Croissant Cafe",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_757bc98ff80e701c",
+        "name": "Nora Baumann",
+        "email": "owner11@goldensmokehouse.example",
+        "company": "Golden Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_77c6554fa57abd59",
+        "name": "Timo Simon",
+        "email": "owner82@silktaverna.example",
+        "company": "Silk Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_798632eeb56ebadc",
+        "name": "Mila Böhm",
+        "email": "owner74@silkgrill.example",
+        "company": "Silk Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7be0941a43d2048e",
+        "name": "Noah Groß",
+        "email": "owner130@rustictaverna.example",
+        "company": "Rustic Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7c4926a9f306964a",
+        "name": "Jonas Jäger",
+        "email": "owner116@neondiner.example",
+        "company": "Neon Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7d743e3f528dbd2b",
+        "name": "Finn Wolf",
+        "email": "owner44@royaldiner.example",
+        "company": "Royal Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_80bb2e35100745ac",
+        "name": "Raj Schulte",
+        "email": "owner41@royaldeli.example",
+        "company": "Royal Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_80d541af005bb53c",
+        "name": "Yara Winkler",
+        "email": "owner108@neonwok.example",
+        "company": "Neon Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_8557cf598908ef48",
+        "name": "Emil Martin",
+        "email": "owner134@bluegrill.example",
+        "company": "Blue Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_87c3c1cccb70a9d4",
+        "name": "Zoe Sommer",
+        "email": "owner148@copperkitchen.example",
+        "company": "Copper Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_87cbfc5594eaae77",
+        "name": "Lia Dietrich",
+        "email": "owner23@urbansmokehouse.example",
+        "company": "Urban Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_8ff66b306e637963",
+        "name": "Pia Braun",
+        "email": "owner91@cosmotrattoria.example",
+        "company": "Cosmo Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_92f0b4074aa24fe4",
+        "name": "Theo Jäger",
+        "email": "owner1@goldentandoor.example",
+        "company": "Golden Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_948a56cf8e7e2be1",
+        "name": "Maja Weber",
+        "email": "owner40@royalkitchen.example",
+        "company": "Royal Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_99c21c07aa4a06cd",
+        "name": "Anton Frank",
+        "email": "owner14@urbangrill.example",
+        "company": "Urban Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_9e01eaa93ef0310c",
+        "name": "Anton Seidel",
+        "email": "owner57@freshbrasserie.example",
+        "company": "Fresh Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_9e5c7faff427b31c",
+        "name": "Nils Schreiber",
+        "email": "owner160@velvetkitchen.example",
+        "company": "Velvet Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_9e9c3a539522c06c",
+        "name": "Anton Frank",
+        "email": "owner68@wilddiner.example",
+        "company": "Wild Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a34a8da45c5444fd",
+        "name": "Kim Schubert",
+        "email": "owner158@velvetgrill.example",
+        "company": "Velvet Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_aa971edeb0d76fc7",
+        "name": "Eva Winter",
+        "email": "owner55@freshtrattoria.example",
+        "company": "Fresh Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ace0b754cc4884d5",
+        "name": "Lia Frank",
+        "email": "owner59@freshsmokehouse.example",
+        "company": "Fresh Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ae1207593c41dd11",
+        "name": "Aldo Seidel",
+        "email": "owner99@alpenbistro.example",
+        "company": "Alpen Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b04ffb668402edfa",
+        "name": "Maja Ziegler",
+        "email": "owner150@coppercantina.example",
+        "company": "Copper Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b11fdba48ee0773c",
+        "name": "Ana Vasquez",
+        "email": "ana@tacopiso.de",
+        "company": "Taco Piso",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b16ee8d4fbe1af33",
+        "name": "Jin Schulte",
+        "email": "owner89@cosmodeli.example",
+        "company": "Cosmo Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b3dc46325e52ed08",
+        "name": "Jin Weber",
+        "email": "owner54@freshcantina.example",
+        "company": "Fresh Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b4a036565bfc1e06",
+        "name": "Aldo Haas",
+        "email": "owner161@velvetdeli.example",
+        "company": "Velvet Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b4be4d12ef30b6dc",
+        "name": "Ida Winkler",
+        "email": "owner61@wildtandoor.example",
+        "company": "Wild Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b78968cf8cb92570",
+        "name": "Pia Otto",
+        "email": "owner94@cosmotaverna.example",
+        "company": "Cosmo Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b7d2391d4d94642f",
+        "name": "Lia Kraus",
+        "email": "owner98@alpengrill.example",
+        "company": "Alpen Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b9e4687494315bbb",
+        "name": "Max Haas",
+        "email": "owner27@littlebistro.example",
+        "company": "Little Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_be3a96bb4afaf4b2",
+        "name": "Kim Roth",
+        "email": "owner146@coppergrill.example",
+        "company": "Copper Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_c48b3c7c4a013d5d",
+        "name": "Yara Ziegler",
+        "email": "owner76@silkkitchen.example",
+        "company": "Silk Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_c92971481e83fbc9",
+        "name": "Ruth Stein",
+        "email": "owner32@littlediner.example",
+        "company": "Little Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_caeef09766a80064",
+        "name": "Yara Roth",
+        "email": "owner45@royalbrasserie.example",
+        "company": "Royal Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d7b17d3519283d0b",
+        "name": "Gül Schubert",
+        "email": "owner7@goldentrattoria.example",
+        "company": "Golden Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d8677d12d971e0cf",
+        "name": "Kim Krämer",
+        "email": "owner90@cosmocantina.example",
+        "company": "Cosmo Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d91237e8ed6a3b84",
+        "name": "Jonas Dietrich",
+        "email": "owner100@alpenkitchen.example",
+        "company": "Alpen Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d990bfd5416128eb",
+        "name": "Amin Berger",
+        "email": "owner72@silkwok.example",
+        "company": "Silk Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_da95734d11abb6dc",
+        "name": "Yara Lorenz",
+        "email": "owner138@bluecantina.example",
+        "company": "Blue Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_dcaa82824d4f4e92",
+        "name": "Zoe Kraus",
+        "email": "owner155@coppersmokehouse.example",
+        "company": "Copper Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_dd524678ad1ab9f5",
+        "name": "Amin Schulte",
+        "email": "owner52@freshkitchen.example",
+        "company": "Fresh Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_de4aceeaed101113",
+        "name": "Maja Winkler",
+        "email": "owner80@silkdiner.example",
+        "company": "Silk Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e004630bcdb39c76",
+        "name": "Lena2 Winter",
+        "email": "owner162@velvetcantina.example",
+        "company": "Velvet Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e2210dea58e6df6d",
+        "name": "Timo Braun",
+        "email": "owner121@rustictandoor.example",
+        "company": "Rustic Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e4e98d0c311a32d6",
+        "name": "Max Haas",
+        "email": "owner120@rusticwok.example",
+        "company": "Rustic Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e54f43e7be2b1325",
+        "name": "Mila Kraus",
+        "email": "owner64@wildkitchen.example",
+        "company": "Wild Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e7c768a8b7209ee6",
+        "name": "Nora Fuchs",
+        "email": "owner166@velvettaverna.example",
+        "company": "Velvet Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e93b5fec772a1849",
+        "name": "Amin Baumann",
+        "email": "owner69@wildbrasserie.example",
+        "company": "Wild Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_eacaf20e8c94ca4c",
+        "name": "Kai Andersen",
+        "email": "kai@pokepoint.de",
+        "company": "Poké Point",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ec2acd306f6fb040",
+        "name": "Timo Sommer",
+        "email": "owner151@coppertrattoria.example",
+        "company": "Copper Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_edf43794366449e6",
+        "name": "Pia Simon",
+        "email": "owner79@silktrattoria.example",
+        "company": "Silk Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f813927a4a4a159a",
+        "name": "Lena2 Kraus",
+        "email": "owner147@copperbistro.example",
+        "company": "Copper Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f8bf002b8923f9e0",
+        "name": "Paul Heinrich",
+        "email": "owner123@rusticbistro.example",
+        "company": "Rustic Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f93b9bd3114946cf",
+        "name": "Anton Otto",
+        "email": "owner92@cosmodiner.example",
+        "company": "Cosmo Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_fccd510530fde911",
+        "name": "Raj Wolf",
+        "email": "owner135@bluebistro.example",
+        "company": "Blue Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      }
+    ]
+  },
   "platforms": [
     {
-      "source": "webhook",
-      "people": 3,
-      "activePeople7": 3,
-      "signals7": 5,
-      "signalsPrior7": 0,
-      "growthPct": 500,
-      "avgIntent": 0.75,
-      "hotLeadYield": 1,
-      "quality": 85,
-      "recommendation": "double down",
+      "source": "google",
+      "people": 5209,
+      "activePeople7": 1156,
+      "newUsers7": 772,
+      "newUsersPrior7": 722,
+      "signals7": 1247,
+      "signalsPrior7": 1153,
+      "growthPct": 8,
+      "avgIntent": 0.17,
+      "avgIntentActive": 0.41,
+      "hotLeadYield": 0.11,
+      "conversion": 0.5,
+      "repeatRate": 0.49,
+      "avgOrderValue": 33,
+      "merchantLeads14": 2,
+      "quality": 46,
       "topSignals": [
         {
-          "type": "demo_request",
-          "count": 2
+          "type": "signup",
+          "count": 5200
         },
         {
           "type": "pricing_view",
-          "count": 2
+          "count": 898
         },
         {
           "type": "form_submit",
+          "count": 1
+        },
+        {
+          "type": "demo_request",
           "count": 1
         }
       ],
       "topPeople": [
         {
-          "name": "Eli Fischer",
-          "intent": 0.83
+          "name": "Tara Fuchs",
+          "intent": 0.97
         },
         {
-          "name": "Ken Yamada",
-          "intent": 0.83
+          "name": "Anton Groß",
+          "intent": 0.95
         },
         {
-          "name": "Priya Sharma",
-          "intent": 0.6
+          "name": "Paul Schubert",
+          "intent": 0.94
         }
       ],
+      "recommendation": "increase budget",
       "factors": {
-        "avgIntent": 0.75,
-        "activeShare": 1,
-        "growthPct": 500,
-        "rule": "double down"
+        "growthPct": 8,
+        "avgIntentActive": 0.41,
+        "conversion": 0.5,
+        "repeatRate": 0.49,
+        "avgOrderValue": 33,
+        "merchantLeads14": 2,
+        "medianNewUsers": 772,
+        "rule": "increase budget"
       }
     },
     {
-      "source": "google",
-      "people": 7,
-      "activePeople7": 6,
-      "signals7": 6,
-      "signalsPrior7": 2,
-      "growthPct": 200,
-      "avgIntent": 0.71,
-      "hotLeadYield": 1,
-      "quality": 77,
-      "recommendation": "double down",
+      "source": "referral",
+      "people": 1559,
+      "activePeople7": 516,
+      "newUsers7": 418,
+      "newUsersPrior7": 385,
+      "signals7": 553,
+      "signalsPrior7": 504,
+      "growthPct": 10,
+      "avgIntent": 0.19,
+      "avgIntentActive": 0.33,
+      "hotLeadYield": 0.14,
+      "conversion": 0.48,
+      "repeatRate": 0.52,
+      "avgOrderValue": 41.98,
+      "merchantLeads14": 1,
+      "quality": 43,
       "topSignals": [
         {
-          "type": "pricing_view",
-          "count": 8
+          "type": "signup",
+          "count": 1555
+        },
+        {
+          "type": "website_visit",
+          "count": 248
+        },
+        {
+          "type": "form_submit",
+          "count": 4
         }
       ],
       "topPeople": [
         {
-          "name": "Ben Novak",
+          "name": "Ida Peters",
           "intent": 0.89
         },
         {
-          "name": "Alice Müller",
-          "intent": 0.78
+          "name": "Juan Seidel",
+          "intent": 0.88
         },
         {
-          "name": "Carla Rossi",
-          "intent": 0.69
+          "name": "Maja Frank",
+          "intent": 0.88
         }
       ],
+      "recommendation": "expand incentives",
       "factors": {
-        "avgIntent": 0.71,
-        "activeShare": 0.86,
-        "growthPct": 200,
-        "rule": "double down"
+        "growthPct": 10,
+        "avgIntentActive": 0.33,
+        "conversion": 0.48,
+        "repeatRate": 0.52,
+        "avgOrderValue": 41.98,
+        "merchantLeads14": 1,
+        "medianNewUsers": 772,
+        "rule": "expand incentives"
       }
     },
     {
       "source": "newsletter",
-      "people": 4,
-      "activePeople7": 4,
-      "signals7": 7,
-      "signalsPrior7": 4,
-      "growthPct": 75,
-      "avgIntent": 0.55,
-      "hotLeadYield": 0.5,
-      "quality": 73,
-      "recommendation": "double down",
+      "people": 2020,
+      "activePeople7": 634,
+      "newUsers7": 260,
+      "newUsersPrior7": 257,
+      "signals7": 748,
+      "signalsPrior7": 724,
+      "growthPct": 3,
+      "avgIntent": 0.16,
+      "avgIntentActive": 0.28,
+      "hotLeadYield": 0.1,
+      "conversion": 0.46,
+      "repeatRate": 0.62,
+      "avgOrderValue": 31.09,
+      "merchantLeads14": 1,
+      "quality": 43,
       "topSignals": [
+        {
+          "type": "signup",
+          "count": 2015
+        },
+        {
+          "type": "newsletter_click",
+          "count": 949
+        },
         {
           "type": "newsletter_open",
           "count": 7
         },
         {
-          "type": "newsletter_click",
-          "count": 4
-        }
-      ],
-      "topPeople": [
-        {
-          "name": "Ben Novak",
-          "intent": 0.89
-        },
-        {
-          "name": "Greta Svensson",
-          "intent": 0.61
-        },
-        {
-          "name": "Iris O'Connor",
-          "intent": 0.47
-        }
-      ],
-      "factors": {
-        "avgIntent": 0.55,
-        "activeShare": 1,
-        "growthPct": 75,
-        "rule": "double down"
-      }
-    },
-    {
-      "source": "instagram",
-      "people": 13,
-      "activePeople7": 11,
-      "signals7": 12,
-      "signalsPrior7": 4,
-      "growthPct": 200,
-      "avgIntent": 0.6,
-      "hotLeadYield": 0.77,
-      "quality": 70,
-      "recommendation": "double down",
-      "topSignals": [
-        {
-          "type": "website_visit",
-          "count": 11
-        },
-        {
           "type": "form_submit",
-          "count": 4
-        },
-        {
-          "type": "demo_request",
           "count": 1
         }
       ],
       "topPeople": [
         {
-          "name": "Ben Novak",
-          "intent": 0.89
+          "name": "Gül Schulte",
+          "intent": 0.93
         },
         {
-          "name": "Lena Ortiz",
-          "intent": 0.82
+          "name": "Leon Lang",
+          "intent": 0.91
         },
         {
-          "name": "Alice Müller",
-          "intent": 0.78
+          "name": "Jin Braun",
+          "intent": 0.91
         }
       ],
+      "recommendation": "protect",
       "factors": {
-        "avgIntent": 0.6,
-        "activeShare": 0.85,
-        "growthPct": 200,
-        "rule": "double down"
+        "growthPct": 3,
+        "avgIntentActive": 0.28,
+        "conversion": 0.46,
+        "repeatRate": 0.62,
+        "avgOrderValue": 31.09,
+        "merchantLeads14": 1,
+        "medianNewUsers": 772,
+        "rule": "protect"
       }
     },
     {
-      "source": "tiktok",
-      "people": 10,
-      "activePeople7": 10,
-      "signals7": 11,
-      "signalsPrior7": 3,
-      "growthPct": 267,
-      "avgIntent": 0.49,
-      "hotLeadYield": 0.5,
-      "quality": 69,
-      "recommendation": "double down",
+      "source": "instagram",
+      "people": 7641,
+      "activePeople7": 2037,
+      "newUsers7": 1641,
+      "newUsersPrior7": 1276,
+      "signals7": 2185,
+      "signalsPrior7": 1689,
+      "growthPct": 29,
+      "avgIntent": 0.09,
+      "avgIntentActive": 0.2,
+      "hotLeadYield": 0.03,
+      "conversion": 0.22,
+      "repeatRate": 0.33,
+      "avgOrderValue": 28.75,
+      "merchantLeads14": 13,
+      "quality": 24,
       "topSignals": [
+        {
+          "type": "signup",
+          "count": 7620
+        },
         {
           "type": "website_visit",
-          "count": 14
+          "count": 941
+        },
+        {
+          "type": "form_submit",
+          "count": 8
+        },
+        {
+          "type": "demo_request",
+          "count": 5
         }
       ],
       "topPeople": [
@@ -1014,174 +3107,191 @@
           "intent": 0.89
         },
         {
-          "name": "Carla Rossi",
-          "intent": 0.69
-        },
-        {
-          "name": "Emma Dubois",
-          "intent": 0.68
-        }
-      ],
-      "factors": {
-        "avgIntent": 0.49,
-        "activeShare": 1,
-        "growthPct": 267,
-        "rule": "double down"
-      }
-    },
-    {
-      "source": "orders",
-      "people": 17,
-      "activePeople7": 14,
-      "signals7": 14,
-      "signalsPrior7": 6,
-      "growthPct": 133,
-      "avgIntent": 0.58,
-      "hotLeadYield": 0.71,
-      "quality": 68,
-      "recommendation": "double down",
-      "topSignals": [
-        {
-          "type": "payment",
-          "count": 23
-        }
-      ],
-      "topPeople": [
-        {
-          "name": "Ben Novak",
-          "intent": 0.89
-        },
-        {
-          "name": "Ken Yamada",
-          "intent": 0.83
+          "name": "Maja Brandt",
+          "intent": 0.87
         },
         {
           "name": "Lena Ortiz",
           "intent": 0.82
         }
       ],
+      "recommendation": "double down",
       "factors": {
-        "avgIntent": 0.58,
-        "activeShare": 0.82,
-        "growthPct": 133,
+        "growthPct": 29,
+        "avgIntentActive": 0.2,
+        "conversion": 0.22,
+        "repeatRate": 0.33,
+        "avgOrderValue": 28.75,
+        "merchantLeads14": 13,
+        "medianNewUsers": 772,
         "rule": "double down"
       }
     },
     {
       "source": "linkedin",
-      "people": 4,
-      "activePeople7": 3,
-      "signals7": 4,
-      "signalsPrior7": 1,
-      "growthPct": 300,
-      "avgIntent": 0.57,
-      "hotLeadYield": 0.75,
-      "quality": 64,
-      "recommendation": "double down",
+      "people": 965,
+      "activePeople7": 250,
+      "newUsers7": 194,
+      "newUsersPrior7": 167,
+      "signals7": 268,
+      "signalsPrior7": 228,
+      "growthPct": 18,
+      "avgIntent": 0.08,
+      "avgIntentActive": 0.18,
+      "hotLeadYield": 0.02,
+      "conversion": 0.18,
+      "repeatRate": 0.18,
+      "avgOrderValue": 25.8,
+      "merchantLeads14": 11,
+      "quality": 18,
       "topSignals": [
         {
+          "type": "signup",
+          "count": 955
+        },
+        {
+          "type": "website_visit",
+          "count": 130
+        },
+        {
           "type": "form_submit",
-          "count": 4
+          "count": 7
         },
         {
           "type": "demo_request",
+          "count": 4
+        }
+      ],
+      "topPeople": [
+        {
+          "name": "Ken Yamada",
+          "intent": 0.83
+        },
+        {
+          "name": "Lena2 Beck",
+          "intent": 0.8
+        },
+        {
+          "name": "Tara Frank",
+          "intent": 0.8
+        }
+      ],
+      "recommendation": "double down",
+      "factors": {
+        "growthPct": 18,
+        "avgIntentActive": 0.18,
+        "conversion": 0.18,
+        "repeatRate": 0.18,
+        "avgOrderValue": 25.8,
+        "merchantLeads14": 11,
+        "medianNewUsers": 772,
+        "rule": "double down"
+      }
+    },
+    {
+      "source": "tiktok",
+      "people": 7321,
+      "activePeople7": 2383,
+      "newUsers7": 1899,
+      "newUsersPrior7": 1312,
+      "signals7": 2552,
+      "signalsPrior7": 1763,
+      "growthPct": 45,
+      "avgIntent": 0.08,
+      "avgIntentActive": 0.16,
+      "hotLeadYield": 0.01,
+      "conversion": 0.11,
+      "repeatRate": 0.17,
+      "avgOrderValue": 21.17,
+      "merchantLeads14": 1,
+      "quality": 15,
+      "topSignals": [
+        {
+          "type": "signup",
+          "count": 7310
+        },
+        {
+          "type": "website_visit",
+          "count": 1104
+        },
+        {
+          "type": "form_submit",
           "count": 1
         }
       ],
       "topPeople": [
         {
-          "name": "Ken Yamada",
-          "intent": 0.83
+          "name": "Ben Novak",
+          "intent": 0.89
         },
         {
-          "name": "Sara Kim",
-          "intent": 0.76
+          "name": "Nia Kraus",
+          "intent": 0.81
         },
         {
-          "name": "Arjun Patel",
-          "intent": 0.5
+          "name": "Tara Krüger",
+          "intent": 0.8
         }
       ],
+      "recommendation": "maintain (B2C awareness)",
       "factors": {
-        "avgIntent": 0.57,
-        "activeShare": 0.75,
-        "growthPct": 300,
-        "rule": "double down"
-      }
-    },
-    {
-      "source": "referral",
-      "people": 3,
-      "activePeople7": 2,
-      "signals7": 2,
-      "signalsPrior7": 1,
-      "growthPct": 100,
-      "avgIntent": 0.41,
-      "hotLeadYield": 0.33,
-      "quality": 51,
-      "recommendation": "double down",
-      "topSignals": [
-        {
-          "type": "form_submit",
-          "count": 3
-        }
-      ],
-      "topPeople": [
-        {
-          "name": "Nadja Horvath",
-          "intent": 0.6
-        },
-        {
-          "name": "Luca Romano",
-          "intent": 0.33
-        },
-        {
-          "name": "Mia Torres",
-          "intent": 0.29
-        }
-      ],
-      "factors": {
-        "avgIntent": 0.41,
-        "activeShare": 0.67,
-        "growthPct": 100,
-        "rule": "double down"
-      }
-    },
-    {
-      "source": "crm",
-      "people": 12,
-      "activePeople7": 0,
-      "signals7": 0,
-      "signalsPrior7": 0,
-      "growthPct": 0,
-      "avgIntent": 0.35,
-      "hotLeadYield": 0.42,
-      "quality": 21,
-      "recommendation": "nurture",
-      "topSignals": [],
-      "topPeople": [
-        {
-          "name": "Ken Yamada",
-          "intent": 0.83
-        },
-        {
-          "name": "Lena Ortiz",
-          "intent": 0.82
-        },
-        {
-          "name": "Sara Kim",
-          "intent": 0.76
-        }
-      ],
-      "factors": {
-        "avgIntent": 0.35,
-        "activeShare": 0,
-        "growthPct": 0,
-        "rule": "nurture"
+        "growthPct": 45,
+        "avgIntentActive": 0.16,
+        "conversion": 0.11,
+        "repeatRate": 0.17,
+        "avgOrderValue": 21.17,
+        "merchantLeads14": 1,
+        "medianNewUsers": 772,
+        "rule": "maintain (B2C awareness)"
       }
     }
   ],
   "companies": [
+    {
+      "company": "Golden Tandoor",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0,
+      "maxIntent": 0,
+      "icpFit": 0.45,
+      "churnRisk": 1,
+      "mrr": 3878,
+      "orderRevenue60": 8030,
+      "orders7": 138,
+      "signals7": 0,
+      "action": "Retention call — partner engagement collapsed"
+    },
+    {
+      "company": "Golden Wok",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0,
+      "maxIntent": 0,
+      "icpFit": 0.45,
+      "churnRisk": 1,
+      "mrr": 7031,
+      "orderRevenue60": 21204,
+      "orders7": 369,
+      "signals7": 0,
+      "action": "Retention call — partner engagement collapsed"
+    },
+    {
+      "company": "Pizza Corner",
+      "industry": "food",
+      "employees": 8,
+      "people": 1,
+      "avgIntent": 0,
+      "maxIntent": 0,
+      "icpFit": 0.9,
+      "churnRisk": 1,
+      "mrr": 6400,
+      "orderRevenue60": 0,
+      "orders7": 0,
+      "signals7": 0,
+      "action": "Retention call — partner engagement collapsed"
+    },
     {
       "company": "Skybite Pizza",
       "industry": "food",
@@ -1189,35 +3299,41 @@
       "people": 1,
       "avgIntent": 0.83,
       "maxIntent": 0.83,
-      "icpFit": 0.6,
+      "icpFit": 0.9,
       "churnRisk": 0,
       "mrr": 0,
+      "orderRevenue60": 0,
+      "orders7": 0,
       "signals7": 3,
       "action": "Sales outreach — active buying motion"
     },
     {
       "company": "Sushi Rocket",
       "industry": "food",
-      "employees": 12,
+      "employees": 0,
       "people": 1,
       "avgIntent": 0.83,
       "maxIntent": 0.83,
-      "icpFit": 0.9,
+      "icpFit": 0.45,
       "churnRisk": 0,
       "mrr": 3100,
+      "orderRevenue60": 52,
+      "orders7": 1,
       "signals7": 3,
       "action": "Sales outreach — active buying motion"
     },
     {
       "company": "Burger Factory",
       "industry": "food",
-      "employees": 25,
+      "employees": 0,
       "people": 1,
       "avgIntent": 0.82,
       "maxIntent": 0.82,
-      "icpFit": 0.6,
+      "icpFit": 0.45,
       "churnRisk": 0,
       "mrr": 8000,
+      "orderRevenue60": 144,
+      "orders7": 3,
       "signals7": 3,
       "action": "Sales outreach — active buying motion"
     },
@@ -1225,12 +3341,14 @@
       "company": "Green Bowl",
       "industry": "food",
       "employees": 15,
-      "people": 2,
-      "avgIntent": 0.51,
+      "people": 1,
+      "avgIntent": 0.76,
       "maxIntent": 0.76,
       "icpFit": 0.9,
       "churnRisk": 0,
       "mrr": 2800,
+      "orderRevenue60": 131,
+      "orders7": 3,
       "signals7": 4,
       "action": "Sales outreach — active buying motion"
     },
@@ -1244,142 +3362,823 @@
       "icpFit": 0.75,
       "churnRisk": 0,
       "mrr": 0,
+      "orderRevenue60": 0,
+      "orders7": 0,
       "signals7": 2,
       "action": "Sales outreach — active buying motion"
     },
     {
+      "company": "Wild Smokehouse",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.53,
+      "maxIntent": 0.53,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6982,
+      "orderRevenue60": 1293,
+      "orders7": 19,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Cosmo Brasserie",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.52,
+      "maxIntent": 0.52,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6333,
+      "orderRevenue60": 1018,
+      "orders7": 17,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Silk Cantina",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.52,
+      "maxIntent": 0.52,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5885,
+      "orderRevenue60": 955,
+      "orders7": 10,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Copper Brasserie",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.51,
+      "maxIntent": 0.51,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5412,
+      "orderRevenue60": 685,
+      "orders7": 10,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Neon Cantina",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.51,
+      "maxIntent": 0.51,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6178,
+      "orderRevenue60": 1125,
+      "orders7": 18,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Silk Brasserie",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.51,
+      "maxIntent": 0.51,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5864,
+      "orderRevenue60": 1327,
+      "orders7": 22,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Velvet Bistro",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.51,
+      "maxIntent": 0.51,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5358,
+      "orderRevenue60": 570,
+      "orders7": 8,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Velvet Smokehouse",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.51,
+      "maxIntent": 0.51,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5245,
+      "orderRevenue60": 470,
+      "orders7": 9,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Wild Cantina",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.51,
+      "maxIntent": 0.51,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4068,
+      "orderRevenue60": 940,
+      "orders7": 16,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Blue Tandoor",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6232,
+      "orderRevenue60": 743,
+      "orders7": 16,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Blue Taverna",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5418,
+      "orderRevenue60": 745,
+      "orders7": 15,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Fresh Bistro",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6351,
+      "orderRevenue60": 1186,
+      "orders7": 18,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Fresh Diner",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 3633,
+      "orderRevenue60": 1326,
+      "orders7": 24,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
       "company": "Golden Curry",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 1500,
+      "orderRevenue60": 54,
+      "orders7": 1,
+      "signals7": 2,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Little Cantina",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5491,
+      "orderRevenue60": 1982,
+      "orders7": 27,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Little Taverna go1",
       "industry": "food",
       "employees": 8,
       "people": 1,
       "avgIntent": 0.5,
       "maxIntent": 0.5,
-      "icpFit": 0.6,
-      "churnRisk": 0,
-      "mrr": 1500,
-      "signals7": 2,
-      "action": "Expansion conversation"
-    },
-    {
-      "company": "Boba Bay",
-      "industry": "food",
-      "employees": 6,
-      "people": 1,
-      "avgIntent": 0.3,
-      "maxIntent": 0.3,
       "icpFit": 0.9,
       "churnRisk": 0,
-      "mrr": 1100,
+      "mrr": 0,
+      "orderRevenue60": 0,
+      "orders7": 0,
+      "signals7": 1,
+      "action": "Nurture — warming up"
+    },
+    {
+      "company": "Neon Kitchen",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5227,
+      "orderRevenue60": 1418,
+      "orders7": 23,
       "signals7": 1,
       "action": "Expansion conversation"
     },
     {
-      "company": "Ramen Rhapsody",
+      "company": "Royal Taverna",
       "industry": "food",
-      "employees": 10,
+      "employees": 0,
       "people": 1,
-      "avgIntent": 0.19,
-      "maxIntent": 0.19,
-      "icpFit": 0.6,
-      "churnRisk": 0,
-      "mrr": 0,
-      "signals7": 0,
-      "action": "Monitor"
-    },
-    {
-      "company": "Waffle World",
-      "industry": "food",
-      "employees": 5,
-      "people": 1,
-      "avgIntent": 0.16,
-      "maxIntent": 0.16,
-      "icpFit": 0.6,
-      "churnRisk": 0,
-      "mrr": 0,
-      "signals7": 0,
-      "action": "Monitor"
-    },
-    {
-      "company": "Croissant Cafe",
-      "industry": "food",
-      "employees": 3,
-      "people": 1,
-      "avgIntent": 0,
-      "maxIntent": 0,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
       "icpFit": 0.45,
       "churnRisk": 0,
-      "mrr": 0,
-      "signals7": 0,
-      "action": "Monitor"
+      "mrr": 5554,
+      "orderRevenue60": 1526,
+      "orders7": 28,
+      "signals7": 1,
+      "action": "Expansion conversation"
     },
     {
-      "company": "Pizza Corner",
+      "company": "Rustic Trattoria",
       "industry": "food",
-      "employees": 8,
+      "employees": 0,
       "people": 1,
-      "avgIntent": 0,
-      "maxIntent": 0,
-      "icpFit": 0.6,
-      "churnRisk": 1,
-      "mrr": 6400,
-      "signals7": 0,
-      "action": "Retention call — engagement collapsed"
-    },
-    {
-      "company": "Poké Point",
-      "industry": "food",
-      "employees": 4,
-      "people": 1,
-      "avgIntent": 0,
-      "maxIntent": 0,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
       "icpFit": 0.45,
       "churnRisk": 0,
-      "mrr": 0,
-      "signals7": 0,
-      "action": "Monitor"
+      "mrr": 3176,
+      "orderRevenue60": 781,
+      "orders7": 15,
+      "signals7": 1,
+      "action": "Expansion conversation"
     },
     {
-      "company": "Taco Piso",
+      "company": "Alpen Diner",
       "industry": "food",
-      "employees": 6,
+      "employees": 0,
       "people": 1,
-      "avgIntent": 0,
-      "maxIntent": 0,
-      "icpFit": 0.6,
+      "avgIntent": 0.49,
+      "maxIntent": 0.49,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 8949,
+      "orderRevenue60": 888,
+      "orders7": 9,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Alpen Tandoor",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.49,
+      "maxIntent": 0.49,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4703,
+      "orderRevenue60": 985,
+      "orders7": 17,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Copper Deli",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.49,
+      "maxIntent": 0.49,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 7978,
+      "orderRevenue60": 1171,
+      "orders7": 17,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Golden Deli",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.49,
+      "maxIntent": 0.49,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4442,
+      "orderRevenue60": 3601,
+      "orders7": 63,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Golden Taverna",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.49,
+      "maxIntent": 0.49,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4249,
+      "orderRevenue60": 2792,
+      "orders7": 39,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Neon Grill",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.49,
+      "maxIntent": 0.49,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 8664,
+      "orderRevenue60": 1123,
+      "orders7": 20,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Royal Tandoor",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.49,
+      "maxIntent": 0.49,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5757,
+      "orderRevenue60": 1619,
+      "orders7": 25,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Rustic Kitchen",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.49,
+      "maxIntent": 0.49,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6901,
+      "orderRevenue60": 1066,
+      "orders7": 16,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Blue Trattoria",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.48,
+      "maxIntent": 0.48,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4580,
+      "orderRevenue60": 820,
+      "orders7": 11,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Fresh Tandoor li1",
+      "industry": "food",
+      "employees": 24,
+      "people": 1,
+      "avgIntent": 0.48,
+      "maxIntent": 0.48,
+      "icpFit": 0.9,
       "churnRisk": 0,
       "mrr": 0,
-      "signals7": 0,
-      "action": "Monitor"
+      "orderRevenue60": 0,
+      "orders7": 0,
+      "signals7": 1,
+      "action": "Nurture — warming up"
+    },
+    {
+      "company": "Little Wok",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.48,
+      "maxIntent": 0.48,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 7267,
+      "orderRevenue60": 2080,
+      "orders7": 32,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Neon Smokehouse",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.48,
+      "maxIntent": 0.48,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4802,
+      "orderRevenue60": 844,
+      "orders7": 15,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Urban Diner",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.48,
+      "maxIntent": 0.48,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 8595,
+      "orderRevenue60": 2164,
+      "orders7": 38,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Blue Smokehouse",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.47,
+      "maxIntent": 0.47,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4956,
+      "orderRevenue60": 886,
+      "orders7": 14,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Fresh Wok",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.47,
+      "maxIntent": 0.47,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6467,
+      "orderRevenue60": 1408,
+      "orders7": 21,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Golden Cantina",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.47,
+      "maxIntent": 0.47,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 8628,
+      "orderRevenue60": 3736,
+      "orders7": 65,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Wild Wok",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.47,
+      "maxIntent": 0.47,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5333,
+      "orderRevenue60": 1080,
+      "orders7": 17,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Alpen Trattoria in5",
+      "industry": "food",
+      "employees": 12,
+      "people": 1,
+      "avgIntent": 0.46,
+      "maxIntent": 0.46,
+      "icpFit": 0.9,
+      "churnRisk": 0,
+      "mrr": 0,
+      "orderRevenue60": 0,
+      "orders7": 0,
+      "signals7": 1,
+      "action": "Nurture — warming up"
+    },
+    {
+      "company": "Blue Kitchen",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.46,
+      "maxIntent": 0.46,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6841,
+      "orderRevenue60": 592,
+      "orders7": 4,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Little Grill",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.46,
+      "maxIntent": 0.46,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 2946,
+      "orderRevenue60": 1916,
+      "orders7": 22,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Little Taverna",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.46,
+      "maxIntent": 0.46,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6850,
+      "orderRevenue60": 1695,
+      "orders7": 26,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Urban Bistro",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.46,
+      "maxIntent": 0.46,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 7200,
+      "orderRevenue60": 2810,
+      "orders7": 40,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Alpen Smokehouse",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.45,
+      "maxIntent": 0.45,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5717,
+      "orderRevenue60": 828,
+      "orders7": 17,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Cosmo Kitchen",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.45,
+      "maxIntent": 0.45,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4805,
+      "orderRevenue60": 973,
+      "orders7": 13,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Cosmo Tandoor",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.45,
+      "maxIntent": 0.45,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4810,
+      "orderRevenue60": 1297,
+      "orders7": 15,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Neon Trattoria",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.45,
+      "maxIntent": 0.45,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4121,
+      "orderRevenue60": 712,
+      "orders7": 16,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Rustic Grill",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.45,
+      "maxIntent": 0.45,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6924,
+      "orderRevenue60": 748,
+      "orders7": 14,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Velvet Wok",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.45,
+      "maxIntent": 0.45,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 7173,
+      "orderRevenue60": 724,
+      "orders7": 12,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Little Brasserie",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.44,
+      "maxIntent": 0.44,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 8991,
+      "orderRevenue60": 1220,
+      "orders7": 17,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Little Smokehouse",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.44,
+      "maxIntent": 0.44,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 6479,
+      "orderRevenue60": 1926,
+      "orders7": 25,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Neon Tandoor",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.44,
+      "maxIntent": 0.44,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 5569,
+      "orderRevenue60": 878,
+      "orders7": 14,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Royal Bistro",
+      "industry": "food",
+      "employees": 0,
+      "people": 1,
+      "avgIntent": 0.44,
+      "maxIntent": 0.44,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 4277,
+      "orderRevenue60": 1765,
+      "orders7": 31,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Golden Taverna li5",
+      "industry": "food",
+      "employees": 18,
+      "people": 1,
+      "avgIntent": 0.4,
+      "maxIntent": 0.4,
+      "icpFit": 0.9,
+      "churnRisk": 0,
+      "mrr": 0,
+      "orderRevenue60": 0,
+      "orders7": 0,
+      "signals7": 1,
+      "action": "Nurture — warming up"
     }
   ],
   "decisions": [
     {
-      "id": "dec_d7c791eda8151ff9",
+      "id": "dec_044d3f55ab22aa4b",
       "kind": "platform_allocation",
-      "title": "Invest in webhook this week",
+      "title": "Invest more in instagram this week",
       "trace": {
         "evidence": [
-          "obs_b2b425b28a34f4a0",
-          "obs_cb552691a9ca3c4a",
-          "obs_8d8ad1d0820f13e3",
-          "obs_cd2e240af946dd60",
-          "obs_ac7e6bcd575cc72a"
+          "obs_94f850f27b54f42d",
+          "obs_0f0de8ecfa75d15f",
+          "obs_4e35db276ff1e8bb",
+          "obs_4d313b301065f355",
+          "obs_5898016821c7eb6e",
+          "obs_b3420ab6ffdc05dc",
+          "obs_a10609668e5907d8",
+          "obs_b735a180ad316d1d"
         ],
-        "hypothesis": "webhook is the highest-yield channel right now: 5 signals this week vs 0 prior (+500%), quality 85/100, avg intent 0.75.",
-        "reasoning": "3 of 3 people observed via webhook were active in the last 7 days and 100% are hot leads — the best engagement-per-person of 9 sources.",
-        "action": "Concentrate this week's content and outreach on webhook (top drivers: demo_request, pricing_view, form_submit)."
+        "hypothesis": "instagram is the highest-yield growth channel right now: 1,641 new users this week (vs 1,276 prior), 2,185 signals (+29%), order conversion 22%, 13 merchant enquiries in 14d.",
+        "reasoning": "Of 6 acquisition channels, instagram combines the best quality (24/100: intent 0.09, cohort conversion 22%) AND it feeds the supply side — merchant enquiries arrive through it, so investment compounds on both sides of the marketplace. tiktok grows fast (+45%) but converts at 11% with 1 merchant leads — keep it for B2C awareness, don't raise merchant-acquisition budget there.",
+        "action": "Shift this week's growth budget toward instagram (top drivers: signup, website_visit, form_submit, demo_request); also increase google paid budget (order conversion 50%); hold tiktok at current spend for awareness only."
       },
-      "confidence": 0.77,
-      "baseConfidence": 0.77,
+      "confidence": 0.74,
+      "baseConfidence": 0.74,
       "priors": [],
       "expected": {
-        "metric": "active_people_webhook",
-        "target": 4
+        "metric": "new_signups_instagram",
+        "target": 1887
       },
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:27:10.542Z",
+      "createdAt": "2026-07-25T12:08:05.969Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -1387,48 +4186,48 @@
       "outcome": null
     },
     {
-      "id": "dec_0829bf1c94adf7f1",
+      "id": "dec_6a666623a16f22f0",
       "kind": "weekly_gtm",
-      "title": "Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach",
+      "title": "Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach",
       "trace": {
         "evidence": [
-          "obs_cb552691a9ca3c4a",
-          "obs_3f6a6536ee7d77bf",
-          "obs_b3730915238eb65d",
-          "obs_e087747834cb476d",
-          "obs_8af4969ddc7b228e",
-          "obs_476bc02a7ab08691",
-          "obs_08cd27f17151d5ad",
-          "obs_b2b425b28a34f4a0",
-          "obs_cd2e240af946dd60",
-          "obs_8d8ad1d0820f13e3",
-          "obs_702b2ad5f78f97cb",
-          "obs_32841bd07245f0a5"
+          "obs_ca6098774a81f093",
+          "obs_23de10da28624ce2",
+          "obs_a061321808c8d059",
+          "obs_710f0fda525b8083",
+          "obs_c42e84f0ee301e67",
+          "obs_7c72a593c611e577",
+          "obs_6dee77d80966ced9",
+          "obs_7eb537425c487eed",
+          "obs_fbd42e7cbd7931e9",
+          "obs_04d0c3eedefecce1",
+          "obs_8bff8137f7c8385c",
+          "obs_828e3d9a30e837e9"
         ],
-        "hypothesis": "Startups & SMB engagement moved +205% week over week (64 vs 21 signals), led by website visit.",
-        "reasoning": "The strongest momentum is in Startups & SMB while Startups & SMB is at 205%. 10 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
-        "action": "Publish one website visit-focused piece for Startups & SMB and start outreach with the 10 hot leads; open retention conversations with the 1 fading champions."
+        "hypothesis": "High-value consumers engagement moved +215% week over week (1,020 vs 324 signals), led by signup.",
+        "reasoning": "The strongest momentum is in High-value consumers while Browsing consumers is at 18%. 1,349 people currently show high buying intent and 10 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
+        "action": "Publish one signup-focused piece for High-value consumers and start outreach with the top 40 of 1,349 hot leads; open retention conversations with the 10 fading champions."
       },
       "confidence": 0.94,
       "baseConfidence": 0.85,
       "priors": [
         {
-          "decisionId": "dec_ddc16c472753aaaf",
-          "title": "Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach",
-          "similarity": 0.98,
+          "decisionId": "dec_292f21b8691af00d",
+          "title": "Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach",
+          "similarity": 1,
           "verdict": "winner",
-          "attainment": 1.2,
-          "outcome": "{\"achieved\":6}"
+          "attainment": 1.05,
+          "outcome": "{\"achieved\":21}"
         }
       ],
       "expected": {
         "metric": "qualified_conversations",
-        "target": 5
+        "target": 20
       },
       "status": "proposed",
       "model": "mock",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:27:10.541Z",
+      "createdAt": "2026-07-25T12:08:05.799Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -1436,19 +4235,19 @@
       "outcome": null
     },
     {
-      "id": "dec_1f3b16956e74ca8b",
+      "id": "dec_83eadc72d0e006f6",
       "kind": "account_retention",
       "title": "Retention: re-engage Pizza Corner before it churns",
       "trace": {
         "evidence": [
-          "obs_c68e66d6bb5654a7",
-          "obs_8b57843a5e228459",
-          "obs_0cac482344d9fb05",
-          "obs_2ba719d3849d65f9"
+          "obs_746aa3b14e52dd56",
+          "obs_96dcd7be6f0eaa5a",
+          "obs_4bd9578b8c5efbc9",
+          "obs_b2cd99696a6501bc"
         ],
-        "hypothesis": "Pizza Corner (1 contact, $6400 MRR observed) has gone quiet — engagement down 100% vs its prior baseline.",
-        "reasoning": "Previously engaged accounts that stop engaging are the highest-probability revenue loss; 0 signals in the last 7 days while payments continue — usage decay precedes contraction.",
-        "action": "Schedule a retention check-in with Pizza Corner this week; lead with what changed for them, not with product news."
+        "hypothesis": "Pizza Corner (1 contact, €6,400 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.",
+        "reasoning": "Previously engaged partners that stop engaging are the highest-probability revenue loss; 0 signals in the last 7 days.",
+        "action": "Schedule a partner retention check-in with Pizza Corner this week; lead with what changed for them, not with product news."
       },
       "confidence": 0.85,
       "baseConfidence": 0.85,
@@ -1460,7 +4259,7 @@
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:27:10.497Z",
+      "createdAt": "2026-07-25T12:07:56.126Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -1468,35 +4267,31 @@
       "outcome": null
     },
     {
-      "id": "dec_47b24ecd117f695f",
-      "kind": "platform_allocation",
-      "title": "Invest in google this week",
+      "id": "dec_802bb19ef194f09a",
+      "kind": "account_retention",
+      "title": "Retention: re-engage Golden Tandoor before it churns",
       "trace": {
         "evidence": [
-          "obs_2c4195038373cb0d",
-          "obs_ba0aff404f0cf413",
-          "obs_de3e64f8be68e946",
-          "obs_5341bf9397e3d364",
-          "obs_8994d09be9393658",
-          "obs_28c82f120805882a",
-          "obs_2a4d5df68d70730b",
-          "obs_88999cb3f35acb5b"
+          "obs_7065b7a78a56cd0c",
+          "obs_798b4c5a07d270d8",
+          "obs_fa586d6be7ed2a97",
+          "obs_49272026676a98bb"
         ],
-        "hypothesis": "google is the highest-yield channel right now: 6 signals this week vs 2 prior (+200%), quality 77/100, avg intent 0.71.",
-        "reasoning": "6 of 7 people observed via google were active in the last 7 days and 100% are hot leads — the best engagement-per-person of 8 sources.",
-        "action": "Concentrate this week's content and outreach on google (top drivers: pricing_view)."
+        "hypothesis": "Golden Tandoor (1 contact, €11,908 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.",
+        "reasoning": "Previously engaged partners that stop engaging are the highest-probability revenue loss; 0 signals in the last 7 days while 138 consumer orders still flow to them — partner disengagement precedes delisting.",
+        "action": "Schedule a partner retention check-in with Golden Tandoor this week; lead with what changed for them, not with product news."
       },
-      "confidence": 0.83,
-      "baseConfidence": 0.83,
+      "confidence": 0.85,
+      "baseConfidence": 0.85,
       "priors": [],
       "expected": {
-        "metric": "active_people_google",
-        "target": 8
+        "metric": "reactivation_signals_14d",
+        "target": 2
       },
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:27:10.492Z",
+      "createdAt": "2026-07-25T12:07:55.863Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -1504,53 +4299,121 @@
       "outcome": null
     },
     {
-      "id": "dec_ddc16c472753aaaf",
-      "kind": "weekly_gtm",
-      "title": "Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach",
+      "id": "dec_5e6bc4527ec8685f",
+      "kind": "account_retention",
+      "title": "Retention: re-engage Golden Wok before it churns",
       "trace": {
         "evidence": [
-          "obs_702b2ad5f78f97cb",
-          "obs_32841bd07245f0a5",
-          "obs_ba3788e1ddbab7e0",
-          "obs_481a8e5057c576a8",
-          "obs_e087747834cb476d",
-          "obs_8af4969ddc7b228e",
-          "obs_476bc02a7ab08691",
-          "obs_3f6a6536ee7d77bf",
-          "obs_b3730915238eb65d",
-          "obs_ba0aff404f0cf413",
-          "obs_44d7dac375d5fda6",
-          "obs_2a4d5df68d70730b"
+          "obs_c629cd80849d7ca1",
+          "obs_3599ad8ff0a41b9f",
+          "obs_9f5bba555de02599",
+          "obs_b25db3a5fa10cd37"
         ],
-        "hypothesis": "Startups & SMB engagement moved +181% week over week (59 vs 21 signals), led by website visit.",
-        "reasoning": "The strongest momentum is in Startups & SMB while Startups & SMB is at 181%. 10 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
-        "action": "Publish one website visit-focused piece for Startups & SMB and start outreach with the 10 hot leads; open retention conversations with the 1 fading champions."
+        "hypothesis": "Golden Wok (1 contact, €28,235 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.",
+        "reasoning": "Previously engaged partners that stop engaging are the highest-probability revenue loss; 0 signals in the last 7 days while 369 consumer orders still flow to them — partner disengagement precedes delisting.",
+        "action": "Schedule a partner retention check-in with Golden Wok this week; lead with what changed for them, not with product news."
+      },
+      "confidence": 0.85,
+      "baseConfidence": 0.85,
+      "priors": [],
+      "expected": {
+        "metric": "reactivation_signals_14d",
+        "target": 2
+      },
+      "status": "proposed",
+      "model": "rules",
+      "resolutionLevel": 0,
+      "createdAt": "2026-07-25T12:07:55.571Z",
+      "reused": false,
+      "verdict": null,
+      "attainment": null,
+      "calibrationError": null,
+      "outcome": null
+    },
+    {
+      "id": "dec_8592d2bd702f601a",
+      "kind": "platform_allocation",
+      "title": "Invest more in instagram this week",
+      "trace": {
+        "evidence": [
+          "obs_94f850f27b54f42d",
+          "obs_0f0de8ecfa75d15f",
+          "obs_4e35db276ff1e8bb",
+          "obs_4d313b301065f355",
+          "obs_5898016821c7eb6e",
+          "obs_b3420ab6ffdc05dc",
+          "obs_a10609668e5907d8",
+          "obs_b735a180ad316d1d"
+        ],
+        "hypothesis": "instagram is the highest-yield growth channel right now: 1,642 new users this week (vs 1,275 prior), 2,186 signals (+30%), order conversion 22%, 13 merchant enquiries in 14d.",
+        "reasoning": "Of 6 acquisition channels, instagram combines the best quality (24/100: intent 0.09, cohort conversion 22%) AND it feeds the supply side — merchant enquiries arrive through it, so investment compounds on both sides of the marketplace. tiktok grows fast (+45%) but converts at 11% with 1 merchant leads — keep it for B2C awareness, don't raise merchant-acquisition budget there.",
+        "action": "Shift this week's growth budget toward instagram (top drivers: signup, website_visit, form_submit, demo_request); also increase google paid budget (order conversion 50%); hold tiktok at current spend for awareness only."
+      },
+      "confidence": 0.74,
+      "baseConfidence": 0.74,
+      "priors": [],
+      "expected": {
+        "metric": "new_signups_instagram",
+        "target": 1888
+      },
+      "status": "superseded",
+      "model": "rules",
+      "resolutionLevel": 0,
+      "createdAt": "2026-07-25T12:07:55.124Z",
+      "reused": false,
+      "verdict": null,
+      "attainment": null,
+      "calibrationError": null,
+      "outcome": null
+    },
+    {
+      "id": "dec_292f21b8691af00d",
+      "kind": "weekly_gtm",
+      "title": "Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach",
+      "trace": {
+        "evidence": [
+          "obs_710f0fda525b8083",
+          "obs_c42e84f0ee301e67",
+          "obs_7c72a593c611e577",
+          "obs_8bff8137f7c8385c",
+          "obs_828e3d9a30e837e9",
+          "obs_c1129ec47c508c76",
+          "obs_0bdd515b53a84112",
+          "obs_b642f1f2d217f5d7",
+          "obs_6a9a11774058a6ee",
+          "obs_ed423a0e29f75037",
+          "obs_7e14c6fcb8128d13",
+          "obs_0617e2276b7428b8"
+        ],
+        "hypothesis": "High-value consumers engagement moved +215% week over week (1,020 vs 324 signals), led by signup.",
+        "reasoning": "The strongest momentum is in High-value consumers while Browsing consumers is at 18%. 1,347 people currently show high buying intent and 10 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
+        "action": "Publish one signup-focused piece for High-value consumers and start outreach with the top 40 of 1,347 hot leads; open retention conversations with the 10 fading champions."
       },
       "confidence": 0.85,
       "baseConfidence": 0.85,
       "priors": [],
       "expected": {
         "metric": "qualified_conversations",
-        "target": 5
+        "target": 20
       },
       "status": "completed",
       "model": "mock",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:27:10.490Z",
+      "createdAt": "2026-07-25T12:07:54.975Z",
       "reused": false,
       "verdict": "winner",
-      "attainment": 1.2,
+      "attainment": 1.05,
       "calibrationError": -0.15,
       "outcome": {
         "metrics": {
-          "achieved": 6
+          "achieved": 21
         },
         "note": "demo: outreach ran, merchant conversations booked"
       }
     }
   ],
   "evaluation": {
-    "decisionsTotal": 5,
+    "decisionsTotal": 7,
     "accepted": 1,
     "dismissed": 0,
     "acceptanceRate": 1,
@@ -1560,16 +4423,16 @@
     "costPerInsight": 0,
     "history": [
       {
-        "decisionId": "dec_ddc16c472753aaaf",
-        "title": "Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach",
+        "decisionId": "dec_292f21b8691af00d",
+        "title": "Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach",
         "expected": {
           "metric": "qualified_conversations",
-          "target": 5
+          "target": 20
         },
         "actual": {
-          "achieved": 6
+          "achieved": 21
         },
-        "attainment": 1.2,
+        "attainment": 1.05,
         "verdict": "winner",
         "calibrationError": -0.15
       }
@@ -1590,47 +4453,47 @@
       {
         "level": 0,
         "label": "L0 rules/SQL",
-        "ops": 42,
-        "pct": 58,
+        "ops": 49364,
+        "pct": 99,
         "costUsd": 0
       },
       {
         "level": 1,
         "label": "L1 embeddings",
-        "ops": 5,
-        "pct": 7,
+        "ops": 7,
+        "pct": 0,
         "costUsd": 0
       },
       {
         "level": 2,
         "label": "L2 small LLM",
-        "ops": 26,
-        "pct": 36,
+        "ops": 390,
+        "pct": 1,
         "costUsd": 0
       }
     ],
     "totalSpendUsd": 0,
-    "insights": 35,
+    "insights": 24879,
     "costPerInsight": 0,
-    "cacheHits": 1,
-    "cacheEntries": 27
+    "cacheHits": 319,
+    "cacheEntries": 73
   },
-  "digest": "# Weekly Growth Decisions\n\n1. **Invest in webhook this week** _(where to invest)_\n   Reason: webhook is the highest-yield channel right now: 5 signals this week vs 0 prior (+500%), quality 85/100, avg intent 0.75.\n   Action: Concentrate this week's content and outreach on webhook (top drivers: demo_request, pricing_view, form_submit).\n   Evidence: obs_b2b425b28a34f4a0, obs_cb552691a9ca3c4a, obs_8d8ad1d0820f13e3, obs_cd2e240af946dd60\n   Confidence: 0.77 · Expected: 4 active_people_webhook\n\n2. **Invest in google this week** _(where to invest)_\n   Reason: google is the highest-yield channel right now: 6 signals this week vs 2 prior (+200%), quality 77/100, avg intent 0.71.\n   Action: Concentrate this week's content and outreach on google (top drivers: pricing_view).\n   Evidence: obs_2c4195038373cb0d, obs_ba0aff404f0cf413, obs_de3e64f8be68e946, obs_5341bf9397e3d364\n   Confidence: 0.83 · Expected: 8 active_people_google\n\n3. **Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach** _(who to contact)_\n   Reason: Startups & SMB engagement moved +205% week over week (64 vs 21 signals), led by website visit.\n   Action: Publish one website visit-focused piece for Startups & SMB and start outreach with the 10 hot leads; open retention conversations with the 1 fading champions.\n   Evidence: obs_cb552691a9ca3c4a, obs_3f6a6536ee7d77bf, obs_b3730915238eb65d, obs_e087747834cb476d\n   Confidence: 0.94 · Expected: 5 qualified_conversations · memory: 98% similar to a past winner\n\n4. **Retention: re-engage Pizza Corner before it churns** _(account to save)_\n   Reason: Pizza Corner (1 contact, $6400 MRR observed) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a retention check-in with Pizza Corner this week; lead with what changed for them, not with product news.\n   Evidence: obs_c68e66d6bb5654a7, obs_8b57843a5e228459, obs_0cac482344d9fb05, obs_2ba719d3849d65f9\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n## Platform comparison (observed engagement per source)\n- **webhook** — 3 people · 5 signals 7d (+500%) · quality 85/100 · intent 0.75 → **double down**\n- **google** — 7 people · 6 signals 7d (+200%) · quality 77/100 · intent 0.71 → **double down**\n- **newsletter** — 4 people · 7 signals 7d (+75%) · quality 73/100 · intent 0.55 → **double down**\n- **instagram** — 13 people · 12 signals 7d (+200%) · quality 70/100 · intent 0.6 → **double down**\n- **tiktok** — 10 people · 11 signals 7d (+267%) · quality 69/100 · intent 0.49 → **double down**\n- **orders** — 17 people · 14 signals 7d (+133%) · quality 68/100 · intent 0.58 → **double down**\n- **linkedin** — 4 people · 4 signals 7d (+300%) · quality 64/100 · intent 0.57 → **double down**\n- **referral** — 3 people · 2 signals 7d (+100%) · quality 51/100 · intent 0.41 → **double down**\n- **crm** — 12 people · 0 signals 7d (+0%) · quality 21/100 · intent 0.35 → **nurture**\n\n## Hot leads (evidence for the who-to-contact decision)\n1. **Ken Yamada** — Managing Director, Sushi Rocket · intent 0.83 · Expansion conversation — active buying motion\n   signals: demo_request×2, payment×1 · evidence: obs_cb552691a9ca3c4a, obs_3f6a6536ee7d77bf, obs_b3730915238eb65d\n2. **Sara Kim** — Founder & CEO, Green Bowl · intent 0.76 · Expansion conversation — active buying motion\n   signals: form_submit×3, payment×1 · evidence: obs_e087747834cb476d, obs_8af4969ddc7b228e, obs_476bc02a7ab08691\n3. **Eli Fischer** — Owner, Skybite Pizza · intent 0.83 · Direct sales outreach — explicit hand-raise\n   signals: form_submit×1, demo_request×1, pricing_view×1 · evidence: obs_b2b425b28a34f4a0, obs_cd2e240af946dd60, obs_8d8ad1d0820f13e3\n4. **Lena Ortiz** — Owner, Burger Factory · intent 0.82 · Expansion conversation — active buying motion\n   signals: form_submit×1, demo_request×1, payment×2 · evidence: obs_702b2ad5f78f97cb, obs_32841bd07245f0a5, obs_ba3788e1ddbab7e0\n5. **Ben Novak** — unknown, consumer · intent 0.89 · Expansion conversation — active buying motion\n   signals: payment×2, pricing_view×2, website_visit×4, newsletter_open×2, newsletter_click×1 · evidence: obs_ba0aff404f0cf413, obs_44d7dac375d5fda6, obs_2a4d5df68d70730b\n\n## Going quiet\n- **Marco Rossi** (Pizza Corner) — engagement down 100% · Retention check-in — engagement dropped sharply\n\n## Audience\n- 28 people · 13 restaurant partners · +28 people this week · 97 observations\n\n## Engine health\n- Decisions: 5 total · acceptance 1 · success 1 · mean calibration error 0.15\n- AI spend: $0 of $15 (full) · cost per insight $0 · cache hits 1\n- Work distribution: L0 rules/SQL 58% · L1 embeddings 7% · L2 small LLM 36%",
+  "digest": "# Weekly Growth Decisions\n\n1. **Invest more in instagram this week** _(where to invest)_\n   Reason: instagram is the highest-yield growth channel right now: 1,641 new users this week (vs 1,276 prior), 2,185 signals (+29%), order conversion 22%, 13 merchant enquiries in 14d.\n   Action: Shift this week's growth budget toward instagram (top drivers: signup, website_visit, form_submit, demo_request); also increase google paid budget (order conversion 50%); hold tiktok at current spend for awareness only.\n   Evidence: obs_94f850f27b54f42d, obs_0f0de8ecfa75d15f, obs_4e35db276ff1e8bb, obs_4d313b301065f355\n   Confidence: 0.74 · Expected: 1887 new_signups_instagram\n\n2. **Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach** _(who to contact)_\n   Reason: High-value consumers engagement moved +215% week over week (1,020 vs 324 signals), led by signup.\n   Action: Publish one signup-focused piece for High-value consumers and start outreach with the top 40 of 1,349 hot leads; open retention conversations with the 10 fading champions.\n   Evidence: obs_ca6098774a81f093, obs_23de10da28624ce2, obs_a061321808c8d059, obs_710f0fda525b8083\n   Confidence: 0.94 · Expected: 20 qualified_conversations · memory: 100% similar to a past winner\n\n3. **Retention: re-engage Pizza Corner before it churns** _(account to save)_\n   Reason: Pizza Corner (1 contact, €6,400 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a partner retention check-in with Pizza Corner this week; lead with what changed for them, not with product news.\n   Evidence: obs_746aa3b14e52dd56, obs_96dcd7be6f0eaa5a, obs_4bd9578b8c5efbc9, obs_b2cd99696a6501bc\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n4. **Retention: re-engage Golden Tandoor before it churns** _(account to save)_\n   Reason: Golden Tandoor (1 contact, €11,908 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a partner retention check-in with Golden Tandoor this week; lead with what changed for them, not with product news.\n   Evidence: obs_7065b7a78a56cd0c, obs_798b4c5a07d270d8, obs_fa586d6be7ed2a97, obs_49272026676a98bb\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n5. **Retention: re-engage Golden Wok before it churns** _(account to save)_\n   Reason: Golden Wok (1 contact, €28,235 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a partner retention check-in with Golden Wok this week; lead with what changed for them, not with product news.\n   Evidence: obs_c629cd80849d7ca1, obs_3599ad8ff0a41b9f, obs_9f5bba555de02599, obs_b25db3a5fa10cd37\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n## Platform comparison (observed engagement per source — never follower counts)\n- **google** — 5,209 people · +772 new/wk · signals +8% · conversion 50% · repeat 49% · 2 merchant leads · quality 46/100 → **increase budget**\n- **referral** — 1,559 people · +418 new/wk · signals +10% · conversion 48% · repeat 52% · 1 merchant leads · quality 43/100 → **expand incentives**\n- **newsletter** — 2,020 people · +260 new/wk · signals +3% · conversion 46% · repeat 62% · 1 merchant leads · quality 43/100 → **protect**\n- **instagram** — 7,641 people · +1,641 new/wk · signals +29% · conversion 22% · repeat 33% · 13 merchant leads · quality 24/100 → **double down**\n- **linkedin** — 965 people · +194 new/wk · signals +18% · conversion 18% · repeat 18% · 11 merchant leads · quality 18/100 → **double down**\n- **tiktok** — 7,321 people · +1,899 new/wk · signals +45% · conversion 11% · repeat 17% · 1 merchant leads · quality 15/100 → **maintain (B2C awareness)**\n\n## Merchant leads (evidence for the who-to-contact decision)\n1. **Eli Fischer** — Owner, Skybite Pizza · intent 0.83 · Sales outreach — explicit partner hand-raise\n   signals: demo_request×1, form_submit×1, pricing_view×1 · evidence: obs_ca6098774a81f093, obs_23de10da28624ce2, obs_a061321808c8d059\n2. **Sara Kim** — Founder & CEO, Green Bowl · intent 0.76 · Sales outreach — explicit partner hand-raise\n   signals: form_submit×3, payment×1 · evidence: obs_710f0fda525b8083, obs_c42e84f0ee301e67, obs_7c72a593c611e577\n3. **Ken Yamada** — Managing Director, Sushi Rocket · intent 0.83 · Sales outreach — explicit partner hand-raise\n   signals: demo_request×2, payment×1 · evidence: obs_7eb537425c487eed, obs_fbd42e7cbd7931e9, obs_04d0c3eedefecce1\n4. **Lena Ortiz** — Owner, Burger Factory · intent 0.82 · Sales outreach — explicit partner hand-raise\n   signals: form_submit×1, demo_request×1, payment×2 · evidence: obs_6a9a11774058a6ee, obs_ed423a0e29f75037, obs_7e14c6fcb8128d13\n5. **Priya Sharma** — Co-Founder, Vegan Vista · intent 0.6 · Sales outreach — explicit partner hand-raise\n   signals: pricing_view×1, form_submit×1 · evidence: obs_0e1e7af7b3991180, obs_a9c4f79561e8d7a8\n\nTop consumers: Tara Fuchs (0.97 — Second-order nudge — personalized picks) · Anton Groß (0.95 — Second-order nudge — personalized picks) · Paul Schubert (0.94 — Second-order nudge — personalized picks)\n\n## Going quiet\n- **Sven Roth** (consumer) — engagement down 100% · Win-back offer — lapsed customer\n- **Marco Rossi** (Pizza Corner) — engagement down 100% · Partner retention check-in — engagement dropped sharply\n- **Emil Albrecht** (consumer) — engagement down 100% · Win-back offer — lapsed customer\n\n## Audience\n- 24,870 people (24,670 consumers · 200 merchant contacts) · +5,219 new users this week\n- 4,271 orders this week (€136,158) · 200 restaurant partners · 40,838 observations\n\n## Engine health\n- Decisions: 7 total · acceptance 1 · success 1 · mean calibration error 0.15\n- AI spend: $0 of $15 (full) · cost per insight $0 · cache hits 319\n- Work distribution: L0 rules/SQL 99% · L1 embeddings 0% · L2 small LLM 1%",
   "reviewQueue": [
     {
       "from": {
-        "id": "per_f27d27051461c381",
+        "id": "per_4b9cc6f23e0fc829",
         "display_name": "Sara K.",
         "company": "Green Bowl"
       },
       "to": {
-        "id": "per_7fabbc05a12ae212",
+        "id": "per_0ea2e37379f78721",
         "display_name": "Sara Kim",
         "company": "Green Bowl"
       },
       "confidence": 0.845,
       "evidence": [
-        "obs_08cd27f17151d5ad"
+        "obs_6dee77d80966ced9"
       ],
       "keys": [
         "name:sara k."

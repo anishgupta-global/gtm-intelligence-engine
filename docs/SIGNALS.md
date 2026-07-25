@@ -24,6 +24,7 @@ Every event entering the engine becomes a **typed signal** — connectors map ra
 | Signal type | Typical source | Intent weight |
 | --- | --- | --- |
 | `crm_contact` | CRM export/import | 0 (profile data, not behavior) |
+| `signup` | your own app/newsletter, attributed to the acquiring channel via UTM/referral | 6 |
 | `website_visit` | analytics webhook | 4 |
 | `pricing_view` | analytics webhook | 25 |
 | `docs_view` | analytics webhook | 8 |

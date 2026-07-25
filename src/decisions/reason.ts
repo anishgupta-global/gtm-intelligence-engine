@@ -3,7 +3,8 @@ import { j, pj } from '../db.js';
 import { id, now, sha256, clamp, localEmbed } from '../util.js';
 import { config } from '../config.js';
 import { audienceSummary } from '../intelligence/segments.js';
-import { hotLeads, fadingChampions } from '../intelligence/scores.js';
+import { hotLeads, hotLeadCount, fadingChampions } from '../intelligence/scores.js';
+import type { Workspace } from '../intelligence/bulk.js';
 import { ledger, guardLlm, BudgetExhaustedError } from '../cost/router.js';
 import { cacheGet, cachePut } from '../cost/cache.js';
 import { MockProvider, type LLMProvider, type RecommendationDraft } from '../ai/provider.js';
@@ -21,8 +22,8 @@ import { logEvent } from '../pipeline/events.js';
 
 export const DECISION_KIND = 'weekly_gtm';
 
-export function buildAggregates(db: DB): { agg: Aggregates; evidence: string[] } {
-  const summary = audienceSummary(db);
+export function buildAggregates(db: DB, ws?: Workspace): { agg: Aggregates; evidence: string[] } {
+  const summary = audienceSummary(db, ws);
   const hot = hotLeads(db, { limit: 10 });
   const fading = fadingChampions(db, 10);
   const topSignals14 = (db.prepare(
@@ -40,7 +41,7 @@ export function buildAggregates(db: DB): { agg: Aggregates; evidence: string[] }
   const agg: Aggregates = {
     audiencePeople: summary.people,
     newPeople7: summary.newPeople7,
-    hotLeadCount: hot.length,
+    hotLeadCount: hotLeadCount(db),
     fadingCount: fading.length,
     segments: summary.segments,
     topSignals14,
@@ -67,8 +68,8 @@ export interface DecisionRecord {
   reused: boolean;
 }
 
-export async function generateRecommendation(db: DB, provider: LLMProvider): Promise<DecisionRecord> {
-  const { agg, evidence } = buildAggregates(db);
+export async function generateRecommendation(db: DB, provider: LLMProvider, ws?: Workspace): Promise<DecisionRecord> {
+  const { agg, evidence } = buildAggregates(db, ws);
   const inputHash = sha256('rec-v1:' + j(agg));
 
   const existing = db.prepare(
@@ -121,13 +122,24 @@ export async function generateRecommendation(db: DB, provider: LLMProvider): Pro
   });
 }
 
-/** Shared persistence for every decision pack — one loop, one memory, one evaluation path. */
+/** Shared persistence for every decision pack — one loop, one memory, one evaluation path.
+ *  A fresh decision supersedes prior PROPOSED (never acted on) decisions of the same kind —
+ *  one open call per question. Accepted/completed decisions are history and stay untouched.
+ *  `supersedeScope` narrows this for per-entity kinds (e.g. retention per company). */
 export function persistDecision(db: DB, d: {
   kind: string; title: string; context: unknown;
   trace: { evidence: string[]; hypothesis: string; reasoning: string; action: string };
   confidence: number; baseConfidence: number; priors: MemoryPrior[]; embedding: number[];
   expected: { metric: string; target: number }; inputHash: string; level: number; model: string;
+  supersedeScope?: string;
 }): DecisionRecord {
+  if (d.supersedeScope !== undefined) {
+    db.prepare(`UPDATE decisions SET status = 'superseded' WHERE tenant = ? AND kind = ? AND status = 'proposed' AND context LIKE ?`).run(
+      config.tenant, d.kind, `%${d.supersedeScope}%`
+    );
+  } else {
+    db.prepare(`UPDATE decisions SET status = 'superseded' WHERE tenant = ? AND kind = ? AND status = 'proposed'`).run(config.tenant, d.kind);
+  }
   const decisionId = id('dec');
   db.prepare(
     `INSERT INTO decisions (id, tenant, kind, title, context, trace, confidence, base_confidence, prior, embedding, expected, status, input_hash, resolution_level, model, created_at)

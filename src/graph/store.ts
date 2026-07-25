@@ -2,7 +2,7 @@ import type { DB } from '../db.js';
 import { j, pj } from '../db.js';
 import { id, now } from '../util.js';
 import { config } from '../config.js';
-import { listActivePersons, getPersonObservations } from '../identity/resolve.js';
+import { loadWorkspace, type Workspace } from '../intelligence/bulk.js';
 import { logEvent } from '../pipeline/events.js';
 
 /** Entity graph on plain SQL tables. Postgres/Neo4j can replace this behind the same functions (ADR-0006). */
@@ -23,40 +23,57 @@ export function upsertEdge(db: DB, type: string, fromId: string, toId: string, p
   ).run(id('edg'), config.tenant, type, fromId, toId, confidence, j(provenance.slice(0, 10)), now());
 }
 
-/** Derive graph edges from resolved persons + their observations. Idempotent. */
-export function buildGraph(db: DB): { entities: number; edges: number } {
+/** Derive graph edges from resolved persons + their observations. Idempotent, bulk, transactional. */
+export function buildGraph(db: DB, ws: Workspace = loadWorkspace(db)): { entities: number; edges: number } {
   let edges = 0;
-  for (const person of listActivePersons(db)) {
-    const obs = getPersonObservations(db, person.id);
-    if (person.company) {
-      const companyAttrs: Record<string, unknown> = {};
+  const entityCache = new Map<string, string>();
+  const ent = (type: string, name: string, attrs: Record<string, unknown> = {}): string => {
+    const k = `${type}:${name}`;
+    let eid = entityCache.get(k);
+    if (!eid) entityCache.set(k, (eid = upsertEntity(db, type, name, attrs)));
+    return eid;
+  };
+  db.exec('BEGIN');
+  try {
+    for (const person of ws.persons) {
+      const obs = ws.obsByPerson.get(person.id) ?? [];
+      if (person.company) {
+        const companyAttrs: Record<string, unknown> = {};
+        for (const o of obs) {
+          if (o.actor?.employees) companyAttrs.employees = o.actor.employees;
+          if (o.actor?.industry) companyAttrs.industry = o.actor.industry;
+        }
+        const cid = ent('company', person.company, companyAttrs);
+        upsertEdge(db, 'WORKS_AT', person.id, cid, obs.slice(0, 5).map((o) => o.id));
+        edges++;
+      }
       for (const o of obs) {
-        const a = pj<any>(o.payload)?.actor ?? {};
-        if (a.employees) companyAttrs.employees = a.employees;
-        if (a.industry) companyAttrs.industry = a.industry;
-      }
-      const cid = upsertEntity(db, 'company', person.company, companyAttrs);
-      upsertEdge(db, 'WORKS_AT', person.id, cid, obs.slice(0, 5).map((o: any) => o.id));
-      edges++;
-    }
-    for (const o of obs) {
-      const props = pj<any>(o.payload)?.props ?? {};
-      if (o.signal_type === 'repo_star' || o.signal_type === 'repo_issue') {
-        const rid = upsertEntity(db, 'repo', String(props.repo ?? 'unknown'));
-        upsertEdge(db, 'ENGAGED_WITH', person.id, rid, [o.id]);
-        edges++;
-      }
-      if (o.signal_type === 'payment' || o.signal_type === 'trial_started') {
-        const prid = upsertEntity(db, 'product', String(props.plan ?? 'default'));
-        upsertEdge(db, 'PURCHASED', person.id, prid, [o.id]);
-        edges++;
-      }
-      if (props.topic) {
-        const tid = upsertEntity(db, 'topic', String(props.topic));
-        upsertEdge(db, 'INTERESTED_IN', person.id, tid, [o.id]);
-        edges++;
+        const props = o.props ?? {};
+        if (o.signal_type === 'payment' && props.restaurant && props.type !== 'partner_payout') {
+          const rid = ent('company', String(props.restaurant));
+          upsertEdge(db, 'ORDERED_FROM', person.id, rid, [o.id]);
+          edges++;
+        } else if (o.signal_type === 'payment' || o.signal_type === 'trial_started') {
+          const prid = ent('product', String(props.plan ?? 'marketplace'));
+          upsertEdge(db, 'PURCHASED', person.id, prid, [o.id]);
+          edges++;
+        }
+        if (o.signal_type === 'repo_star' || o.signal_type === 'repo_issue') {
+          const rid = ent('repo', String(props.repo ?? 'unknown'));
+          upsertEdge(db, 'ENGAGED_WITH', person.id, rid, [o.id]);
+          edges++;
+        }
+        if (props.topic) {
+          const tid = ent('topic', String(props.topic));
+          upsertEdge(db, 'INTERESTED_IN', person.id, tid, [o.id]);
+          edges++;
+        }
       }
     }
+    db.exec('COMMIT');
+  } catch (e) {
+    db.exec('ROLLBACK');
+    throw e;
   }
   const entities = (db.prepare(`SELECT COUNT(*) AS c FROM entities WHERE tenant = ?`).get(config.tenant) as any).c;
   logEvent(db, 'graph', null, { entities, edges });

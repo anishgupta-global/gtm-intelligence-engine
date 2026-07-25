@@ -1,98 +1,172 @@
 import type { DB } from '../db.js';
 import { round2 } from '../util.js';
-import { config, INTENT_WEIGHTS } from '../config.js';
+import { INTENT_WEIGHTS } from '../config.js';
+import { loadWorkspace, daysSince, isConsumerOrder, acquisitionChannel, firstObservedAt, type Workspace } from './bulk.js';
 
 /**
  * Platform intelligence — "where should you invest?" answered from data the engine
- * actually observes: engaged people, signal volume, growth, intent yield per source.
- * Deliberately NOT follower counts: most social platforms don't expose reach through
- * official APIs (PRD audit #1), and the Intelligence Law forbids showing numbers we
- * can't ground. Engagement quality per source is the honest — and more actionable — metric.
- * All L0: pure SQL + arithmetic, zero AI spend.
+ * actually observes: channel-attributed signups, engagement, first-touch cohort
+ * conversion to orders, repeat rate, merchant lead yield. Deliberately NOT follower
+ * counts: platforms don't expose follower identities via official APIs (PRD audit #1),
+ * and the Intelligence Law forbids showing numbers we can't ground. All L0.
  */
+
+/** Sources that hold events but aren't acquisition channels you can invest budget in:
+ *  orders (transactions), crm (records), webhook (inbound catch-all — hand-raises arrive
+ *  through it, but you can't "spend more on webhook"). */
+const NON_CHANNEL_SOURCES = new Set(['orders', 'crm', 'webhook']);
+
+export type PlatformCall =
+  | 'double down'
+  | 'increase budget'
+  | 'maintain (B2C awareness)'
+  | 'protect'
+  | 'expand incentives'
+  | 'nurture'
+  | 're-engage'
+  | 'reduce effort';
 
 export interface PlatformStat {
   source: string;
   people: number;
   activePeople7: number;
+  newUsers7: number;
+  newUsersPrior7: number;
   signals7: number;
   signalsPrior7: number;
   growthPct: number;
   avgIntent: number;
+  avgIntentActive: number;
   hotLeadYield: number;
+  conversion: number;
+  repeatRate: number;
+  avgOrderValue: number;
+  merchantLeads14: number;
   quality: number;
-  recommendation: 'double down' | 'nurture' | 're-engage' | 'reduce effort';
+  recommendation: PlatformCall;
   topSignals: { type: string; count: number }[];
   topPeople: { name: string; intent: number }[];
   factors: Record<string, number | string>;
 }
 
-export function platformStats(db: DB): PlatformStat[] {
-  const rows = db.prepare(
-    `SELECT DISTINCT o.id AS obs_id, o.source, o.signal_type, o.observed_at, m.person_id AS pid
-     FROM observations o
-     JOIN identifiers i ON i.observation_id = o.id AND i.tenant = o.tenant
-     JOIN person_memberships m ON m.identifier_key = (i.kind || ':' || i.value) AND m.status = 'active' AND m.tenant = o.tenant
-     JOIN persons p ON p.id = m.person_id AND p.erased = 0
-     WHERE o.tenant = ? AND o.erased = 0`
-  ).all(config.tenant) as any[];
+interface Acc {
+  persons: Set<string>;
+  active7: Set<string>;
+  s7: number;
+  sPrior7: number;
+  types: Map<string, number>;
+  // first-touch cohort
+  cohort: Set<string>;
+  cohortNew7: number;
+  cohortNewPrior7: number;
+  cohortOrdered: Set<string>;
+  cohortRepeat: Set<string>;
+  cohortOrderRevenue: number;
+  cohortOrderCount: number;
+  merchantLeads14: number;
+}
 
-  const intent = new Map<string, number>();
-  for (const s of db.prepare(`SELECT entity_id, value FROM scores WHERE tenant = ? AND score_type = 'intent'`).all(config.tenant) as any[]) {
-    intent.set(s.entity_id, s.value);
-  }
-  const names = new Map<string, string>();
-  for (const p of db.prepare(`SELECT id, display_name FROM persons WHERE tenant = ? AND erased = 0`).all(config.tenant) as any[]) {
-    names.set(p.id, p.display_name);
+export function platformStats(db: DB, ws: Workspace = loadWorkspace(db)): PlatformStat[] {
+  const bySource = new Map<string, Acc>();
+  const acc = (source: string): Acc => {
+    let a = bySource.get(source);
+    if (!a) bySource.set(source, (a = {
+      persons: new Set(), active7: new Set(), s7: 0, sPrior7: 0, types: new Map(),
+      cohort: new Set(), cohortNew7: 0, cohortNewPrior7: 0, cohortOrdered: new Set(),
+      cohortRepeat: new Set(), cohortOrderRevenue: 0, cohortOrderCount: 0, merchantLeads14: 0,
+    }));
+    return a;
+  };
+  const names = new Map(ws.persons.map((p) => [p.id, p.display_name]));
+  const isMerchant = new Map(ws.persons.map((p) => [p.id, !!p.company]));
+
+  for (const person of ws.persons) {
+    const obs = ws.obsByPerson.get(person.id) ?? [];
+    // engagement per source
+    for (const o of obs) {
+      if (NON_CHANNEL_SOURCES.has(o.source)) continue;
+      const a = acc(o.source);
+      a.persons.add(person.id);
+      const behavioral = (INTENT_WEIGHTS[o.signal_type] ?? 0) > 0;
+      if (!behavioral) continue;
+      const days = daysSince(o.observed_at);
+      if (days <= 7) { a.s7++; a.active7.add(person.id); }
+      else if (days <= 14) a.sPrior7++;
+      a.types.set(o.signal_type, (a.types.get(o.signal_type) ?? 0) + 1);
+      if ((o.signal_type === 'form_submit' || o.signal_type === 'demo_request') && isMerchant.get(person.id) && days <= 14) a.merchantLeads14++;
+    }
+    // first-touch cohort economics (channel that acquired this person)
+    const channel = acquisitionChannel(obs);
+    if (!channel || NON_CHANNEL_SOURCES.has(channel)) continue;
+    const a = acc(channel);
+    a.cohort.add(person.id);
+    const first = firstObservedAt(obs);
+    if (first) {
+      const fd = daysSince(first);
+      if (fd <= 7) a.cohortNew7++;
+      else if (fd <= 14) a.cohortNewPrior7++;
+    }
+    const orders = obs.filter(isConsumerOrder);
+    if (orders.length >= 1) a.cohortOrdered.add(person.id);
+    if (orders.length >= 2) a.cohortRepeat.add(person.id);
+    a.cohortOrderCount += orders.length;
+    a.cohortOrderRevenue += orders.reduce((s, o) => s + Number(o.props?.amount ?? 0), 0);
   }
 
-  const bySource = new Map<string, { persons: Set<string>; active7: Set<string>; s7: number; sPrior7: number; types: Map<string, number>; seenObs: Set<string> }>();
-  for (const r of rows) {
-    if (!bySource.has(r.source)) bySource.set(r.source, { persons: new Set(), active7: new Set(), s7: 0, sPrior7: 0, types: new Map(), seenObs: new Set() });
-    const s = bySource.get(r.source)!;
-    s.persons.add(r.pid);
-    if (s.seenObs.has(r.obs_id)) continue;
-    s.seenObs.add(r.obs_id);
-    const behavioral = (INTENT_WEIGHTS[r.signal_type] ?? 0) > 0;
-    const days = (Date.now() - Date.parse(r.observed_at)) / 86_400_000;
-    if (behavioral && days <= 7) { s.s7++; s.active7.add(r.pid); }
-    else if (behavioral && days <= 14) s.sPrior7++;
-    if (behavioral) s.types.set(r.signal_type, (s.types.get(r.signal_type) ?? 0) + 1);
-  }
-
-  const stats: PlatformStat[] = [];
-  for (const [source, s] of bySource) {
-    const people = s.persons.size;
-    const intents = [...s.persons].map((pid) => intent.get(pid) ?? 0);
-    const avgIntent = round2(intents.reduce((a, b) => a + b, 0) / Math.max(1, intents.length));
+  const prelim = [...bySource.entries()].map(([source, a]) => {
+    const people = a.persons.size;
+    const intents = [...a.persons].map((pid) => ws.intents.get(pid) ?? 0);
+    const avgIntent = round2(intents.reduce((x, y) => x + y, 0) / Math.max(1, intents.length));
+    // quality judges the ACTIVE cohort — averaging over years of dormant users would
+    // dilute every channel toward zero and make the calls meaningless at scale
+    const activeIntents = [...a.active7].map((pid) => ws.intents.get(pid) ?? 0);
+    const avgIntentActive = round2(activeIntents.reduce((x, y) => x + y, 0) / Math.max(1, activeIntents.length));
     const hotLeadYield = round2(intents.filter((v) => v >= 0.5).length / Math.max(1, people));
-    const growthPct = Math.round(((s.s7 - s.sPrior7) / Math.max(1, s.sPrior7)) * 100);
-    const activeShare = s.active7.size / Math.max(1, people);
-    const quality = Math.round(60 * avgIntent + 40 * activeShare);
-    let recommendation: PlatformStat['recommendation'];
-    if (s.s7 === 0 && s.sPrior7 === 0) recommendation = avgIntent >= 0.3 ? 'nurture' : 'reduce effort';
-    else if (growthPct > 15 && avgIntent >= 0.35) recommendation = 'double down';
-    else if (growthPct < 0 && avgIntent >= 0.3) recommendation = 're-engage';
-    else if (growthPct < 0 || avgIntent < 0.15) recommendation = 'reduce effort';
+    const growthPct = Math.round(((a.s7 - a.sPrior7) / Math.max(1, a.sPrior7)) * 100);
+    const conversion = round2(a.cohortOrdered.size / Math.max(1, a.cohort.size));
+    const repeatRate = round2(a.cohortRepeat.size / Math.max(1, a.cohortOrdered.size));
+    const avgOrderValue = a.cohortOrdered.size ? round2(a.cohortOrderRevenue / Math.max(1, a.cohortOrderCount)) : 0;
+    const quality = Math.round(100 * (0.4 * avgIntentActive + 0.35 * conversion + 0.25 * repeatRate));
+    return {
+      source, people, activePeople7: a.active7.size,
+      newUsers7: a.cohortNew7, newUsersPrior7: a.cohortNewPrior7,
+      signals7: a.s7, signalsPrior7: a.sPrior7, growthPct, avgIntent, avgIntentActive, hotLeadYield,
+      conversion, repeatRate, avgOrderValue, merchantLeads14: a.merchantLeads14, quality,
+      topSignals: [...a.types.entries()].map(([type, count]) => ({ type, count })).sort((x, y) => y.count - x.count).slice(0, 4),
+      topPeople: [...a.persons].map((pid) => ({ name: names.get(pid) ?? 'unknown', intent: ws.intents.get(pid) ?? 0 }))
+        .sort((x, y) => y.intent - x.intent).slice(0, 3),
+    };
+  });
+
+  const sizes = prelim.map((p) => p.people).sort((x, y) => x - y);
+  const medianPeople = sizes[Math.floor(sizes.length / 2)] ?? 0;
+  const smallCohort = sizes[Math.max(0, Math.floor((sizes.length - 1) * 0.25))] ?? 0;
+  const newUserCounts = prelim.map((p) => p.newUsers7).sort((x, y) => x - y);
+  const medianNew = newUserCounts[Math.floor(newUserCounts.length / 2)] ?? 0;
+  const topLtv = Math.max(0, ...prelim.map((p) => p.avgOrderValue));
+
+  const stats: PlatformStat[] = prelim.map((p) => {
+    let recommendation: PlatformCall;
+    const declining = p.growthPct < 0;
+    if (p.signals7 === 0 && p.signalsPrior7 === 0) recommendation = p.avgIntent >= 0.3 ? 'nurture' : 'reduce effort';
+    else if (declining && p.avgIntentActive < 0.25) recommendation = 'reduce effort';
+    else if (declining) recommendation = 're-engage';
+    else if (p.repeatRate >= 0.55 && p.newUsers7 <= medianNew) recommendation = 'protect';
+    else if (p.avgOrderValue > 0 && p.avgOrderValue >= topLtv && p.people <= smallCohort * 1.05) recommendation = 'expand incentives';
+    else if (p.conversion >= 0.35 && (p.avgIntentActive >= 0.3 || p.repeatRate >= 0.4)) recommendation = 'increase budget';
+    else if (p.growthPct >= 25 && p.merchantLeads14 >= 3) recommendation = 'double down';
+    else if (p.merchantLeads14 >= 5) recommendation = 'double down';
+    else if (p.growthPct >= 25) recommendation = 'maintain (B2C awareness)';
     else recommendation = 'nurture';
-    stats.push({
-      source,
-      people,
-      activePeople7: s.active7.size,
-      signals7: s.s7,
-      signalsPrior7: s.sPrior7,
-      growthPct,
-      avgIntent,
-      hotLeadYield,
-      quality,
+    return {
+      ...p,
       recommendation,
-      topSignals: [...s.types.entries()].map(([type, count]) => ({ type, count })).sort((a, b) => b.count - a.count).slice(0, 4),
-      topPeople: [...s.persons]
-        .map((pid) => ({ name: names.get(pid) ?? 'unknown', intent: intent.get(pid) ?? 0 }))
-        .sort((a, b) => b.intent - a.intent)
-        .slice(0, 3),
-      factors: { avgIntent, activeShare: round2(activeShare), growthPct, rule: recommendation },
-    });
-  }
-  return stats.sort((a, b) => b.quality - a.quality);
+      factors: {
+        growthPct: p.growthPct, avgIntentActive: p.avgIntentActive, conversion: p.conversion,
+        repeatRate: p.repeatRate, avgOrderValue: p.avgOrderValue, merchantLeads14: p.merchantLeads14,
+        medianNewUsers: medianNew, rule: recommendation,
+      },
+    };
+  });
+  return stats.sort((x, y) => y.quality - x.quality);
 }

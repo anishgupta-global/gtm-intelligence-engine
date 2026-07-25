@@ -9,7 +9,7 @@ The engine is the product; capabilities ship as **decision packs** on one shared
 [![CI](https://github.com/anishgupta-global/gtm-intelligence-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/anishgupta-global/gtm-intelligence-engine/actions)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%E2%89%A522.13-brightgreen)
-![Version](https://img.shields.io/badge/version-1.2.0-blue)
+![Version](https://img.shields.io/badge/version-1.3.0-blue)
 
 **▶ Live demo:** https://anishgupta-global.github.io/gtm-intelligence-engine/ — the dashboard over a snapshot of the demo pipeline (fictional dataset, no signup).
 
@@ -48,7 +48,12 @@ npm run demo     # full engine walkthrough on a fictional dataset (Northwind AI)
 npm run dev      # dashboard + API at http://localhost:4100
 ```
 
-`npm run demo` walks the whole loop on the **Northwind Eats** fictional two-sided food-delivery marketplace (restaurant partners + consumers): 8 connectors ingest ~95 observations across `crm`, `instagram`, `tiktok`, `google`, `newsletter`, `referral`, `linkedin`, `orders` → identity resolves Ben Novak across 5 platforms, keeps two same-name Ana Vasquez persons separate, sends "Sara K.@Green Bowl" → "Sara Kim" to human review → three Growth-pack decisions fire from the same evidence: **where to invest** (double down on Google — highest intent), **who to contact** (Lena@Burger Factory, Sara@Green Bowl, Ken@Sushi Rocket + high-LTV consumers), and **which account to save** (Pizza Corner — €6,400 observed revenue, zero signals in 14 days) → outcome recorded → calibration learned → week-2 signals arrive (new merchant Eli@Skybite Pizza) → the next decision surfaces its memory prior → re-run with no new data reuses the decision (zero spend) → DSAR export + erasure. Weekly digest lands in `data/digest.md`.
+`npm run demo` runs the whole engine on the **Northwind Eats** fictional two-sided food-delivery marketplace at realistic scale — **~25,000 people (24.7k consumers + 180 restaurant partners), 5,200+ new users this week, ~30k observations** across 8 sources (`crm`, `instagram`, `tiktok`, `google`, `newsletter`, `referral`, `linkedin`, `orders`), seeded and deterministic, in ~30 seconds:
+
+- **Identity**: 24.9k people resolved; Ben Novak reconciled across 5 platforms; two same-name "Ana Vasquez" persons kept separate; "Sara K." → Sara Kim goes to human review at 0.845.
+- **Weekly Growth Decisions** (the digest opens with these, numbered): *Invest more in Instagram* (+1,641 new users/wk, 13 merchant enquiries — also increase Google paid budget at 50% order conversion; hold TikTok for B2C awareness only) · *who to contact* (merchant hand-raises + high-LTV consumers, memory prior attached) · *save Pizza Corner, Golden Tandoor, Golden Wok* (€6.4k–28k observed revenue at risk each, engagement collapsed).
+- **Platform comparison** with differentiated calls — double down / increase budget / maintain (B2C awareness) / protect / expand incentives / re-engage / reduce effort — computed from channel-attributed signups, first-touch cohort conversion, repeat rate, and merchant-lead yield. Never follower counts: `signup` events are new users registering on *your* app attributed to the acquiring channel via UTM — the honest, observable version of "5k followed us."
+- **The loop**: outcome recorded → calibration learned → week-2 signals → next decision carries a 100%-similar past-winner prior → unchanged data reuses decisions at zero spend → DSAR export + erasure. **99% of operations resolve at free L0** (signal-sparse consumers are cost-gated away from LLM calls entirely).
 
 Turn on real reasoning (optional):
 

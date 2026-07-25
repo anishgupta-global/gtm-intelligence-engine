@@ -1,11 +1,12 @@
 import type { DB } from '../src/db.js';
-import { csvCrmConnector } from '../src/connectors/csv.js';
-import { fixtureConnector } from '../src/connectors/fixture.js';
+import { loadCrmSignals } from '../src/connectors/csv.js';
+import { loadFixtureSignals, arrayConnector } from '../src/connectors/fixture.js';
 import { syncConnector, ingestSignal } from '../src/connectors/sdk.js';
+import { generateMarketplace } from './synth.js';
 import { runPipeline } from '../src/pipeline/run.js';
 import { getProvider } from '../src/ai/provider.js';
 import { listActivePersons, getPersonObservations, reviewQueue, approveMerge } from '../src/identity/resolve.js';
-import { hotLeads, fadingChampions } from '../src/intelligence/scores.js';
+import { hotLeads, hotLeadCount, fadingChampions } from '../src/intelligence/scores.js';
 import { audienceSummary } from '../src/intelligence/segments.js';
 import { setDecisionStatus, listDecisions, type DecisionRecord } from '../src/decisions/reason.js';
 import { platformStats } from '../src/intelligence/platforms.js';
@@ -46,7 +47,7 @@ export interface DemoOutcome {
   summary: any;
   hot: any[];
   fading: any[];
-  people: any[];
+  people: { total: number; people: any[] };
   platforms: any[];
   companies: any[];
   decisions: any[];
@@ -63,30 +64,35 @@ export interface DemoOutcome {
   dsar: { exported: boolean; erasedObservations: number };
 }
 
-export async function runDemo(db: DB, log: (s: string) => void = () => {}): Promise<DemoOutcome> {
+export async function runDemo(db: DB, log: (s: string) => void = () => {}, opts: { scale?: number } = {}): Promise<DemoOutcome> {
   const provider = getProvider();
+  const scale = opts.scale ?? 1;
   log(`Provider: ${provider.name}${provider.name === 'mock' ? ' ($0 mode)' : ''}`);
 
-  log('\n[1/8] Ingesting from 8 sources (connectors only ever write observations)...');
+  const synth = generateMarketplace(scale);
+  log(`\n[1/8] Ingesting from 8 sources (~${synth.totals.consumers.toLocaleString()} consumers, ${synth.totals.merchants} restaurant partners, seeded + deterministic)...`);
+  const t0 = Date.now();
   const connectors = [
-    csvCrmConnector('data/fixtures/crm.csv'),
-    fixtureConnector('instagram', 'data/fixtures/instagram.json'),
-    fixtureConnector('tiktok', 'data/fixtures/tiktok.json'),
-    fixtureConnector('google', 'data/fixtures/google.json'),
-    fixtureConnector('newsletter', 'data/fixtures/newsletter.json'),
-    fixtureConnector('referral', 'data/fixtures/referral.json'),
-    fixtureConnector('linkedin', 'data/fixtures/linkedin.json'),
-    fixtureConnector('orders', 'data/fixtures/orders.json'),
+    arrayConnector('crm', [...loadCrmSignals('data/fixtures/crm.csv'), ...synth.crm]),
+    arrayConnector('instagram', [...loadFixtureSignals('data/fixtures/instagram.json'), ...synth.channels.instagram]),
+    arrayConnector('tiktok', [...loadFixtureSignals('data/fixtures/tiktok.json'), ...synth.channels.tiktok]),
+    arrayConnector('google', [...loadFixtureSignals('data/fixtures/google.json'), ...synth.channels.google]),
+    arrayConnector('newsletter', [...loadFixtureSignals('data/fixtures/newsletter.json'), ...synth.channels.newsletter]),
+    arrayConnector('referral', [...loadFixtureSignals('data/fixtures/referral.json'), ...synth.channels.referral]),
+    arrayConnector('linkedin', [...loadFixtureSignals('data/fixtures/linkedin.json'), ...synth.channels.linkedin]),
+    arrayConnector('orders', [...loadFixtureSignals('data/fixtures/orders.json'), ...synth.orders]),
   ];
   for (const c of connectors) {
     const r = await syncConnector(db, c);
-    log(`  ${c.name.padEnd(10)} +${r.inserted} observations${r.duplicates ? ` (${r.duplicates} dups skipped)` : ''}`);
+    log(`  ${c.name.padEnd(10)} +${r.inserted.toLocaleString()} observations${r.duplicates ? ` (${r.duplicates} dups skipped)` : ''}`);
   }
+  log(`  ingested in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 
   log('\n[2/8] Pipeline week 1: resolve -> graph -> score -> decide...');
+  const t1 = Date.now();
   const r1 = await runPipeline(db, getProvider());
-  log(`  identity: ${r1.resolve.persons} persons created, ${r1.resolve.merged} clusters merged, ${r1.resolve.review} sent to review`);
-  log(`  graph: ${r1.graph.entities} entities, ${r1.graph.edges} edges · scores: ${r1.scores.computed} computed`);
+  log(`  identity: ${r1.resolve.persons.toLocaleString()} persons created, ${r1.resolve.merged} clusters merged, ${r1.resolve.review} sent to review`);
+  log(`  graph: ${r1.graph.entities.toLocaleString()} entities, ${r1.graph.edges.toLocaleString()} edges · scores: ${r1.scores.computed.toLocaleString()} computed · pipeline ${((Date.now() - t1) / 1000).toFixed(1)}s`);
 
   const crossPerson = (listActivePersons(db) as any[]).find((p) => p.primary_email === CROSS_SOURCE_EMAIL);
   const crossSourcePersonSources = crossPerson ? [...new Set(getPersonObservations(db, crossPerson.id).map((o: any) => o.source))] : [];
@@ -113,16 +119,21 @@ export async function runDemo(db: DB, log: (s: string) => void = () => {}): Prom
     log(`     evidence: ${(d.trace.evidence ?? []).slice(0, 4).join(', ') || '—'}`);
   });
 
-  log('\n  Platform comparison (observed engagement — not follower counts):');
+  const summary1 = audienceSummary(db);
+  log(`\n  Marketplace this week: ${summary1.people.toLocaleString()} people (${summary1.consumers.toLocaleString()} consumers · ${summary1.merchants} merchant contacts) · +${summary1.newPeople7.toLocaleString()} NEW users this week · ${summary1.ordersThisWeek.toLocaleString()} orders (€${summary1.orderRevenue7.toLocaleString()})`);
+
+  log('\n  Platform comparison (observed engagement — signups, conversion, merchant leads; never follower counts):');
   for (const p of platformStats(db)) {
-    log(`  ${p.source.padEnd(10)} ${String(p.people).padStart(2)} people · ${p.signals7} signals/wk (${p.growthPct >= 0 ? '+' : ''}${p.growthPct}%) · quality ${p.quality}/100 · intent ${p.avgIntent} -> ${p.recommendation.toUpperCase()}`);
+    log(`  ${p.source.padEnd(10)} ${String(p.people.toLocaleString()).padStart(6)} people · +${String(p.newUsers7.toLocaleString()).padStart(5)} new/wk · signals ${p.growthPct >= 0 ? '+' : ''}${p.growthPct}% · conv ${Math.round(p.conversion * 100)}% · repeat ${Math.round(p.repeatRate * 100)}% · ${p.merchantLeads14} merch leads · q${p.quality} -> ${p.recommendation.toUpperCase()}`);
   }
 
-  const hot1 = hotLeads(db, { limit: 6 });
-  log('\n  Hot leads (evidence for the who-to-contact decision):');
-  for (const l of hot1) log(`  ${l.name} (${l.title ?? l.role}, ${l.company ?? 'consumer'}) · intent ${l.intent} · ${l.action}`);
-  for (const f of fadingChampions(db, 5)) log(`  FADING: ${f.name} (${f.company}) — engagement down ${Math.round(f.drop * 100)}%`);
-  log('  accounts: ' + companyStats(db).slice(0, 4).map((c) => `${c.company} (intent ${c.maxIntent}${c.churnRisk >= 0.5 ? `, CHURN RISK €${c.mrr}` : ''})`).join(' · '));
+  const hot1 = hotLeads(db, { limit: 6, side: 'merchant' });
+  log('\n  Hot merchant leads (evidence for the who-to-contact decision):');
+  for (const l of hot1) log(`  ${l.name} (${l.title ?? l.role}, ${l.company}) · intent ${l.intent} · ${l.action}`);
+  const hotConsumers = hotLeads(db, { limit: 3, side: 'consumer' });
+  log('  Top consumers: ' + hotConsumers.map((l) => `${l.name} (${l.intent})`).join(' · '));
+  for (const f of fadingChampions(db, 3)) log(`  FADING: ${f.name} (${f.company ?? 'consumer'}) — engagement down ${Math.round(f.drop * 100)}%`);
+  log('  accounts: ' + companyStats(db).slice(0, 4).map((c) => `${c.company} (intent ${c.maxIntent}${c.churnRisk >= 0.5 ? `, CHURN RISK €${(c.mrr + c.orderRevenue60).toLocaleString()}` : ''})`).join(' · '));
 
   const decision1 = r1.decision;
   log(`\n[4/8] Weekly GTM recommendation (${decision1.model}, level L${decision1.resolutionLevel}):`);
@@ -171,13 +182,24 @@ export async function runDemo(db: DB, log: (s: string) => void = () => {}): Prom
   log(`  exported ${dsarTarget?.display_name}'s full record (${exported?.observations?.length ?? 0} observations), then erased: payloads deleted, identifiers removed, tombstone kept`);
 
   const digest = buildDigest(db);
+  const peopleTotal = (db.prepare(
+    `SELECT COUNT(DISTINCT p.id) AS c FROM persons p JOIN person_memberships m ON m.person_id = p.id AND m.status = 'active' WHERE p.erased = 0`
+  ).get() as any).c as number;
+  const topPeople = (db.prepare(
+    `SELECT p.id, p.display_name AS name, p.primary_email AS email, p.company, p.title,
+            COUNT(DISTINCT m.identifier_key) AS identifiers, COALESCE(s.value, 0) AS intent
+     FROM persons p
+     JOIN person_memberships m ON m.person_id = p.id AND m.status = 'active'
+     LEFT JOIN scores s ON s.entity_id = p.id AND s.score_type = 'intent'
+     WHERE p.erased = 0 GROUP BY p.id ORDER BY (p.company IS NOT NULL) DESC, intent DESC LIMIT 200`
+  ).all() as any[]).map((p) => ({ ...p, side: p.company ? 'merchant' : 'consumer' }));
   return {
-    summary: { ...audienceSummary(db), hotLeads: hotLeads(db).length, fading: fadingChampions(db).length, provider: provider.name, budget: cost.budget },
-    hot: hotLeads(db, { limit: 20 }),
+    summary: { ...audienceSummary(db), hotLeads: hotLeadCount(db), fading: fadingChampions(db).length, provider: provider.name, budget: cost.budget },
+    hot: [...hotLeads(db, { limit: 10, side: 'merchant' }), ...hotLeads(db, { limit: 10, side: 'consumer' })],
     fading: fadingChampions(db, 20),
-    people: (listActivePersons(db) as any[]).map((p) => ({ id: p.id, name: p.display_name, email: p.primary_email, company: p.company, title: p.title, identifiers: p.identifier_count })),
+    people: { total: peopleTotal, people: topPeople },
     platforms: platformStats(db),
-    companies: companyStats(db),
+    companies: companyStats(db).slice(0, 60),
     decisions: listDecisions(db),
     evaluation: evaluationMetrics(db),
     cost: costReport(db),

@@ -6,9 +6,8 @@ import type { DB } from '../db.js';
 import { pj } from '../db.js';
 import { config } from '../config.js';
 import { audienceSummary } from '../intelligence/segments.js';
-import { hotLeads, fadingChampions, getRole } from '../intelligence/scores.js';
-import { listActivePersons, getPersonObservations, reviewQueue, approveMerge, rejectMerge } from '../identity/resolve.js';
-import { personSegment } from '../intelligence/segments.js';
+import { hotLeads, hotLeadCount, fadingChampions } from '../intelligence/scores.js';
+import { getPersonObservations, reviewQueue, approveMerge, rejectMerge } from '../identity/resolve.js';
 import { personEdges } from '../graph/store.js';
 import { listDecisions, setDecisionStatus } from '../decisions/reason.js';
 import { platformStats } from '../intelligence/platforms.js';
@@ -40,7 +39,7 @@ export function buildServer(db: DB, provider: LLMProvider): FastifyInstance {
 
   app.get('/api/summary', async () => ({
     ...audienceSummary(db),
-    hotLeads: hotLeads(db).length,
+    hotLeads: hotLeadCount(db),
     fading: fadingChampions(db).length,
     provider: provider.name,
     budget: budgetState(db),
@@ -52,6 +51,7 @@ export function buildServer(db: DB, provider: LLMProvider): FastifyInstance {
       role: req.query.role || undefined,
       minIntent: req.query.minIntent ? Number(req.query.minIntent) : undefined,
       company: req.query.company || undefined,
+      side: req.query.side === 'merchant' || req.query.side === 'consumer' ? req.query.side : undefined,
     })
   );
   app.get('/api/leads/fading', async (req: any) => fadingChampions(db, req.query.limit ? Number(req.query.limit) : 20));
@@ -59,18 +59,28 @@ export function buildServer(db: DB, provider: LLMProvider): FastifyInstance {
   app.get('/api/platforms', async () => platformStats(db));
   app.get('/api/companies', async () => companyStats(db));
 
-  app.get('/api/people', async () =>
-    listActivePersons(db).map((p: any) => ({
-      id: p.id,
-      name: p.display_name,
-      email: p.primary_email,
-      company: p.company,
-      title: p.title,
-      identifiers: p.identifier_count,
-      role: getRole(db, p.id).role,
-      segment: personSegment(db, p),
-    }))
-  );
+  app.get('/api/people', async (req: any) => {
+    const limit = Math.min(1000, Number(req.query.limit ?? 200));
+    const total = (db.prepare(
+      `SELECT COUNT(DISTINCT p.id) AS c FROM persons p JOIN person_memberships m ON m.person_id = p.id AND m.status = 'active' WHERE p.tenant = ? AND p.erased = 0`
+    ).get(config.tenant) as any).c;
+    const rows = db.prepare(
+      `SELECT p.id, p.display_name, p.primary_email, p.company, p.title,
+              COUNT(DISTINCT m.identifier_key) AS identifier_count, COALESCE(s.value, 0) AS intent
+       FROM persons p
+       JOIN person_memberships m ON m.person_id = p.id AND m.status = 'active'
+       LEFT JOIN scores s ON s.entity_id = p.id AND s.score_type = 'intent' AND s.tenant = p.tenant
+       WHERE p.tenant = ? AND p.erased = 0
+       GROUP BY p.id ORDER BY (p.company IS NOT NULL) DESC, intent DESC LIMIT ?`
+    ).all(config.tenant, limit) as any[];
+    return {
+      total,
+      people: rows.map((p) => ({
+        id: p.id, name: p.display_name, email: p.primary_email, company: p.company, title: p.title,
+        identifiers: p.identifier_count, intent: p.intent, side: p.company ? 'merchant' : 'consumer',
+      })),
+    };
+  });
 
   app.get('/api/people/:id', async (req: any, reply) => {
     const personId = req.params.id;

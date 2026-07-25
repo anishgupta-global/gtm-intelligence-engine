@@ -25,4 +25,4 @@ const snapshot = {
 };
 
 writeFileSync('web/demo-data.json', JSON.stringify(snapshot, null, 2));
-console.log(`web/demo-data.json written (${r.people.length} people, ${r.decisions.length} decisions)`);
+console.log(`web/demo-data.json written (${r.people.total.toLocaleString()} people, top ${r.people.people.length} snapshotted, ${r.decisions.length} decisions)`);

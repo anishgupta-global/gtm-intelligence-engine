@@ -17,8 +17,11 @@ export const config = {
 /** Identity resolution thresholds (see docs/adr/0003). */
 export const ID_THRESHOLDS = { autoMerge: 0.9, review: 0.7 };
 
-/** Intent weights per signal type — L0 scoring, fully explainable. */
+/** Intent weights per signal type — L0 scoring, fully explainable.
+ *  `signup` = a new user registering on OUR app/newsletter, attributed to the acquiring
+ *  channel via UTM/referral — the honest, observable version of "followed us". */
 export const INTENT_WEIGHTS: Record<string, number> = {
+  signup: 6,
   pricing_view: 25,
   trial_started: 30,
   payment: 20,

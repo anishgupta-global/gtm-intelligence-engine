@@ -51,12 +51,19 @@ export async function syncConnector(db: DB, c: Connector): Promise<IngestResult>
   const signals = await c.fetch(state?.cursor ?? null);
   const res: IngestResult = { inserted: 0, duplicates: 0, rejected: 0 };
   let cursor = state?.cursor ?? '';
-  for (const s of signals) {
-    const r = ingestSignal(db, c.name, s);
-    if (r === 'inserted') res.inserted++;
-    else if (r === 'duplicate') res.duplicates++;
-    else res.rejected++;
-    if (s.observedAt > cursor) cursor = s.observedAt;
+  db.exec('BEGIN');
+  try {
+    for (const s of signals) {
+      const r = ingestSignal(db, c.name, s);
+      if (r === 'inserted') res.inserted++;
+      else if (r === 'duplicate') res.duplicates++;
+      else res.rejected++;
+      if (s.observedAt > cursor) cursor = s.observedAt;
+    }
+    db.exec('COMMIT');
+  } catch (e) {
+    db.exec('ROLLBACK');
+    throw e;
   }
   db.prepare(
     `INSERT INTO sync_state (connector, cursor, last_run) VALUES (?, ?, ?)

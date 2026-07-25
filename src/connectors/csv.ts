@@ -27,26 +27,25 @@ export function parseCsv(text: string): Record<string, string>[] {
   return body.map((r) => Object.fromEntries(header.map((h, idx) => [h.trim(), (r[idx] ?? '').trim()])));
 }
 
-/** CRM CSV import — every row becomes a crm_contact signal (the universal escape hatch: export from any CRM). */
-export function csvCrmConnector(file: string, name = 'crm'): Connector {
-  return {
-    name,
-    async fetch(): Promise<Signal[]> {
-      return parseCsv(readFileSync(file, 'utf8')).map((r) => ({
-        signalType: 'crm_contact' as const,
-        externalId: r.email || r.name,
-        observedAt: daysAgoIso(Number(r.days_ago || 30)),
-        actor: {
-          email: r.email || undefined,
-          name: r.name || undefined,
-          company: r.company || undefined,
-          title: r.title || undefined,
-          employees: r.employees ? Number(r.employees) : undefined,
-          industry: r.industry || undefined,
-        },
-        props: { stage: r.stage || 'unknown' },
-        consentBasis: (r.consent === 'consent' ? 'consent' : 'legitimate_interest') as 'consent' | 'legitimate_interest',
-      }));
+/** CRM CSV rows as signals — every row becomes a crm_contact (the universal escape hatch: export from any CRM). */
+export function loadCrmSignals(file: string): Signal[] {
+  return parseCsv(readFileSync(file, 'utf8')).map((r) => ({
+    signalType: 'crm_contact' as const,
+    externalId: r.email || r.name,
+    observedAt: daysAgoIso(Number(r.days_ago || 30)),
+    actor: {
+      email: r.email || undefined,
+      name: r.name || undefined,
+      company: r.company || undefined,
+      title: r.title || undefined,
+      employees: r.employees ? Number(r.employees) : undefined,
+      industry: r.industry || undefined,
     },
-  };
+    props: { stage: r.stage || 'unknown' },
+    consentBasis: (r.consent === 'consent' ? 'consent' : 'legitimate_interest') as 'consent' | 'legitimate_interest',
+  }));
+}
+
+export function csvCrmConnector(file: string, name = 'crm'): Connector {
+  return { name, fetch: async () => loadCrmSignals(file) };
 }

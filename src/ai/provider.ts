@@ -41,19 +41,22 @@ export class MockProvider implements LLMProvider {
   }
 
   async recommend(agg: Aggregates, _lean: boolean): Promise<RecommendationDraft> {
-    const moving = [...agg.segments].filter((s) => s.current >= 3).sort((a, b) => b.deltaPct - a.deltaPct);
-    const top = moving[0] ?? agg.segments[0] ?? { segment: 'audience', current: 0, previous: 0, deltaPct: 0 };
+    // only segments with an established prior-week baseline can "move"; a brand-new
+    // segment with previous=0 would produce absurd deltas
+    const moving = [...agg.segments].filter((s) => s.current >= 3 && s.previous >= 5).sort((a, b) => b.deltaPct - a.deltaPct);
+    const top = moving[0] ?? [...agg.segments].sort((a, b) => b.current - a.current)[0] ?? { segment: 'audience', current: 0, previous: 0, deltaPct: 0 };
     const declining = [...agg.segments].sort((a, b) => a.deltaPct - b.deltaPct)[0];
     const driver = agg.topSignals14[0]?.type ?? 'website_visit';
     const driverLabel = driver.replace(/_/g, ' ');
+    const routed = Math.min(agg.hotLeadCount, 40);
     const confidence = clamp(0.5 + 0.2 * Math.min(1, Math.abs(top.deltaPct) / 30) + 0.15 * Math.min(1, agg.hotLeadCount / 10), 0.35, 0.85);
     return {
-      title: `Prioritize ${top.segment}: ${driverLabel} campaign + route ${agg.hotLeadCount} hot leads to outreach`,
-      hypothesis: `${top.segment} engagement moved ${top.deltaPct >= 0 ? '+' : ''}${top.deltaPct}% week over week (${top.current} vs ${top.previous} signals), led by ${driverLabel}.`,
-      reasoning: `The strongest momentum is in ${top.segment} while ${declining?.segment ?? 'other segments'} is at ${declining?.deltaPct ?? 0}%. ${agg.hotLeadCount} people currently show high buying intent and ${agg.fadingCount} previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.`,
-      action: `Publish one ${driverLabel}-focused piece for ${top.segment} and start outreach with the ${agg.hotLeadCount} hot leads; open retention conversations with the ${agg.fadingCount} fading champions.`,
+      title: `Prioritize ${top.segment}: ${driverLabel} campaign + route top ${routed} hot leads to outreach`,
+      hypothesis: `${top.segment} engagement moved ${top.deltaPct >= 0 ? '+' : ''}${top.deltaPct}% week over week (${top.current.toLocaleString()} vs ${top.previous.toLocaleString()} signals), led by ${driverLabel}.`,
+      reasoning: `The strongest momentum is in ${top.segment} while ${declining?.segment ?? 'other segments'} is at ${declining?.deltaPct ?? 0}%. ${agg.hotLeadCount.toLocaleString()} people currently show high buying intent and ${agg.fadingCount} previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.`,
+      action: `Publish one ${driverLabel}-focused piece for ${top.segment} and start outreach with the top ${routed} of ${agg.hotLeadCount.toLocaleString()} hot leads; open retention conversations with the ${agg.fadingCount} fading champions.`,
       confidence: Math.round(confidence * 100) / 100,
-      expectedTarget: Math.max(2, Math.round(agg.hotLeadCount * 0.5)),
+      expectedTarget: Math.max(2, Math.round(routed * 0.5)),
       usage: ZERO,
     };
   }

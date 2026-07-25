@@ -1,6 +1,6 @@
 # PRD — GTM Intelligence Engine
 
-Status: v1.2.0 shipped · Owner: Anish Gupta · Last updated: 2026-07-25
+Status: v1.3.0 shipped · Owner: Anish Gupta · Last updated: 2026-07-25
 
 ## 1. Vision
 
@@ -112,7 +112,15 @@ AI appears only at L7+, after reliable data is established. The same spine later
 |---|---------|-----------------|-----------|
 | 25 | Demo felt B2B-only (SaaS/data vendor); didn't prove the same engine serves two-sided platforms like food delivery, ride-hailing, marketplaces | Demo dataset swapped to **Northwind Eats** — a fictional two-sided food-delivery marketplace: 12 restaurant partners + 15 consumers across 6 acquisition sources + orders + universal webhook. Same engine, same decision loop, same APIs, same schema — only fixtures, ICP config, dashboard labels, and digest opener change | Segment code still labels the merchant/consumer split as "Startups & SMB" (single segment for this workspace); a food-industry-aware segmentation would improve UX but is intelligence code, deferred to a workspace-config pass |
 | 26 | Digest opened with sections, not decisions — user's first read was "so what?" | Digest rewritten to open with a numbered **Weekly Growth Decisions** list (allocation → who-to-contact → account-to-save), each item ships reason + action + evidence IDs + confidence + expected outcome + memory prior — every item is a real decision object, not table-driven prose | Platform comparison and hot leads move below the decisions as supporting evidence |
-| 27 | Cost pyramid CI threshold (≥70% L0) was calibrated on the v1.0 dataset; broke for larger multi-source workspaces where more consumers-without-titles produce more L2 `classify_role` calls | Threshold relaxed to L0+L1 free-tier ≥ 60% AND L0 ≥ 40% plurality. Principle preserved: AI remains the last resort, most work is deterministic | Consumers with sparse signal profiles still route through a mock/small-model classifier that returns `unknown` — the caller pays L2 for a low-value answer. A "skip classification for signal-sparse persons" gate would recover the number, deferred |
+| 27 | Cost pyramid CI threshold (≥70% L0) was calibrated on the v1.0 dataset; broke for larger multi-source workspaces where more consumers-without-titles produce more L2 `classify_role` calls | Threshold relaxed to L0+L1 free-tier ≥ 60% AND L0 ≥ 40% plurality. Principle preserved: AI remains the last resort, most work is deterministic | ~~Deferred sparse-skip gate~~ — **closed in v1.3.0** (audit #28): the gate shipped, L0 share at 25k scale is 99%, and the CI assertion is back to ≥70% |
+
+### Round 8 (scale — shipped in v1.3.0)
+
+| # | Concern | Design response | Trade-off |
+|---|---------|-----------------|-----------|
+| 28 | **Scale missed**: round-7 spec said ~5,000 active customers + 180 partners and "5k+ new users followed us"; v1.2 shipped 28 people. Hand-written fixtures can't represent a marketplace | Seeded deterministic generator: **~25k people, 5.2k+ new users/week, 180 partners, ~30k observations**; named "story characters" (Ben Novak, Ana Vasquez ×2, Sara K., Pizza Corner) layered on top so identity/review/DSAR cases stay crisp. "Followed us" modeled as **channel-attributed signups** (UTM-attributed registrations on your own app) — observable, Intelligence-Law-clean; literal follower identities aren't exposed by platform APIs | Synthetic data, clearly labeled; per-channel economics are configured, not emergent |
+| 29 | Per-person queries and O(N²) probabilistic matching don't survive 25k people | Bulk workspace loader (one scan), transactional writes, email-cluster fast path (probabilistic matching only for clusters WITHOUT a strong identifier — an email IS an identity; joining two emails is a human review call) | Two people sharing a name across their two emails never auto-merge — by design; the review queue is the path |
+| 30 | v1.2's small data hid intelligence bugs: monotone "double down" calls, quality diluted by dormant users, "New consumers +719,700%", "new this week" = person-row creation date | Channel cohort economics (first-touch conversion, repeat, AOV, merchant yield) + 8-call vocabulary; quality judges the active cohort; as-of-window segmentation; "new" derives from first observed signal; webhook/orders/crm excluded from investable channels; fresh decisions supersede stale open proposals of the same kind | Recommendation thresholds are workspace-tuned heuristics — factors are always attached so every call is auditable |
 
 ## 7. v1 scope (shipped)
 

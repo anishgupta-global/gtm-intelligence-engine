@@ -39,7 +39,11 @@ const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<
 const initials = (name) => (name || '?').split(' ').map((w) => w[0]).slice(0, 2).join('').toUpperCase();
 const pct = (v) => `${v >= 0 ? '+' : ''}${v}%`;
 
-const RECO_PILL = { 'double down': 'pill-green', nurture: 'pill-navy', 're-engage': 'pill-amber', 'reduce effort': 'pill-red' };
+const RECO_PILL = {
+  'double down': 'pill-green', 'increase budget': 'pill-green', 'expand incentives': 'pill-green',
+  protect: 'pill-navy', 'maintain (B2C awareness)': 'pill-navy', nurture: 'pill-navy',
+  're-engage': 'pill-amber', 'reduce effort': 'pill-red',
+};
 const KIND_LABEL = { weekly_gtm: 'who to contact', platform_allocation: 'where to invest', account_retention: 'account to save' };
 
 function kpi(label, value, sub, cls = '') {
@@ -81,10 +85,11 @@ async function renderExecutive() {
   const cost = await api('/api/cost');
   const platforms = await api('/api/platforms');
   document.getElementById('kpis').innerHTML =
-    kpi('People', s.people, `+${s.newPeople7} this week`, 'up') +
-    kpi('Companies', s.companies) +
-    kpi('Hot leads', s.hotLeads ?? 0, 'ranked by intent') +
-    kpi('Fading', s.fading, s.fading > 0 ? 'churn risk' : 'all healthy', s.fading > 0 ? 'down' : 'up') +
+    kpi('People', s.people.toLocaleString(), `${(s.consumers ?? 0).toLocaleString()} consumers · ${s.merchants ?? 0} merchant contacts`) +
+    kpi('New this week', `+${s.newPeople7.toLocaleString()}`, 'channel-attributed signups', 'up') +
+    kpi('Orders 7d', (s.ordersThisWeek ?? 0).toLocaleString(), `€${(s.orderRevenue7 ?? 0).toLocaleString()}`) +
+    kpi('Restaurant partners', s.companies) +
+    kpi('Hot leads', (s.hotLeads ?? 0).toLocaleString(), 'intent ≥ 0.5') +
     kpi('Cost per insight', `$${cost.costPerInsight}`, `${cost.budget.mode} budget mode`);
 
   const decisions = await api('/api/decisions');
@@ -92,12 +97,14 @@ async function renderExecutive() {
   document.getElementById('allocation').innerHTML = alloc ? decisionCard(alloc, { compact: true }) : '<div class="empty">Run the pipeline to get an allocation call</div>';
 
   document.getElementById('platforms-table').innerHTML = platforms.length ? `
-    <table><thead><tr><th>Platform</th><th>People</th><th>Active 7d</th><th>Signals 7d</th><th>Growth</th><th>Avg intent</th><th>Quality</th><th>Call</th></tr></thead>
+    <table><thead><tr><th>Platform</th><th>People</th><th>New users/wk</th><th>Growth</th><th>Conversion</th><th>Repeat</th><th>Merchant leads</th><th>Quality</th><th>Call</th></tr></thead>
     <tbody>${platforms.map((p) => `<tr>
-      <td><strong>${esc(p.source)}</strong></td><td>${p.people}</td><td>${p.activePeople7}</td><td>${p.signals7}</td>
+      <td><strong>${esc(p.source)}</strong></td><td>${p.people.toLocaleString()}</td>
+      <td>+${(p.newUsers7 ?? 0).toLocaleString()}</td>
       <td class="${p.growthPct < 0 ? 'neg-text' : 'pos-text'}">${pct(p.growthPct)}</td>
-      <td>${p.avgIntent}</td><td>${p.quality}</td>
-      <td><span class="pill ${RECO_PILL[p.recommendation]}">${esc(p.recommendation)}</span></td>
+      <td>${Math.round((p.conversion ?? 0) * 100)}%</td><td>${Math.round((p.repeatRate ?? 0) * 100)}%</td>
+      <td>${p.merchantLeads14 ?? 0}</td><td>${p.quality}</td>
+      <td><span class="pill ${RECO_PILL[p.recommendation] ?? 'pill-navy'}">${esc(p.recommendation)}</span></td>
     </tr>`).join('')}</tbody></table>` : '<div class="empty">No platform data yet — run: npm run demo</div>';
 
   const maxSignals = Math.max(1, ...s.segments.map((x) => x.current));
@@ -147,18 +154,22 @@ async function renderBusiness() {
       </div>` : ''}
     </div>`).join('') : '<div class="empty">Queue is empty — nothing waiting for human judgment</div>';
 
-  const people = await api('/api/people');
+  const pd = await api('/api/people');
+  const list = pd.people ?? pd;
+  const total = pd.total ?? list.length;
   document.getElementById('people').innerHTML = `
-    <table><thead><tr><th>Name</th><th>Company</th><th>Title</th><th>Identifiers</th></tr></thead>
-    <tbody>${people.map((p) => `<tr><td><strong>${esc(p.name)}</strong></td><td>${esc(p.company ?? '—')}</td><td>${esc(p.title ?? p.role ?? '—')}</td><td>${p.identifiers}</td></tr>`).join('')}</tbody></table>`;
+    <div class="lead-signals" style="margin-bottom:8px">${total.toLocaleString()} resolved people · showing top ${list.length} by side + intent</div>
+    <table><thead><tr><th>Name</th><th>Side</th><th>Company</th><th>Title</th><th>Intent</th><th>Identifiers</th></tr></thead>
+    <tbody>${list.slice(0, 60).map((p) => `<tr><td><strong>${esc(p.name)}</strong></td><td>${esc(p.side ?? (p.company ? 'merchant' : 'consumer'))}</td><td>${esc(p.company ?? '—')}</td><td>${esc(p.title ?? '—')}</td><td>${p.intent ?? '—'}</td><td>${p.identifiers}</td></tr>`).join('')}</tbody></table>`;
 }
 
 async function renderHotLeads() {
   const limit = document.getElementById('f-limit').value;
   const role = document.getElementById('f-role').value;
   const minIntent = document.getElementById('f-intent').value;
-  let hot = await api(`/api/leads/hot?limit=${limit}&role=${role}&minIntent=${minIntent}`);
-  if (!LIVE) hot = hot.filter((l) => (!role || l.role === role) && l.intent >= Number(minIntent)).slice(0, Number(limit));
+  const side = document.getElementById('f-side').value;
+  let hot = await api(`/api/leads/hot?limit=${limit}&role=${role}&minIntent=${minIntent}&side=${side}`);
+  if (!LIVE) hot = hot.filter((l) => (!role || l.role === role) && (!side || l.side === side) && l.intent >= Number(minIntent)).slice(0, Number(limit));
   document.getElementById('hot-leads').innerHTML = hot.length ? hot.map((l) => `
     <div class="lead">
       <div class="avatar">${initials(l.name)}</div>
@@ -183,10 +194,11 @@ async function renderAudience() {
         <span class="pill ${RECO_PILL[p.recommendation]}">${esc(p.recommendation)}</span>
       </div>
       <div class="kpi-row" style="margin:12px 0">
-        ${kpi('People', p.people)}
-        ${kpi('Active 7d', p.activePeople7)}
-        ${kpi('Signals 7d', p.signals7, pct(p.growthPct) + ' vs prior wk', p.growthPct < 0 ? 'down' : 'up')}
-        ${kpi('Quality', p.quality + '/100', 'avg intent ' + p.avgIntent)}
+        ${kpi('People', p.people.toLocaleString())}
+        ${kpi('New users/wk', '+' + (p.newUsers7 ?? 0).toLocaleString(), 'channel-attributed signups')}
+        ${kpi('Signals 7d', p.signals7.toLocaleString(), pct(p.growthPct) + ' vs prior wk', p.growthPct < 0 ? 'down' : 'up')}
+        ${kpi('Order conversion', Math.round((p.conversion ?? 0) * 100) + '%', 'repeat ' + Math.round((p.repeatRate ?? 0) * 100) + '%')}
+        ${kpi('Quality', p.quality + '/100', 'active intent ' + (p.avgIntentActive ?? p.avgIntent))}
       </div>
       <div class="lead-signals">top signals: ${p.topSignals.map((t) => `${esc(t.type)}×${t.count}`).join(' · ') || '—'}</div>
       <div class="lead-signals">top people: ${p.topPeople.map((t) => `${esc(t.name)} (${t.intent})`).join(' · ') || '—'}</div>
@@ -265,7 +277,7 @@ document.querySelectorAll('.tab').forEach((btn) => {
   });
 });
 
-['f-limit', 'f-role', 'f-intent'].forEach((id) => document.getElementById(id).addEventListener('change', renderHotLeads));
+['f-limit', 'f-role', 'f-intent', 'f-side'].forEach((id) => document.getElementById(id).addEventListener('change', renderHotLeads));
 
 (async () => {
   const health = await api('/api/summary');
