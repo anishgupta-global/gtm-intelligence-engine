@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-25T12:08:18.236Z",
-  "demoNote": "Static snapshot of the demo pipeline (Northwind AI fictional dataset). Run the engine locally for the live version.",
+  "generatedAt": "2026-07-25T12:11:55.070Z",
+  "demoNote": "Static snapshot of the demo pipeline (Northwind Eats — fictional two-sided marketplace, ~25k people). Run the engine locally for the live version.",
   "summary": {
     "people": 24870,
     "consumers": 24670,
@@ -54,7 +54,33 @@
   },
   "hot": [
     {
-      "personId": "per_004b7313f5f98d2c",
+      "personId": "per_4866ef50b414fd0e",
+      "name": "Ken Yamada",
+      "company": "Sushi Rocket",
+      "title": "Managing Director",
+      "side": "merchant",
+      "role": "founder",
+      "intent": 0.83,
+      "icpFit": 0.9,
+      "signals": {
+        "demo_request": {
+          "count": 2,
+          "points": 55.71
+        },
+        "payment": {
+          "count": 1,
+          "points": 16.19
+        }
+      },
+      "evidence": [
+        "obs_d952d3e25ffa385d",
+        "obs_092c24201f6a5746",
+        "obs_3d6f5fc12a4dbf19"
+      ],
+      "action": "Sales outreach — explicit partner hand-raise"
+    },
+    {
+      "personId": "per_6bb3ca848e14f199",
       "name": "Eli Fischer",
       "company": "Skybite Pizza",
       "title": "Owner",
@@ -63,6 +89,10 @@
       "intent": 0.83,
       "icpFit": 0.9,
       "signals": {
+        "pricing_view": {
+          "count": 1,
+          "points": 25
+        },
         "demo_request": {
           "count": 1,
           "points": 30
@@ -70,21 +100,48 @@
         "form_submit": {
           "count": 1,
           "points": 15
-        },
-        "pricing_view": {
-          "count": 1,
-          "points": 25
         }
       },
       "evidence": [
-        "obs_ca6098774a81f093",
-        "obs_23de10da28624ce2",
-        "obs_a061321808c8d059"
+        "obs_88ed23bcaa34951b",
+        "obs_9912de21fcb6b987",
+        "obs_088de6b9639c75f5"
       ],
       "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_0ea2e37379f78721",
+      "personId": "per_03582d32549a84f8",
+      "name": "Lena Ortiz",
+      "company": "Burger Factory",
+      "title": "Owner",
+      "side": "merchant",
+      "role": "founder",
+      "intent": 0.82,
+      "icpFit": 0.9,
+      "signals": {
+        "form_submit": {
+          "count": 1,
+          "points": 14.29
+        },
+        "demo_request": {
+          "count": 1,
+          "points": 27.14
+        },
+        "payment": {
+          "count": 2,
+          "points": 27.62
+        }
+      },
+      "evidence": [
+        "obs_ea91fc5dee9e50f1",
+        "obs_0f85a1f8f174305e",
+        "obs_5fab36ea77f63528",
+        "obs_91625bb905b2095d"
+      ],
+      "action": "Sales outreach — explicit partner hand-raise"
+    },
+    {
+      "personId": "per_1afd53791772a978",
       "name": "Sara Kim",
       "company": "Green Bowl",
       "title": "Founder & CEO",
@@ -103,72 +160,15 @@
         }
       },
       "evidence": [
-        "obs_710f0fda525b8083",
-        "obs_c42e84f0ee301e67",
-        "obs_7c72a593c611e577",
-        "obs_6dee77d80966ced9"
+        "obs_400ea7141e6a892e",
+        "obs_664a7772ce9672f7",
+        "obs_cc6d8fe75b64b2ae",
+        "obs_f99486a471c9c833"
       ],
       "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_d557a8c4bc094989",
-      "name": "Ken Yamada",
-      "company": "Sushi Rocket",
-      "title": "Managing Director",
-      "side": "merchant",
-      "role": "founder",
-      "intent": 0.83,
-      "icpFit": 0.45,
-      "signals": {
-        "demo_request": {
-          "count": 2,
-          "points": 55.71
-        },
-        "payment": {
-          "count": 1,
-          "points": 16.19
-        }
-      },
-      "evidence": [
-        "obs_7eb537425c487eed",
-        "obs_fbd42e7cbd7931e9",
-        "obs_04d0c3eedefecce1"
-      ],
-      "action": "Sales outreach — explicit partner hand-raise"
-    },
-    {
-      "personId": "per_8320eae0f26fc995",
-      "name": "Lena Ortiz",
-      "company": "Burger Factory",
-      "title": "Owner",
-      "side": "merchant",
-      "role": "founder",
-      "intent": 0.82,
-      "icpFit": 0.45,
-      "signals": {
-        "form_submit": {
-          "count": 1,
-          "points": 14.29
-        },
-        "demo_request": {
-          "count": 1,
-          "points": 27.14
-        },
-        "payment": {
-          "count": 2,
-          "points": 27.62
-        }
-      },
-      "evidence": [
-        "obs_6a9a11774058a6ee",
-        "obs_ed423a0e29f75037",
-        "obs_7e14c6fcb8128d13",
-        "obs_0617e2276b7428b8"
-      ],
-      "action": "Sales outreach — explicit partner hand-raise"
-    },
-    {
-      "personId": "per_7d384aaa5617cf7f",
+      "personId": "per_ef912bdc253b711b",
       "name": "Priya Sharma",
       "company": "Vegan Vista",
       "title": "Co-Founder",
@@ -187,13 +187,13 @@
         }
       },
       "evidence": [
-        "obs_0e1e7af7b3991180",
-        "obs_a9c4f79561e8d7a8"
+        "obs_d1e1c92c263b284d",
+        "obs_af5cb436380c7ff8"
       ],
       "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_8c7cd8a950a9638c",
+      "personId": "per_02f05c779134538d",
       "name": "Mila Braun",
       "company": "Little Taverna go1",
       "title": "Owner",
@@ -208,12 +208,37 @@
         }
       },
       "evidence": [
-        "obs_da364ed103cdeed9"
+        "obs_1c77b1b017d9b113"
       ],
       "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_6c66c5f421d4446d",
+      "personId": "per_411cca4ac868d586",
+      "name": "Arjun Patel",
+      "company": "Golden Curry",
+      "title": "Owner",
+      "side": "merchant",
+      "role": "founder",
+      "intent": 0.5,
+      "icpFit": 0.9,
+      "signals": {
+        "form_submit": {
+          "count": 1,
+          "points": 12.86
+        },
+        "payment": {
+          "count": 1,
+          "points": 15.24
+        }
+      },
+      "evidence": [
+        "obs_29b71b54597fb4e1",
+        "obs_d384ea0f5badc4f4"
+      ],
+      "action": "Sales outreach — explicit partner hand-raise"
+    },
+    {
+      "personId": "per_48c97b1db25d3ded",
       "name": "Amin Krämer",
       "company": "Fresh Tandoor li1",
       "title": "Owner",
@@ -228,12 +253,12 @@
         }
       },
       "evidence": [
-        "obs_9551dd3c27e1046a"
+        "obs_5f42801a3b50e6ab"
       ],
       "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_b2eeeeaf6bcd539e",
+      "personId": "per_8ce9f57ab67a57ae",
       "name": "Ivan Baumann",
       "company": "Alpen Trattoria in5",
       "title": "Owner",
@@ -248,12 +273,12 @@
         }
       },
       "evidence": [
-        "obs_6bb1123a62b723f7"
+        "obs_a616f2bc06884e93"
       ],
       "action": "Sales outreach — explicit partner hand-raise"
     },
     {
-      "personId": "per_b36d67a0404cb81f",
+      "personId": "per_b065dec2adcf1ae6",
       "name": "Nia Lorenz",
       "company": "Wild Smokehouse",
       "title": "Owner",
@@ -268,34 +293,13 @@
         }
       },
       "evidence": [
-        "obs_1e37b261639fe856",
-        "obs_35ed0e927b49b09b"
+        "obs_131958ecbb426698",
+        "obs_8dc39c5285928bb4"
       ],
       "action": "Expansion conversation — active partner"
     },
     {
-      "personId": "per_0ef2ff12ab6d2a49",
-      "name": "Finn Schuster",
-      "company": "Silk Cantina",
-      "title": "Owner",
-      "side": "merchant",
-      "role": "founder",
-      "intent": 0.52,
-      "icpFit": 0.45,
-      "signals": {
-        "payment": {
-          "count": 2,
-          "points": 28.95
-        }
-      },
-      "evidence": [
-        "obs_61081cbdac8ab0a7",
-        "obs_1f38ea0d8924920a"
-      ],
-      "action": "Expansion conversation — active partner"
-    },
-    {
-      "personId": "per_237756af37be2ec5",
+      "personId": "per_5f418a9bb55253cb",
       "name": "Tara Fuchs",
       "company": null,
       "title": null,
@@ -318,16 +322,16 @@
         }
       },
       "evidence": [
-        "obs_8bff8137f7c8385c",
-        "obs_828e3d9a30e837e9",
-        "obs_c1129ec47c508c76",
-        "obs_0bdd515b53a84112",
-        "obs_b642f1f2d217f5d7"
+        "obs_2c3e2f71f8e86087",
+        "obs_db7257799a79bd00",
+        "obs_8d1751f36242239f",
+        "obs_99b9ab1c5915438e",
+        "obs_d94289e34202f716"
       ],
       "action": "Second-order nudge — personalized picks"
     },
     {
-      "personId": "per_723e94fa37b1e971",
+      "personId": "per_da18ad9d7a82a809",
       "name": "Anton Groß",
       "company": null,
       "title": null,
@@ -346,16 +350,16 @@
         }
       },
       "evidence": [
-        "obs_34eb0a58dd64418c",
-        "obs_b7cf59ba82fcf572",
-        "obs_ebcec33170dd01e7",
-        "obs_1ccdcfda3157975e",
-        "obs_a6b308cd4b88c5de"
+        "obs_72e0e4299b927ae4",
+        "obs_55a25856d81a8173",
+        "obs_e7f4d9f4fb7490db",
+        "obs_00b3b35e626c5ee5",
+        "obs_ac05ed3f991a44c9"
       ],
       "action": "Second-order nudge — personalized picks"
     },
     {
-      "personId": "per_1dbfb7c3db2b3854",
+      "personId": "per_4fca71854705aa82",
       "name": "Paul Schubert",
       "company": null,
       "title": null,
@@ -374,16 +378,16 @@
         }
       },
       "evidence": [
-        "obs_80707c86dd6673b4",
-        "obs_9949f561d9302dd1",
-        "obs_620a3c40569b795d",
-        "obs_fd8f6884618b890e",
-        "obs_fbb72bcd2fc475c5"
+        "obs_ba2ee817dbe4c2d1",
+        "obs_3ce732bc2e2a31d4",
+        "obs_baf82b51bd165bf9",
+        "obs_afc15d635667b4d8",
+        "obs_46f23003e293826e"
       ],
       "action": "Second-order nudge — personalized picks"
     },
     {
-      "personId": "per_b538a8d78c20cb1f",
+      "personId": "per_f0c997e6cf02304e",
       "name": "Clara Groß",
       "company": null,
       "title": null,
@@ -406,16 +410,16 @@
         }
       },
       "evidence": [
-        "obs_d6e8e862850b768d",
-        "obs_0fccaa96fbd4c380",
-        "obs_0125a8a9098214a8",
-        "obs_a85851691f66e842",
-        "obs_4e5f72e435f1203e"
+        "obs_eb3835365452e8b2",
+        "obs_9f2a132782726b4a",
+        "obs_659b1c26221d59b0",
+        "obs_46c1108fdbb051dd",
+        "obs_aa199b4b094efaf5"
       ],
       "action": "Second-order nudge — personalized picks"
     },
     {
-      "personId": "per_3f57c6b51cf5ccbd",
+      "personId": "per_5bb331469ed06ce5",
       "name": "Gül Schulte",
       "company": null,
       "title": null,
@@ -438,16 +442,16 @@
         }
       },
       "evidence": [
-        "obs_8d222d12dc52814b",
-        "obs_1ecf5352f094057c",
-        "obs_abde06fc268284b3",
-        "obs_0c477eb87ef3f954",
-        "obs_d5241e05a2940fb4"
+        "obs_fcb096f609ec0774",
+        "obs_9551e852d7fbf441",
+        "obs_dedf5a20fd15e8d7",
+        "obs_c340d5e242083b75",
+        "obs_78a0e118ffbecb66"
       ],
       "action": "Second-order nudge — personalized picks"
     },
     {
-      "personId": "per_ffdde76e9fa71773",
+      "personId": "per_f357368186337ebf",
       "name": "Mila Roth",
       "company": null,
       "title": null,
@@ -470,16 +474,16 @@
         }
       },
       "evidence": [
-        "obs_0663758caaecc97e",
-        "obs_3d3563484317fc13",
-        "obs_d72ab5f2aff5b218",
-        "obs_667951f5a155a727",
-        "obs_cc038838d19f2898"
+        "obs_48437741dcb3a508",
+        "obs_44db63acb8911b95",
+        "obs_f489edd36cf54cb2",
+        "obs_8fd86bfe60d25334",
+        "obs_042d09568d477da2"
       ],
       "action": "Second-order nudge — personalized picks"
     },
     {
-      "personId": "per_42bd02aa56a7f411",
+      "personId": "per_269c202938ed6e8f",
       "name": "Leon Lang",
       "company": null,
       "title": null,
@@ -502,16 +506,16 @@
         }
       },
       "evidence": [
-        "obs_6756353f9e434f35",
-        "obs_afa09b9c6caec1f1",
-        "obs_d3b4855910016184",
-        "obs_42b18bb5d9c9a50d",
-        "obs_6bc3ec776cb92213"
+        "obs_40a980d6566763e7",
+        "obs_007aea9c50d700a5",
+        "obs_53ec08af4401c578",
+        "obs_85e5c02fe4ffb269",
+        "obs_3feb694c4b1290eb"
       ],
       "action": "Invite to loyalty / referral program"
     },
     {
-      "personId": "per_6e10679edbf5a0aa",
+      "personId": "per_3e94117327923d27",
       "name": "Jin Braun",
       "company": null,
       "title": null,
@@ -534,16 +538,16 @@
         }
       },
       "evidence": [
-        "obs_9aeacba1d8ea347c",
-        "obs_77f64fa3770aebe0",
-        "obs_ef402e26605c4bd0",
-        "obs_5e924781fa3f9a1a",
-        "obs_1b5f407acf951247"
+        "obs_9518e6e5f166739c",
+        "obs_f8a89af6ae398aa9",
+        "obs_91812bc090c22b99",
+        "obs_dc84302c14967878",
+        "obs_cf11882daea16148"
       ],
       "action": "Second-order nudge — personalized picks"
     },
     {
-      "personId": "per_a79b9e141b91b2bd",
+      "personId": "per_884c838905bf3fb0",
       "name": "Maja Schuster",
       "company": null,
       "title": null,
@@ -562,16 +566,16 @@
         }
       },
       "evidence": [
-        "obs_d2c64f96e748ab79",
-        "obs_fc25a7f6117337c3",
-        "obs_ec62397efb300112",
-        "obs_b2d75cbf85339be1",
-        "obs_588a6662ea9a4038"
+        "obs_e7975b3c5f57799c",
+        "obs_823add3a059d2340",
+        "obs_1f98e659673fb4fc",
+        "obs_b09e06911939692e",
+        "obs_6772ac4ef96bd1fe"
       ],
       "action": "Second-order nudge — personalized picks"
     },
     {
-      "personId": "per_c380c2d6b84e2c90",
+      "personId": "per_a98ab300086dcdad",
       "name": "Zoe Haas",
       "company": null,
       "title": null,
@@ -590,200 +594,18 @@
         }
       },
       "evidence": [
-        "obs_6ce9ce7de7a157e0",
-        "obs_fd2b328f64cfe7fa",
-        "obs_5a4fade9047435c2",
-        "obs_f28617b3add63035",
-        "obs_365fd52394ed7129"
+        "obs_e7f73019df6ce6d1",
+        "obs_ffb925b033376e28",
+        "obs_efa94ea237393cd8",
+        "obs_7dabdd4dd6fd6738",
+        "obs_06833a8a0ac70455"
       ],
       "action": "Second-order nudge — personalized picks"
     }
   ],
   "fading": [
     {
-      "personId": "per_0b2f6f6b02a7ef1f",
-      "name": "Sven Roth",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 23
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_253aa1331df5423c",
-      "name": "Marco Rossi",
-      "company": "Pizza Corner",
-      "title": "Owner",
-      "side": "merchant",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 42
-      },
-      "action": "Partner retention check-in — engagement dropped sharply"
-    },
-    {
-      "personId": "per_2824048fa419cf18",
-      "name": "Emil Albrecht",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 4,
-        "last14": 0,
-        "lastActiveDays": 47
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_429389c9223bc786",
-      "name": "Paul Baumann",
-      "company": "Golden Wok",
-      "title": "Owner",
-      "side": "merchant",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 38
-      },
-      "action": "Partner retention check-in — engagement dropped sharply"
-    },
-    {
-      "personId": "per_473130c8afeceb8f",
-      "name": "Nora Seidel",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 32
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_4ce3b4cefcd3a82f",
-      "name": "Amin Brandt",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 33
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_551847a61719dc03",
-      "name": "Ava Groß",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 36
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_6195c8c3dfd3d0c1",
-      "name": "Max Krämer",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 36
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_68ad121fa4c14d56",
-      "name": "Ruth Kraus",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 46
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_6b4ef90395116392",
-      "name": "Jin Braun",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 31
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_6b6f29946c77b09a",
-      "name": "Kim Ludwig",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 31
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_829b2c2257eda9d6",
-      "name": "Erik Ludwig",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 16
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_8b4bccf59e24b434",
-      "name": "Erik Böhm",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 40
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_8e86b7603b8ed230",
+      "personId": "per_0255b316adf3b30a",
       "name": "Lia Haas",
       "company": null,
       "title": null,
@@ -797,21 +619,7 @@
       "action": "Win-back offer — lapsed customer"
     },
     {
-      "personId": "per_92f0b4074aa24fe4",
-      "name": "Theo Jäger",
-      "company": "Golden Tandoor",
-      "title": "Owner",
-      "side": "merchant",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 38
-      },
-      "action": "Partner retention check-in — engagement dropped sharply"
-    },
-    {
-      "personId": "per_9cfea271b8b8d2a3",
+      "personId": "per_25dc2f3b53d6cfab",
       "name": "Theo Lorenz",
       "company": null,
       "title": null,
@@ -825,7 +633,21 @@
       "action": "Win-back offer — lapsed customer"
     },
     {
-      "personId": "per_9f89cba38b98a288",
+      "personId": "per_2a2966c6f53b3f7e",
+      "name": "Juan Dietrich",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 37
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_2cfb46d3a242ad40",
       "name": "Lena2 Jäger",
       "company": null,
       "title": null,
@@ -839,21 +661,7 @@
       "action": "Win-back offer — lapsed customer"
     },
     {
-      "personId": "per_a338376b323bb372",
-      "name": "Jin Schulte",
-      "company": null,
-      "title": null,
-      "side": "consumer",
-      "drop": 1,
-      "factors": {
-        "prior30": 3,
-        "last14": 0,
-        "lastActiveDays": 30
-      },
-      "action": "Win-back offer — lapsed customer"
-    },
-    {
-      "personId": "per_d3ee71ad21855f8b",
+      "personId": "per_30ae400c8c23586c",
       "name": "Ella Ziegler",
       "company": null,
       "title": null,
@@ -867,8 +675,8 @@
       "action": "Win-back offer — lapsed customer"
     },
     {
-      "personId": "per_f0a4a1648d4de533",
-      "name": "Juan Dietrich",
+      "personId": "per_59a50d6cf497d73c",
+      "name": "Kim Ludwig",
       "company": null,
       "title": null,
       "side": "consumer",
@@ -876,7 +684,203 @@
       "factors": {
         "prior30": 3,
         "last14": 0,
-        "lastActiveDays": 37
+        "lastActiveDays": 31
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_5af79eeaf0932bf2",
+      "name": "Ruth Kraus",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 46
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_668c450fb5e4544d",
+      "name": "Ava Groß",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 36
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_68f148735eceb64f",
+      "name": "Amin Brandt",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 33
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_77b59aa94ff31195",
+      "name": "Emil Albrecht",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 4,
+        "last14": 0,
+        "lastActiveDays": 47
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_7800eec164d18d75",
+      "name": "Theo Jäger",
+      "company": "Golden Tandoor",
+      "title": "Owner",
+      "side": "merchant",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 38
+      },
+      "action": "Partner retention check-in — engagement dropped sharply"
+    },
+    {
+      "personId": "per_889cdc4512eb419e",
+      "name": "Max Krämer",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 36
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_89efbcc4411f9345",
+      "name": "Erik Ludwig",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 16
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_906a9bea90e22500",
+      "name": "Jin Braun",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 31
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_a41033cc2bb18a70",
+      "name": "Erik Böhm",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 40
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_ab11133f598b50c0",
+      "name": "Paul Baumann",
+      "company": "Golden Wok",
+      "title": "Owner",
+      "side": "merchant",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 38
+      },
+      "action": "Partner retention check-in — engagement dropped sharply"
+    },
+    {
+      "personId": "per_bd96c183b9a6d7f7",
+      "name": "Sven Roth",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 23
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_d75df613ee4e2bdd",
+      "name": "Marco Rossi",
+      "company": "Pizza Corner",
+      "title": "Owner",
+      "side": "merchant",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 42
+      },
+      "action": "Partner retention check-in — engagement dropped sharply"
+    },
+    {
+      "personId": "per_da1dcd06c5ff3300",
+      "name": "Jin Schulte",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 30
+      },
+      "action": "Win-back offer — lapsed customer"
+    },
+    {
+      "personId": "per_f319d096069e2599",
+      "name": "Nora Seidel",
+      "company": null,
+      "title": null,
+      "side": "consumer",
+      "drop": 1,
+      "factors": {
+        "prior30": 3,
+        "last14": 0,
+        "lastActiveDays": 32
       },
       "action": "Win-back offer — lapsed customer"
     }
@@ -885,17 +889,7 @@
     "total": 24870,
     "people": [
       {
-        "id": "per_004b7313f5f98d2c",
-        "name": "Eli Fischer",
-        "email": "eli@skybite.de",
-        "company": "Skybite Pizza",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.83,
-        "side": "merchant"
-      },
-      {
-        "id": "per_d557a8c4bc094989",
+        "id": "per_4866ef50b414fd0e",
         "name": "Ken Yamada",
         "email": "ken@sushirocket.de",
         "company": "Sushi Rocket",
@@ -905,7 +899,17 @@
         "side": "merchant"
       },
       {
-        "id": "per_8320eae0f26fc995",
+        "id": "per_6bb3ca848e14f199",
+        "name": "Eli Fischer",
+        "email": "eli@skybite.de",
+        "company": "Skybite Pizza",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.83,
+        "side": "merchant"
+      },
+      {
+        "id": "per_03582d32549a84f8",
         "name": "Lena Ortiz",
         "email": "lena@burgerfactory.de",
         "company": "Burger Factory",
@@ -915,7 +919,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_0ea2e37379f78721",
+        "id": "per_1afd53791772a978",
         "name": "Sara Kim",
         "email": "sara@greenbowl.de",
         "company": "Green Bowl",
@@ -925,7 +929,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_7d384aaa5617cf7f",
+        "id": "per_ef912bdc253b711b",
         "name": "Priya Sharma",
         "email": "priya@veganvista.de",
         "company": "Vegan Vista",
@@ -935,7 +939,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_b36d67a0404cb81f",
+        "id": "per_b065dec2adcf1ae6",
         "name": "Nia Lorenz",
         "email": "owner71@wildsmokehouse.example",
         "company": "Wild Smokehouse",
@@ -945,7 +949,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_0ef2ff12ab6d2a49",
+        "id": "per_91e993273bdaa4d2",
         "name": "Finn Schuster",
         "email": "owner78@silkcantina.example",
         "company": "Silk Cantina",
@@ -955,7 +959,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_403f9bcf5ce133c2",
+        "id": "per_d7b8beea7ad1e43d",
         "name": "Lia Krämer",
         "email": "owner93@cosmobrasserie.example",
         "company": "Cosmo Brasserie",
@@ -965,57 +969,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_10aa0fa7f582759b",
-        "name": "Raj Busch",
-        "email": "owner66@wildcantina.example",
-        "company": "Wild Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.51,
-        "side": "merchant"
-      },
-      {
-        "id": "per_40e304a83c6e3d41",
-        "name": "Ruth Lorenz",
-        "email": "owner114@neoncantina.example",
-        "company": "Neon Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.51,
-        "side": "merchant"
-      },
-      {
-        "id": "per_74eb8b363d3db160",
-        "name": "Yara Heinrich",
-        "email": "owner159@velvetbistro.example",
-        "company": "Velvet Bistro",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.51,
-        "side": "merchant"
-      },
-      {
-        "id": "per_caa55c5658f04980",
-        "name": "Theo Busch",
-        "email": "owner167@velvetsmokehouse.example",
-        "company": "Velvet Smokehouse",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.51,
-        "side": "merchant"
-      },
-      {
-        "id": "per_e405dc179f5807f7",
-        "name": "Lia Seidel",
-        "email": "owner81@silkbrasserie.example",
-        "company": "Silk Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.51,
-        "side": "merchant"
-      },
-      {
-        "id": "per_e81db5e2a11a3a0e",
+        "id": "per_26ed0dacc08d9d9e",
         "name": "Ava Seidel",
         "email": "owner153@copperbrasserie.example",
         "company": "Copper Brasserie",
@@ -1025,87 +979,57 @@
         "side": "merchant"
       },
       {
-        "id": "per_2ee99932bf428e2c",
-        "name": "Maja Ludwig",
-        "email": "owner142@bluetaverna.example",
-        "company": "Blue Taverna",
+        "id": "per_32923fa53c19ef2c",
+        "name": "Yara Heinrich",
+        "email": "owner159@velvetbistro.example",
+        "company": "Velvet Bistro",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.5,
+        "intent": 0.51,
         "side": "merchant"
       },
       {
-        "id": "per_59f8e6d6c309bd6d",
-        "name": "Arjun Patel",
-        "email": "arjun@goldencurry.de",
-        "company": "Golden Curry",
+        "id": "per_3e445053ad46dbfb",
+        "name": "Ruth Lorenz",
+        "email": "owner114@neoncantina.example",
+        "company": "Neon Cantina",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.5,
+        "intent": 0.51,
         "side": "merchant"
       },
       {
-        "id": "per_6bb59a47c26f0212",
-        "name": "Anton Vogt",
-        "email": "owner127@rustictrattoria.example",
-        "company": "Rustic Trattoria",
+        "id": "per_cdb0d659edfd115c",
+        "name": "Lia Seidel",
+        "email": "owner81@silkbrasserie.example",
+        "company": "Silk Brasserie",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.5,
+        "intent": 0.51,
         "side": "merchant"
       },
       {
-        "id": "per_8782cec34a5a73d7",
-        "name": "Raj Dietrich",
-        "email": "owner51@freshbistro.example",
-        "company": "Fresh Bistro",
+        "id": "per_d275fe3a9870329f",
+        "name": "Raj Busch",
+        "email": "owner66@wildcantina.example",
+        "company": "Wild Cantina",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.5,
+        "intent": 0.51,
         "side": "merchant"
       },
       {
-        "id": "per_8c7cd8a950a9638c",
-        "name": "Mila Braun",
-        "email": "prospect.google.1@littletavernago1.example",
-        "company": "Little Taverna go1",
+        "id": "per_eba217df70f4970b",
+        "name": "Theo Busch",
+        "email": "owner167@velvetsmokehouse.example",
+        "company": "Velvet Smokehouse",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.5,
+        "intent": 0.51,
         "side": "merchant"
       },
       {
-        "id": "per_a7be00b9bff50162",
-        "name": "Mila Martin",
-        "email": "owner46@royaltaverna.example",
-        "company": "Royal Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.5,
-        "side": "merchant"
-      },
-      {
-        "id": "per_a9d20c5a0c39ae72",
-        "name": "Tara Ludwig",
-        "email": "owner112@neonkitchen.example",
-        "company": "Neon Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.5,
-        "side": "merchant"
-      },
-      {
-        "id": "per_ad3c55660d63cd1f",
-        "name": "Nora Braun",
-        "email": "owner133@bluetandoor.example",
-        "company": "Blue Tandoor",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.5,
-        "side": "merchant"
-      },
-      {
-        "id": "per_aff5b5232c299788",
+        "id": "per_0269e60d2e302240",
         "name": "Nils Böhm",
         "email": "owner30@littlecantina.example",
         "company": "Little Cantina",
@@ -1115,7 +1039,67 @@
         "side": "merchant"
       },
       {
-        "id": "per_f61273e940f97ced",
+        "id": "per_02f05c779134538d",
+        "name": "Mila Braun",
+        "email": "prospect.google.1@littletavernago1.example",
+        "company": "Little Taverna go1",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_20aa588b7d0be17d",
+        "name": "Raj Dietrich",
+        "email": "owner51@freshbistro.example",
+        "company": "Fresh Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_411cca4ac868d586",
+        "name": "Arjun Patel",
+        "email": "arjun@goldencurry.de",
+        "company": "Golden Curry",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_916692e4c3a507d7",
+        "name": "Anton Vogt",
+        "email": "owner127@rustictrattoria.example",
+        "company": "Rustic Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_98dad9b03226b610",
+        "name": "Mila Martin",
+        "email": "owner46@royaltaverna.example",
+        "company": "Royal Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b03c78a29a0ca4d0",
+        "name": "Maja Ludwig",
+        "email": "owner142@bluetaverna.example",
+        "company": "Blue Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.5,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b16a1c508ec24576",
         "name": "Maja Lorenz",
         "email": "owner56@freshdiner.example",
         "company": "Fresh Diner",
@@ -1125,57 +1109,27 @@
         "side": "merchant"
       },
       {
-        "id": "per_245900d00eedb3c4",
-        "name": "Sven Jäger",
-        "email": "owner37@royaltandoor.example",
-        "company": "Royal Tandoor",
+        "id": "per_ccf03cb1f445956d",
+        "name": "Nora Braun",
+        "email": "owner133@bluetandoor.example",
+        "company": "Blue Tandoor",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.49,
+        "intent": 0.5,
         "side": "merchant"
       },
       {
-        "id": "per_2cd89f335012ec2b",
-        "name": "Eva Wolf",
-        "email": "owner104@alpendiner.example",
-        "company": "Alpen Diner",
+        "id": "per_d57708c9c417adba",
+        "name": "Tara Ludwig",
+        "email": "owner112@neonkitchen.example",
+        "company": "Neon Kitchen",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.49,
+        "intent": 0.5,
         "side": "merchant"
       },
       {
-        "id": "per_346c736b7918fcbf",
-        "name": "Nia Haas",
-        "email": "owner149@copperdeli.example",
-        "company": "Copper Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.49,
-        "side": "merchant"
-      },
-      {
-        "id": "per_42c0413167da1e9d",
-        "name": "Ruth Busch",
-        "email": "owner124@rustickitchen.example",
-        "company": "Rustic Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.49,
-        "side": "merchant"
-      },
-      {
-        "id": "per_5f8d9973190096c3",
-        "name": "Timo Fuchs",
-        "email": "owner10@goldentaverna.example",
-        "company": "Golden Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.49,
-        "side": "merchant"
-      },
-      {
-        "id": "per_7561732f2d9c008b",
+        "id": "per_3a40c6ea6c156b00",
         "name": "Erik Groß",
         "email": "owner5@goldendeli.example",
         "company": "Golden Deli",
@@ -1185,7 +1139,27 @@
         "side": "merchant"
       },
       {
-        "id": "per_cd9d6cd904b98f11",
+        "id": "per_54f1d8774a499ec0",
+        "name": "Sven Jäger",
+        "email": "owner37@royaltandoor.example",
+        "company": "Royal Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_683bd3b841d0a3d7",
+        "name": "Timo Fuchs",
+        "email": "owner10@goldentaverna.example",
+        "company": "Golden Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7950a5131ba5872c",
         "name": "Kim Schulte",
         "email": "owner97@alpentandoor.example",
         "company": "Alpen Tandoor",
@@ -1195,7 +1169,17 @@
         "side": "merchant"
       },
       {
-        "id": "per_ff4330b69800464e",
+        "id": "per_84fe4466a138b77d",
+        "name": "Ruth Busch",
+        "email": "owner124@rustickitchen.example",
+        "company": "Rustic Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.49,
+        "side": "merchant"
+      },
+      {
+        "id": "per_921aa36601265eb3",
         "name": "Tara Krämer",
         "email": "owner110@neongrill.example",
         "company": "Neon Grill",
@@ -1205,37 +1189,27 @@
         "side": "merchant"
       },
       {
-        "id": "per_00da863ddd3a3f1e",
-        "name": "Ava Peters",
-        "email": "owner20@urbandiner.example",
-        "company": "Urban Diner",
+        "id": "per_d15e2e2a01927bb1",
+        "name": "Eva Wolf",
+        "email": "owner104@alpendiner.example",
+        "company": "Alpen Diner",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.48,
+        "intent": 0.49,
         "side": "merchant"
       },
       {
-        "id": "per_5a94ee4e9c20f822",
-        "name": "Zoe Schulte",
-        "email": "owner139@bluetrattoria.example",
-        "company": "Blue Trattoria",
+        "id": "per_d34e5cac80fa0df7",
+        "name": "Nia Haas",
+        "email": "owner149@copperdeli.example",
+        "company": "Copper Deli",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.48,
+        "intent": 0.49,
         "side": "merchant"
       },
       {
-        "id": "per_6c66c5f421d4446d",
-        "name": "Amin Krämer",
-        "email": "prospect.linkedin.1@freshtandoorli1.example",
-        "company": "Fresh Tandoor li1",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.48,
-        "side": "merchant"
-      },
-      {
-        "id": "per_cd0bdb9cb4510871",
+        "id": "per_1a6cbe766574df38",
         "name": "Timo Beck",
         "email": "owner119@neonsmokehouse.example",
         "company": "Neon Smokehouse",
@@ -1245,7 +1219,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_f2da47a5ce5c6bad",
+        "id": "per_455a8668abc9b6bf",
         "name": "Zoe Roth",
         "email": "owner24@littlewok.example",
         "company": "Little Wok",
@@ -1255,7 +1229,37 @@
         "side": "merchant"
       },
       {
-        "id": "per_1ecae90580537e11",
+        "id": "per_48c97b1db25d3ded",
+        "name": "Amin Krämer",
+        "email": "prospect.linkedin.1@freshtandoorli1.example",
+        "company": "Fresh Tandoor li1",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.48,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b270a9ae6dc1890a",
+        "name": "Zoe Schulte",
+        "email": "owner139@bluetrattoria.example",
+        "company": "Blue Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.48,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ce6f842ee00f619d",
+        "name": "Ava Peters",
+        "email": "owner20@urbandiner.example",
+        "company": "Urban Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.48,
+        "side": "merchant"
+      },
+      {
+        "id": "per_84dae30b4e1f2202",
         "name": "Lia Groß",
         "email": "owner6@goldencantina.example",
         "company": "Golden Cantina",
@@ -1265,7 +1269,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_27df44d63891513c",
+        "id": "per_a51496d86600ef4a",
         "name": "Noah Stein",
         "email": "owner48@freshwok.example",
         "company": "Fresh Wok",
@@ -1275,7 +1279,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_a6be2c660191fd3e",
+        "id": "per_e317220fd8915291",
         "name": "Ella Haas",
         "email": "owner60@wildwok.example",
         "company": "Wild Wok",
@@ -1285,7 +1289,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_f44c52f9a1666b34",
+        "id": "per_e845164c31f901c0",
         "name": "Tom Lorenz",
         "email": "owner143@bluesmokehouse.example",
         "company": "Blue Smokehouse",
@@ -1295,17 +1299,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_b2eeeeaf6bcd539e",
-        "name": "Ivan Baumann",
-        "email": "prospect.instagram.5@alpentrattoriain5.example",
-        "company": "Alpen Trattoria in5",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.46,
-        "side": "merchant"
-      },
-      {
-        "id": "per_b73a2e73a90400ac",
+        "id": "per_237ac0647e9e6743",
         "name": "Tom Böhm",
         "email": "owner15@urbanbistro.example",
         "company": "Urban Bistro",
@@ -1315,27 +1309,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_c8758e5bbd62824c",
-        "name": "Maja Graf",
-        "email": "owner136@bluekitchen.example",
-        "company": "Blue Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.46,
-        "side": "merchant"
-      },
-      {
-        "id": "per_cf58de7601edede1",
-        "name": "Tom Stein",
-        "email": "owner26@littlegrill.example",
-        "company": "Little Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.46,
-        "side": "merchant"
-      },
-      {
-        "id": "per_d7228a9c0d3509b2",
+        "id": "per_6c6d7efb107c57ca",
         "name": "Lia Krämer",
         "email": "owner34@littletaverna.example",
         "company": "Little Taverna",
@@ -1345,27 +1319,37 @@
         "side": "merchant"
       },
       {
-        "id": "per_0bb1c57045511894",
-        "name": "Nia Frank",
-        "email": "owner156@velvetwok.example",
-        "company": "Velvet Wok",
+        "id": "per_85ba4d078000679f",
+        "name": "Tom Stein",
+        "email": "owner26@littlegrill.example",
+        "company": "Little Grill",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.45,
+        "intent": 0.46,
         "side": "merchant"
       },
       {
-        "id": "per_24517cb8e599705a",
-        "name": "Theo Jäger",
-        "email": "owner88@cosmokitchen.example",
-        "company": "Cosmo Kitchen",
+        "id": "per_86942f3c312c13f1",
+        "name": "Maja Graf",
+        "email": "owner136@bluekitchen.example",
+        "company": "Blue Kitchen",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.45,
+        "intent": 0.46,
         "side": "merchant"
       },
       {
-        "id": "per_44bfe3190c6dd2a2",
+        "id": "per_8ce9f57ab67a57ae",
+        "name": "Ivan Baumann",
+        "email": "prospect.instagram.5@alpentrattoriain5.example",
+        "company": "Alpen Trattoria in5",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.46,
+        "side": "merchant"
+      },
+      {
+        "id": "per_222149e520ff7345",
         "name": "Lia Heinrich",
         "email": "owner85@cosmotandoor.example",
         "company": "Cosmo Tandoor",
@@ -1375,7 +1359,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_4b9bf875a900fc63",
+        "id": "per_630af8823c90f1c1",
         "name": "Max Brandt",
         "email": "owner107@alpensmokehouse.example",
         "company": "Alpen Smokehouse",
@@ -1385,17 +1369,17 @@
         "side": "merchant"
       },
       {
-        "id": "per_6e1c07f613749f72",
-        "name": "Sven Roth",
-        "email": "owner115@neontrattoria.example",
-        "company": "Neon Trattoria",
+        "id": "per_76f9878e834849c9",
+        "name": "Theo Jäger",
+        "email": "owner88@cosmokitchen.example",
+        "company": "Cosmo Kitchen",
         "title": "Owner",
         "identifiers": 1,
         "intent": 0.45,
         "side": "merchant"
       },
       {
-        "id": "per_8c6b54b8d7fbf290",
+        "id": "per_8311b6352b168867",
         "name": "Emil Weber",
         "email": "owner122@rusticgrill.example",
         "company": "Rustic Grill",
@@ -1405,27 +1389,27 @@
         "side": "merchant"
       },
       {
-        "id": "per_6e8257611e6bc991",
-        "name": "Ivan Simon",
-        "email": "owner109@neontandoor.example",
-        "company": "Neon Tandoor",
+        "id": "per_a295727f64e0214d",
+        "name": "Nia Frank",
+        "email": "owner156@velvetwok.example",
+        "company": "Velvet Wok",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.44,
+        "intent": 0.45,
         "side": "merchant"
       },
       {
-        "id": "per_82d762817a35cd8c",
-        "name": "Theo Haas",
-        "email": "owner33@littlebrasserie.example",
-        "company": "Little Brasserie",
+        "id": "per_ccd09418cc9e0966",
+        "name": "Sven Roth",
+        "email": "owner115@neontrattoria.example",
+        "company": "Neon Trattoria",
         "title": "Owner",
         "identifiers": 1,
-        "intent": 0.44,
+        "intent": 0.45,
         "side": "merchant"
       },
       {
-        "id": "per_c3d6dfdd49bcc8d9",
+        "id": "per_68bd7c25faf44b60",
         "name": "Raj Beck",
         "email": "owner35@littlesmokehouse.example",
         "company": "Little Smokehouse",
@@ -1435,7 +1419,17 @@
         "side": "merchant"
       },
       {
-        "id": "per_d20ec85c7f917b52",
+        "id": "per_9a07279d71dff866",
+        "name": "Ivan Simon",
+        "email": "owner109@neontandoor.example",
+        "company": "Neon Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.44,
+        "side": "merchant"
+      },
+      {
+        "id": "per_cd5f6b7da234dde7",
         "name": "Noah Fuchs",
         "email": "owner39@royalbistro.example",
         "company": "Royal Bistro",
@@ -1445,7 +1439,17 @@
         "side": "merchant"
       },
       {
-        "id": "per_850f32ad993ba1e2",
+        "id": "per_f538629b2a4b6228",
+        "name": "Theo Haas",
+        "email": "owner33@littlebrasserie.example",
+        "company": "Little Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.44,
+        "side": "merchant"
+      },
+      {
+        "id": "per_08192b026300d536",
         "name": "Sven Krämer",
         "email": "prospect.linkedin.5@goldentavernali5.example",
         "company": "Golden Taverna li5",
@@ -1455,17 +1459,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_32d5a3b0b1516047",
-        "name": "Nora Ziegler",
-        "email": "prospect.instagram.7@silkwokin7.example",
-        "company": "Silk Wok in7",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.31,
-        "side": "merchant"
-      },
-      {
-        "id": "per_dca13785f4f53a1f",
+        "id": "per_36a0599cde6edb76",
         "name": "Paul Schubert",
         "email": "prospect.linkedin.2@velvetdinerli2.example",
         "company": "Velvet Diner li2",
@@ -1475,7 +1469,17 @@
         "side": "merchant"
       },
       {
-        "id": "per_e25f40b2eb3a2817",
+        "id": "per_ca5b67906f69dd46",
+        "name": "Nora Ziegler",
+        "email": "prospect.instagram.7@silkwokin7.example",
+        "company": "Silk Wok in7",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.31,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e8e822ed61a43517",
         "name": "Sven Kraus",
         "email": "prospect.linkedin.4@littlebrasserieli4.example",
         "company": "Little Brasserie li4",
@@ -1485,17 +1489,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_03bae31b936de06d",
-        "name": "Kim Schreiber",
-        "email": "prospect.referral.0@rustictrattoriare0.example",
-        "company": "Rustic Trattoria re0",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.3,
-        "side": "merchant"
-      },
-      {
-        "id": "per_68c34b4c26f9d5d3",
+        "id": "per_29922c75d28dd09e",
         "name": "Wei Liu",
         "email": "wei@bobabay.de",
         "company": "Boba Bay",
@@ -1505,7 +1499,17 @@
         "side": "merchant"
       },
       {
-        "id": "per_9d9daf645c0395e5",
+        "id": "per_38e17310b604947e",
+        "name": "Kim Schreiber",
+        "email": "prospect.referral.0@rustictrattoriare0.example",
+        "company": "Rustic Trattoria re0",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.3,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ac952b91d60226c0",
         "name": "Paul Haas",
         "email": "prospect.instagram.1@rustickitchenin1.example",
         "company": "Rustic Kitchen in1",
@@ -1515,7 +1519,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_77b64b9772983b17",
+        "id": "per_93dd370cb85867fa",
         "name": "Paul Kraus",
         "email": "prospect.instagram.6@freshbrasseriein6.example",
         "company": "Fresh Brasserie in6",
@@ -1525,7 +1529,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_9233735b9d020a62",
+        "id": "per_cbb77e683844a415",
         "name": "Finn Ludwig",
         "email": "prospect.instagram.2@rustictavernain2.example",
         "company": "Rustic Taverna in2",
@@ -1535,7 +1539,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_d0d805de4dcc3791",
+        "id": "per_16d868c266532fa4",
         "name": "Leon Lorenz",
         "email": "prospect.newsletter.0@littlebistrone0.example",
         "company": "Little Bistro ne0",
@@ -1545,17 +1549,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_0e7b4d49cad1b43d",
-        "name": "Juan Schubert",
-        "email": "prospect.tiktok.0@littlewokti0.example",
-        "company": "Little Wok ti0",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0.25,
-        "side": "merchant"
-      },
-      {
-        "id": "per_14e063f30181b9c8",
+        "id": "per_307db05fd7771013",
         "name": "Timo Winter",
         "email": "prospect.instagram.3@freshtrattoriain3.example",
         "company": "Fresh Trattoria in3",
@@ -1565,7 +1559,17 @@
         "side": "merchant"
       },
       {
-        "id": "per_05bf2985008670fb",
+        "id": "per_489cc668a3ad3635",
+        "name": "Juan Schubert",
+        "email": "prospect.tiktok.0@littlewokti0.example",
+        "company": "Little Wok ti0",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0.25,
+        "side": "merchant"
+      },
+      {
+        "id": "per_9642c2c5fe9be244",
         "name": "Timo Winter",
         "email": "prospect.linkedin.3@copperwokli3.example",
         "company": "Copper Wok li3",
@@ -1575,7 +1579,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_cc59e4cf7944a3fc",
+        "id": "per_6d1e7e06035c856f",
         "name": "Nora Simon",
         "email": "prospect.instagram.0@coppertavernain0.example",
         "company": "Copper Taverna in0",
@@ -1585,7 +1589,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_46336f4f91db1aa7",
+        "id": "per_7bfb881ad30251c1",
         "name": "Clara Schubert",
         "email": "prospect.google.0@cosmotavernago0.example",
         "company": "Cosmo Taverna go0",
@@ -1595,7 +1599,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_24387a259a78772d",
+        "id": "per_b95b00b0d5747a87",
         "name": "Hiro Suzuki",
         "email": "hiro@ramenrhapsody.de",
         "company": "Ramen Rhapsody",
@@ -1605,7 +1609,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_eb38cda94e8a1616",
+        "id": "per_bcb593529e047634",
         "name": "Pia Winter",
         "email": "prospect.instagram.4@urbantavernain4.example",
         "company": "Urban Taverna in4",
@@ -1615,7 +1619,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_545ebfebdd2c46d7",
+        "id": "per_76e84b2c4be5a27e",
         "name": "Nina Berg",
         "email": "nina@waffleworld.de",
         "company": "Waffle World",
@@ -1625,7 +1629,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_7c5b94c378b3350d",
+        "id": "per_92aa53f8c6906139",
         "name": "Juan Otto",
         "email": "prospect.linkedin.0@rusticsmokehouseli0.example",
         "company": "Rustic Smokehouse li0",
@@ -1635,367 +1639,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_002ab01c77ed568c",
-        "name": "Mila Fuchs",
-        "email": "owner73@silktandoor.example",
-        "company": "Silk Tandoor",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_031cb0987d0749bf",
-        "name": "Gül Haas",
-        "email": "owner50@freshgrill.example",
-        "company": "Fresh Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_0342368ac74cefe4",
-        "name": "Theo Schubert",
-        "email": "owner101@alpendeli.example",
-        "company": "Alpen Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_034656ef1b622633",
-        "name": "Timo Brandt",
-        "email": "owner19@urbantrattoria.example",
-        "company": "Urban Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_06a9e73e4e4f7781",
-        "name": "Juan Winter",
-        "email": "owner84@cosmowok.example",
-        "company": "Cosmo Wok",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_088210df918686b9",
-        "name": "Ruth Haas",
-        "email": "owner86@cosmogrill.example",
-        "company": "Cosmo Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_09f6d0d93a1eca04",
-        "name": "Ivan Winter",
-        "email": "owner132@bluewok.example",
-        "company": "Blue Wok",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_0a99fe62e6a9e0cc",
-        "name": "Paul Vogt",
-        "email": "owner118@neontaverna.example",
-        "company": "Neon Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_0cd92ecb8d35098d",
-        "name": "Aldo Berger",
-        "email": "owner126@rusticcantina.example",
-        "company": "Rustic Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_0f6faf8b51589037",
-        "name": "Max Beck",
-        "email": "owner131@rusticsmokehouse.example",
-        "company": "Rustic Smokehouse",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_0f9e6f94a06f27b4",
-        "name": "Omar Busch",
-        "email": "owner58@freshtaverna.example",
-        "company": "Fresh Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_0faa793a60ed17e3",
-        "name": "Leon Krämer",
-        "email": "owner137@bluedeli.example",
-        "company": "Blue Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_11747fb2e61c1e8d",
-        "name": "Finn Frank",
-        "email": "owner70@wildtaverna.example",
-        "company": "Wild Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_125e692cfc0ae113",
-        "name": "Mila Lorenz",
-        "email": "owner53@freshdeli.example",
-        "company": "Fresh Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_15cfc53b65486d6d",
-        "name": "Ava Graf",
-        "email": "owner154@coppertaverna.example",
-        "company": "Copper Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_1d256135816a9123",
-        "name": "Omar Vogt",
-        "email": "owner75@silkbistro.example",
-        "company": "Silk Bistro",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_1dfe041b2bab8060",
-        "name": "Emil Jäger",
-        "email": "owner111@neonbistro.example",
-        "company": "Neon Bistro",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_1e07adf12674d185",
-        "name": "Noah Winkler",
-        "email": "owner43@royaltrattoria.example",
-        "company": "Royal Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_23495429c4f75840",
-        "name": "Lia Lang",
-        "email": "owner125@rusticdeli.example",
-        "company": "Rustic Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_23c2fc7c17983c6f",
-        "name": "Omar Winkler",
-        "email": "owner36@royalwok.example",
-        "company": "Royal Wok",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_253aa1331df5423c",
-        "name": "Marco Rossi",
-        "email": "marco@pizza-corner.de",
-        "company": "Pizza Corner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_254e1c88b6d65dc4",
-        "name": "Amin Schreiber",
-        "email": "owner140@bluediner.example",
-        "company": "Blue Diner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_2634209701f71137",
-        "name": "Gül Ziegler",
-        "email": "owner63@wildbistro.example",
-        "company": "Wild Bistro",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_26bbafe5ffc63504",
-        "name": "Nils Jäger",
-        "email": "owner8@goldendiner.example",
-        "company": "Golden Diner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_26d5674f5530449f",
-        "name": "Eva Graf",
-        "email": "owner128@rusticdiner.example",
-        "company": "Rustic Diner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_270cfb544155dcb4",
-        "name": "Theo Sommer",
-        "email": "owner103@alpentrattoria.example",
-        "company": "Alpen Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_29f41e57ef08df9c",
-        "name": "Lena2 Otto",
-        "email": "owner157@velvettandoor.example",
-        "company": "Velvet Tandoor",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_2bf55427117ad3e4",
-        "name": "Ruth Martin",
-        "email": "owner113@neondeli.example",
-        "company": "Neon Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_2c85f24a0c551dd9",
-        "name": "Anton Jäger",
-        "email": "owner47@royalsmokehouse.example",
-        "company": "Royal Smokehouse",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_2d0e17e71994af5b",
-        "name": "Jin Schulte",
-        "email": "owner96@alpenwok.example",
-        "company": "Alpen Wok",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_2f6ac76da88b9630",
-        "name": "Sofia Graf",
-        "email": "owner67@wildtrattoria.example",
-        "company": "Wild Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_300fc412ec5d829d",
-        "name": "Mila Ziegler",
-        "email": "owner28@littlekitchen.example",
-        "company": "Little Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_30fe9ead4bcc5527",
-        "name": "Maja Baumann",
-        "email": "owner129@rusticbrasserie.example",
-        "company": "Rustic Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_360088af8892fa2d",
-        "name": "Erik Graf",
-        "email": "owner87@cosmobistro.example",
-        "company": "Cosmo Bistro",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_38967e1b89c93c75",
-        "name": "Zoe Schulte",
-        "email": "owner117@neonbrasserie.example",
-        "company": "Neon Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_3bb7c9678275cb65",
-        "name": "Jin Ziegler",
-        "email": "owner25@littletandoor.example",
-        "company": "Little Tandoor",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_3c93a12978496438",
+        "id": "per_005948a316fe959b",
         "name": "Timo Böhm",
         "email": "owner13@urbantandoor.example",
         "company": "Urban Tandoor",
@@ -2005,317 +1649,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_3d5bd6f42ebd4e94",
-        "name": "Ella Sommer",
-        "email": "owner163@velvettrattoria.example",
-        "company": "Velvet Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_3e0bea4a27ff21f7",
-        "name": "Maja Sommer",
-        "email": "owner18@urbancantina.example",
-        "company": "Urban Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_3f65d8c70d50475c",
-        "name": "Anton Braun",
-        "email": "owner65@wilddeli.example",
-        "company": "Wild Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_429389c9223bc786",
-        "name": "Paul Baumann",
-        "email": "owner0@goldenwok.example",
-        "company": "Golden Wok",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_4463fd70865b4aa1",
-        "name": "Nils Seidel",
-        "email": "owner9@goldenbrasserie.example",
-        "company": "Golden Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_44b5df5b55dde6ef",
-        "name": "Emil Groß",
-        "email": "owner83@silksmokehouse.example",
-        "company": "Silk Smokehouse",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_466ee13253ac00f9",
-        "name": "Paul Heinrich",
-        "email": "owner77@silkdeli.example",
-        "company": "Silk Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_473ba8dd9833f10b",
-        "name": "Nia Schubert",
-        "email": "owner102@alpencantina.example",
-        "company": "Alpen Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_4837ae57521527d2",
-        "name": "Sven Lorenz",
-        "email": "owner42@royalcantina.example",
-        "company": "Royal Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_4ae0379e07022333",
-        "name": "Pia Ziegler",
-        "email": "owner31@littletrattoria.example",
-        "company": "Little Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_4be4a286947f7b63",
-        "name": "Nora Brandt",
-        "email": "owner141@bluebrasserie.example",
-        "company": "Blue Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_4bfd6e3af0aa4f04",
-        "name": "Noah Albrecht",
-        "email": "owner38@royalgrill.example",
-        "company": "Royal Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_4c6efefbb485e446",
-        "name": "Ruth Jäger",
-        "email": "owner2@goldengrill.example",
-        "company": "Golden Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_4d2fff0d1b88d8c4",
-        "name": "Juan Ludwig",
-        "email": "owner165@velvetbrasserie.example",
-        "company": "Velvet Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_4d848986d72da914",
-        "name": "Noah Dietrich",
-        "email": "owner22@urbantaverna.example",
-        "company": "Urban Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_4dfdb0bdeb18032f",
-        "name": "Ava Kraus",
-        "email": "owner49@freshtandoor.example",
-        "company": "Fresh Tandoor",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_50aad1ae87baf4cb",
-        "name": "Theo Krüger",
-        "email": "owner144@copperwok.example",
-        "company": "Copper Wok",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_511acf556d0ac7ff",
-        "name": "Emil Roth",
-        "email": "owner106@alpentaverna.example",
-        "company": "Alpen Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_59a195080e105b12",
-        "name": "Amin Heinrich",
-        "email": "owner95@cosmosmokehouse.example",
-        "company": "Cosmo Smokehouse",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_5c1b3694bfc7b59c",
-        "name": "Amin Otto",
-        "email": "owner145@coppertandoor.example",
-        "company": "Copper Tandoor",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_5dc12288222c5614",
-        "name": "Yara Groß",
-        "email": "owner29@littledeli.example",
-        "company": "Little Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_6414d694746ea924",
-        "name": "Eva Wolf",
-        "email": "owner16@urbankitchen.example",
-        "company": "Urban Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_6568687e27dfb416",
-        "name": "Kim Seidel",
-        "email": "owner12@urbanwok.example",
-        "company": "Urban Wok",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_679149b4bdb96231",
-        "name": "Sofia Otto",
-        "email": "owner17@urbandeli.example",
-        "company": "Urban Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_699640508e433874",
-        "name": "Emil Schreiber",
-        "email": "owner164@velvetdiner.example",
-        "company": "Velvet Diner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_69f2c1c12eb144e7",
-        "name": "Sofia Ziegler",
-        "email": "owner4@goldenkitchen.example",
-        "company": "Golden Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_6a09d06575d34b0a",
-        "name": "Zoe Lang",
-        "email": "owner62@wildgrill.example",
-        "company": "Wild Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_6b69cf78eefc58b0",
-        "name": "Sofia Braun",
-        "email": "owner3@goldenbistro.example",
-        "company": "Golden Bistro",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_7078efdf4c7a918c",
-        "name": "Anton Beck",
-        "email": "owner105@alpenbrasserie.example",
-        "company": "Alpen Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_72c63649c7ed2952",
-        "name": "Theo Albrecht",
-        "email": "owner21@urbanbrasserie.example",
-        "company": "Urban Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_734347a58044e698",
-        "name": "Tom Albrecht",
-        "email": "owner152@copperdiner.example",
-        "company": "Copper Diner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_73f42f919bcd409e",
+        "id": "per_0174227885ba21cb",
         "name": "Louis Dupont",
         "email": "louis@croissantcafe.de",
         "company": "Croissant Cafe",
@@ -2325,247 +1659,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_757bc98ff80e701c",
-        "name": "Nora Baumann",
-        "email": "owner11@goldensmokehouse.example",
-        "company": "Golden Smokehouse",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_77c6554fa57abd59",
-        "name": "Timo Simon",
-        "email": "owner82@silktaverna.example",
-        "company": "Silk Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_798632eeb56ebadc",
-        "name": "Mila Böhm",
-        "email": "owner74@silkgrill.example",
-        "company": "Silk Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_7be0941a43d2048e",
-        "name": "Noah Groß",
-        "email": "owner130@rustictaverna.example",
-        "company": "Rustic Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_7c4926a9f306964a",
-        "name": "Jonas Jäger",
-        "email": "owner116@neondiner.example",
-        "company": "Neon Diner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_7d743e3f528dbd2b",
-        "name": "Finn Wolf",
-        "email": "owner44@royaldiner.example",
-        "company": "Royal Diner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_80bb2e35100745ac",
-        "name": "Raj Schulte",
-        "email": "owner41@royaldeli.example",
-        "company": "Royal Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_80d541af005bb53c",
-        "name": "Yara Winkler",
-        "email": "owner108@neonwok.example",
-        "company": "Neon Wok",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_8557cf598908ef48",
-        "name": "Emil Martin",
-        "email": "owner134@bluegrill.example",
-        "company": "Blue Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_87c3c1cccb70a9d4",
-        "name": "Zoe Sommer",
-        "email": "owner148@copperkitchen.example",
-        "company": "Copper Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_87cbfc5594eaae77",
-        "name": "Lia Dietrich",
-        "email": "owner23@urbansmokehouse.example",
-        "company": "Urban Smokehouse",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_8ff66b306e637963",
-        "name": "Pia Braun",
-        "email": "owner91@cosmotrattoria.example",
-        "company": "Cosmo Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_92f0b4074aa24fe4",
-        "name": "Theo Jäger",
-        "email": "owner1@goldentandoor.example",
-        "company": "Golden Tandoor",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_948a56cf8e7e2be1",
-        "name": "Maja Weber",
-        "email": "owner40@royalkitchen.example",
-        "company": "Royal Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_99c21c07aa4a06cd",
-        "name": "Anton Frank",
-        "email": "owner14@urbangrill.example",
-        "company": "Urban Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_9e01eaa93ef0310c",
-        "name": "Anton Seidel",
-        "email": "owner57@freshbrasserie.example",
-        "company": "Fresh Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_9e5c7faff427b31c",
-        "name": "Nils Schreiber",
-        "email": "owner160@velvetkitchen.example",
-        "company": "Velvet Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_9e9c3a539522c06c",
-        "name": "Anton Frank",
-        "email": "owner68@wilddiner.example",
-        "company": "Wild Diner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_a34a8da45c5444fd",
-        "name": "Kim Schubert",
-        "email": "owner158@velvetgrill.example",
-        "company": "Velvet Grill",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_aa971edeb0d76fc7",
-        "name": "Eva Winter",
-        "email": "owner55@freshtrattoria.example",
-        "company": "Fresh Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_ace0b754cc4884d5",
-        "name": "Lia Frank",
-        "email": "owner59@freshsmokehouse.example",
-        "company": "Fresh Smokehouse",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_ae1207593c41dd11",
-        "name": "Aldo Seidel",
-        "email": "owner99@alpenbistro.example",
-        "company": "Alpen Bistro",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_b04ffb668402edfa",
-        "name": "Maja Ziegler",
-        "email": "owner150@coppercantina.example",
-        "company": "Copper Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_b11fdba48ee0773c",
-        "name": "Ana Vasquez",
-        "email": "ana@tacopiso.de",
-        "company": "Taco Piso",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_b16ee8d4fbe1af33",
+        "id": "per_04fefa347d7c2a28",
         "name": "Jin Schulte",
         "email": "owner89@cosmodeli.example",
         "company": "Cosmo Deli",
@@ -2575,47 +1669,7 @@
         "side": "merchant"
       },
       {
-        "id": "per_b3dc46325e52ed08",
-        "name": "Jin Weber",
-        "email": "owner54@freshcantina.example",
-        "company": "Fresh Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_b4a036565bfc1e06",
-        "name": "Aldo Haas",
-        "email": "owner161@velvetdeli.example",
-        "company": "Velvet Deli",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_b4be4d12ef30b6dc",
-        "name": "Ida Winkler",
-        "email": "owner61@wildtandoor.example",
-        "company": "Wild Tandoor",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_b78968cf8cb92570",
-        "name": "Pia Otto",
-        "email": "owner94@cosmotaverna.example",
-        "company": "Cosmo Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_b7d2391d4d94642f",
+        "id": "per_0569111b390b033f",
         "name": "Lia Kraus",
         "email": "owner98@alpengrill.example",
         "company": "Alpen Grill",
@@ -2625,87 +1679,67 @@
         "side": "merchant"
       },
       {
-        "id": "per_b9e4687494315bbb",
-        "name": "Max Haas",
-        "email": "owner27@littlebistro.example",
-        "company": "Little Bistro",
+        "id": "per_072b5826659106d9",
+        "name": "Leon Krämer",
+        "email": "owner137@bluedeli.example",
+        "company": "Blue Deli",
         "title": "Owner",
         "identifiers": 1,
         "intent": 0,
         "side": "merchant"
       },
       {
-        "id": "per_be3a96bb4afaf4b2",
-        "name": "Kim Roth",
-        "email": "owner146@coppergrill.example",
-        "company": "Copper Grill",
+        "id": "per_07d16a7571ba4562",
+        "name": "Nora Baumann",
+        "email": "owner11@goldensmokehouse.example",
+        "company": "Golden Smokehouse",
         "title": "Owner",
         "identifiers": 1,
         "intent": 0,
         "side": "merchant"
       },
       {
-        "id": "per_c48b3c7c4a013d5d",
-        "name": "Yara Ziegler",
-        "email": "owner76@silkkitchen.example",
-        "company": "Silk Kitchen",
+        "id": "per_0cad888d78ef4710",
+        "name": "Paul Vogt",
+        "email": "owner118@neontaverna.example",
+        "company": "Neon Taverna",
         "title": "Owner",
         "identifiers": 1,
         "intent": 0,
         "side": "merchant"
       },
       {
-        "id": "per_c92971481e83fbc9",
-        "name": "Ruth Stein",
-        "email": "owner32@littlediner.example",
-        "company": "Little Diner",
+        "id": "per_118ed74aca8ce8da",
+        "name": "Max Beck",
+        "email": "owner131@rusticsmokehouse.example",
+        "company": "Rustic Smokehouse",
         "title": "Owner",
         "identifiers": 1,
         "intent": 0,
         "side": "merchant"
       },
       {
-        "id": "per_caeef09766a80064",
-        "name": "Yara Roth",
-        "email": "owner45@royalbrasserie.example",
-        "company": "Royal Brasserie",
+        "id": "per_17d6d7795c06133b",
+        "name": "Ivan Winter",
+        "email": "owner132@bluewok.example",
+        "company": "Blue Wok",
         "title": "Owner",
         "identifiers": 1,
         "intent": 0,
         "side": "merchant"
       },
       {
-        "id": "per_d7b17d3519283d0b",
-        "name": "Gül Schubert",
-        "email": "owner7@goldentrattoria.example",
-        "company": "Golden Trattoria",
+        "id": "per_18314898e57f6238",
+        "name": "Aldo Seidel",
+        "email": "owner99@alpenbistro.example",
+        "company": "Alpen Bistro",
         "title": "Owner",
         "identifiers": 1,
         "intent": 0,
         "side": "merchant"
       },
       {
-        "id": "per_d8677d12d971e0cf",
-        "name": "Kim Krämer",
-        "email": "owner90@cosmocantina.example",
-        "company": "Cosmo Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_d91237e8ed6a3b84",
-        "name": "Jonas Dietrich",
-        "email": "owner100@alpenkitchen.example",
-        "company": "Alpen Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_d990bfd5416128eb",
+        "id": "per_188b6d0865e73a76",
         "name": "Amin Berger",
         "email": "owner72@silkwok.example",
         "company": "Silk Wok",
@@ -2715,147 +1749,17 @@
         "side": "merchant"
       },
       {
-        "id": "per_da95734d11abb6dc",
-        "name": "Yara Lorenz",
-        "email": "owner138@bluecantina.example",
-        "company": "Blue Cantina",
+        "id": "per_197928310c542fac",
+        "name": "Mila Ziegler",
+        "email": "owner28@littlekitchen.example",
+        "company": "Little Kitchen",
         "title": "Owner",
         "identifiers": 1,
         "intent": 0,
         "side": "merchant"
       },
       {
-        "id": "per_dcaa82824d4f4e92",
-        "name": "Zoe Kraus",
-        "email": "owner155@coppersmokehouse.example",
-        "company": "Copper Smokehouse",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_dd524678ad1ab9f5",
-        "name": "Amin Schulte",
-        "email": "owner52@freshkitchen.example",
-        "company": "Fresh Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_de4aceeaed101113",
-        "name": "Maja Winkler",
-        "email": "owner80@silkdiner.example",
-        "company": "Silk Diner",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_e004630bcdb39c76",
-        "name": "Lena2 Winter",
-        "email": "owner162@velvetcantina.example",
-        "company": "Velvet Cantina",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_e2210dea58e6df6d",
-        "name": "Timo Braun",
-        "email": "owner121@rustictandoor.example",
-        "company": "Rustic Tandoor",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_e4e98d0c311a32d6",
-        "name": "Max Haas",
-        "email": "owner120@rusticwok.example",
-        "company": "Rustic Wok",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_e54f43e7be2b1325",
-        "name": "Mila Kraus",
-        "email": "owner64@wildkitchen.example",
-        "company": "Wild Kitchen",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_e7c768a8b7209ee6",
-        "name": "Nora Fuchs",
-        "email": "owner166@velvettaverna.example",
-        "company": "Velvet Taverna",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_e93b5fec772a1849",
-        "name": "Amin Baumann",
-        "email": "owner69@wildbrasserie.example",
-        "company": "Wild Brasserie",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_eacaf20e8c94ca4c",
-        "name": "Kai Andersen",
-        "email": "kai@pokepoint.de",
-        "company": "Poké Point",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_ec2acd306f6fb040",
-        "name": "Timo Sommer",
-        "email": "owner151@coppertrattoria.example",
-        "company": "Copper Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_edf43794366449e6",
-        "name": "Pia Simon",
-        "email": "owner79@silktrattoria.example",
-        "company": "Silk Trattoria",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_f813927a4a4a159a",
-        "name": "Lena2 Kraus",
-        "email": "owner147@copperbistro.example",
-        "company": "Copper Bistro",
-        "title": "Owner",
-        "identifiers": 1,
-        "intent": 0,
-        "side": "merchant"
-      },
-      {
-        "id": "per_f8bf002b8923f9e0",
+        "id": "per_1cfc83ddc26d38ec",
         "name": "Paul Heinrich",
         "email": "owner123@rusticbistro.example",
         "company": "Rustic Bistro",
@@ -2865,7 +1769,97 @@
         "side": "merchant"
       },
       {
-        "id": "per_f93b9bd3114946cf",
+        "id": "per_2507424668c36b40",
+        "name": "Emil Groß",
+        "email": "owner83@silksmokehouse.example",
+        "company": "Silk Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_286733feb600adc0",
+        "name": "Anton Jäger",
+        "email": "owner47@royalsmokehouse.example",
+        "company": "Royal Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2b7be371bc9166b2",
+        "name": "Pia Otto",
+        "email": "owner94@cosmotaverna.example",
+        "company": "Cosmo Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2e78f541674f7a3e",
+        "name": "Nils Schreiber",
+        "email": "owner160@velvetkitchen.example",
+        "company": "Velvet Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2ecb98b0bf967aaa",
+        "name": "Kim Krämer",
+        "email": "owner90@cosmocantina.example",
+        "company": "Cosmo Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2f495fa9b188679f",
+        "name": "Amin Baumann",
+        "email": "owner69@wildbrasserie.example",
+        "company": "Wild Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2f5045b875831297",
+        "name": "Ida Winkler",
+        "email": "owner61@wildtandoor.example",
+        "company": "Wild Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_2f6050fb923a6c80",
+        "name": "Maja Baumann",
+        "email": "owner129@rusticbrasserie.example",
+        "company": "Rustic Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_3329fed026e6d948",
+        "name": "Ana Vasquez",
+        "email": "ana@tacopiso.de",
+        "company": "Taco Piso",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_35a8cb1fd9652a60",
         "name": "Anton Otto",
         "email": "owner92@cosmodiner.example",
         "company": "Cosmo Diner",
@@ -2875,10 +1869,1020 @@
         "side": "merchant"
       },
       {
-        "id": "per_fccd510530fde911",
+        "id": "per_3c70ef652b704d60",
+        "name": "Juan Ludwig",
+        "email": "owner165@velvetbrasserie.example",
+        "company": "Velvet Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_411a2481850d4ccb",
+        "name": "Ruth Haas",
+        "email": "owner86@cosmogrill.example",
+        "company": "Cosmo Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_426e92a94b9be3f2",
+        "name": "Lia Lang",
+        "email": "owner125@rusticdeli.example",
+        "company": "Rustic Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_427427c50a0a439f",
+        "name": "Kim Roth",
+        "email": "owner146@coppergrill.example",
+        "company": "Copper Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_47255278e15ec0fe",
+        "name": "Jonas Dietrich",
+        "email": "owner100@alpenkitchen.example",
+        "company": "Alpen Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4792f4b9980d22d6",
+        "name": "Raj Schulte",
+        "email": "owner41@royaldeli.example",
+        "company": "Royal Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_47d82184f0f78b3f",
+        "name": "Theo Schubert",
+        "email": "owner101@alpendeli.example",
+        "company": "Alpen Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_4a5d6defa96ff3f8",
+        "name": "Aldo Haas",
+        "email": "owner161@velvetdeli.example",
+        "company": "Velvet Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_50e1e301da07ec3a",
+        "name": "Ava Kraus",
+        "email": "owner49@freshtandoor.example",
+        "company": "Fresh Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_510f0fa0af509ea3",
+        "name": "Maja Winkler",
+        "email": "owner80@silkdiner.example",
+        "company": "Silk Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_552b5d6c07216e9b",
+        "name": "Amin Heinrich",
+        "email": "owner95@cosmosmokehouse.example",
+        "company": "Cosmo Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_58fa496bea3266cf",
+        "name": "Mila Böhm",
+        "email": "owner74@silkgrill.example",
+        "company": "Silk Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_5ab026955b8a6ccc",
+        "name": "Yara Lorenz",
+        "email": "owner138@bluecantina.example",
+        "company": "Blue Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_64cbb388a5cdfc68",
+        "name": "Anton Seidel",
+        "email": "owner57@freshbrasserie.example",
+        "company": "Fresh Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_64f852c39a423aaa",
+        "name": "Lia Dietrich",
+        "email": "owner23@urbansmokehouse.example",
+        "company": "Urban Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_680e8368e972a85c",
+        "name": "Erik Graf",
+        "email": "owner87@cosmobistro.example",
+        "company": "Cosmo Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_69c221bd03a9971d",
+        "name": "Emil Martin",
+        "email": "owner134@bluegrill.example",
+        "company": "Blue Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6a4c8e8d56b1c806",
+        "name": "Sofia Graf",
+        "email": "owner67@wildtrattoria.example",
+        "company": "Wild Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6c97d7dc7d1e2a3e",
+        "name": "Pia Ziegler",
+        "email": "owner31@littletrattoria.example",
+        "company": "Little Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6cd858ed1f4b6e8a",
+        "name": "Yara Ziegler",
+        "email": "owner76@silkkitchen.example",
+        "company": "Silk Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6d16f5a0bb5f2f08",
+        "name": "Lena2 Winter",
+        "email": "owner162@velvetcantina.example",
+        "company": "Velvet Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6d5ed80a64d6cca7",
+        "name": "Ruth Martin",
+        "email": "owner113@neondeli.example",
+        "company": "Neon Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_6f5213243250bdfc",
+        "name": "Eva Wolf",
+        "email": "owner16@urbankitchen.example",
+        "company": "Urban Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_70af01346b2ee1d1",
+        "name": "Lena2 Otto",
+        "email": "owner157@velvettandoor.example",
+        "company": "Velvet Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_72179c7317be0dfb",
+        "name": "Omar Winkler",
+        "email": "owner36@royalwok.example",
+        "company": "Royal Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7800eec164d18d75",
+        "name": "Theo Jäger",
+        "email": "owner1@goldentandoor.example",
+        "company": "Golden Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7810be710a5c3e06",
+        "name": "Timo Braun",
+        "email": "owner121@rustictandoor.example",
+        "company": "Rustic Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_78265659690431aa",
+        "name": "Amin Schreiber",
+        "email": "owner140@bluediner.example",
+        "company": "Blue Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_794c508cbf2bbcb1",
+        "name": "Anton Frank",
+        "email": "owner68@wilddiner.example",
+        "company": "Wild Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7a609dbcf316ab8b",
+        "name": "Anton Frank",
+        "email": "owner14@urbangrill.example",
+        "company": "Urban Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7ac4d8549d243cf8",
         "name": "Raj Wolf",
         "email": "owner135@bluebistro.example",
         "company": "Blue Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7b899cf877b5275c",
+        "name": "Nora Fuchs",
+        "email": "owner166@velvettaverna.example",
+        "company": "Velvet Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7bf16dd88b510799",
+        "name": "Tom Albrecht",
+        "email": "owner152@copperdiner.example",
+        "company": "Copper Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_7c65280fe43c76b0",
+        "name": "Amin Schulte",
+        "email": "owner52@freshkitchen.example",
+        "company": "Fresh Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_839503dd38c9499e",
+        "name": "Mila Kraus",
+        "email": "owner64@wildkitchen.example",
+        "company": "Wild Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_843084ebed825398",
+        "name": "Theo Krüger",
+        "email": "owner144@copperwok.example",
+        "company": "Copper Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_8478e86b652e0e60",
+        "name": "Kim Seidel",
+        "email": "owner12@urbanwok.example",
+        "company": "Urban Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_84d67be15b56e204",
+        "name": "Ruth Jäger",
+        "email": "owner2@goldengrill.example",
+        "company": "Golden Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_883f4106c597a766",
+        "name": "Noah Albrecht",
+        "email": "owner38@royalgrill.example",
+        "company": "Royal Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_88bb3969988a0a80",
+        "name": "Eva Winter",
+        "email": "owner55@freshtrattoria.example",
+        "company": "Fresh Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_8a96cd91cf2d0c06",
+        "name": "Maja Sommer",
+        "email": "owner18@urbancantina.example",
+        "company": "Urban Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_8c84aab7dcd13780",
+        "name": "Sofia Otto",
+        "email": "owner17@urbandeli.example",
+        "company": "Urban Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_9424452c4bc17e16",
+        "name": "Timo Simon",
+        "email": "owner82@silktaverna.example",
+        "company": "Silk Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_94a01016c1bd02e4",
+        "name": "Zoe Lang",
+        "email": "owner62@wildgrill.example",
+        "company": "Wild Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_998c6ee8abb025f0",
+        "name": "Jin Weber",
+        "email": "owner54@freshcantina.example",
+        "company": "Fresh Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_9de30713b45692e2",
+        "name": "Nora Brandt",
+        "email": "owner141@bluebrasserie.example",
+        "company": "Blue Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_9f499f2a762e3e3b",
+        "name": "Timo Brandt",
+        "email": "owner19@urbantrattoria.example",
+        "company": "Urban Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a16baf231d39fb38",
+        "name": "Sofia Ziegler",
+        "email": "owner4@goldenkitchen.example",
+        "company": "Golden Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a3ef389590247f52",
+        "name": "Nils Seidel",
+        "email": "owner9@goldenbrasserie.example",
+        "company": "Golden Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a4afb51478776cb9",
+        "name": "Theo Albrecht",
+        "email": "owner21@urbanbrasserie.example",
+        "company": "Urban Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a4eb69b48059aecc",
+        "name": "Zoe Schulte",
+        "email": "owner117@neonbrasserie.example",
+        "company": "Neon Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a7242dafcc4b56ea",
+        "name": "Noah Dietrich",
+        "email": "owner22@urbantaverna.example",
+        "company": "Urban Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_a8e61b08360a9070",
+        "name": "Theo Sommer",
+        "email": "owner103@alpentrattoria.example",
+        "company": "Alpen Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ab11133f598b50c0",
+        "name": "Paul Baumann",
+        "email": "owner0@goldenwok.example",
+        "company": "Golden Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ad3e1f8b996ed3ea",
+        "name": "Mila Fuchs",
+        "email": "owner73@silktandoor.example",
+        "company": "Silk Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_aedabdd862c66fab",
+        "name": "Ruth Stein",
+        "email": "owner32@littlediner.example",
+        "company": "Little Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b2f252ab59905980",
+        "name": "Zoe Sommer",
+        "email": "owner148@copperkitchen.example",
+        "company": "Copper Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_b58502da344d3ff0",
+        "name": "Lia Frank",
+        "email": "owner59@freshsmokehouse.example",
+        "company": "Fresh Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_bb977cb7d5b0b1f9",
+        "name": "Juan Winter",
+        "email": "owner84@cosmowok.example",
+        "company": "Cosmo Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_bbfd8a3004347d0a",
+        "name": "Max Haas",
+        "email": "owner27@littlebistro.example",
+        "company": "Little Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_bea060cfdcd17ac5",
+        "name": "Nia Schubert",
+        "email": "owner102@alpencantina.example",
+        "company": "Alpen Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_c1af1325adcf1614",
+        "name": "Nils Jäger",
+        "email": "owner8@goldendiner.example",
+        "company": "Golden Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_c200f25a9af90f8d",
+        "name": "Jonas Jäger",
+        "email": "owner116@neondiner.example",
+        "company": "Neon Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_c5e649aac9d83684",
+        "name": "Maja Weber",
+        "email": "owner40@royalkitchen.example",
+        "company": "Royal Kitchen",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_c672a7293d5368a9",
+        "name": "Maja Ziegler",
+        "email": "owner150@coppercantina.example",
+        "company": "Copper Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_c9198993e2f06928",
+        "name": "Ella Sommer",
+        "email": "owner163@velvettrattoria.example",
+        "company": "Velvet Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_cce5014f01c53adc",
+        "name": "Yara Groß",
+        "email": "owner29@littledeli.example",
+        "company": "Little Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_cde547dcecb9ac52",
+        "name": "Jin Ziegler",
+        "email": "owner25@littletandoor.example",
+        "company": "Little Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_cebb4cfa902e3db5",
+        "name": "Kai Andersen",
+        "email": "kai@pokepoint.de",
+        "company": "Poké Point",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_cff67b2da7d0eb03",
+        "name": "Finn Wolf",
+        "email": "owner44@royaldiner.example",
+        "company": "Royal Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d07dca0bd1b53b00",
+        "name": "Anton Braun",
+        "email": "owner65@wilddeli.example",
+        "company": "Wild Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d0fb957a61cea493",
+        "name": "Amin Otto",
+        "email": "owner145@coppertandoor.example",
+        "company": "Copper Tandoor",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d2f3e7fcf6f8a4fe",
+        "name": "Eva Graf",
+        "email": "owner128@rusticdiner.example",
+        "company": "Rustic Diner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d571e0d3c0548134",
+        "name": "Ava Graf",
+        "email": "owner154@coppertaverna.example",
+        "company": "Copper Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d70eb1f79dd1d58a",
+        "name": "Noah Groß",
+        "email": "owner130@rustictaverna.example",
+        "company": "Rustic Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d75df613ee4e2bdd",
+        "name": "Marco Rossi",
+        "email": "marco@pizza-corner.de",
+        "company": "Pizza Corner",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d8084cce208425c6",
+        "name": "Max Haas",
+        "email": "owner120@rusticwok.example",
+        "company": "Rustic Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d81930c64bf89b5e",
+        "name": "Kim Schubert",
+        "email": "owner158@velvetgrill.example",
+        "company": "Velvet Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d922e57f56a8a94a",
+        "name": "Yara Roth",
+        "email": "owner45@royalbrasserie.example",
+        "company": "Royal Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_d9656eeca73228eb",
+        "name": "Zoe Kraus",
+        "email": "owner155@coppersmokehouse.example",
+        "company": "Copper Smokehouse",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_da1b3cf1e9b5aafc",
+        "name": "Emil Roth",
+        "email": "owner106@alpentaverna.example",
+        "company": "Alpen Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_da5f2c00c6f40cd2",
+        "name": "Finn Frank",
+        "email": "owner70@wildtaverna.example",
+        "company": "Wild Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_daa641da77e9f0d4",
+        "name": "Jin Schulte",
+        "email": "owner96@alpenwok.example",
+        "company": "Alpen Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_dabc7951b277f49e",
+        "name": "Sven Lorenz",
+        "email": "owner42@royalcantina.example",
+        "company": "Royal Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ddfcb70345a76d14",
+        "name": "Gül Schubert",
+        "email": "owner7@goldentrattoria.example",
+        "company": "Golden Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_de6b74e578d83e74",
+        "name": "Pia Braun",
+        "email": "owner91@cosmotrattoria.example",
+        "company": "Cosmo Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ded7b5e31d19a8ed",
+        "name": "Timo Sommer",
+        "email": "owner151@coppertrattoria.example",
+        "company": "Copper Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e0d05d5bdce7944e",
+        "name": "Noah Winkler",
+        "email": "owner43@royaltrattoria.example",
+        "company": "Royal Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e1cd7fc7fa8a277d",
+        "name": "Gül Ziegler",
+        "email": "owner63@wildbistro.example",
+        "company": "Wild Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e74cd17af709e172",
+        "name": "Lena2 Kraus",
+        "email": "owner147@copperbistro.example",
+        "company": "Copper Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e8686684ea1b40b2",
+        "name": "Sofia Braun",
+        "email": "owner3@goldenbistro.example",
+        "company": "Golden Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_e9004c1a0ca8c00f",
+        "name": "Yara Winkler",
+        "email": "owner108@neonwok.example",
+        "company": "Neon Wok",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ea4638e788378e5a",
+        "name": "Anton Beck",
+        "email": "owner105@alpenbrasserie.example",
+        "company": "Alpen Brasserie",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ec12495c2052ce8f",
+        "name": "Omar Vogt",
+        "email": "owner75@silkbistro.example",
+        "company": "Silk Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f0e28aa1aafc1154",
+        "name": "Aldo Berger",
+        "email": "owner126@rusticcantina.example",
+        "company": "Rustic Cantina",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f2d9548a3f778246",
+        "name": "Paul Heinrich",
+        "email": "owner77@silkdeli.example",
+        "company": "Silk Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f45b4bb1b53dcbbf",
+        "name": "Omar Busch",
+        "email": "owner58@freshtaverna.example",
+        "company": "Fresh Taverna",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f52d151e761e6399",
+        "name": "Pia Simon",
+        "email": "owner79@silktrattoria.example",
+        "company": "Silk Trattoria",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_f70ff63bfdc41e57",
+        "name": "Mila Lorenz",
+        "email": "owner53@freshdeli.example",
+        "company": "Fresh Deli",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_fab4d8c19462c746",
+        "name": "Emil Jäger",
+        "email": "owner111@neonbistro.example",
+        "company": "Neon Bistro",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_fd8a6faeb5781efb",
+        "name": "Gül Haas",
+        "email": "owner50@freshgrill.example",
+        "company": "Fresh Grill",
+        "title": "Owner",
+        "identifiers": 1,
+        "intent": 0,
+        "side": "merchant"
+      },
+      {
+        "id": "per_ff93db6c231ac3d7",
+        "name": "Emil Schreiber",
+        "email": "owner164@velvetdiner.example",
+        "company": "Velvet Diner",
         "title": "Owner",
         "identifiers": 1,
         "intent": 0,
@@ -2914,11 +2918,11 @@
           "count": 898
         },
         {
-          "type": "form_submit",
+          "type": "demo_request",
           "count": 1
         },
         {
-          "type": "demo_request",
+          "type": "form_submit",
           "count": 1
         }
       ],
@@ -2946,63 +2950,6 @@
         "merchantLeads14": 2,
         "medianNewUsers": 772,
         "rule": "increase budget"
-      }
-    },
-    {
-      "source": "referral",
-      "people": 1559,
-      "activePeople7": 516,
-      "newUsers7": 418,
-      "newUsersPrior7": 385,
-      "signals7": 553,
-      "signalsPrior7": 504,
-      "growthPct": 10,
-      "avgIntent": 0.19,
-      "avgIntentActive": 0.33,
-      "hotLeadYield": 0.14,
-      "conversion": 0.48,
-      "repeatRate": 0.52,
-      "avgOrderValue": 41.98,
-      "merchantLeads14": 1,
-      "quality": 43,
-      "topSignals": [
-        {
-          "type": "signup",
-          "count": 1555
-        },
-        {
-          "type": "website_visit",
-          "count": 248
-        },
-        {
-          "type": "form_submit",
-          "count": 4
-        }
-      ],
-      "topPeople": [
-        {
-          "name": "Ida Peters",
-          "intent": 0.89
-        },
-        {
-          "name": "Juan Seidel",
-          "intent": 0.88
-        },
-        {
-          "name": "Maja Frank",
-          "intent": 0.88
-        }
-      ],
-      "recommendation": "expand incentives",
-      "factors": {
-        "growthPct": 10,
-        "avgIntentActive": 0.33,
-        "conversion": 0.48,
-        "repeatRate": 0.52,
-        "avgOrderValue": 41.98,
-        "merchantLeads14": 1,
-        "medianNewUsers": 772,
-        "rule": "expand incentives"
       }
     },
     {
@@ -3064,6 +3011,63 @@
         "merchantLeads14": 1,
         "medianNewUsers": 772,
         "rule": "protect"
+      }
+    },
+    {
+      "source": "referral",
+      "people": 1559,
+      "activePeople7": 516,
+      "newUsers7": 418,
+      "newUsersPrior7": 385,
+      "signals7": 553,
+      "signalsPrior7": 504,
+      "growthPct": 10,
+      "avgIntent": 0.19,
+      "avgIntentActive": 0.33,
+      "hotLeadYield": 0.14,
+      "conversion": 0.48,
+      "repeatRate": 0.52,
+      "avgOrderValue": 41.98,
+      "merchantLeads14": 1,
+      "quality": 43,
+      "topSignals": [
+        {
+          "type": "signup",
+          "count": 1555
+        },
+        {
+          "type": "website_visit",
+          "count": 248
+        },
+        {
+          "type": "form_submit",
+          "count": 4
+        }
+      ],
+      "topPeople": [
+        {
+          "name": "Ida Peters",
+          "intent": 0.89
+        },
+        {
+          "name": "Maja Frank",
+          "intent": 0.88
+        },
+        {
+          "name": "Juan Seidel",
+          "intent": 0.88
+        }
+      ],
+      "recommendation": "expand incentives",
+      "factors": {
+        "growthPct": 10,
+        "avgIntentActive": 0.33,
+        "conversion": 0.48,
+        "repeatRate": 0.52,
+        "avgOrderValue": 41.98,
+        "merchantLeads14": 1,
+        "medianNewUsers": 772,
+        "rule": "expand incentives"
       }
     },
     {
@@ -3168,11 +3172,11 @@
           "intent": 0.83
         },
         {
-          "name": "Lena2 Beck",
+          "name": "Tara Frank",
           "intent": 0.8
         },
         {
-          "name": "Tara Frank",
+          "name": "Lena2 Beck",
           "intent": 0.8
         }
       ],
@@ -3229,7 +3233,7 @@
           "intent": 0.81
         },
         {
-          "name": "Tara Krüger",
+          "name": "Ava Simon",
           "intent": 0.8
         }
       ],
@@ -3310,11 +3314,11 @@
     {
       "company": "Sushi Rocket",
       "industry": "food",
-      "employees": 0,
+      "employees": 12,
       "people": 1,
       "avgIntent": 0.83,
       "maxIntent": 0.83,
-      "icpFit": 0.45,
+      "icpFit": 0.9,
       "churnRisk": 0,
       "mrr": 3100,
       "orderRevenue60": 52,
@@ -3325,11 +3329,11 @@
     {
       "company": "Burger Factory",
       "industry": "food",
-      "employees": 0,
+      "employees": 25,
       "people": 1,
       "avgIntent": 0.82,
       "maxIntent": 0.82,
-      "icpFit": 0.45,
+      "icpFit": 0.9,
       "churnRisk": 0,
       "mrr": 8000,
       "orderRevenue60": 144,
@@ -3565,11 +3569,11 @@
     {
       "company": "Golden Curry",
       "industry": "food",
-      "employees": 0,
+      "employees": 8,
       "people": 1,
       "avgIntent": 0.5,
       "maxIntent": 0.5,
-      "icpFit": 0.45,
+      "icpFit": 0.9,
       "churnRisk": 0,
       "mrr": 1500,
       "orderRevenue60": 54,
@@ -4150,19 +4154,19 @@
   ],
   "decisions": [
     {
-      "id": "dec_044d3f55ab22aa4b",
+      "id": "dec_0847f61c2d30efa2",
       "kind": "platform_allocation",
       "title": "Invest more in instagram this week",
       "trace": {
         "evidence": [
-          "obs_94f850f27b54f42d",
-          "obs_0f0de8ecfa75d15f",
-          "obs_4e35db276ff1e8bb",
-          "obs_4d313b301065f355",
-          "obs_5898016821c7eb6e",
-          "obs_b3420ab6ffdc05dc",
-          "obs_a10609668e5907d8",
-          "obs_b735a180ad316d1d"
+          "obs_f694abc688b8e8e7",
+          "obs_98eb64616e7c7539",
+          "obs_28fa46d9561d8952",
+          "obs_5183145d5e270462",
+          "obs_c15a58aa9f77bd8f",
+          "obs_e411cbcb82f98462",
+          "obs_17ae1750efd8f82d",
+          "obs_c0d0858aa358fad9"
         ],
         "hypothesis": "instagram is the highest-yield growth channel right now: 1,641 new users this week (vs 1,276 prior), 2,185 signals (+29%), order conversion 22%, 13 merchant enquiries in 14d.",
         "reasoning": "Of 6 acquisition channels, instagram combines the best quality (24/100: intent 0.09, cohort conversion 22%) AND it feeds the supply side — merchant enquiries arrive through it, so investment compounds on both sides of the marketplace. tiktok grows fast (+45%) but converts at 11% with 1 merchant leads — keep it for B2C awareness, don't raise merchant-acquisition budget there.",
@@ -4178,7 +4182,7 @@
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T12:08:05.969Z",
+      "createdAt": "2026-07-25T12:11:41.847Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -4186,23 +4190,23 @@
       "outcome": null
     },
     {
-      "id": "dec_6a666623a16f22f0",
+      "id": "dec_a2644fb9eda4a71f",
       "kind": "weekly_gtm",
       "title": "Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach",
       "trace": {
         "evidence": [
-          "obs_ca6098774a81f093",
-          "obs_23de10da28624ce2",
-          "obs_a061321808c8d059",
-          "obs_710f0fda525b8083",
-          "obs_c42e84f0ee301e67",
-          "obs_7c72a593c611e577",
-          "obs_6dee77d80966ced9",
-          "obs_7eb537425c487eed",
-          "obs_fbd42e7cbd7931e9",
-          "obs_04d0c3eedefecce1",
-          "obs_8bff8137f7c8385c",
-          "obs_828e3d9a30e837e9"
+          "obs_d952d3e25ffa385d",
+          "obs_092c24201f6a5746",
+          "obs_3d6f5fc12a4dbf19",
+          "obs_88ed23bcaa34951b",
+          "obs_9912de21fcb6b987",
+          "obs_088de6b9639c75f5",
+          "obs_ea91fc5dee9e50f1",
+          "obs_0f85a1f8f174305e",
+          "obs_5fab36ea77f63528",
+          "obs_91625bb905b2095d",
+          "obs_400ea7141e6a892e",
+          "obs_664a7772ce9672f7"
         ],
         "hypothesis": "High-value consumers engagement moved +215% week over week (1,020 vs 324 signals), led by signup.",
         "reasoning": "The strongest momentum is in High-value consumers while Browsing consumers is at 18%. 1,349 people currently show high buying intent and 10 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
@@ -4212,7 +4216,7 @@
       "baseConfidence": 0.85,
       "priors": [
         {
-          "decisionId": "dec_292f21b8691af00d",
+          "decisionId": "dec_7248fba04e08ce66",
           "title": "Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach",
           "similarity": 1,
           "verdict": "winner",
@@ -4227,7 +4231,7 @@
       "status": "proposed",
       "model": "mock",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T12:08:05.799Z",
+      "createdAt": "2026-07-25T12:11:41.684Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -4235,15 +4239,15 @@
       "outcome": null
     },
     {
-      "id": "dec_83eadc72d0e006f6",
+      "id": "dec_1aca24acc2d8b84b",
       "kind": "account_retention",
       "title": "Retention: re-engage Pizza Corner before it churns",
       "trace": {
         "evidence": [
-          "obs_746aa3b14e52dd56",
-          "obs_96dcd7be6f0eaa5a",
-          "obs_4bd9578b8c5efbc9",
-          "obs_b2cd99696a6501bc"
+          "obs_93e0fa92ca3a92d9",
+          "obs_ae1deaa23408cbff",
+          "obs_689b7c4bc0a70c3a",
+          "obs_603db90ba8ccc927"
         ],
         "hypothesis": "Pizza Corner (1 contact, €6,400 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.",
         "reasoning": "Previously engaged partners that stop engaging are the highest-probability revenue loss; 0 signals in the last 7 days.",
@@ -4259,7 +4263,7 @@
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T12:07:56.126Z",
+      "createdAt": "2026-07-25T12:11:32.042Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -4267,15 +4271,15 @@
       "outcome": null
     },
     {
-      "id": "dec_802bb19ef194f09a",
+      "id": "dec_1bbcbb3aee6938c0",
       "kind": "account_retention",
       "title": "Retention: re-engage Golden Tandoor before it churns",
       "trace": {
         "evidence": [
-          "obs_7065b7a78a56cd0c",
-          "obs_798b4c5a07d270d8",
-          "obs_fa586d6be7ed2a97",
-          "obs_49272026676a98bb"
+          "obs_782862013bcef230",
+          "obs_a369d59a6b272b86",
+          "obs_1901adbe89f4d841",
+          "obs_15bf175bc609bff3"
         ],
         "hypothesis": "Golden Tandoor (1 contact, €11,908 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.",
         "reasoning": "Previously engaged partners that stop engaging are the highest-probability revenue loss; 0 signals in the last 7 days while 138 consumer orders still flow to them — partner disengagement precedes delisting.",
@@ -4291,7 +4295,7 @@
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T12:07:55.863Z",
+      "createdAt": "2026-07-25T12:11:31.777Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -4299,15 +4303,15 @@
       "outcome": null
     },
     {
-      "id": "dec_5e6bc4527ec8685f",
+      "id": "dec_ae7956abd36f7d11",
       "kind": "account_retention",
       "title": "Retention: re-engage Golden Wok before it churns",
       "trace": {
         "evidence": [
-          "obs_c629cd80849d7ca1",
-          "obs_3599ad8ff0a41b9f",
-          "obs_9f5bba555de02599",
-          "obs_b25db3a5fa10cd37"
+          "obs_4d3d6663822f8c5b",
+          "obs_c9b6b2aca38c0004",
+          "obs_eeb031fde23af1b2",
+          "obs_7e62e195a227651b"
         ],
         "hypothesis": "Golden Wok (1 contact, €28,235 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.",
         "reasoning": "Previously engaged partners that stop engaging are the highest-probability revenue loss; 0 signals in the last 7 days while 369 consumer orders still flow to them — partner disengagement precedes delisting.",
@@ -4323,7 +4327,7 @@
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T12:07:55.571Z",
+      "createdAt": "2026-07-25T12:11:31.492Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -4331,19 +4335,19 @@
       "outcome": null
     },
     {
-      "id": "dec_8592d2bd702f601a",
+      "id": "dec_8ccaefcd461f79c8",
       "kind": "platform_allocation",
       "title": "Invest more in instagram this week",
       "trace": {
         "evidence": [
-          "obs_94f850f27b54f42d",
-          "obs_0f0de8ecfa75d15f",
-          "obs_4e35db276ff1e8bb",
-          "obs_4d313b301065f355",
-          "obs_5898016821c7eb6e",
-          "obs_b3420ab6ffdc05dc",
-          "obs_a10609668e5907d8",
-          "obs_b735a180ad316d1d"
+          "obs_f694abc688b8e8e7",
+          "obs_98eb64616e7c7539",
+          "obs_28fa46d9561d8952",
+          "obs_5183145d5e270462",
+          "obs_c15a58aa9f77bd8f",
+          "obs_e411cbcb82f98462",
+          "obs_17ae1750efd8f82d",
+          "obs_c0d0858aa358fad9"
         ],
         "hypothesis": "instagram is the highest-yield growth channel right now: 1,642 new users this week (vs 1,275 prior), 2,186 signals (+30%), order conversion 22%, 13 merchant enquiries in 14d.",
         "reasoning": "Of 6 acquisition channels, instagram combines the best quality (24/100: intent 0.09, cohort conversion 22%) AND it feeds the supply side — merchant enquiries arrive through it, so investment compounds on both sides of the marketplace. tiktok grows fast (+45%) but converts at 11% with 1 merchant leads — keep it for B2C awareness, don't raise merchant-acquisition budget there.",
@@ -4359,7 +4363,7 @@
       "status": "superseded",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T12:07:55.124Z",
+      "createdAt": "2026-07-25T12:11:30.995Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -4367,23 +4371,23 @@
       "outcome": null
     },
     {
-      "id": "dec_292f21b8691af00d",
+      "id": "dec_7248fba04e08ce66",
       "kind": "weekly_gtm",
       "title": "Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach",
       "trace": {
         "evidence": [
-          "obs_710f0fda525b8083",
-          "obs_c42e84f0ee301e67",
-          "obs_7c72a593c611e577",
-          "obs_8bff8137f7c8385c",
-          "obs_828e3d9a30e837e9",
-          "obs_c1129ec47c508c76",
-          "obs_0bdd515b53a84112",
-          "obs_b642f1f2d217f5d7",
-          "obs_6a9a11774058a6ee",
-          "obs_ed423a0e29f75037",
-          "obs_7e14c6fcb8128d13",
-          "obs_0617e2276b7428b8"
+          "obs_ea91fc5dee9e50f1",
+          "obs_0f85a1f8f174305e",
+          "obs_5fab36ea77f63528",
+          "obs_91625bb905b2095d",
+          "obs_400ea7141e6a892e",
+          "obs_664a7772ce9672f7",
+          "obs_cc6d8fe75b64b2ae",
+          "obs_2c3e2f71f8e86087",
+          "obs_db7257799a79bd00",
+          "obs_8d1751f36242239f",
+          "obs_99b9ab1c5915438e",
+          "obs_d94289e34202f716"
         ],
         "hypothesis": "High-value consumers engagement moved +215% week over week (1,020 vs 324 signals), led by signup.",
         "reasoning": "The strongest momentum is in High-value consumers while Browsing consumers is at 18%. 1,347 people currently show high buying intent and 10 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
@@ -4399,7 +4403,7 @@
       "status": "completed",
       "model": "mock",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T12:07:54.975Z",
+      "createdAt": "2026-07-25T12:11:30.810Z",
       "reused": false,
       "verdict": "winner",
       "attainment": 1.05,
@@ -4423,7 +4427,7 @@
     "costPerInsight": 0,
     "history": [
       {
-        "decisionId": "dec_292f21b8691af00d",
+        "decisionId": "dec_7248fba04e08ce66",
         "title": "Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach",
         "expected": {
           "metric": "qualified_conversations",
@@ -4478,22 +4482,22 @@
     "cacheHits": 319,
     "cacheEntries": 73
   },
-  "digest": "# Weekly Growth Decisions\n\n1. **Invest more in instagram this week** _(where to invest)_\n   Reason: instagram is the highest-yield growth channel right now: 1,641 new users this week (vs 1,276 prior), 2,185 signals (+29%), order conversion 22%, 13 merchant enquiries in 14d.\n   Action: Shift this week's growth budget toward instagram (top drivers: signup, website_visit, form_submit, demo_request); also increase google paid budget (order conversion 50%); hold tiktok at current spend for awareness only.\n   Evidence: obs_94f850f27b54f42d, obs_0f0de8ecfa75d15f, obs_4e35db276ff1e8bb, obs_4d313b301065f355\n   Confidence: 0.74 · Expected: 1887 new_signups_instagram\n\n2. **Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach** _(who to contact)_\n   Reason: High-value consumers engagement moved +215% week over week (1,020 vs 324 signals), led by signup.\n   Action: Publish one signup-focused piece for High-value consumers and start outreach with the top 40 of 1,349 hot leads; open retention conversations with the 10 fading champions.\n   Evidence: obs_ca6098774a81f093, obs_23de10da28624ce2, obs_a061321808c8d059, obs_710f0fda525b8083\n   Confidence: 0.94 · Expected: 20 qualified_conversations · memory: 100% similar to a past winner\n\n3. **Retention: re-engage Pizza Corner before it churns** _(account to save)_\n   Reason: Pizza Corner (1 contact, €6,400 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a partner retention check-in with Pizza Corner this week; lead with what changed for them, not with product news.\n   Evidence: obs_746aa3b14e52dd56, obs_96dcd7be6f0eaa5a, obs_4bd9578b8c5efbc9, obs_b2cd99696a6501bc\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n4. **Retention: re-engage Golden Tandoor before it churns** _(account to save)_\n   Reason: Golden Tandoor (1 contact, €11,908 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a partner retention check-in with Golden Tandoor this week; lead with what changed for them, not with product news.\n   Evidence: obs_7065b7a78a56cd0c, obs_798b4c5a07d270d8, obs_fa586d6be7ed2a97, obs_49272026676a98bb\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n5. **Retention: re-engage Golden Wok before it churns** _(account to save)_\n   Reason: Golden Wok (1 contact, €28,235 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a partner retention check-in with Golden Wok this week; lead with what changed for them, not with product news.\n   Evidence: obs_c629cd80849d7ca1, obs_3599ad8ff0a41b9f, obs_9f5bba555de02599, obs_b25db3a5fa10cd37\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n## Platform comparison (observed engagement per source — never follower counts)\n- **google** — 5,209 people · +772 new/wk · signals +8% · conversion 50% · repeat 49% · 2 merchant leads · quality 46/100 → **increase budget**\n- **referral** — 1,559 people · +418 new/wk · signals +10% · conversion 48% · repeat 52% · 1 merchant leads · quality 43/100 → **expand incentives**\n- **newsletter** — 2,020 people · +260 new/wk · signals +3% · conversion 46% · repeat 62% · 1 merchant leads · quality 43/100 → **protect**\n- **instagram** — 7,641 people · +1,641 new/wk · signals +29% · conversion 22% · repeat 33% · 13 merchant leads · quality 24/100 → **double down**\n- **linkedin** — 965 people · +194 new/wk · signals +18% · conversion 18% · repeat 18% · 11 merchant leads · quality 18/100 → **double down**\n- **tiktok** — 7,321 people · +1,899 new/wk · signals +45% · conversion 11% · repeat 17% · 1 merchant leads · quality 15/100 → **maintain (B2C awareness)**\n\n## Merchant leads (evidence for the who-to-contact decision)\n1. **Eli Fischer** — Owner, Skybite Pizza · intent 0.83 · Sales outreach — explicit partner hand-raise\n   signals: demo_request×1, form_submit×1, pricing_view×1 · evidence: obs_ca6098774a81f093, obs_23de10da28624ce2, obs_a061321808c8d059\n2. **Sara Kim** — Founder & CEO, Green Bowl · intent 0.76 · Sales outreach — explicit partner hand-raise\n   signals: form_submit×3, payment×1 · evidence: obs_710f0fda525b8083, obs_c42e84f0ee301e67, obs_7c72a593c611e577\n3. **Ken Yamada** — Managing Director, Sushi Rocket · intent 0.83 · Sales outreach — explicit partner hand-raise\n   signals: demo_request×2, payment×1 · evidence: obs_7eb537425c487eed, obs_fbd42e7cbd7931e9, obs_04d0c3eedefecce1\n4. **Lena Ortiz** — Owner, Burger Factory · intent 0.82 · Sales outreach — explicit partner hand-raise\n   signals: form_submit×1, demo_request×1, payment×2 · evidence: obs_6a9a11774058a6ee, obs_ed423a0e29f75037, obs_7e14c6fcb8128d13\n5. **Priya Sharma** — Co-Founder, Vegan Vista · intent 0.6 · Sales outreach — explicit partner hand-raise\n   signals: pricing_view×1, form_submit×1 · evidence: obs_0e1e7af7b3991180, obs_a9c4f79561e8d7a8\n\nTop consumers: Tara Fuchs (0.97 — Second-order nudge — personalized picks) · Anton Groß (0.95 — Second-order nudge — personalized picks) · Paul Schubert (0.94 — Second-order nudge — personalized picks)\n\n## Going quiet\n- **Sven Roth** (consumer) — engagement down 100% · Win-back offer — lapsed customer\n- **Marco Rossi** (Pizza Corner) — engagement down 100% · Partner retention check-in — engagement dropped sharply\n- **Emil Albrecht** (consumer) — engagement down 100% · Win-back offer — lapsed customer\n\n## Audience\n- 24,870 people (24,670 consumers · 200 merchant contacts) · +5,219 new users this week\n- 4,271 orders this week (€136,158) · 200 restaurant partners · 40,838 observations\n\n## Engine health\n- Decisions: 7 total · acceptance 1 · success 1 · mean calibration error 0.15\n- AI spend: $0 of $15 (full) · cost per insight $0 · cache hits 319\n- Work distribution: L0 rules/SQL 99% · L1 embeddings 0% · L2 small LLM 1%",
+  "digest": "# Weekly Growth Decisions\n\n1. **Invest more in instagram this week** _(where to invest)_\n   Reason: instagram is the highest-yield growth channel right now: 1,641 new users this week (vs 1,276 prior), 2,185 signals (+29%), order conversion 22%, 13 merchant enquiries in 14d.\n   Action: Shift this week's growth budget toward instagram (top drivers: signup, website_visit, form_submit, demo_request); also increase google paid budget (order conversion 50%); hold tiktok at current spend for awareness only.\n   Evidence: obs_f694abc688b8e8e7, obs_98eb64616e7c7539, obs_28fa46d9561d8952, obs_5183145d5e270462\n   Confidence: 0.74 · Expected: 1887 new_signups_instagram\n\n2. **Prioritize High-value consumers: signup campaign + route top 40 hot leads to outreach** _(who to contact)_\n   Reason: High-value consumers engagement moved +215% week over week (1,020 vs 324 signals), led by signup.\n   Action: Publish one signup-focused piece for High-value consumers and start outreach with the top 40 of 1,349 hot leads; open retention conversations with the 10 fading champions.\n   Evidence: obs_d952d3e25ffa385d, obs_092c24201f6a5746, obs_3d6f5fc12a4dbf19, obs_88ed23bcaa34951b\n   Confidence: 0.94 · Expected: 20 qualified_conversations · memory: 100% similar to a past winner\n\n3. **Retention: re-engage Pizza Corner before it churns** _(account to save)_\n   Reason: Pizza Corner (1 contact, €6,400 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a partner retention check-in with Pizza Corner this week; lead with what changed for them, not with product news.\n   Evidence: obs_93e0fa92ca3a92d9, obs_ae1deaa23408cbff, obs_689b7c4bc0a70c3a, obs_603db90ba8ccc927\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n4. **Retention: re-engage Golden Tandoor before it churns** _(account to save)_\n   Reason: Golden Tandoor (1 contact, €11,908 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a partner retention check-in with Golden Tandoor this week; lead with what changed for them, not with product news.\n   Evidence: obs_782862013bcef230, obs_a369d59a6b272b86, obs_1901adbe89f4d841, obs_15bf175bc609bff3\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n5. **Retention: re-engage Golden Wok before it churns** _(account to save)_\n   Reason: Golden Wok (1 contact, €28,235 observed revenue at risk) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a partner retention check-in with Golden Wok this week; lead with what changed for them, not with product news.\n   Evidence: obs_4d3d6663822f8c5b, obs_c9b6b2aca38c0004, obs_eeb031fde23af1b2, obs_7e62e195a227651b\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n## Platform comparison (observed engagement per source — never follower counts)\n- **google** — 5,209 people · +772 new/wk · signals +8% · conversion 50% · repeat 49% · 2 merchant leads · quality 46/100 → **increase budget**\n- **newsletter** — 2,020 people · +260 new/wk · signals +3% · conversion 46% · repeat 62% · 1 merchant leads · quality 43/100 → **protect**\n- **referral** — 1,559 people · +418 new/wk · signals +10% · conversion 48% · repeat 52% · 1 merchant leads · quality 43/100 → **expand incentives**\n- **instagram** — 7,641 people · +1,641 new/wk · signals +29% · conversion 22% · repeat 33% · 13 merchant leads · quality 24/100 → **double down**\n- **linkedin** — 965 people · +194 new/wk · signals +18% · conversion 18% · repeat 18% · 11 merchant leads · quality 18/100 → **double down**\n- **tiktok** — 7,321 people · +1,899 new/wk · signals +45% · conversion 11% · repeat 17% · 1 merchant leads · quality 15/100 → **maintain (B2C awareness)**\n\n## Merchant leads (evidence for the who-to-contact decision)\n1. **Ken Yamada** — Managing Director, Sushi Rocket · intent 0.83 · Sales outreach — explicit partner hand-raise\n   signals: demo_request×2, payment×1 · evidence: obs_d952d3e25ffa385d, obs_092c24201f6a5746, obs_3d6f5fc12a4dbf19\n2. **Eli Fischer** — Owner, Skybite Pizza · intent 0.83 · Sales outreach — explicit partner hand-raise\n   signals: pricing_view×1, demo_request×1, form_submit×1 · evidence: obs_88ed23bcaa34951b, obs_9912de21fcb6b987, obs_088de6b9639c75f5\n3. **Lena Ortiz** — Owner, Burger Factory · intent 0.82 · Sales outreach — explicit partner hand-raise\n   signals: form_submit×1, demo_request×1, payment×2 · evidence: obs_ea91fc5dee9e50f1, obs_0f85a1f8f174305e, obs_5fab36ea77f63528\n4. **Sara Kim** — Founder & CEO, Green Bowl · intent 0.76 · Sales outreach — explicit partner hand-raise\n   signals: form_submit×3, payment×1 · evidence: obs_400ea7141e6a892e, obs_664a7772ce9672f7, obs_cc6d8fe75b64b2ae\n5. **Priya Sharma** — Co-Founder, Vegan Vista · intent 0.6 · Sales outreach — explicit partner hand-raise\n   signals: pricing_view×1, form_submit×1 · evidence: obs_d1e1c92c263b284d, obs_af5cb436380c7ff8\n\nTop consumers: Tara Fuchs (0.97 — Second-order nudge — personalized picks) · Anton Groß (0.95 — Second-order nudge — personalized picks) · Paul Schubert (0.94 — Second-order nudge — personalized picks)\n\n## Going quiet\n- **Lia Haas** (consumer) — engagement down 100% · Win-back offer — lapsed customer\n- **Theo Lorenz** (consumer) — engagement down 100% · Win-back offer — lapsed customer\n- **Juan Dietrich** (consumer) — engagement down 100% · Win-back offer — lapsed customer\n\n## Audience\n- 24,870 people (24,670 consumers · 200 merchant contacts) · +5,219 new users this week\n- 4,271 orders this week (€136,158) · 200 restaurant partners · 40,838 observations\n\n## Engine health\n- Decisions: 7 total · acceptance 1 · success 1 · mean calibration error 0.15\n- AI spend: $0 of $15 (full) · cost per insight $0 · cache hits 319\n- Work distribution: L0 rules/SQL 99% · L1 embeddings 0% · L2 small LLM 1%",
   "reviewQueue": [
     {
       "from": {
-        "id": "per_4b9cc6f23e0fc829",
+        "id": "per_e00f42e6e28e2586",
         "display_name": "Sara K.",
         "company": "Green Bowl"
       },
       "to": {
-        "id": "per_0ea2e37379f78721",
+        "id": "per_1afd53791772a978",
         "display_name": "Sara Kim",
         "company": "Green Bowl"
       },
       "confidence": 0.845,
       "evidence": [
-        "obs_6dee77d80966ced9"
+        "obs_f99486a471c9c833"
       ],
       "keys": [
         "name:sara k."

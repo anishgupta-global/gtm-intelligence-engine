@@ -10,7 +10,7 @@ const r = await runDemo(db);
 
 const snapshot = {
   generatedAt: new Date().toISOString(),
-  demoNote: 'Static snapshot of the demo pipeline (Northwind AI fictional dataset). Run the engine locally for the live version.',
+  demoNote: 'Static snapshot of the demo pipeline (Northwind Eats — fictional two-sided marketplace, ~25k people). Run the engine locally for the live version.',
   summary: r.summary,
   hot: r.hot,
   fading: r.fading,
