@@ -31,17 +31,17 @@
 <main>
   <div class="page-intro">
     <p class="eyebrow">Workspace overview · this week</p>
-    <h1 class="page-title">Where should we invest growth effort — and who should we talk to there?</h1>
-    <p class="page-sub">Two-sided marketplace: restaurant partners (B2B) + consumers (B2C) on one shared decision loop. Every number below is observed by the engine — no follower counts, no reach estimates.</p>
+    <h1 class="page-title">Where to invest this week — and who to talk to</h1>
+    <p class="page-sub">Restaurant partners (B2B) + consumers (B2C), one decision loop. Every number is observed — no follower counts.</p>
   </div>
   <section id="tab-executive" class="tab-panel active">
     <div id="kpis" class="kpi-row"></div>
     <div class="card">
-      <h2>Growth — this week's allocation call <span class="hint">a decision, not a chart</span></h2>
+      <h2>This week's allocation call <span class="hint">a decision, not a chart</span></h2>
       <div id="allocation"></div>
     </div>
     <div class="card">
-      <h2>Platform comparison <span class="hint">observed engagement per source — not follower counts</span></h2>
+      <h2>Platform comparison <span class="hint">observed engagement — not followers</span></h2>
       <div id="platforms-table"></div>
     </div>
     <div class="card">
@@ -52,11 +52,11 @@
 
   <section id="tab-business" class="tab-panel">
     <div class="card">
-      <h2>Restaurant partners <span class="hint">accounts rolled up from the graph — intent, churn risk, observed revenue</span></h2>
+      <h2>Restaurant partners <span class="hint">intent · churn risk · observed revenue</span></h2>
       <div id="companies"></div>
     </div>
     <div class="card">
-      <h2>Hot leads — who to contact <span class="hint">you choose how many and which</span></h2>
+      <h2>Hot leads — who to contact <span class="hint">filter by side, role, intent</span></h2>
       <div class="filter-bar">
         <label>Side <select id="f-side"><option value="merchant" selected>merchants</option><option value="consumer">consumers</option><option value="">all</option></select></label>
         <label>Show <select id="f-limit"><option>10</option><option selected>25</option><option>50</option><option>100</option></select></label>
@@ -71,7 +71,7 @@
         <div id="fading"></div>
       </div>
       <div class="card">
-        <h2>Identity review queue <span class="hint">0.70–0.90 matches wait for a human</span></h2>
+        <h2>Identity review queue <span class="hint">0.70–0.90 matches wait for you</span></h2>
         <div id="review-queue"></div>
       </div>
     </div>
@@ -87,7 +87,7 @@
 
   <section id="tab-decisions" class="tab-panel">
     <div class="card">
-      <h2>Decisions <span class="hint">every recommendation: evidence → hypothesis → reasoning → confidence → outcome</span></h2>
+      <h2>Decisions <span class="hint">evidence → reasoning → confidence → outcome</span></h2>
       <div id="decisions"></div>
     </div>
     <div class="card">
@@ -110,8 +110,8 @@
 
 <footer>
   <div class="foot">
-    <p><strong>Demo workspace.</strong> Northwind Eats is fictional; the numbers are the real output of the deterministic pipeline over ~25,000 synthetic people (5,200+ new users/week) across 8 sources — ingested, identity-resolved, scored, and decided in ~30&nbsp;s at $0 with the grounded mock provider. Reproduce it with <code>npm run demo</code>; set <code>ANTHROPIC_API_KEY</code> for real reasoning under a hard budget.</p>
-    <p class="foot-meta">Every decision obeys the Intelligence Law: evidence · provenance · confidence · cost · reproducibility. <a href="https://github.com/anishgupta-global/gtm-intelligence-engine">GitHub →</a> · Apache-2.0 · GTM Intelligence Engine</p>
+    <p><strong>Demo workspace.</strong> Northwind Eats is fictional; the numbers are real engine output — ~25,000 synthetic people, 5,200+ new users/week, 8 sources, decided in ~30&nbsp;s at $0. Reproduce: <code>npm run demo</code> · real reasoning: set <code>ANTHROPIC_API_KEY</code>.</p>
+    <p class="foot-meta">Every decision carries evidence · provenance · confidence · cost · reproducibility. <a href="https://github.com/anishgupta-global/gtm-intelligence-engine">GitHub →</a> · Apache-2.0 · GTM Intelligence Engine</p>
   </div>
 </footer>
 

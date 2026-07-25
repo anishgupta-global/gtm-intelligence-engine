@@ -17,7 +17,7 @@ async function api(path) {
     document.getElementById('powered').innerHTML = 'Deterministic pipeline · <b>$0</b>';
     const note = document.createElement('div');
     note.className = 'static-note';
-    note.textContent = 'Static snapshot of the demo pipeline (fictional Northwind AI dataset). Clone the repo and run "npm run demo && npm run dev" for the live engine.';
+    note.textContent = 'Static demo snapshot — fictional Northwind Eats data. For the live engine: npm run demo && npm run dev';
     document.querySelector('main').prepend(note);
   }
   const base = path.split('?')[0];
