@@ -12,7 +12,7 @@
     <span class="logo">GTM</span>
     <div>
       <h1>GTM Intelligence Engine</h1>
-      <p class="tagline">Who should you talk to this week — and why</p>
+      <p class="tagline">Where should you invest this week — and who should you talk to there</p>
     </div>
   </div>
   <div class="header-right">
@@ -22,40 +22,62 @@
 </header>
 
 <nav>
-  <button class="tab active" data-tab="overview">Leads</button>
-  <button class="tab" data-tab="people">People</button>
+  <button class="tab active" data-tab="executive">Executive</button>
+  <button class="tab" data-tab="business">Business</button>
+  <button class="tab" data-tab="audience">Audience</button>
   <button class="tab" data-tab="decisions">Decisions</button>
   <button class="tab" data-tab="cost">Cost &amp; health</button>
 </nav>
 
 <main>
-  <section id="tab-overview" class="tab-panel active">
+  <section id="tab-executive" class="tab-panel active">
     <div id="kpis" class="kpi-row"></div>
-    <div class="grid-2">
-      <div class="card">
-        <h2>Segment momentum <span class="hint">7d vs prior 7d</span></h2>
-        <div id="segments"></div>
+    <div class="card">
+      <h2>Growth — this week's allocation call <span class="hint">a decision, not a chart</span></h2>
+      <div id="allocation"></div>
+    </div>
+    <div class="card">
+      <h2>Platform comparison <span class="hint">observed engagement per source — not follower counts</span></h2>
+      <div id="platforms-table"></div>
+    </div>
+    <div class="card">
+      <h2>Segment momentum <span class="hint">7d vs prior 7d</span></h2>
+      <div id="segments"></div>
+    </div>
+  </section>
+
+  <section id="tab-business" class="tab-panel">
+    <div class="card">
+      <h2>Accounts <span class="hint">companies rolled up from the graph</span></h2>
+      <div id="companies"></div>
+    </div>
+    <div class="card">
+      <h2>Hot leads — who to contact <span class="hint">you choose how many and which</span></h2>
+      <div class="filter-bar">
+        <label>Show <select id="f-limit"><option>10</option><option selected>25</option><option>50</option><option>100</option></select></label>
+        <label>Role <select id="f-role"><option value="">all</option><option>founder</option><option>executive</option><option>data_leader</option><option>developer</option><option>marketer</option></select></label>
+        <label>Min intent <select id="f-intent"><option value="0.25" selected>0.25</option><option value="0.5">0.50</option><option value="0.7">0.70</option></select></label>
       </div>
+      <div id="hot-leads"></div>
+    </div>
+    <div class="grid-2">
       <div class="card">
         <h2>Going quiet</h2>
         <div id="fading"></div>
       </div>
+      <div class="card">
+        <h2>Identity review queue <span class="hint">0.70–0.90 matches wait for a human</span></h2>
+        <div id="review-queue"></div>
+      </div>
     </div>
     <div class="card">
-      <h2>Hot leads — who to contact this week</h2>
-      <div id="hot-leads"></div>
+      <h2>Resolved people</h2>
+      <div id="people"></div>
     </div>
   </section>
 
-  <section id="tab-people" class="tab-panel">
-    <div class="card">
-      <h2>Resolved people <span class="hint">virtual identity clusters — merges are reversible</span></h2>
-      <div id="people"></div>
-    </div>
-    <div class="card">
-      <h2>Identity review queue <span class="hint">probabilistic matches 0.70–0.90 wait for a human</span></h2>
-      <div id="review-queue"></div>
-    </div>
+  <section id="tab-audience" class="tab-panel">
+    <div id="platform-cards"></div>
   </section>
 
   <section id="tab-decisions" class="tab-panel">

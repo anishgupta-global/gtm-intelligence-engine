@@ -26,6 +26,14 @@ test('end-to-end: ingest -> resolve -> score -> decide -> outcome -> learn -> de
   assert.equal(r.decision2.priors[0].verdict, 'winner');
   assert.ok(r.decision2.confidence > r.decision2.baseConfidence, 'prior + calibration lifted confidence');
 
+  // growth pack: where to invest + accounts to save
+  assert.ok(r.platforms.length >= 4, 'platform intelligence computed per source');
+  assert.ok(r.platforms.every((p: any) => p.recommendation), 'every platform gets a call');
+  assert.ok(r.allocation, 'allocation decision generated');
+  assert.equal(r.allocation.kind, 'platform_allocation');
+  assert.ok(r.retention.length >= 1, 'churn-risk account produced a retention decision');
+  assert.ok(r.companies.some((c: any) => c.churnRisk >= 0.5), 'company churn risk surfaced');
+
   // evaluation
   assert.equal(r.evaluation.successRate, 1);
   assert.equal(r.evaluation.evaluated, 1);

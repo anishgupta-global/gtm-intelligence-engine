@@ -15,6 +15,8 @@ const snapshot = {
   hot: r.hot,
   fading: r.fading,
   people: r.people,
+  platforms: r.platforms,
+  companies: r.companies,
   decisions: r.decisions,
   evaluation: r.evaluation,
   cost: r.cost,

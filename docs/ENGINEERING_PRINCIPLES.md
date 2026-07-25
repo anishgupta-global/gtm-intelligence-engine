@@ -1,6 +1,6 @@
 # Engineering principles
 
-The twelve rules this codebase is built by. If a change violates one, the change is wrong or the principle needs an ADR.
+The thirteen rules this codebase is built by. If a change violates one, the change is wrong or the principle needs an ADR.
 
 1. **AI last.** Rules, SQL, and caching answer first; embeddings second; small models third; large models only for high-value reasoning. Target: ≥70% of operations at L0 (CI-enforced).
 2. **Observation first.** Connectors only ever produce observations. Nothing writes to persons, scores, or decisions from the edge.
@@ -14,3 +14,4 @@ The twelve rules this codebase is built by. If a change violates one, the change
 10. **Reproducible decisions.** Every AI output stores its input hash, model, and version — the same inputs regenerate the same insight (that's also what makes the cache safe).
 11. **Measure everything.** Decisions are evaluated expected-vs-actual. Metrics that lack ground truth (decision recall, false negatives) are reported as *not measured yet* — never fabricated.
 12. **No silent AI.** Every model call is visible in the ledger; budget exhaustion degrades loudly to deterministic levels; nothing falls back quietly to a guess.
+13. **Decisions over dashboards.** Every new feature must introduce a new *decision*, not merely a new visualization. A chart, metric, or graph that doesn't feed a decision object (with evidence, confidence, an expected outcome, and a place in the evaluation loop) belongs much lower on the roadmap. Packs ship decisions; the UI just renders them.

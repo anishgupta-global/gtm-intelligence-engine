@@ -11,6 +11,8 @@ import { listActivePersons, getPersonObservations, reviewQueue, approveMerge, re
 import { personSegment } from '../intelligence/segments.js';
 import { personEdges } from '../graph/store.js';
 import { listDecisions, setDecisionStatus } from '../decisions/reason.js';
+import { platformStats } from '../intelligence/platforms.js';
+import { companyStats } from '../intelligence/companies.js';
 import { recordOutcome, evaluationMetrics } from '../decisions/evaluate.js';
 import { updateCalibration } from '../decisions/learn.js';
 import { costReport, budgetState } from '../cost/router.js';
@@ -44,8 +46,18 @@ export function buildServer(db: DB, provider: LLMProvider): FastifyInstance {
     budget: budgetState(db),
   }));
 
-  app.get('/api/leads/hot', async () => hotLeads(db, 20));
-  app.get('/api/leads/fading', async () => fadingChampions(db, 20));
+  app.get('/api/leads/hot', async (req: any) =>
+    hotLeads(db, {
+      limit: req.query.limit ? Number(req.query.limit) : undefined,
+      role: req.query.role || undefined,
+      minIntent: req.query.minIntent ? Number(req.query.minIntent) : undefined,
+      company: req.query.company || undefined,
+    })
+  );
+  app.get('/api/leads/fading', async (req: any) => fadingChampions(db, req.query.limit ? Number(req.query.limit) : 20));
+
+  app.get('/api/platforms', async () => platformStats(db));
+  app.get('/api/companies', async () => companyStats(db));
 
   app.get('/api/people', async () =>
     listActivePersons(db).map((p: any) => ({
@@ -95,7 +107,8 @@ export function buildServer(db: DB, provider: LLMProvider): FastifyInstance {
   });
   app.post('/api/decisions/:id/outcome', async (req: any) => {
     const evaluation = recordOutcome(db, req.params.id, Number(req.body.achieved ?? 0), req.body.note ?? '');
-    const calibration = updateCalibration(db, DECISION_KIND);
+    const row = db.prepare(`SELECT kind FROM decisions WHERE tenant = ? AND id = ?`).get(config.tenant, req.params.id) as any;
+    const calibration = updateCalibration(db, row?.kind ?? DECISION_KIND);
     return { evaluation, calibration };
   });
 

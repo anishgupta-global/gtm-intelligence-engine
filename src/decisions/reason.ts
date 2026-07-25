@@ -23,7 +23,7 @@ export const DECISION_KIND = 'weekly_gtm';
 
 export function buildAggregates(db: DB): { agg: Aggregates; evidence: string[] } {
   const summary = audienceSummary(db);
-  const hot = hotLeads(db, 10);
+  const hot = hotLeads(db, { limit: 10 });
   const fading = fadingChampions(db, 10);
   const topSignals14 = (db.prepare(
     `SELECT signal_type AS type, COUNT(*) AS count FROM observations
@@ -112,19 +112,32 @@ export async function generateRecommendation(db: DB, provider: LLMProvider): Pro
   const calibration = getCalibration(db, DECISION_KIND);
   const confidence = clamp(Math.round((draft.confidence + priorAdjustment(priors) + calibration.adjustment) * 100) / 100, 0.05, 0.95);
 
-  const decisionId = id('dec');
   const trace = { evidence, hypothesis: draft.hypothesis, reasoning: draft.reasoning, action: draft.action };
-  const expected = { metric: 'qualified_conversations', target: draft.expectedTarget };
+  return persistDecision(db, {
+    kind: DECISION_KIND, title: draft.title, context: agg, trace, confidence,
+    baseConfidence: draft.confidence, priors, embedding,
+    expected: { metric: 'qualified_conversations', target: draft.expectedTarget },
+    inputHash, level, model,
+  });
+}
+
+/** Shared persistence for every decision pack — one loop, one memory, one evaluation path. */
+export function persistDecision(db: DB, d: {
+  kind: string; title: string; context: unknown;
+  trace: { evidence: string[]; hypothesis: string; reasoning: string; action: string };
+  confidence: number; baseConfidence: number; priors: MemoryPrior[]; embedding: number[];
+  expected: { metric: string; target: number }; inputHash: string; level: number; model: string;
+}): DecisionRecord {
+  const decisionId = id('dec');
   db.prepare(
     `INSERT INTO decisions (id, tenant, kind, title, context, trace, confidence, base_confidence, prior, embedding, expected, status, input_hash, resolution_level, model, created_at)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'proposed', ?, ?, ?, ?)`
-  ).run(decisionId, config.tenant, DECISION_KIND, draft.title, j(agg), j(trace), confidence, draft.confidence, j(priors), j(embedding), j(expected), inputHash, level, model, now());
-  logEvent(db, 'decide', decisionId, { confidence, priors: priors.length, level });
-
+  ).run(decisionId, config.tenant, d.kind, d.title, j(d.context), j(d.trace), d.confidence, d.baseConfidence, j(d.priors), j(d.embedding), j(d.expected), d.inputHash, d.level, d.model, now());
+  logEvent(db, 'decide', decisionId, { kind: d.kind, confidence: d.confidence, priors: d.priors.length, level: d.level });
   return {
-    id: decisionId, kind: DECISION_KIND, title: draft.title, trace, confidence,
-    baseConfidence: draft.confidence, priors, expected, status: 'proposed', model,
-    resolutionLevel: level, createdAt: now(), reused: false,
+    id: decisionId, kind: d.kind, title: d.title, trace: d.trace, confidence: d.confidence,
+    baseConfidence: d.baseConfidence, priors: d.priors, expected: d.expected, status: 'proposed',
+    model: d.model, resolutionLevel: d.level, createdAt: now(), reused: false,
   };
 }
 

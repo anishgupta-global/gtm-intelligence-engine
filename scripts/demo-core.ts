@@ -10,6 +10,8 @@ import { listActivePersons, getPersonObservations, reviewQueue, approveMerge } f
 import { hotLeads, fadingChampions } from '../src/intelligence/scores.js';
 import { audienceSummary } from '../src/intelligence/segments.js';
 import { setDecisionStatus, listDecisions, type DecisionRecord } from '../src/decisions/reason.js';
+import { platformStats } from '../src/intelligence/platforms.js';
+import { companyStats } from '../src/intelligence/companies.js';
 import { recordOutcome, evaluationMetrics } from '../src/decisions/evaluate.js';
 import { updateCalibration } from '../src/decisions/learn.js';
 import { costReport } from '../src/cost/router.js';
@@ -36,6 +38,8 @@ export interface DemoOutcome {
   hot: any[];
   fading: any[];
   people: any[];
+  platforms: any[];
+  companies: any[];
   decisions: any[];
   evaluation: any;
   cost: any;
@@ -43,6 +47,8 @@ export interface DemoOutcome {
   reviewQueue: any[];
   decision1: DecisionRecord;
   decision2: DecisionRecord;
+  allocation: DecisionRecord | null;
+  retention: DecisionRecord[];
   mayaSources: string[];
   alexKumarCount: number;
   dsar: { exported: boolean; erasedObservations: number };
@@ -84,11 +90,19 @@ export async function runDemo(db: DB, log: (s: string) => void = () => {}): Prom
     log(`  approved: "${queue[0].from.display_name}" merged into "${queue[0].to.display_name}" (reversible — memberships retracted, not deleted)`);
   }
 
-  const hot1 = hotLeads(db, 10);
-  log('\n[3/8] Who to talk to this week:');
+  log('\n[3/8] Where to invest (platform intelligence — observed engagement, not follower counts):');
+  for (const p of platformStats(db)) {
+    log(`  ${p.source.padEnd(12)} ${String(p.people).padStart(2)} people · ${p.signals7} signals/wk (${p.growthPct >= 0 ? '+' : ''}${p.growthPct}%) · quality ${p.quality}/100 -> ${p.recommendation.toUpperCase()}`);
+  }
+  if (r1.allocation) log(`  ALLOCATION DECISION: ${r1.allocation.title} (confidence ${r1.allocation.confidence})`);
+  for (const rr of r1.retention) log(`  RETENTION DECISION: ${rr.title} (confidence ${rr.confidence})`);
+
+  const hot1 = hotLeads(db, { limit: 10 });
+  log('\n  ...and who to talk to there:');
   for (const l of hot1) log(`  ${l.name} (${l.title ?? l.role}, ${l.company ?? '—'}) · intent ${l.intent} · ${l.action}`);
   for (const f of fadingChampions(db, 5)) log(`  FADING: ${f.name} (${f.company}) — engagement down ${Math.round(f.drop * 100)}%`);
   log('  segment momentum: ' + audienceSummary(db).segments.map((x: any) => `${x.segment} ${x.deltaPct >= 0 ? '+' : ''}${x.deltaPct}%`).join(' · '));
+  log('  accounts: ' + companyStats(db).slice(0, 3).map((c) => `${c.company} (max intent ${c.maxIntent}${c.churnRisk >= 0.5 ? ', CHURN RISK' : ''})`).join(' · '));
 
   const decision1 = r1.decision;
   log(`\n[4/8] Recommendation #1 (${decision1.model}, level L${decision1.resolutionLevel}):`);
@@ -140,9 +154,11 @@ export async function runDemo(db: DB, log: (s: string) => void = () => {}): Prom
   const digest = buildDigest(db);
   return {
     summary: { ...audienceSummary(db), hotLeads: hotLeads(db).length, fading: fadingChampions(db).length, provider: provider.name, budget: cost.budget },
-    hot: hotLeads(db, 20),
+    hot: hotLeads(db, { limit: 20 }),
     fading: fadingChampions(db, 20),
     people: (listActivePersons(db) as any[]).map((p) => ({ id: p.id, name: p.display_name, email: p.primary_email, company: p.company, title: p.title, identifiers: p.identifier_count })),
+    platforms: platformStats(db),
+    companies: companyStats(db),
     decisions: listDecisions(db),
     evaluation: evaluationMetrics(db),
     cost: costReport(db),
@@ -150,6 +166,8 @@ export async function runDemo(db: DB, log: (s: string) => void = () => {}): Prom
     reviewQueue: queueSnapshot,
     decision1,
     decision2,
+    allocation: r2.allocation ?? r1.allocation,
+    retention: r2.retention.length ? r2.retention : r1.retention,
     mayaSources,
     alexKumarCount,
     dsar: { exported: !!exported, erasedObservations: erased.erasedObservations },

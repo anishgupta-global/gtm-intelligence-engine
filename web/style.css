@@ -85,3 +85,8 @@ pre { white-space: pre-wrap; font-size: 12.5px; font-family: Consolas, monospace
 footer { text-align: center; padding: 18px; font-size: 12.5px; color: var(--muted); }
 footer a { color: var(--navy); }
 .static-note { background: var(--amber-bg); color: var(--amber); padding: 8px 12px; border-radius: 8px; font-size: 12.5px; margin-bottom: 14px; }
+.filter-bar { display: flex; gap: 16px; margin-bottom: 10px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+.filter-bar select { margin-left: 6px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; background: #fff; font-size: 13px; }
+.pos-text { color: var(--green); font-weight: 600; }
+.neg-text { color: var(--red); font-weight: 600; }
+.action-cell { font-size: 12.5px; color: var(--navy); }

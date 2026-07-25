@@ -1,7 +1,7 @@
 {
   "name": "gtm-intelligence-engine",
-  "version": "1.0.0",
-  "description": "Open-source GTM intelligence engine. Answers one question, weekly: who should you talk to, and why — with evidence, reasoning, confidence, cost, and a learning loop.",
+  "version": "1.1.0",
+  "description": "Open-source GTM intelligence engine. Answers one question, weekly: where should you invest — and who should you talk to there. Evidence, reasoning, confidence, cost, and a learning loop; capabilities ship as decision packs.",
   "type": "module",
   "license": "Apache-2.0",
   "author": "Anish Gupta",

@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.0 — 2026-07-25
+
+The engine becomes explicit: capabilities ship as **decision packs** on one shared decision loop (ADR-0013). Wedge evolved: *where should you invest — and who should you talk to there.*
+
+- **Platform intelligence** (`/api/platforms`): per-source rollups from observed engagement (people, active, signals/week, growth, avg intent, hot-lead yield, quality) + a per-platform call — never follower counts the engine can't ground
+- **`platform_allocation` decision kind**: the weekly "invest here, reduce there" call as a real decision with trace, evidence, expected metric, memory, and calibration
+- **`account_retention` decision kind**: churn-risk accounts produce spam-gated retention decisions
+- **Company intelligence** (`/api/companies`): accounts rolled up from the graph — people, intent, ICP fit, churn risk, observed MRR
+- **No hardcoded top-N**: `limit`/`role`/`minIntent`/`company` filters on the leads API + a filter bar in the UI
+- **Pack-aware dashboard**: Executive (allocation call + platform comparison) / Business / Audience / Decisions / Cost & health
+- Digest now opens with "Where to invest" and includes accounts-to-save; outcome recording calibrates per decision kind
+- Principle 13 added: decisions over dashboards — every feature must introduce a new decision, not a visualization
+- Demo reset now fails loudly if the DB is held by a running server (was: silent reuse); 4 new growth-pack tests (20 total)
+
 ## 1.0.0 — 2026-07-25
 
 Initial release.

@@ -74,9 +74,11 @@ src/
   identity/resolve.ts      union-find co-occurrence + probabilistic matching + review queue
   graph/store.ts           entities, edges, person view
   intelligence/            behavior windows · scores (+ role enrichment gating) · segments
+                           platforms (per-source rollups) · companies (account rollups)
   cost/                    router (levels, budget, ledger) · cache
   ai/                      providers (mock $0, anthropic) · aggregates-only prompts
   decisions/               reason (traces, gate) · memory · evaluate · learn
+                           growth-pack (platform_allocation + account_retention kinds)
   automations/digest.ts    weekly GTM digest (+ optional Slack)
   privacy/dsar.ts          export + erasure
   pipeline/                run (stage orchestration) · events (log/audit)

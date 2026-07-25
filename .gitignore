@@ -2,6 +2,8 @@ node_modules/
 dist/
 data/*.db
 data/*.db-journal
+data/*.db-wal
+data/*.db-shm
 data/digest.md
 data/dsar-export.json
 .env

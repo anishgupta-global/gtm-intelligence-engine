@@ -158,31 +158,36 @@ function suggestedAction(signals: Record<string, { count: number }>): string {
   return 'Warm outreach with relevant content';
 }
 
-export function hotLeads(db: DB, limit = 10): any[] {
+export interface LeadFilters { limit?: number; role?: string; minIntent?: number; company?: string }
+
+/** No hardcoded top-N: the caller chooses limit and filters (API exposes them as query params). */
+export function hotLeads(db: DB, f: LeadFilters = {}): any[] {
   const rows = db.prepare(
     `SELECT p.id, p.display_name, p.company, p.title, s.value AS intent, s.factors,
             icp.value AS icp_fit
      FROM scores s
      JOIN persons p ON p.id = s.entity_id AND p.erased = 0
      LEFT JOIN scores icp ON icp.entity_id = s.entity_id AND icp.score_type = 'icp_fit' AND icp.tenant = s.tenant
-     WHERE s.tenant = ? AND s.score_type = 'intent' AND s.value >= 0.25
+     WHERE s.tenant = ? AND s.score_type = 'intent' AND s.value >= ?
      ORDER BY s.value * (0.6 + 0.4 * COALESCE(icp.value, 0.2)) DESC LIMIT ?`
-  ).all(config.tenant, limit) as any[];
-  return rows.map((r) => {
-    const factors = pj<any>(r.factors);
-    return {
-      personId: r.id,
-      name: r.display_name,
-      company: r.company,
-      title: r.title,
-      role: getRole(db, r.id).role,
-      intent: r.intent,
-      icpFit: r.icp_fit ?? 0,
-      signals: factors.signals,
-      evidence: factors.evidence,
-      action: suggestedAction(factors.signals ?? {}),
-    };
-  });
+  ).all(config.tenant, f.minIntent ?? 0.25, f.limit ?? 50) as any[];
+  return rows
+    .map((r) => {
+      const factors = pj<any>(r.factors);
+      return {
+        personId: r.id,
+        name: r.display_name,
+        company: r.company,
+        title: r.title,
+        role: getRole(db, r.id).role,
+        intent: r.intent,
+        icpFit: r.icp_fit ?? 0,
+        signals: factors.signals,
+        evidence: factors.evidence,
+        action: suggestedAction(factors.signals ?? {}),
+      };
+    })
+    .filter((l) => (!f.role || l.role === f.role) && (!f.company || l.company === f.company));
 }
 
 export function fadingChampions(db: DB, limit = 10): any[] {

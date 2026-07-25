@@ -1,10 +1,12 @@
 # PRD — GTM Intelligence Engine
 
-Status: v1.0.0 shipped · Owner: Anish Gupta · Last updated: 2026-07-25
+Status: v1.1.0 shipped · Owner: Anish Gupta · Last updated: 2026-07-25
 
 ## 1. Vision
 
-Build an open-source intelligence engine that transforms fragmented audience data — CRM, community, product, payments, web, social exports — into **GTM decisions**: who to talk to, what to do about it, and whether it worked. The canonical object is a **Person**, never a follower or a platform profile. The moat is not the data graph (graphs are commodities); it is the **decision loop**: reasoning → decision → outcome → evaluation → learning. People don't buy graphs. They buy decisions.
+Build an open-source **intelligence engine** whose product capabilities ship as **decision packs**. The engine — the core decision loop (observations → identity → evidence → reasoning → decision → evaluation → learning) — never changes per use case; packs are decision domains plugged into it (ADR-0013). The canonical object is a **Person**, never a follower or a platform profile. The moat is not the data graph (graphs are commodities); it is the shared decision loop and its memory. People don't buy graphs. They buy decisions.
+
+v1 ships **Decision Pack 1 — Growth** (grow a two-sided motion with data you already have): `weekly_gtm` (who to talk to), `platform_allocation` (where to invest), `account_retention` (which account to save). Audience/content, executive cross-side, community, and customer packs follow the same contract later.
 
 ## 2. North Star & primary design principle
 
@@ -29,9 +31,9 @@ Every enrichment, score, and decision stores: supporting observation IDs, produc
 
 ## 4. The wedge (day-one problem)
 
-For founder-led GTM teams (devtools, SaaS, creators): **"Who in my existing audience should I talk to this week, and why?"** Everything in v1 serves this weekly loop — ranked hot leads and fading champions with evidence, one reasoned recommendation, one digest. Broader audience analytics is a byproduct, not the pitch.
+For founder-led GTM teams (devtools, SaaS, creators): **"Where should I invest my GTM effort this week — and who should I talk to there?"** One weekly funnel: which platform → which audience → which companies → which people. Everything in v1 serves this loop — the platform allocation call, ranked hot leads and fading champions with evidence, retention alerts on at-risk accounts, one digest.
 
-Scope guard: *if a feature doesn't improve the weekly question, it doesn't ship in v1.*
+Scope guards: *if a feature doesn't improve the weekly question, it doesn't ship in v1* — and *every feature must introduce a new decision, not merely a new visualization* (Principle 13).
 
 ## 5. Architecture (12 layers)
 
@@ -93,19 +95,31 @@ AI appears only at L7+, after reliable data is established. The same spine later
 | **ENGINEERING_PRINCIPLES.md** | Written (12 principles) |
 | Replace Uber Eats with a fictional company | Demo dataset = **Northwind AI** (fictional data-tools vendor); avoids trademark exposure and keeps the project universal |
 
+### Rounds 4–6 (product depth — shipped in v1.1.0)
+
+| # | Concern | Design response | Trade-off |
+|---|---------|-----------------|-----------|
+| 19 | "So what?" — people-ranking without allocation. Users first ask **where** to spend time, then who to contact | **Platform intelligence** (`src/intelligence/platforms.ts`): per-source rollups (people, active, signals/wk, growth, avg intent, hot-lead yield, quality) + a per-platform call (double down / nurture / re-engage / reduce effort); wedge evolved to "where → who" | Metrics are **observed engagement, not follower counts** — most social platforms don't expose reach via official APIs (audit #1), and the Intelligence Law forbids ungrounded numbers. Engagement-per-source is the honest, more actionable substitute |
+| 20 | Hardcoded "Top 10" | No fixed N anywhere: `limit`/`role`/`minIntent`/`company` on the leads API + a filter bar in the UI | — |
+| 21 | Drill-down hierarchy (platform → audience → company → person) | Companies rollup (`companies.ts`): people, intent, ICP, churn risk, observed MRR; platform detail cards; person detail API already existed | Full graph-explorer UI deferred |
+| 22 | B2B vs B2C split for two-sided platforms | Rejected as a product split; adopted as **decision packs** on one engine (ADR-0013). Growth pack v1 spans both sides' seed decisions; packs share graph, evaluation, learning, memory | Executive cross-side attribution needs outcome history from ≥2 packs — sequenced last, never faked |
+| 23 | Features that are visualizations, not decisions | **Principle 13: decisions over dashboards.** Platform allocation and account retention ship as real decision kinds (trace, evidence, expected metric, memory, calibration) — not table strings | Decision generators must be spam-gated (input-hash reuse) |
+| 24 | Navigation should expose user goals, not B2B/B2C | Tabs: Executive (growth allocation + platform comparison) / Business / Audience / Decisions / Cost & health | Separate "Growth" tab arrives with the executive pack; for now growth is the Executive centerpiece |
+
 ## 7. v1 scope (shipped)
 
-- **Working end to end:** L1–L9, L11–L12 on the wedge. 5 connectors (CSV CRM, GitHub official API/fixture, newsletter/website/payments fixtures, universal webhook), identity resolution with review queue, graph, behavior + 3 scores with factors, segments, reasoning traces, decision memory, evaluation, calibration learning, weekly digest, DSAR, 4-page dashboard, REST API.
+- **Working end to end:** L1–L9, L11–L12 on the wedge. 5 connectors (CSV CRM, GitHub official API/fixture, newsletter/website/payments fixtures, universal webhook), identity resolution with review queue, graph, behavior + 3 scores with factors, segments, platform + company intelligence, the Growth decision pack (3 kinds: weekly_gtm, platform_allocation, account_retention) with reasoning traces, decision memory, evaluation, calibration learning, weekly digest, DSAR, 5-tab dashboard, REST API with filters.
 - **Deferred with contracts reserved:** optimization engine (L10), marketplace/plugins, trained predictions, multi-tenancy, Postgres swap.
 - **Quality gates in CI:** typecheck, 16 tests including identity golden pairs (incl. adversarial same-name), cost-pyramid distribution assertion (≥70% L0), budget degradation, cache behavior, full e2e decision loop, DSAR.
 
-## 8. Dashboard (4 pages)
+## 8. Dashboard (5 tabs, goal-oriented — not B2B/B2C)
 
-| Page | Shows |
+| Tab | Shows |
 | --- | --- |
-| Leads | KPI row (people, companies, hot leads, fading, cost/insight) · segment momentum bars · hot leads with intent, signals, evidence IDs, suggested action · fading champions |
-| People | Resolved persons with identifier counts · identity review queue with approve/keep-separate |
-| Decisions | Every decision with full trace (evidence → hypothesis → reasoning → action), confidence, memory chip, accept/dismiss/record-outcome · evaluation table (expected vs actual, verdicts) |
+| Executive | KPI row · **this week's allocation call** (a decision, not a chart) · platform comparison table (observed engagement per source) · segment momentum |
+| Business | Accounts table (people, intent, ICP, churn risk, observed MRR, action) · hot leads with **filter bar** (limit/role/min-intent) · fading champions · identity review queue · resolved people |
+| Audience | Per-platform detail cards: people, active, signals + growth, quality, top signals, top people |
+| Decisions | Every decision from every pack with kind chip + full trace, accept/dismiss/record-outcome · evaluation table (expected vs actual, verdicts) |
 | Cost & health | Budget bar, level distribution (pyramid), cache hits, cost per insight · the weekly digest |
 
 ## 9. Success metrics

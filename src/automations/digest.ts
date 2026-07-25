@@ -3,6 +3,7 @@ import { config } from '../config.js';
 import { audienceSummary } from '../intelligence/segments.js';
 import { hotLeads, fadingChampions } from '../intelligence/scores.js';
 import { listDecisions } from '../decisions/reason.js';
+import { platformStats } from '../intelligence/platforms.js';
 import { evaluationMetrics } from '../decisions/evaluate.js';
 import { costReport } from '../cost/router.js';
 import { logEvent, audit } from '../pipeline/events.js';
@@ -15,9 +16,14 @@ import { logEvent, audit } from '../pipeline/events.js';
 
 export function buildDigest(db: DB): string {
   const s = audienceSummary(db);
-  const hot = hotLeads(db, 5);
+  const hot = hotLeads(db, { limit: 5 });
   const fading = fadingChampions(db, 3);
-  const decision = listDecisions(db).find((d: any) => d.status === 'proposed' || d.status === 'accepted');
+  const decisions = listDecisions(db);
+  const open = (kind: string) => decisions.find((d: any) => d.kind === kind && (d.status === 'proposed' || d.status === 'accepted'));
+  const decision = open('weekly_gtm');
+  const allocation = open('platform_allocation');
+  const retention = decisions.filter((d: any) => d.kind === 'account_retention' && (d.status === 'proposed' || d.status === 'accepted'));
+  const platforms = platformStats(db);
   const ev = evaluationMetrics(db);
   const cost = costReport(db);
 
@@ -25,6 +31,10 @@ export function buildDigest(db: DB): string {
     `# Weekly GTM digest`,
     ``,
     `**Audience:** ${s.people} people · ${s.companies} companies · +${s.newPeople7} people this week · ${s.observations} observations`,
+    ``,
+    `## Where to invest`,
+    ...platforms.map((p) => `- ${p.source}: ${p.signals7} signals (${p.growthPct >= 0 ? '+' : ''}${p.growthPct}%) · quality ${p.quality}/100 · ${p.people} people → **${p.recommendation}**`),
+    ...(allocation ? [``, `**Allocation call:** ${allocation.title} (confidence ${allocation.confidence})`, `> ${allocation.trace.reasoning}`] : []),
     ``,
     `## Segment momentum (7d vs prior 7d)`,
     ...s.segments.map((x: any) => `- ${x.segment}: ${x.current} signals (${x.deltaPct >= 0 ? '+' : ''}${x.deltaPct}%)`),
@@ -36,6 +46,9 @@ export function buildDigest(db: DB): string {
     ``,
     `## Going quiet`,
     ...(fading.length ? fading.map((f: any) => `- **${f.name}** (${f.company ?? 'unknown'}) — engagement down ${Math.round(f.drop * 100)}% · ${f.action}`) : ['- none this week']),
+    ...(retention.length
+      ? [``, `## Accounts to save`, ...retention.map((r: any) => `- ${r.title} (confidence ${r.confidence}) — ${r.trace.action}`)]
+      : []),
   ];
 
   if (decision) {

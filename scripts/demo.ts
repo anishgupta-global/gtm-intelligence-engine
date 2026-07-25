@@ -1,4 +1,4 @@
-import { rmSync, writeFileSync, mkdirSync } from 'node:fs';
+import { rmSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { openDb } from '../src/db.js';
 import { config } from '../src/config.js';
 import { runDemo } from './demo-core.js';
@@ -6,13 +6,20 @@ import { runDemo } from './demo-core.js';
 const banner = `
 =====================================================================
   GTM Intelligence Engine — end-to-end demo (Northwind AI workspace)
-  Answers one question, weekly: who should you talk to, and why?
+  Where should you invest this week — and who should you talk to?
 =====================================================================`;
 
 console.log(banner);
 
-try { rmSync(config.dbPath); } catch {}
-try { rmSync(config.dbPath + '-journal'); } catch {}
+for (const f of [config.dbPath, `${config.dbPath}-journal`, `${config.dbPath}-wal`, `${config.dbPath}-shm`]) {
+  if (!existsSync(f)) continue;
+  try {
+    rmSync(f);
+  } catch {
+    console.error(`Cannot remove ${f} — stop the running server (npm run dev) first, then re-run the demo.`);
+    process.exit(1);
+  }
+}
 const db = openDb(config.dbPath);
 
 const result = await runDemo(db, (s) => console.log(s));
