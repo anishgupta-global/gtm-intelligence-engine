@@ -33,9 +33,12 @@ export const INTENT_WEIGHTS: Record<string, number> = {
   crm_contact: 0,
 };
 
-/** ICP definition for the demo workspace (Northwind AI — a fictional data-tools vendor). */
+/** ICP definition for the demo workspace (Northwind Eats — a fictional two-sided food-delivery marketplace).
+ *  The ICP describes ideal *merchant partners* (restaurants), not consumers.
+ *  Consumers naturally score low ICP — they aren't the buyers of a marketplace product;
+ *  their intent still ranks them for outreach via the intent × 0.6 baseline. */
 export const ICP = {
-  industries: ['software', 'data', 'fintech', 'cloud'],
-  minEmployees: 50,
-  buyerRoles: ['founder', 'executive', 'data_leader'],
+  industries: ['food'],
+  minEmployees: 5,
+  buyerRoles: ['founder', 'executive'],
 };

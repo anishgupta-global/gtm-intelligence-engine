@@ -9,7 +9,7 @@ The engine is the product; capabilities ship as **decision packs** on one shared
 [![CI](https://github.com/anishgupta-global/gtm-intelligence-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/anishgupta-global/gtm-intelligence-engine/actions)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%E2%89%A522.13-brightgreen)
-![Version](https://img.shields.io/badge/version-1.1.0-blue)
+![Version](https://img.shields.io/badge/version-1.2.0-blue)
 
 **▶ Live demo:** https://anishgupta-global.github.io/gtm-intelligence-engine/ — the dashboard over a snapshot of the demo pipeline (fictional dataset, no signup).
 
@@ -48,7 +48,7 @@ npm run demo     # full engine walkthrough on a fictional dataset (Northwind AI)
 npm run dev      # dashboard + API at http://localhost:4100
 ```
 
-`npm run demo` walks the whole loop and narrates it: 5 connectors ingest 37 observations → identity resolution (one cross-source merge, one adversarial non-merge, one human-review case) → hot leads with evidence → a recommendation with a full reasoning trace → outcome recorded → evaluation (winner) → calibration learned → week-2 data arrives → the next recommendation cites the memory prior → re-run with no new data reuses the decision (zero spend) → DSAR export + erasure. The weekly digest lands in `data/digest.md`.
+`npm run demo` walks the whole loop on the **Northwind Eats** fictional two-sided food-delivery marketplace (restaurant partners + consumers): 8 connectors ingest ~95 observations across `crm`, `instagram`, `tiktok`, `google`, `newsletter`, `referral`, `linkedin`, `orders` → identity resolves Ben Novak across 5 platforms, keeps two same-name Ana Vasquez persons separate, sends "Sara K.@Green Bowl" → "Sara Kim" to human review → three Growth-pack decisions fire from the same evidence: **where to invest** (double down on Google — highest intent), **who to contact** (Lena@Burger Factory, Sara@Green Bowl, Ken@Sushi Rocket + high-LTV consumers), and **which account to save** (Pizza Corner — €6,400 observed revenue, zero signals in 14 days) → outcome recorded → calibration learned → week-2 signals arrive (new merchant Eli@Skybite Pizza) → the next decision surfaces its memory prior → re-run with no new data reuses the decision (zero spend) → DSAR export + erasure. Weekly digest lands in `data/digest.md`.
 
 Turn on real reasoning (optional):
 

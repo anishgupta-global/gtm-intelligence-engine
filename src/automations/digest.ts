@@ -14,57 +14,61 @@ import { logEvent, audit } from '../pipeline/events.js';
  * (allowlisted fields), and outbound sends are audit-logged.
  */
 
+/** Order for the numbered "Weekly Growth Decisions" list. Allocation first (biggest
+ *  lever this week), then the segment-level GTM decision, then per-account retention
+ *  calls. Hot leads are shown as supporting context — they are the evidence behind the
+ *  GTM decision, not decisions themselves. */
+const DECISION_KIND_ORDER = ['platform_allocation', 'weekly_gtm', 'account_retention'];
+const KIND_LABEL: Record<string, string> = {
+  platform_allocation: 'where to invest',
+  weekly_gtm: 'who to contact',
+  account_retention: 'account to save',
+};
+
 export function buildDigest(db: DB): string {
   const s = audienceSummary(db);
   const hot = hotLeads(db, { limit: 5 });
   const fading = fadingChampions(db, 3);
   const decisions = listDecisions(db);
-  const open = (kind: string) => decisions.find((d: any) => d.kind === kind && (d.status === 'proposed' || d.status === 'accepted'));
-  const decision = open('weekly_gtm');
-  const allocation = open('platform_allocation');
-  const retention = decisions.filter((d: any) => d.kind === 'account_retention' && (d.status === 'proposed' || d.status === 'accepted'));
+  const open = decisions
+    .filter((d: any) => d.status === 'proposed' || d.status === 'accepted')
+    .sort((a: any, b: any) => DECISION_KIND_ORDER.indexOf(a.kind) - DECISION_KIND_ORDER.indexOf(b.kind));
   const platforms = platformStats(db);
   const ev = evaluationMetrics(db);
   const cost = costReport(db);
 
-  const lines: string[] = [
-    `# Weekly GTM digest`,
+  const lines: string[] = [`# Weekly Growth Decisions`, ``];
+
+  if (open.length === 0) {
+    lines.push(`_No open decisions yet — run the pipeline to generate this week's decisions._`, ``);
+  }
+
+  open.forEach((d: any, i: number) => {
+    const prior = d.priors?.[0];
+    lines.push(
+      `${i + 1}. **${d.title}** _(${KIND_LABEL[d.kind] ?? d.kind})_`,
+      `   Reason: ${d.trace.hypothesis}`,
+      `   Action: ${d.trace.action}`,
+      `   Evidence: ${(d.trace.evidence ?? []).slice(0, 4).join(', ') || '—'}`,
+      `   Confidence: ${d.confidence} · Expected: ${d.expected.target} ${d.expected.metric}${prior ? ` · memory: ${Math.round(prior.similarity * 100)}% similar to a past ${prior.verdict}` : ''}`,
+      ``
+    );
+  });
+
+  lines.push(
+    `## Platform comparison (observed engagement per source)`,
+    ...platforms.map((p) => `- **${p.source}** — ${p.people} people · ${p.signals7} signals 7d (${p.growthPct >= 0 ? '+' : ''}${p.growthPct}%) · quality ${p.quality}/100 · intent ${p.avgIntent} → **${p.recommendation}**`),
     ``,
-    `**Audience:** ${s.people} people · ${s.companies} companies · +${s.newPeople7} people this week · ${s.observations} observations`,
-    ``,
-    `## Where to invest`,
-    ...platforms.map((p) => `- ${p.source}: ${p.signals7} signals (${p.growthPct >= 0 ? '+' : ''}${p.growthPct}%) · quality ${p.quality}/100 · ${p.people} people → **${p.recommendation}**`),
-    ...(allocation ? [``, `**Allocation call:** ${allocation.title} (confidence ${allocation.confidence})`, `> ${allocation.trace.reasoning}`] : []),
-    ``,
-    `## Segment momentum (7d vs prior 7d)`,
-    ...s.segments.map((x: any) => `- ${x.segment}: ${x.current} signals (${x.deltaPct >= 0 ? '+' : ''}${x.deltaPct}%)`),
-    ``,
-    `## Who to talk to this week`,
+    `## Hot leads (evidence for the who-to-contact decision)`,
     ...hot.map((l: any, i: number) =>
-      `${i + 1}. **${l.name}** — ${l.title ?? l.role}, ${l.company ?? 'unknown'} · intent ${l.intent} · ${l.action}\n   signals: ${Object.entries(l.signals ?? {}).map(([t, v]: any) => `${t}×${v.count}`).join(', ')} · evidence: ${(l.evidence ?? []).slice(0, 3).join(', ')}`
+      `${i + 1}. **${l.name}** — ${l.title ?? l.role}, ${l.company ?? 'consumer'} · intent ${l.intent} · ${l.action}\n   signals: ${Object.entries(l.signals ?? {}).map(([t, v]: any) => `${t}×${v.count}`).join(', ')} · evidence: ${(l.evidence ?? []).slice(0, 3).join(', ')}`
     ),
     ``,
     `## Going quiet`,
     ...(fading.length ? fading.map((f: any) => `- **${f.name}** (${f.company ?? 'unknown'}) — engagement down ${Math.round(f.drop * 100)}% · ${f.action}`) : ['- none this week']),
-    ...(retention.length
-      ? [``, `## Accounts to save`, ...retention.map((r: any) => `- ${r.title} (confidence ${r.confidence}) — ${r.trace.action}`)]
-      : []),
-  ];
-
-  if (decision) {
-    lines.push(
-      ``,
-      `## Recommendation — ${decision.title}`,
-      `- Hypothesis: ${decision.trace.hypothesis}`,
-      `- Reasoning: ${decision.trace.reasoning}`,
-      `- Action: ${decision.trace.action}`,
-      `- Confidence: ${decision.confidence}${decision.priors?.length ? ` · memory prior: ${Math.round(decision.priors[0].similarity * 100)}% similar to a past ${decision.priors[0].verdict}` : ''}`,
-      `- Expected: ${decision.expected.target} ${decision.expected.metric}`,
-      `- Evidence: ${decision.trace.evidence.slice(0, 5).join(', ')}`
-    );
-  }
-
-  lines.push(
+    ``,
+    `## Audience`,
+    `- ${s.people} people · ${s.companies} restaurant partners · +${s.newPeople7} people this week · ${s.observations} observations`,
     ``,
     `## Engine health`,
     `- Decisions: ${ev.decisionsTotal} total · acceptance ${ev.acceptanceRate ?? 'n/a'} · success ${ev.successRate ?? 'n/a'} · mean calibration error ${ev.meanCalibrationError ?? 'n/a'}`,
@@ -72,7 +76,7 @@ export function buildDigest(db: DB): string {
     `- Work distribution: ${cost.levels.map((l: any) => `${l.label} ${l.pct}%`).join(' · ')}`
   );
 
-  logEvent(db, 'digest', null, { hot: hot.length, fading: fading.length });
+  logEvent(db, 'digest', null, { decisions: open.length, hot: hot.length, fading: fading.length });
   return lines.join('\n');
 }
 

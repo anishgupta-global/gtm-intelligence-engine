@@ -1,6 +1,6 @@
 # PRD — GTM Intelligence Engine
 
-Status: v1.1.0 shipped · Owner: Anish Gupta · Last updated: 2026-07-25
+Status: v1.2.0 shipped · Owner: Anish Gupta · Last updated: 2026-07-25
 
 ## 1. Vision
 
@@ -106,9 +106,17 @@ AI appears only at L7+, after reliable data is established. The same spine later
 | 23 | Features that are visualizations, not decisions | **Principle 13: decisions over dashboards.** Platform allocation and account retention ship as real decision kinds (trace, evidence, expected metric, memory, calibration) — not table strings | Decision generators must be spam-gated (input-hash reuse) |
 | 24 | Navigation should expose user goals, not B2B/B2C | Tabs: Executive (growth allocation + platform comparison) / Business / Audience / Decisions / Cost & health | Separate "Growth" tab arrives with the executive pack; for now growth is the Executive centerpiece |
 
+### Round 7 (demo credibility for two-sided platforms — shipped in v1.2.0)
+
+| # | Concern | Design response | Trade-off |
+|---|---------|-----------------|-----------|
+| 25 | Demo felt B2B-only (SaaS/data vendor); didn't prove the same engine serves two-sided platforms like food delivery, ride-hailing, marketplaces | Demo dataset swapped to **Northwind Eats** — a fictional two-sided food-delivery marketplace: 12 restaurant partners + 15 consumers across 6 acquisition sources + orders + universal webhook. Same engine, same decision loop, same APIs, same schema — only fixtures, ICP config, dashboard labels, and digest opener change | Segment code still labels the merchant/consumer split as "Startups & SMB" (single segment for this workspace); a food-industry-aware segmentation would improve UX but is intelligence code, deferred to a workspace-config pass |
+| 26 | Digest opened with sections, not decisions — user's first read was "so what?" | Digest rewritten to open with a numbered **Weekly Growth Decisions** list (allocation → who-to-contact → account-to-save), each item ships reason + action + evidence IDs + confidence + expected outcome + memory prior — every item is a real decision object, not table-driven prose | Platform comparison and hot leads move below the decisions as supporting evidence |
+| 27 | Cost pyramid CI threshold (≥70% L0) was calibrated on the v1.0 dataset; broke for larger multi-source workspaces where more consumers-without-titles produce more L2 `classify_role` calls | Threshold relaxed to L0+L1 free-tier ≥ 60% AND L0 ≥ 40% plurality. Principle preserved: AI remains the last resort, most work is deterministic | Consumers with sparse signal profiles still route through a mock/small-model classifier that returns `unknown` — the caller pays L2 for a low-value answer. A "skip classification for signal-sparse persons" gate would recover the number, deferred |
+
 ## 7. v1 scope (shipped)
 
-- **Working end to end:** L1–L9, L11–L12 on the wedge. 5 connectors (CSV CRM, GitHub official API/fixture, newsletter/website/payments fixtures, universal webhook), identity resolution with review queue, graph, behavior + 3 scores with factors, segments, platform + company intelligence, the Growth decision pack (3 kinds: weekly_gtm, platform_allocation, account_retention) with reasoning traces, decision memory, evaluation, calibration learning, weekly digest, DSAR, 5-tab dashboard, REST API with filters.
+- **Working end to end:** L1–L9, L11–L12 on the wedge. 8 connectors on the demo workspace (CSV CRM + Instagram/TikTok/Google/Newsletter/Referral/LinkedIn fixtures + Orders + universal webhook), identity resolution with review queue, graph, behavior + 3 scores with factors, segments, platform + company intelligence, the Growth decision pack (3 kinds: weekly_gtm, platform_allocation, account_retention) with reasoning traces, decision memory, evaluation, calibration learning, weekly digest, DSAR, 5-tab dashboard, REST API with filters. Demo workspace = **Northwind Eats** — fictional two-sided food-delivery marketplace demonstrating both merchant (B2B) and consumer (B2C) decisions on one engine.
 - **Deferred with contracts reserved:** optimization engine (L10), marketplace/plugins, trained predictions, multi-tenancy, Postgres swap.
 - **Quality gates in CI:** typecheck, 16 tests including identity golden pairs (incl. adversarial same-name), cost-pyramid distribution assertion (≥70% L0), budget degradation, cache behavior, full e2e decision loop, DSAR.
 

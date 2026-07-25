@@ -1,0 +1,5 @@
+[
+  { "signalType": "form_submit", "externalId": "ref:s1", "daysAgo": 2, "actor": { "email": "nadja.horvath@example.com", "name": "Nadja Horvath" }, "props": { "form": "referral_signup", "referred_by": "kayla" }, "consentBasis": "consent" },
+  { "signalType": "form_submit", "externalId": "ref:s2", "daysAgo": 4, "actor": { "email": "luca.romano@example.com", "name": "Luca Romano" }, "props": { "form": "referral_signup", "referred_by": "mia" }, "consentBasis": "consent" },
+  { "signalType": "form_submit", "externalId": "ref:s3", "daysAgo": 10, "actor": { "email": "mia.torres@example.com", "name": "Mia Torres" }, "props": { "form": "referral_signup", "referred_by": "kayla" }, "consentBasis": "consent" }
+]

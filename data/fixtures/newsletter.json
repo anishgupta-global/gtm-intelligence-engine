@@ -1,12 +1,14 @@
 [
-  { "signalType": "newsletter_open", "externalId": "open:m1:maya", "daysAgo": 6, "actor": { "email": "maya.chen@lumenpay.io", "name": "Maya Chen" }, "props": { "campaign": "launch-week" }, "consentBasis": "consent" },
-  { "signalType": "newsletter_click", "externalId": "click:m1:maya", "daysAgo": 5, "actor": { "email": "maya.chen@lumenpay.io", "name": "Maya Chen" }, "props": { "campaign": "launch-week", "topic": "benchmarks" }, "consentBasis": "consent" },
-  { "signalType": "newsletter_open", "externalId": "open:m1:alexk", "daysAgo": 8, "actor": { "email": "alex@kumarlabs.dev", "name": "Alex Kumar", "company": "Kumar Labs" }, "props": { "campaign": "launch-week" }, "consentBasis": "consent" },
-  { "signalType": "newsletter_click", "externalId": "click:m1:alexk", "daysAgo": 7, "actor": { "email": "alex@kumarlabs.dev", "name": "Alex Kumar", "company": "Kumar Labs" }, "props": { "campaign": "launch-week", "topic": "changelog" }, "consentBasis": "consent" },
-  { "signalType": "newsletter_open", "externalId": "open:m1:priya", "daysAgo": 9, "actor": { "email": "priya.nair@quantabio.com", "name": "Priya Nair" }, "props": { "campaign": "launch-week" }, "consentBasis": "consent" },
-  { "signalType": "newsletter_click", "externalId": "click:m2:priya", "daysAgo": 3, "actor": { "email": "priya.nair@quantabio.com", "name": "Priya Nair" }, "props": { "campaign": "case-study", "topic": "benchmarks" }, "consentBasis": "consent" },
-  { "signalType": "newsletter_click", "externalId": "click:m2:sam", "daysAgo": 2, "actor": { "email": "sam.okafor@brightqueue.io", "name": "Sam Okafor" }, "props": { "campaign": "case-study", "topic": "architecture" } },
-  { "signalType": "newsletter_open", "externalId": "open:m0a:elena", "daysAgo": 45, "actor": { "email": "elena.petrova@nordwind-labs.com", "name": "Elena Petrova" }, "props": { "campaign": "release-notes" }, "consentBasis": "contract" },
-  { "signalType": "newsletter_open", "externalId": "open:m0b:elena", "daysAgo": 50, "actor": { "email": "elena.petrova@nordwind-labs.com", "name": "Elena Petrova" }, "props": { "campaign": "release-notes" }, "consentBasis": "contract" },
-  { "signalType": "newsletter_click", "externalId": "click:m0:elena", "daysAgo": 40, "actor": { "email": "elena.petrova@nordwind-labs.com", "name": "Elena Petrova" }, "props": { "campaign": "release-notes", "topic": "changelog" }, "consentBasis": "contract" }
+  { "signalType": "newsletter_open", "externalId": "nl:o1", "daysAgo": 1, "actor": { "email": "iris.oconnor@example.com", "name": "Iris O'Connor" }, "props": { "campaign": "weekly_features" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_click", "externalId": "nl:c1", "daysAgo": 1, "actor": { "email": "iris.oconnor@example.com" }, "props": { "campaign": "weekly_features", "topic": "new_restaurants" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_open", "externalId": "nl:o2", "daysAgo": 2, "actor": { "email": "jules.moreau@example.com", "name": "Jules Moreau" }, "props": { "campaign": "weekly_features" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_click", "externalId": "nl:c2", "daysAgo": 2, "actor": { "email": "jules.moreau@example.com" }, "props": { "campaign": "weekly_features" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_open", "externalId": "nl:o3", "daysAgo": 3, "actor": { "email": "ben.novak@example.com", "name": "Ben Novak" }, "props": { "campaign": "weekly_features" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_click", "externalId": "nl:c3", "daysAgo": 3, "actor": { "email": "ben.novak@example.com" }, "props": { "campaign": "weekly_features" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_open", "externalId": "nl:o4", "daysAgo": 4, "actor": { "email": "greta.svensson@example.com", "name": "Greta Svensson" }, "props": { "campaign": "weekly_features" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_open", "externalId": "nl:o5", "daysAgo": 6, "actor": { "email": "oscar.lindberg@example.com", "name": "Oscar Lindberg" }, "props": { "campaign": "weekly_features" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_open", "externalId": "nl:o6", "daysAgo": 9, "actor": { "email": "jules.moreau@example.com" }, "props": { "campaign": "weekly_features_prev" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_open", "externalId": "nl:o7", "daysAgo": 10, "actor": { "email": "ben.novak@example.com" }, "props": { "campaign": "weekly_features_prev" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_open", "externalId": "nl:o8", "daysAgo": 12, "actor": { "email": "greta.svensson@example.com" }, "props": { "campaign": "weekly_features_prev" }, "consentBasis": "consent" },
+  { "signalType": "newsletter_click", "externalId": "nl:c4", "daysAgo": 12, "actor": { "email": "greta.svensson@example.com" }, "props": { "campaign": "weekly_features_prev" }, "consentBasis": "consent" }
 ]

@@ -1,5 +1,0 @@
-[
-  { "signalType": "payment", "externalId": "inv:7001", "daysAgo": 10, "actor": { "email": "tomas.silva@ferrostack.dev", "name": "Tomas Silva" }, "props": { "plan": "team", "mrr": 490 }, "consentBasis": "contract" },
-  { "signalType": "payment", "externalId": "inv:7002", "daysAgo": 33, "actor": { "email": "elena.petrova@nordwind-labs.com", "name": "Elena Petrova" }, "props": { "plan": "scale", "mrr": 1490 }, "consentBasis": "contract" },
-  { "signalType": "trial_started", "externalId": "trial:7003", "daysAgo": 3, "actor": { "email": "maya.chen@lumenpay.io", "name": "Maya Chen" }, "props": { "plan": "scale" } }
-]

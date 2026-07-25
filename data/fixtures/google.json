@@ -1,0 +1,10 @@
+[
+  { "signalType": "pricing_view", "externalId": "g:mv1", "daysAgo": 1, "actor": { "email": "alice.mueller@example.com" }, "props": { "restaurant": "Burger Factory", "path": "/r/burger-factory/menu" } },
+  { "signalType": "pricing_view", "externalId": "g:mv2", "daysAgo": 1, "actor": { "email": "ben.novak@example.com" }, "props": { "restaurant": "Green Bowl", "path": "/r/green-bowl/menu" } },
+  { "signalType": "pricing_view", "externalId": "g:mv3", "daysAgo": 2, "actor": { "email": "david.lin@example.com" }, "props": { "restaurant": "Sushi Rocket", "path": "/r/sushi-rocket/menu" } },
+  { "signalType": "pricing_view", "externalId": "g:mv4", "daysAgo": 2, "actor": { "email": "emma.dubois@example.com" }, "props": { "restaurant": "Burger Factory", "path": "/r/burger-factory/menu" } },
+  { "signalType": "pricing_view", "externalId": "g:mv5", "daysAgo": 3, "actor": { "email": "felipe.silva@example.com" }, "props": { "restaurant": "Green Bowl", "path": "/r/green-bowl/menu" } },
+  { "signalType": "pricing_view", "externalId": "g:mv6", "daysAgo": 5, "actor": { "email": "greta.svensson@example.com" }, "props": { "restaurant": "Boba Bay", "path": "/r/boba-bay/menu" } },
+  { "signalType": "pricing_view", "externalId": "g:mv7", "daysAgo": 8, "actor": { "email": "ben.novak@example.com" }, "props": { "restaurant": "Burger Factory" } },
+  { "signalType": "pricing_view", "externalId": "g:mv8", "daysAgo": 11, "actor": { "email": "carla.rossi@example.com", "name": "Carla Rossi" }, "props": { "restaurant": "Golden Curry" } }
+]

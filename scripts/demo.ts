@@ -5,8 +5,9 @@ import { runDemo } from './demo-core.js';
 
 const banner = `
 =====================================================================
-  GTM Intelligence Engine — end-to-end demo (Northwind AI workspace)
-  Where should you invest this week — and who should you talk to?
+  GTM Intelligence Engine — end-to-end demo
+  Workspace: Northwind Eats (fictional two-sided food-delivery marketplace)
+  Where should we invest growth effort — and who should we talk to there?
 =====================================================================`;
 
 console.log(banner);

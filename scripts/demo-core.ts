@@ -1,7 +1,5 @@
 import type { DB } from '../src/db.js';
-import { config } from '../src/config.js';
 import { csvCrmConnector } from '../src/connectors/csv.js';
-import { githubConnector } from '../src/connectors/github.js';
 import { fixtureConnector } from '../src/connectors/fixture.js';
 import { syncConnector, ingestSignal } from '../src/connectors/sdk.js';
 import { runPipeline } from '../src/pipeline/run.js';
@@ -20,17 +18,28 @@ import { exportPerson, erasePerson } from '../src/privacy/dsar.js';
 import { DECISION_KIND } from '../src/decisions/reason.js';
 
 /**
- * The full engine walked end to end on the Northwind AI demo dataset (a fictional
- * data-tools vendor): ingest -> resolve -> graph -> score -> reason -> decide ->
- * outcome -> evaluate -> learn -> decide again (now with memory) -> digest -> DSAR.
+ * End-to-end demo: Northwind Eats, a fictional two-sided food-delivery marketplace.
+ * Restaurant partners (B2B) + consumers (B2C) share ONE engine and ONE decision loop.
+ * Walk: ingest 6 acquisition sources + orders -> resolve identities -> graph -> score ->
+ * growth pack decides (where to invest, who to contact, which account to save) ->
+ * outcome recorded -> learning -> the next decision carries a memory prior -> DSAR.
  */
 
+/** Cross-source consumer — Ben appears in Instagram, TikTok, Google, Newsletter, and Orders. */
+const CROSS_SOURCE_EMAIL = 'ben.novak@example.com';
+/** Adversarial same-name pair — Ana Vasquez the restaurant owner (@Taco Piso) and Ana Vasquez the customer. */
+const ADVERSARIAL_NAME = 'Ana Vasquez';
+/** DSAR target — Oscar has exactly 3 observations (tiktok visit, newsletter open, one order). */
+const DSAR_EMAIL = 'oscar.lindberg@example.com';
+
+/** Second-week signals arriving via the universal webhook. Includes a new
+ *  restaurant partner (Skybite Pizza) with strong hand-raise signals. */
 const WEEK2_SIGNALS = [
-  { signalType: 'form_submit', externalId: 'form:dana', daysAgo: 0, actor: { email: 'dana.wolf@skyforge.dev', name: 'Dana Wolf', company: 'Skyforge Systems', title: 'Head of Data', employees: 800, industry: 'software' }, props: { form: 'architecture-webinar' }, consentBasis: 'consent' },
-  { signalType: 'pricing_view', externalId: 'pv:dana', daysAgo: 0, actor: { email: 'dana.wolf@skyforge.dev' }, props: { path: '/pricing' } },
-  { signalType: 'demo_request', externalId: 'demo:dana', daysAgo: 0, actor: { email: 'dana.wolf@skyforge.dev' }, props: { source: 'website' }, consentBasis: 'consent' },
-  { signalType: 'demo_request', externalId: 'demo:sam', daysAgo: 0, actor: { email: 'sam.okafor@brightqueue.io' }, props: { source: 'newsletter' } },
-  { signalType: 'pricing_view', externalId: 'pv:priya2', daysAgo: 0, actor: { email: 'priya.nair@quantabio.com' }, props: { path: '/pricing' } },
+  { signalType: 'form_submit', externalId: 'form:eli', daysAgo: 0, actor: { email: 'eli@skybite.de', name: 'Eli Fischer', company: 'Skybite Pizza', title: 'Owner', employees: 18, industry: 'food' }, props: { form: 'premium_placement_enquiry' }, consentBasis: 'consent' },
+  { signalType: 'pricing_view', externalId: 'pv:eli', daysAgo: 0, actor: { email: 'eli@skybite.de' }, props: { path: '/partners/pricing' } },
+  { signalType: 'demo_request', externalId: 'demo:eli', daysAgo: 0, actor: { email: 'eli@skybite.de' }, props: { topic: 'onboarding' }, consentBasis: 'consent' },
+  { signalType: 'demo_request', externalId: 'demo:ken2', daysAgo: 0, actor: { email: 'ken@sushirocket.de' }, props: { topic: 'multi_location_expansion' } },
+  { signalType: 'pricing_view', externalId: 'pv:priya2', daysAgo: 0, actor: { email: 'priya@veganvista.de' }, props: { path: '/partners/pricing' } },
 ];
 
 export interface DemoOutcome {
@@ -49,8 +58,8 @@ export interface DemoOutcome {
   decision2: DecisionRecord;
   allocation: DecisionRecord | null;
   retention: DecisionRecord[];
-  mayaSources: string[];
-  alexKumarCount: number;
+  crossSourcePersonSources: string[];
+  sameNameConflictCount: number;
   dsar: { exported: boolean; erasedObservations: number };
 }
 
@@ -58,29 +67,32 @@ export async function runDemo(db: DB, log: (s: string) => void = () => {}): Prom
   const provider = getProvider();
   log(`Provider: ${provider.name}${provider.name === 'mock' ? ' ($0 mode)' : ''}`);
 
-  log('\n[1/8] Ingesting from 5 sources (connectors only ever write observations)...');
+  log('\n[1/8] Ingesting from 8 sources (connectors only ever write observations)...');
   const connectors = [
     csvCrmConnector('data/fixtures/crm.csv'),
-    githubConnector('data/fixtures/github.json', config.githubRepo || undefined),
+    fixtureConnector('instagram', 'data/fixtures/instagram.json'),
+    fixtureConnector('tiktok', 'data/fixtures/tiktok.json'),
+    fixtureConnector('google', 'data/fixtures/google.json'),
     fixtureConnector('newsletter', 'data/fixtures/newsletter.json'),
-    fixtureConnector('website', 'data/fixtures/website.json'),
-    fixtureConnector('stripe', 'data/fixtures/stripe.json'),
+    fixtureConnector('referral', 'data/fixtures/referral.json'),
+    fixtureConnector('linkedin', 'data/fixtures/linkedin.json'),
+    fixtureConnector('orders', 'data/fixtures/orders.json'),
   ];
   for (const c of connectors) {
     const r = await syncConnector(db, c);
-    log(`  ${c.name.padEnd(12)} +${r.inserted} observations${r.duplicates ? ` (${r.duplicates} dups skipped)` : ''}`);
+    log(`  ${c.name.padEnd(10)} +${r.inserted} observations${r.duplicates ? ` (${r.duplicates} dups skipped)` : ''}`);
   }
 
-  log('\n[2/8] Pipeline week 1: resolve -> graph -> score -> reason...');
+  log('\n[2/8] Pipeline week 1: resolve -> graph -> score -> decide...');
   const r1 = await runPipeline(db, getProvider());
   log(`  identity: ${r1.resolve.persons} persons created, ${r1.resolve.merged} clusters merged, ${r1.resolve.review} sent to review`);
   log(`  graph: ${r1.graph.entities} entities, ${r1.graph.edges} edges · scores: ${r1.scores.computed} computed`);
 
-  const maya = (listActivePersons(db) as any[]).find((p) => p.primary_email === 'maya.chen@lumenpay.io');
-  const mayaSources = maya ? [...new Set(getPersonObservations(db, maya.id).map((o: any) => o.source))] : [];
-  log(`  cross-source merge: Maya Chen resolved across [${mayaSources.join(', ')}] — one person, ${maya?.identifier_count} identifiers`);
-  const alexKumarCount = (listActivePersons(db) as any[]).filter((p) => p.display_name === 'Alex Kumar').length;
-  log(`  adversarial case: ${alexKumarCount} distinct "Alex Kumar" persons kept separate (different companies)`);
+  const crossPerson = (listActivePersons(db) as any[]).find((p) => p.primary_email === CROSS_SOURCE_EMAIL);
+  const crossSourcePersonSources = crossPerson ? [...new Set(getPersonObservations(db, crossPerson.id).map((o: any) => o.source))] : [];
+  log(`  cross-source resolve: ${crossPerson?.display_name} appears across [${crossSourcePersonSources.join(', ')}] — one person`);
+  const sameNameConflictCount = (listActivePersons(db) as any[]).filter((p) => p.display_name === ADVERSARIAL_NAME).length;
+  log(`  adversarial case: ${sameNameConflictCount} distinct "${ADVERSARIAL_NAME}" persons kept separate (restaurant owner vs consumer, different companies)`);
 
   const queue = reviewQueue(db);
   for (const q of queue) log(`  review queue: merge "${q.from?.display_name}" -> "${q.to?.display_name}" @ confidence ${q.confidence} (${q.keys.join(', ')})`);
@@ -90,39 +102,46 @@ export async function runDemo(db: DB, log: (s: string) => void = () => {}): Prom
     log(`  approved: "${queue[0].from.display_name}" merged into "${queue[0].to.display_name}" (reversible — memberships retracted, not deleted)`);
   }
 
-  log('\n[3/8] Where to invest (platform intelligence — observed engagement, not follower counts):');
-  for (const p of platformStats(db)) {
-    log(`  ${p.source.padEnd(12)} ${String(p.people).padStart(2)} people · ${p.signals7} signals/wk (${p.growthPct >= 0 ? '+' : ''}${p.growthPct}%) · quality ${p.quality}/100 -> ${p.recommendation.toUpperCase()}`);
-  }
-  if (r1.allocation) log(`  ALLOCATION DECISION: ${r1.allocation.title} (confidence ${r1.allocation.confidence})`);
-  for (const rr of r1.retention) log(`  RETENTION DECISION: ${rr.title} (confidence ${rr.confidence})`);
+  log('\n[3/8] Weekly Growth Decisions (Growth pack, all L0 — grounded in observed data):');
+  const openThisWeek = listDecisions(db).filter((d: any) => d.status === 'proposed');
+  const KIND_ORDER = ['platform_allocation', 'weekly_gtm', 'account_retention'];
+  openThisWeek.sort((a: any, b: any) => KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind));
+  openThisWeek.forEach((d: any, i: number) => {
+    log(`  ${i + 1}. ${d.title}`);
+    log(`     kind: ${d.kind} · confidence ${d.confidence} · expected ${d.expected.target} ${d.expected.metric}`);
+    log(`     reason: ${d.trace.hypothesis}`);
+    log(`     evidence: ${(d.trace.evidence ?? []).slice(0, 4).join(', ') || '—'}`);
+  });
 
-  const hot1 = hotLeads(db, { limit: 10 });
-  log('\n  ...and who to talk to there:');
-  for (const l of hot1) log(`  ${l.name} (${l.title ?? l.role}, ${l.company ?? '—'}) · intent ${l.intent} · ${l.action}`);
+  log('\n  Platform comparison (observed engagement — not follower counts):');
+  for (const p of platformStats(db)) {
+    log(`  ${p.source.padEnd(10)} ${String(p.people).padStart(2)} people · ${p.signals7} signals/wk (${p.growthPct >= 0 ? '+' : ''}${p.growthPct}%) · quality ${p.quality}/100 · intent ${p.avgIntent} -> ${p.recommendation.toUpperCase()}`);
+  }
+
+  const hot1 = hotLeads(db, { limit: 6 });
+  log('\n  Hot leads (evidence for the who-to-contact decision):');
+  for (const l of hot1) log(`  ${l.name} (${l.title ?? l.role}, ${l.company ?? 'consumer'}) · intent ${l.intent} · ${l.action}`);
   for (const f of fadingChampions(db, 5)) log(`  FADING: ${f.name} (${f.company}) — engagement down ${Math.round(f.drop * 100)}%`);
-  log('  segment momentum: ' + audienceSummary(db).segments.map((x: any) => `${x.segment} ${x.deltaPct >= 0 ? '+' : ''}${x.deltaPct}%`).join(' · '));
-  log('  accounts: ' + companyStats(db).slice(0, 3).map((c) => `${c.company} (max intent ${c.maxIntent}${c.churnRisk >= 0.5 ? ', CHURN RISK' : ''})`).join(' · '));
+  log('  accounts: ' + companyStats(db).slice(0, 4).map((c) => `${c.company} (intent ${c.maxIntent}${c.churnRisk >= 0.5 ? `, CHURN RISK €${c.mrr}` : ''})`).join(' · '));
 
   const decision1 = r1.decision;
-  log(`\n[4/8] Recommendation #1 (${decision1.model}, level L${decision1.resolutionLevel}):`);
+  log(`\n[4/8] Weekly GTM recommendation (${decision1.model}, level L${decision1.resolutionLevel}):`);
   log(`  ${decision1.title}`);
   log(`  hypothesis: ${decision1.trace.hypothesis}`);
-  log(`  reasoning:  ${decision1.trace.reasoning}`);
   log(`  action:     ${decision1.trace.action}`);
-  log(`  confidence: ${decision1.confidence} · expected: ${decision1.expected.target} ${decision1.expected.metric} · evidence: ${decision1.trace.evidence.slice(0, 4).join(', ')}`);
+  log(`  confidence: ${decision1.confidence} · expected: ${decision1.expected.target} ${decision1.expected.metric}`);
 
   log('\n[5/8] Closing the loop: accept -> execute -> outcome -> evaluate -> learn...');
   setDecisionStatus(db, decision1.id, 'accepted');
   const achieved = decision1.expected.target + 1;
-  const evaluation1 = recordOutcome(db, decision1.id, achieved, 'demo: outreach ran, conversations booked');
+  const evaluation1 = recordOutcome(db, decision1.id, achieved, 'demo: outreach ran, merchant conversations booked');
   const calibration = updateCalibration(db, DECISION_KIND);
   log(`  outcome: ${achieved} vs expected ${decision1.expected.target} -> attainment ${evaluation1.attainment} -> verdict: ${evaluation1.verdict}`);
   log(`  learning: calibration adjustment for '${DECISION_KIND}' is now ${calibration.adjustment >= 0 ? '+' : ''}${calibration.adjustment} (${calibration.samples} sample${calibration.samples === 1 ? '' : 's'})`);
 
   log('\n[6/8] Week 2: new signals arrive (universal webhook)...');
   for (const s of WEEK2_SIGNALS) ingestSignal(db, 'webhook', { ...s, observedAt: new Date().toISOString() });
-  log(`  +${WEEK2_SIGNALS.length} signals (incl. Dana Wolf, Head of Data @ Skyforge Systems — 800 employees)`);
+  log(`  +${WEEK2_SIGNALS.length} signals (incl. Eli Fischer, Owner @ Skybite Pizza — a new merchant hand-raise)`);
   const r2 = await runPipeline(db, getProvider());
   const decision2 = r2.decision;
   log(`\n  Recommendation #2: ${decision2.title}`);
@@ -146,10 +165,10 @@ export async function runDemo(db: DB, log: (s: string) => void = () => {}): Prom
   log(`  AI spend $${cost.totalSpendUsd} · cost per insight $${cost.costPerInsight} · cache hits ${cost.cacheHits}`);
 
   log('\n[8/8] Privacy (DSAR): export + erase...');
-  const linZhang = (listActivePersons(db) as any[]).find((p) => p.primary_email === 'lin.zhang@vectorloom.ai');
-  const exported = linZhang ? exportPerson(db, linZhang.id) : null;
-  const erased = linZhang ? erasePerson(db, linZhang.id) : { erasedObservations: 0 };
-  log(`  exported Lin Zhang's full record (${exported?.observations?.length ?? 0} observations), then erased: payloads deleted, identifiers removed, tombstone kept`);
+  const dsarTarget = (listActivePersons(db) as any[]).find((p) => p.primary_email === DSAR_EMAIL);
+  const exported = dsarTarget ? exportPerson(db, dsarTarget.id) : null;
+  const erased = dsarTarget ? erasePerson(db, dsarTarget.id) : { erasedObservations: 0 };
+  log(`  exported ${dsarTarget?.display_name}'s full record (${exported?.observations?.length ?? 0} observations), then erased: payloads deleted, identifiers removed, tombstone kept`);
 
   const digest = buildDigest(db);
   return {
@@ -168,8 +187,8 @@ export async function runDemo(db: DB, log: (s: string) => void = () => {}): Prom
     decision2,
     allocation: r2.allocation ?? r1.allocation,
     retention: r2.retention.length ? r2.retention : r1.retention,
-    mayaSources,
-    alexKumarCount,
+    crossSourcePersonSources,
+    sameNameConflictCount,
     dsar: { exported: !!exported, erasedObservations: erased.erasedObservations },
   };
 }

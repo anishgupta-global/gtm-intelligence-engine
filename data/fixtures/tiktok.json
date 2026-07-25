@@ -1,0 +1,17 @@
+[
+  { "signalType": "website_visit", "externalId": "tt:v1", "daysAgo": 1, "actor": { "email": "kayla.chen@example.com", "name": "Kayla Chen" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v2", "daysAgo": 1, "actor": { "email": "luca.romano@example.com", "name": "Luca Romano" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v3", "daysAgo": 2, "actor": { "email": "mia.torres@example.com", "name": "Mia Torres" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v4", "daysAgo": 2, "actor": { "email": "nadja.horvath@example.com", "name": "Nadja Horvath" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v5", "daysAgo": 3, "actor": { "email": "oscar.lindberg@example.com", "name": "Oscar Lindberg" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v6", "daysAgo": 3, "actor": { "email": "ben.novak@example.com" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v7", "daysAgo": 4, "actor": { "email": "carla.rossi@example.com" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v8", "daysAgo": 4, "actor": { "email": "jules.moreau@example.com", "name": "Jules Moreau" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v9", "daysAgo": 5, "actor": { "email": "emma.dubois@example.com" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v10", "daysAgo": 5, "actor": { "email": "felipe.silva@example.com" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v11", "daysAgo": 6, "actor": { "email": "hasan.demir@example.com" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v12", "daysAgo": 6, "actor": { "email": "kayla.chen@example.com" }, "props": { "campaign": "food_hack" } },
+  { "signalType": "website_visit", "externalId": "tt:v13", "daysAgo": 8, "actor": { "email": "kayla.chen@example.com" }, "props": { "campaign": "food_hack_pre" } },
+  { "signalType": "website_visit", "externalId": "tt:v14", "daysAgo": 10, "actor": { "email": "mia.torres@example.com" }, "props": { "campaign": "food_hack_pre" } },
+  { "signalType": "website_visit", "externalId": "tt:v15", "daysAgo": 12, "actor": { "email": "ben.novak@example.com" }, "props": { "campaign": "food_hack_pre" } }
+]

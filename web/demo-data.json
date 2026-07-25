@@ -1,38 +1,20 @@
 {
-  "generatedAt": "2026-07-25T11:04:30.344Z",
+  "generatedAt": "2026-07-25T11:27:10.619Z",
   "demoNote": "Static snapshot of the demo pipeline (Northwind AI fictional dataset). Run the engine locally for the live version.",
   "summary": {
-    "people": 10,
-    "newPeople7": 10,
-    "companies": 10,
-    "observations": 39,
+    "people": 28,
+    "newPeople7": 28,
+    "companies": 13,
+    "observations": 97,
     "segments": [
       {
-        "segment": "Enterprise",
-        "current": 11,
-        "previous": 0,
-        "deltaPct": 1100
-      },
-      {
-        "segment": "Mid-market",
-        "current": 6,
-        "previous": 2,
-        "deltaPct": 200
-      },
-      {
-        "segment": "Developers",
-        "current": 2,
-        "previous": 0,
-        "deltaPct": 200
-      },
-      {
         "segment": "Startups & SMB",
-        "current": 1,
-        "previous": 4,
-        "deltaPct": -75
+        "current": 61,
+        "previous": 21,
+        "deltaPct": 190
       }
     ],
-    "hotLeads": 6,
+    "hotLeads": 22,
     "fading": 1,
     "provider": "mock",
     "budget": {
@@ -44,289 +26,796 @@
   },
   "hot": [
     {
-      "personId": "per_eb7b0e615968f4ba",
-      "name": "Maya Chen",
-      "company": "LumenPay",
-      "title": "Head of Data Platform",
+      "personId": "per_951ca213b9be1017",
+      "name": "Ken Yamada",
+      "company": "Sushi Rocket",
+      "title": "Managing Director",
       "role": "executive",
-      "intent": 0.93,
-      "icpFit": 1,
+      "intent": 0.83,
+      "icpFit": 0.9,
       "signals": {
-        "pricing_view": {
+        "demo_request": {
           "count": 2,
-          "points": 46.43
+          "points": 55.71
         },
-        "trial_started": {
+        "payment": {
           "count": 1,
-          "points": 25.71
-        },
-        "docs_view": {
-          "count": 1,
-          "points": 6.86
-        },
-        "repo_issue": {
-          "count": 1,
-          "points": 12.14
-        },
-        "newsletter_click": {
-          "count": 1,
-          "points": 4.57
-        },
-        "newsletter_open": {
-          "count": 1,
-          "points": 1.43
-        },
-        "repo_star": {
-          "count": 1,
-          "points": 8.57
+          "points": 16.19
         }
       },
       "evidence": [
-        "obs_e3995f8303b9b22e",
-        "obs_6124d456d26c6acd",
-        "obs_6eccec060105b551",
-        "obs_6b224e1801881b44",
-        "obs_2bfe8a834799ed36"
+        "obs_cb552691a9ca3c4a",
+        "obs_3f6a6536ee7d77bf",
+        "obs_b3730915238eb65d"
       ],
       "action": "Expansion conversation — active buying motion"
     },
     {
-      "personId": "per_a67ac67faee9ad42",
-      "name": "Dana Wolf",
-      "company": "Skyforge Systems",
-      "title": "Head of Data",
-      "role": "executive",
+      "personId": "per_7fabbc05a12ae212",
+      "name": "Sara Kim",
+      "company": "Green Bowl",
+      "title": "Founder & CEO",
+      "role": "founder",
+      "intent": 0.76,
+      "icpFit": 0.9,
+      "signals": {
+        "form_submit": {
+          "count": 3,
+          "points": 39.29
+        },
+        "payment": {
+          "count": 1,
+          "points": 17.14
+        }
+      },
+      "evidence": [
+        "obs_e087747834cb476d",
+        "obs_8af4969ddc7b228e",
+        "obs_476bc02a7ab08691",
+        "obs_08cd27f17151d5ad"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_f8b12be57081dc75",
+      "name": "Eli Fischer",
+      "company": "Skybite Pizza",
+      "title": "Owner",
+      "role": "unknown",
       "intent": 0.83,
-      "icpFit": 1,
+      "icpFit": 0.6,
+      "signals": {
+        "form_submit": {
+          "count": 1,
+          "points": 15
+        },
+        "demo_request": {
+          "count": 1,
+          "points": 30
+        },
+        "pricing_view": {
+          "count": 1,
+          "points": 25
+        }
+      },
+      "evidence": [
+        "obs_b2b425b28a34f4a0",
+        "obs_cd2e240af946dd60",
+        "obs_8d8ad1d0820f13e3"
+      ],
+      "action": "Direct sales outreach — explicit hand-raise"
+    },
+    {
+      "personId": "per_4134b6214246d314",
+      "name": "Lena Ortiz",
+      "company": "Burger Factory",
+      "title": "Owner",
+      "role": "unknown",
+      "intent": 0.82,
+      "icpFit": 0.6,
+      "signals": {
+        "form_submit": {
+          "count": 1,
+          "points": 14.29
+        },
+        "demo_request": {
+          "count": 1,
+          "points": 27.14
+        },
+        "payment": {
+          "count": 2,
+          "points": 27.62
+        }
+      },
+      "evidence": [
+        "obs_702b2ad5f78f97cb",
+        "obs_32841bd07245f0a5",
+        "obs_ba3788e1ddbab7e0",
+        "obs_481a8e5057c576a8"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_387c64bbdd986781",
+      "name": "Ben Novak",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.89,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 2,
+          "points": 31.43
+        },
+        "pricing_view": {
+          "count": 2,
+          "points": 39.29
+        },
+        "website_visit": {
+          "count": 4,
+          "points": 11.05
+        },
+        "newsletter_open": {
+          "count": 2,
+          "points": 2.76
+        },
+        "newsletter_click": {
+          "count": 1,
+          "points": 5.14
+        }
+      },
+      "evidence": [
+        "obs_ba0aff404f0cf413",
+        "obs_44d7dac375d5fda6",
+        "obs_2a4d5df68d70730b",
+        "obs_cbe24160d8d86a0f",
+        "obs_b6d1dc365c2615ff"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_33e40ebc068ccb67",
+      "name": "Priya Sharma",
+      "company": "Vegan Vista",
+      "title": "Co-Founder",
+      "role": "founder",
+      "intent": 0.6,
+      "icpFit": 0.75,
       "signals": {
         "pricing_view": {
           "count": 1,
           "points": 25
         },
-        "demo_request": {
-          "count": 1,
-          "points": 30
-        },
         "form_submit": {
           "count": 1,
-          "points": 15
+          "points": 12.14
         }
       },
       "evidence": [
-        "obs_656b7985ddaa47fc",
-        "obs_4b6adf2d158a8722",
-        "obs_3fa92aebbd6d2d7d"
+        "obs_ac7e6bcd575cc72a",
+        "obs_010fcd91fc4b7c5e"
       ],
       "action": "Direct sales outreach — explicit hand-raise"
     },
     {
-      "personId": "per_bbdec32d5f08e0fb",
-      "name": "Sam Okafor",
-      "company": "BrightQueue",
-      "title": "CTO",
-      "role": "executive",
-      "intent": 0.77,
-      "icpFit": 0.9,
+      "personId": "per_7cefcc1e87fcd589",
+      "name": "Alice Müller",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.78,
+      "icpFit": 0.15,
       "signals": {
-        "demo_request": {
-          "count": 1,
-          "points": 30
-        },
-        "newsletter_click": {
-          "count": 1,
-          "points": 5.43
+        "payment": {
+          "count": 2,
+          "points": 30.48
         },
         "pricing_view": {
           "count": 1,
-          "points": 20.24
+          "points": 23.81
+        },
+        "website_visit": {
+          "count": 2,
+          "points": 6.29
+        }
+      },
+      "evidence": [
+        "obs_2c4195038373cb0d",
+        "obs_58cf333b1de88398",
+        "obs_07f2d915508ae60c",
+        "obs_18f6c8b7a8ae8e81",
+        "obs_cc500917a9283702"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_680ff7198ec04d45",
+      "name": "Carla Rossi",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.69,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 2,
+          "points": 27.62
+        },
+        "website_visit": {
+          "count": 2,
+          "points": 6.86
+        },
+        "pricing_view": {
+          "count": 1,
+          "points": 11.9
+        }
+      },
+      "evidence": [
+        "obs_cf39d45e73a5d079",
+        "obs_88999cb3f35acb5b",
+        "obs_d05659d4cbe084f7",
+        "obs_a4d3072a2ecb74ba",
+        "obs_8d96f4e00d800936"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_bdb236db221c6f35",
+      "name": "Emma Dubois",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.68,
+      "icpFit": 0.15,
+      "signals": {
+        "pricing_view": {
+          "count": 1,
+          "points": 22.62
+        },
+        "website_visit": {
+          "count": 2,
+          "points": 6.48
+        },
+        "payment": {
+          "count": 1,
+          "points": 16.19
+        }
+      },
+      "evidence": [
+        "obs_5341bf9397e3d364",
+        "obs_767047d94f9705ee",
+        "obs_08e74117c8f60caf",
+        "obs_0d4220ebc890a840"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_0ac7f171a96d91b1",
+      "name": "David Lin",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.66,
+      "icpFit": 0.15,
+      "signals": {
+        "pricing_view": {
+          "count": 1,
+          "points": 22.62
+        },
+        "payment": {
+          "count": 1,
+          "points": 17.14
         },
         "website_visit": {
           "count": 1,
-          "points": 2.86
+          "points": 3.43
         }
       },
       "evidence": [
-        "obs_40fd23722bcb2ba0",
-        "obs_994db03f2f072505",
-        "obs_c35a09bb32b4ae7d",
-        "obs_cddc24233ee75706"
+        "obs_de3e64f8be68e946",
+        "obs_6653b4d3e452d591",
+        "obs_761f49f71989cf65"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_fc1d779775d8b8d7",
+      "name": "Felipe Silva",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.66,
+      "icpFit": 0.15,
+      "signals": {
+        "pricing_view": {
+          "count": 1,
+          "points": 21.43
+        },
+        "website_visit": {
+          "count": 2,
+          "points": 6.29
+        },
+        "payment": {
+          "count": 1,
+          "points": 15.24
+        }
+      },
+      "evidence": [
+        "obs_8994d09be9393658",
+        "obs_28f59dbf5f47c7e6",
+        "obs_000cb5aa93374df7",
+        "obs_e8b690df2092a2ba"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_6fa6c13af6e9e6b4",
+      "name": "Arjun Patel",
+      "company": "Golden Curry",
+      "title": "Owner",
+      "role": "unknown",
+      "intent": 0.5,
+      "icpFit": 0.6,
+      "signals": {
+        "form_submit": {
+          "count": 1,
+          "points": 12.86
+        },
+        "payment": {
+          "count": 1,
+          "points": 15.24
+        }
+      },
+      "evidence": [
+        "obs_a55cb95a33ef5281",
+        "obs_de9a337e4310b4be"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_5fc7bbaece6dcd52",
+      "name": "Greta Svensson",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.61,
+      "icpFit": 0.15,
+      "signals": {
+        "newsletter_open": {
+          "count": 2,
+          "points": 2.48
+        },
+        "pricing_view": {
+          "count": 1,
+          "points": 19.05
+        },
+        "website_visit": {
+          "count": 1,
+          "points": 3.05
+        },
+        "payment": {
+          "count": 1,
+          "points": 10.48
+        },
+        "newsletter_click": {
+          "count": 1,
+          "points": 2.57
+        }
+      },
+      "evidence": [
+        "obs_28c82f120805882a",
+        "obs_7e353e484b95a5a0",
+        "obs_e7b8c0e1cfa04fca",
+        "obs_ae7a9f3c3b6bab54",
+        "obs_f39ec46e942e7d9b"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_65b3a273d0bd467c",
+      "name": "Nadja Horvath",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.6,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 1,
+          "points": 19.05
+        },
+        "form_submit": {
+          "count": 1,
+          "points": 13.57
+        },
+        "website_visit": {
+          "count": 1,
+          "points": 3.62
+        }
+      },
+      "evidence": [
+        "obs_1852f5a3a703186f",
+        "obs_707fc6336150f23f",
+        "obs_2159e2e3c0f4455e"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_08721381c81be9bd",
+      "name": "Iris O'Connor",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.47,
+      "icpFit": 0.15,
+      "signals": {
+        "newsletter_click": {
+          "count": 1,
+          "points": 5.71
+        },
+        "newsletter_open": {
+          "count": 1,
+          "points": 1.9
+        },
+        "payment": {
+          "count": 1,
+          "points": 18.1
+        }
+      },
+      "evidence": [
+        "obs_15fa95462bbc4d53",
+        "obs_56da3c2b821dc939",
+        "obs_9dc7fc360877cc5c"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_add46188910a45d5",
+      "name": "Wei Liu",
+      "company": "Boba Bay",
+      "title": "Founder",
+      "role": "founder",
+      "intent": 0.3,
+      "icpFit": 0.9,
+      "signals": {
+        "payment": {
+          "count": 1,
+          "points": 14.29
+        }
+      },
+      "evidence": [
+        "obs_afc202c9cbaa2c25"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_31ab1c47f781ebe9",
+      "name": "Ana Vasquez",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.33,
+      "icpFit": 0.15,
+      "signals": {
+        "payment": {
+          "count": 1,
+          "points": 16.19
+        }
+      },
+      "evidence": [
+        "obs_5ad6ed4a4d341fd8"
+      ],
+      "action": "Expansion conversation — active buying motion"
+    },
+    {
+      "personId": "per_d333878eb57241f7",
+      "name": "Luca Romano",
+      "company": null,
+      "title": null,
+      "role": "unknown",
+      "intent": 0.33,
+      "icpFit": 0.15,
+      "signals": {
+        "website_visit": {
+          "count": 1,
+          "points": 3.81
+        },
+        "form_submit": {
+          "count": 1,
+          "points": 12.14
+        }
+      },
+      "evidence": [
+        "obs_5e9370e90fd60d87",
+        "obs_94c4e45b0e315ff5"
       ],
       "action": "Direct sales outreach — explicit hand-raise"
     },
     {
-      "personId": "per_7184f7c9b5b61526",
-      "name": "Priya Nair",
-      "company": "Quanta Bio",
-      "title": "Analytics Manager",
+      "personId": "per_f27d27051461c381",
+      "name": "Sara K.",
+      "company": "Green Bowl",
+      "title": null,
       "role": "unknown",
-      "intent": 0.65,
-      "icpFit": 0.3,
+      "intent": 0.25,
+      "icpFit": 0.6,
       "signals": {
-        "pricing_view": {
-          "count": 2,
-          "points": 35.71
-        },
-        "newsletter_click": {
+        "form_submit": {
           "count": 1,
-          "points": 5.14
-        },
-        "newsletter_open": {
-          "count": 1,
-          "points": 1.14
+          "points": 11.43
         }
       },
       "evidence": [
-        "obs_73f630ce02a53e0d",
-        "obs_81f5cd6a2a12d3e5",
-        "obs_62bca0817999b44d",
-        "obs_ef458104334a2935"
+        "obs_08cd27f17151d5ad"
       ],
-      "action": "Direct sales outreach — pricing intent"
+      "action": "Direct sales outreach — explicit hand-raise"
     },
     {
-      "personId": "per_52ceb3d7b2f58959",
-      "name": "Karthik Iyer",
+      "personId": "per_7a8259e564eab771",
+      "name": "Hasan Demir",
       "company": null,
       "title": null,
-      "role": "developer",
-      "intent": 0.45,
-      "icpFit": 0.25,
-      "signals": {
-        "repo_issue": {
-          "count": 1,
-          "points": 13.57
-        },
-        "repo_star": {
-          "count": 1,
-          "points": 10.29
-        }
-      },
-      "evidence": [
-        "obs_7a1b143c724abf0b",
-        "obs_a51cc975bb8de54f"
-      ],
-      "action": "Send integration/API onboarding material"
-    },
-    {
-      "personId": "per_ef790c4a722aa2b6",
-      "name": "Jorge Rodriguez",
-      "company": "Helios Cloud",
-      "title": "VP Engineering",
-      "role": "executive",
+      "role": "unknown",
       "intent": 0.3,
-      "icpFit": 0.45,
+      "icpFit": 0.15,
       "signals": {
-        "repo_star": {
-          "count": 1,
-          "points": 9.14
+        "website_visit": {
+          "count": 2,
+          "points": 5.72
         },
-        "docs_view": {
+        "payment": {
           "count": 1,
-          "points": 4.95
+          "points": 8.57
         }
       },
       "evidence": [
-        "obs_dcca10e064c55b71",
-        "obs_6539f0bb98cb6011"
+        "obs_fd56727674b91fd8",
+        "obs_41e7b2000b0497de",
+        "obs_2ec7eed7ececb0d8"
       ],
-      "action": "Send integration/API onboarding material"
+      "action": "Expansion conversation — active buying motion"
     }
   ],
   "fading": [
     {
-      "personId": "per_a91a1eee79d82383",
-      "name": "Elena Petrova",
-      "company": "Nordwind Labs",
-      "title": "Director of Data",
+      "personId": "per_9b8d9556e98937db",
+      "name": "Marco Rossi",
+      "company": "Pizza Corner",
+      "title": "Owner",
       "drop": 1,
       "factors": {
-        "prior30": 6,
+        "prior30": 3,
         "last14": 0,
-        "lastActiveDays": 33
+        "lastActiveDays": 42
       },
       "action": "Retention check-in — engagement dropped sharply"
     }
   ],
   "people": [
     {
-      "id": "per_1b0e0f919041c640",
-      "name": "Tomas Silva",
-      "email": "tomas.silva@ferrostack.dev",
-      "company": "FerroStack",
-      "title": "Co-Founder & CEO",
-      "identifiers": 1
-    },
-    {
-      "id": "per_52ceb3d7b2f58959",
-      "name": "Karthik Iyer",
-      "email": null,
+      "id": "per_08721381c81be9bd",
+      "name": "Iris O'Connor",
+      "email": "iris.oconnor@example.com",
       "company": null,
       "title": null,
       "identifiers": 1
     },
     {
-      "id": "per_7184f7c9b5b61526",
-      "name": "Priya Nair",
-      "email": "priya.nair@quantabio.com",
-      "company": "Quanta Bio",
-      "title": "Analytics Manager",
-      "identifiers": 1
-    },
-    {
-      "id": "per_88b388b01e7bb069",
-      "name": "Alex Kumar",
-      "email": "alex.kumar@stellarpay.io",
-      "company": "StellarPay",
-      "title": "Data Engineering Lead",
-      "identifiers": 1
-    },
-    {
-      "id": "per_a67ac67faee9ad42",
-      "name": "Dana Wolf",
-      "email": "dana.wolf@skyforge.dev",
-      "company": "Skyforge Systems",
-      "title": "Head of Data",
-      "identifiers": 1
-    },
-    {
-      "id": "per_a91a1eee79d82383",
-      "name": "Elena Petrova",
-      "email": "elena.petrova@nordwind-labs.com",
-      "company": "Nordwind Labs",
-      "title": "Director of Data",
-      "identifiers": 1
-    },
-    {
-      "id": "per_bbdec32d5f08e0fb",
-      "name": "Sam Okafor",
-      "email": "sam.okafor@brightqueue.io",
-      "company": "BrightQueue",
-      "title": "CTO",
-      "identifiers": 1
-    },
-    {
-      "id": "per_c36473648e3ad319",
-      "name": "Alex Kumar",
-      "email": "alex@kumarlabs.dev",
-      "company": "Kumar Labs",
+      "id": "per_0ac7f171a96d91b1",
+      "name": "David Lin",
+      "email": "david.lin@example.com",
+      "company": null,
       "title": null,
       "identifiers": 1
     },
     {
-      "id": "per_eb7b0e615968f4ba",
-      "name": "Maya Chen",
-      "email": "maya.chen@lumenpay.io",
-      "company": "LumenPay",
-      "title": "Head of Data Platform",
+      "id": "per_1d7a22edae7d8b12",
+      "name": "Mia Torres",
+      "email": "mia.torres@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_31ab1c47f781ebe9",
+      "name": "Ana Vasquez",
+      "email": "ana.v@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_33e40ebc068ccb67",
+      "name": "Priya Sharma",
+      "email": "priya@veganvista.de",
+      "company": "Vegan Vista",
+      "title": "Co-Founder",
+      "identifiers": 1
+    },
+    {
+      "id": "per_387c64bbdd986781",
+      "name": "Ben Novak",
+      "email": "ben.novak@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_4134b6214246d314",
+      "name": "Lena Ortiz",
+      "email": "lena@burgerfactory.de",
+      "company": "Burger Factory",
+      "title": "Owner",
+      "identifiers": 1
+    },
+    {
+      "id": "per_4197352a8c0e48d4",
+      "name": "Nina Berg",
+      "email": "nina@waffleworld.de",
+      "company": "Waffle World",
+      "title": "Owner",
+      "identifiers": 1
+    },
+    {
+      "id": "per_59e5bec98e762288",
+      "name": "Jules Moreau",
+      "email": "jules.moreau@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_5fc7bbaece6dcd52",
+      "name": "Greta Svensson",
+      "email": "greta.svensson@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_65b3a273d0bd467c",
+      "name": "Nadja Horvath",
+      "email": "nadja.horvath@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_680ff7198ec04d45",
+      "name": "Carla Rossi",
+      "email": "carla.rossi@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_6910f2a6aef0fccc",
+      "name": "Kayla Chen",
+      "email": "kayla.chen@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_6fa6c13af6e9e6b4",
+      "name": "Arjun Patel",
+      "email": "arjun@goldencurry.de",
+      "company": "Golden Curry",
+      "title": "Owner",
+      "identifiers": 1
+    },
+    {
+      "id": "per_7a8259e564eab771",
+      "name": "Hasan Demir",
+      "email": "hasan.demir@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_7cefcc1e87fcd589",
+      "name": "Alice Müller",
+      "email": "alice.mueller@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_7fabbc05a12ae212",
+      "name": "Sara Kim",
+      "email": "sara@greenbowl.de",
+      "company": "Green Bowl",
+      "title": "Founder & CEO",
       "identifiers": 2
     },
     {
-      "id": "per_ef790c4a722aa2b6",
-      "name": "Jorge Rodriguez",
-      "email": "jorge.rodriguez@helioscloud.io",
-      "company": "Helios Cloud",
-      "title": "VP Engineering",
-      "identifiers": 2
+      "id": "per_8d1dfef99ce32a37",
+      "name": "Kai Andersen",
+      "email": "kai@pokepoint.de",
+      "company": "Poké Point",
+      "title": "Owner",
+      "identifiers": 1
+    },
+    {
+      "id": "per_951ca213b9be1017",
+      "name": "Ken Yamada",
+      "email": "ken@sushirocket.de",
+      "company": "Sushi Rocket",
+      "title": "Managing Director",
+      "identifiers": 1
+    },
+    {
+      "id": "per_9b8d9556e98937db",
+      "name": "Marco Rossi",
+      "email": "marco@pizza-corner.de",
+      "company": "Pizza Corner",
+      "title": "Owner",
+      "identifiers": 1
+    },
+    {
+      "id": "per_add46188910a45d5",
+      "name": "Wei Liu",
+      "email": "wei@bobabay.de",
+      "company": "Boba Bay",
+      "title": "Founder",
+      "identifiers": 1
+    },
+    {
+      "id": "per_bdb236db221c6f35",
+      "name": "Emma Dubois",
+      "email": "emma.dubois@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_d333878eb57241f7",
+      "name": "Luca Romano",
+      "email": "luca.romano@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
+    },
+    {
+      "id": "per_deb9b98c598e766e",
+      "name": "Hiro Suzuki",
+      "email": "hiro@ramenrhapsody.de",
+      "company": "Ramen Rhapsody",
+      "title": "Head Chef",
+      "identifiers": 1
+    },
+    {
+      "id": "per_f7a4db48ccb7f6e8",
+      "name": "Ana Vasquez",
+      "email": "ana@tacopiso.de",
+      "company": "Taco Piso",
+      "title": "Owner",
+      "identifiers": 1
+    },
+    {
+      "id": "per_f844b83df6a8bf30",
+      "name": "Louis Dupont",
+      "email": "louis@croissantcafe.de",
+      "company": "Croissant Cafe",
+      "title": "Owner",
+      "identifiers": 1
+    },
+    {
+      "id": "per_f8b12be57081dc75",
+      "name": "Eli Fischer",
+      "email": "eli@skybite.de",
+      "company": "Skybite Pizza",
+      "title": "Owner",
+      "identifiers": 1
+    },
+    {
+      "id": "per_fc1d779775d8b8d7",
+      "name": "Felipe Silva",
+      "email": "felipe.silva@example.com",
+      "company": null,
+      "title": null,
+      "identifiers": 1
     }
   ],
   "platforms": [
@@ -343,11 +832,11 @@
       "recommendation": "double down",
       "topSignals": [
         {
-          "type": "pricing_view",
+          "type": "demo_request",
           "count": 2
         },
         {
-          "type": "demo_request",
+          "type": "pricing_view",
           "count": 2
         },
         {
@@ -357,16 +846,16 @@
       ],
       "topPeople": [
         {
-          "name": "Dana Wolf",
+          "name": "Eli Fischer",
           "intent": 0.83
         },
         {
-          "name": "Sam Okafor",
-          "intent": 0.77
+          "name": "Ken Yamada",
+          "intent": 0.83
         },
         {
-          "name": "Priya Nair",
-          "intent": 0.65
+          "name": "Priya Sharma",
+          "intent": 0.6
         }
       ],
       "factors": {
@@ -377,205 +866,315 @@
       }
     },
     {
-      "source": "github",
-      "people": 3,
-      "activePeople7": 3,
-      "signals7": 5,
-      "signalsPrior7": 0,
-      "growthPct": 500,
-      "avgIntent": 0.56,
-      "hotLeadYield": 0.33,
-      "quality": 74,
+      "source": "google",
+      "people": 7,
+      "activePeople7": 6,
+      "signals7": 6,
+      "signalsPrior7": 2,
+      "growthPct": 200,
+      "avgIntent": 0.71,
+      "hotLeadYield": 1,
+      "quality": 77,
       "recommendation": "double down",
       "topSignals": [
         {
-          "type": "repo_star",
-          "count": 3
-        },
-        {
-          "type": "repo_issue",
-          "count": 2
+          "type": "pricing_view",
+          "count": 8
         }
       ],
       "topPeople": [
         {
-          "name": "Maya Chen",
-          "intent": 0.93
+          "name": "Ben Novak",
+          "intent": 0.89
         },
         {
-          "name": "Karthik Iyer",
-          "intent": 0.45
+          "name": "Alice Müller",
+          "intent": 0.78
         },
         {
-          "name": "Jorge Rodriguez",
-          "intent": 0.3
+          "name": "Carla Rossi",
+          "intent": 0.69
         }
       ],
       "factors": {
-        "avgIntent": 0.56,
-        "activeShare": 1,
-        "growthPct": 500,
+        "avgIntent": 0.71,
+        "activeShare": 0.86,
+        "growthPct": 200,
         "rule": "double down"
       }
     },
     {
       "source": "newsletter",
-      "people": 5,
-      "activePeople7": 3,
-      "signals7": 4,
-      "signalsPrior7": 3,
-      "growthPct": 33,
-      "avgIntent": 0.49,
-      "hotLeadYield": 0.6,
-      "quality": 53,
+      "people": 4,
+      "activePeople7": 4,
+      "signals7": 7,
+      "signalsPrior7": 4,
+      "growthPct": 75,
+      "avgIntent": 0.55,
+      "hotLeadYield": 0.5,
+      "quality": 73,
       "recommendation": "double down",
       "topSignals": [
         {
-          "type": "newsletter_click",
-          "count": 5
+          "type": "newsletter_open",
+          "count": 7
         },
         {
-          "type": "newsletter_open",
-          "count": 5
+          "type": "newsletter_click",
+          "count": 4
         }
       ],
       "topPeople": [
         {
-          "name": "Maya Chen",
-          "intent": 0.93
+          "name": "Ben Novak",
+          "intent": 0.89
         },
         {
-          "name": "Sam Okafor",
-          "intent": 0.77
+          "name": "Greta Svensson",
+          "intent": 0.61
         },
         {
-          "name": "Priya Nair",
-          "intent": 0.65
+          "name": "Iris O'Connor",
+          "intent": 0.47
         }
       ],
       "factors": {
-        "avgIntent": 0.49,
-        "activeShare": 0.6,
-        "growthPct": 33,
+        "avgIntent": 0.55,
+        "activeShare": 1,
+        "growthPct": 75,
         "rule": "double down"
       }
     },
     {
-      "source": "website",
-      "people": 5,
-      "activePeople7": 2,
-      "signals7": 5,
-      "signalsPrior7": 2,
-      "growthPct": 150,
-      "avgIntent": 0.53,
-      "hotLeadYield": 0.6,
-      "quality": 48,
+      "source": "instagram",
+      "people": 13,
+      "activePeople7": 11,
+      "signals7": 12,
+      "signalsPrior7": 4,
+      "growthPct": 200,
+      "avgIntent": 0.6,
+      "hotLeadYield": 0.77,
+      "quality": 70,
       "recommendation": "double down",
       "topSignals": [
         {
-          "type": "pricing_view",
+          "type": "website_visit",
+          "count": 11
+        },
+        {
+          "type": "form_submit",
           "count": 4
         },
         {
-          "type": "docs_view",
-          "count": 3
-        },
-        {
-          "type": "website_visit",
-          "count": 2
-        }
-      ],
-      "topPeople": [
-        {
-          "name": "Maya Chen",
-          "intent": 0.93
-        },
-        {
-          "name": "Sam Okafor",
-          "intent": 0.77
-        },
-        {
-          "name": "Priya Nair",
-          "intent": 0.65
-        }
-      ],
-      "factors": {
-        "avgIntent": 0.53,
-        "activeShare": 0.4,
-        "growthPct": 150,
-        "rule": "double down"
-      }
-    },
-    {
-      "source": "stripe",
-      "people": 3,
-      "activePeople7": 1,
-      "signals7": 1,
-      "signalsPrior7": 1,
-      "growthPct": 0,
-      "avgIntent": 0.39,
-      "hotLeadYield": 0.33,
-      "quality": 37,
-      "recommendation": "nurture",
-      "topSignals": [
-        {
-          "type": "payment",
-          "count": 2
-        },
-        {
-          "type": "trial_started",
+          "type": "demo_request",
           "count": 1
         }
       ],
       "topPeople": [
         {
-          "name": "Maya Chen",
-          "intent": 0.93
+          "name": "Ben Novak",
+          "intent": 0.89
         },
         {
-          "name": "Tomas Silva",
-          "intent": 0.23
+          "name": "Lena Ortiz",
+          "intent": 0.82
         },
         {
-          "name": "Elena Petrova",
-          "intent": 0
+          "name": "Alice Müller",
+          "intent": 0.78
         }
       ],
       "factors": {
-        "avgIntent": 0.39,
-        "activeShare": 0.33,
-        "growthPct": 0,
-        "rule": "nurture"
+        "avgIntent": 0.6,
+        "activeShare": 0.85,
+        "growthPct": 200,
+        "rule": "double down"
       }
     },
     {
-      "source": "crm_csv",
-      "people": 7,
-      "activePeople7": 0,
-      "signals7": 0,
-      "signalsPrior7": 0,
-      "growthPct": 0,
-      "avgIntent": 0.41,
-      "hotLeadYield": 0.43,
-      "quality": 25,
-      "recommendation": "nurture",
-      "topSignals": [],
+      "source": "tiktok",
+      "people": 10,
+      "activePeople7": 10,
+      "signals7": 11,
+      "signalsPrior7": 3,
+      "growthPct": 267,
+      "avgIntent": 0.49,
+      "hotLeadYield": 0.5,
+      "quality": 69,
+      "recommendation": "double down",
+      "topSignals": [
+        {
+          "type": "website_visit",
+          "count": 14
+        }
+      ],
       "topPeople": [
         {
-          "name": "Maya Chen",
-          "intent": 0.93
+          "name": "Ben Novak",
+          "intent": 0.89
         },
         {
-          "name": "Sam Okafor",
-          "intent": 0.77
+          "name": "Carla Rossi",
+          "intent": 0.69
         },
         {
-          "name": "Priya Nair",
-          "intent": 0.65
+          "name": "Emma Dubois",
+          "intent": 0.68
+        }
+      ],
+      "factors": {
+        "avgIntent": 0.49,
+        "activeShare": 1,
+        "growthPct": 267,
+        "rule": "double down"
+      }
+    },
+    {
+      "source": "orders",
+      "people": 17,
+      "activePeople7": 14,
+      "signals7": 14,
+      "signalsPrior7": 6,
+      "growthPct": 133,
+      "avgIntent": 0.58,
+      "hotLeadYield": 0.71,
+      "quality": 68,
+      "recommendation": "double down",
+      "topSignals": [
+        {
+          "type": "payment",
+          "count": 23
+        }
+      ],
+      "topPeople": [
+        {
+          "name": "Ben Novak",
+          "intent": 0.89
+        },
+        {
+          "name": "Ken Yamada",
+          "intent": 0.83
+        },
+        {
+          "name": "Lena Ortiz",
+          "intent": 0.82
+        }
+      ],
+      "factors": {
+        "avgIntent": 0.58,
+        "activeShare": 0.82,
+        "growthPct": 133,
+        "rule": "double down"
+      }
+    },
+    {
+      "source": "linkedin",
+      "people": 4,
+      "activePeople7": 3,
+      "signals7": 4,
+      "signalsPrior7": 1,
+      "growthPct": 300,
+      "avgIntent": 0.57,
+      "hotLeadYield": 0.75,
+      "quality": 64,
+      "recommendation": "double down",
+      "topSignals": [
+        {
+          "type": "form_submit",
+          "count": 4
+        },
+        {
+          "type": "demo_request",
+          "count": 1
+        }
+      ],
+      "topPeople": [
+        {
+          "name": "Ken Yamada",
+          "intent": 0.83
+        },
+        {
+          "name": "Sara Kim",
+          "intent": 0.76
+        },
+        {
+          "name": "Arjun Patel",
+          "intent": 0.5
+        }
+      ],
+      "factors": {
+        "avgIntent": 0.57,
+        "activeShare": 0.75,
+        "growthPct": 300,
+        "rule": "double down"
+      }
+    },
+    {
+      "source": "referral",
+      "people": 3,
+      "activePeople7": 2,
+      "signals7": 2,
+      "signalsPrior7": 1,
+      "growthPct": 100,
+      "avgIntent": 0.41,
+      "hotLeadYield": 0.33,
+      "quality": 51,
+      "recommendation": "double down",
+      "topSignals": [
+        {
+          "type": "form_submit",
+          "count": 3
+        }
+      ],
+      "topPeople": [
+        {
+          "name": "Nadja Horvath",
+          "intent": 0.6
+        },
+        {
+          "name": "Luca Romano",
+          "intent": 0.33
+        },
+        {
+          "name": "Mia Torres",
+          "intent": 0.29
         }
       ],
       "factors": {
         "avgIntent": 0.41,
+        "activeShare": 0.67,
+        "growthPct": 100,
+        "rule": "double down"
+      }
+    },
+    {
+      "source": "crm",
+      "people": 12,
+      "activePeople7": 0,
+      "signals7": 0,
+      "signalsPrior7": 0,
+      "growthPct": 0,
+      "avgIntent": 0.35,
+      "hotLeadYield": 0.42,
+      "quality": 21,
+      "recommendation": "nurture",
+      "topSignals": [],
+      "topPeople": [
+        {
+          "name": "Ken Yamada",
+          "intent": 0.83
+        },
+        {
+          "name": "Lena Ortiz",
+          "intent": 0.82
+        },
+        {
+          "name": "Sara Kim",
+          "intent": 0.76
+        }
+      ],
+      "factors": {
+        "avgIntent": 0.35,
         "activeShare": 0,
         "growthPct": 0,
         "rule": "nurture"
@@ -584,117 +1183,169 @@
   ],
   "companies": [
     {
-      "company": "LumenPay",
-      "industry": "fintech",
-      "employees": 320,
-      "people": 1,
-      "avgIntent": 0.93,
-      "maxIntent": 0.93,
-      "icpFit": 1,
-      "churnRisk": 0,
-      "mrr": 0,
-      "signals7": 8,
-      "action": "Sales outreach — active buying motion"
-    },
-    {
-      "company": "Skyforge Systems",
-      "industry": "software",
-      "employees": 800,
+      "company": "Skybite Pizza",
+      "industry": "food",
+      "employees": 18,
       "people": 1,
       "avgIntent": 0.83,
       "maxIntent": 0.83,
-      "icpFit": 1,
+      "icpFit": 0.6,
       "churnRisk": 0,
       "mrr": 0,
       "signals7": 3,
       "action": "Sales outreach — active buying motion"
     },
     {
-      "company": "BrightQueue",
-      "industry": "software",
-      "employees": 60,
+      "company": "Sushi Rocket",
+      "industry": "food",
+      "employees": 12,
       "people": 1,
-      "avgIntent": 0.77,
-      "maxIntent": 0.77,
+      "avgIntent": 0.83,
+      "maxIntent": 0.83,
       "icpFit": 0.9,
       "churnRisk": 0,
-      "mrr": 0,
+      "mrr": 3100,
+      "signals7": 3,
+      "action": "Sales outreach — active buying motion"
+    },
+    {
+      "company": "Burger Factory",
+      "industry": "food",
+      "employees": 25,
+      "people": 1,
+      "avgIntent": 0.82,
+      "maxIntent": 0.82,
+      "icpFit": 0.6,
+      "churnRisk": 0,
+      "mrr": 8000,
+      "signals7": 3,
+      "action": "Sales outreach — active buying motion"
+    },
+    {
+      "company": "Green Bowl",
+      "industry": "food",
+      "employees": 15,
+      "people": 2,
+      "avgIntent": 0.51,
+      "maxIntent": 0.76,
+      "icpFit": 0.9,
+      "churnRisk": 0,
+      "mrr": 2800,
       "signals7": 4,
       "action": "Sales outreach — active buying motion"
     },
     {
-      "company": "Quanta Bio",
-      "industry": "biotech",
-      "employees": 90,
+      "company": "Vegan Vista",
+      "industry": "food",
+      "employees": 4,
       "people": 1,
-      "avgIntent": 0.65,
-      "maxIntent": 0.65,
-      "icpFit": 0.3,
+      "avgIntent": 0.6,
+      "maxIntent": 0.6,
+      "icpFit": 0.75,
       "churnRisk": 0,
       "mrr": 0,
       "signals7": 2,
       "action": "Sales outreach — active buying motion"
     },
     {
-      "company": "Helios Cloud",
-      "industry": "unknown",
-      "employees": 0,
-      "people": 2,
-      "avgIntent": 0.25,
-      "maxIntent": 0.3,
-      "icpFit": 0.45,
-      "churnRisk": 0,
-      "mrr": 0,
-      "signals7": 1,
-      "action": "Monitor"
-    },
-    {
-      "company": "FerroStack",
-      "industry": "software",
-      "employees": 25,
+      "company": "Golden Curry",
+      "industry": "food",
+      "employees": 8,
       "people": 1,
-      "avgIntent": 0.23,
-      "maxIntent": 0.23,
-      "icpFit": 0.75,
+      "avgIntent": 0.5,
+      "maxIntent": 0.5,
+      "icpFit": 0.6,
       "churnRisk": 0,
-      "mrr": 490,
-      "signals7": 0,
+      "mrr": 1500,
+      "signals7": 2,
       "action": "Expansion conversation"
     },
     {
-      "company": "Kumar Labs",
-      "industry": "unknown",
-      "employees": 0,
+      "company": "Boba Bay",
+      "industry": "food",
+      "employees": 6,
       "people": 1,
-      "avgIntent": 0.12,
-      "maxIntent": 0.12,
-      "icpFit": 0.15,
+      "avgIntent": 0.3,
+      "maxIntent": 0.3,
+      "icpFit": 0.9,
+      "churnRisk": 0,
+      "mrr": 1100,
+      "signals7": 1,
+      "action": "Expansion conversation"
+    },
+    {
+      "company": "Ramen Rhapsody",
+      "industry": "food",
+      "employees": 10,
+      "people": 1,
+      "avgIntent": 0.19,
+      "maxIntent": 0.19,
+      "icpFit": 0.6,
       "churnRisk": 0,
       "mrr": 0,
       "signals7": 0,
       "action": "Monitor"
     },
     {
-      "company": "Nordwind Labs",
-      "industry": "data",
-      "employees": 240,
+      "company": "Waffle World",
+      "industry": "food",
+      "employees": 5,
+      "people": 1,
+      "avgIntent": 0.16,
+      "maxIntent": 0.16,
+      "icpFit": 0.6,
+      "churnRisk": 0,
+      "mrr": 0,
+      "signals7": 0,
+      "action": "Monitor"
+    },
+    {
+      "company": "Croissant Cafe",
+      "industry": "food",
+      "employees": 3,
       "people": 1,
       "avgIntent": 0,
       "maxIntent": 0,
-      "icpFit": 1,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 0,
+      "signals7": 0,
+      "action": "Monitor"
+    },
+    {
+      "company": "Pizza Corner",
+      "industry": "food",
+      "employees": 8,
+      "people": 1,
+      "avgIntent": 0,
+      "maxIntent": 0,
+      "icpFit": 0.6,
       "churnRisk": 1,
-      "mrr": 1490,
+      "mrr": 6400,
       "signals7": 0,
       "action": "Retention call — engagement collapsed"
     },
     {
-      "company": "StellarPay",
-      "industry": "fintech",
-      "employees": 180,
+      "company": "Poké Point",
+      "industry": "food",
+      "employees": 4,
       "people": 1,
       "avgIntent": 0,
       "maxIntent": 0,
-      "icpFit": 0.7,
+      "icpFit": 0.45,
+      "churnRisk": 0,
+      "mrr": 0,
+      "signals7": 0,
+      "action": "Monitor"
+    },
+    {
+      "company": "Taco Piso",
+      "industry": "food",
+      "employees": 6,
+      "people": 1,
+      "avgIntent": 0,
+      "maxIntent": 0,
+      "icpFit": 0.6,
       "churnRisk": 0,
       "mrr": 0,
       "signals7": 0,
@@ -703,20 +1354,20 @@
   ],
   "decisions": [
     {
-      "id": "dec_007253b9eb9f4496",
+      "id": "dec_d7c791eda8151ff9",
       "kind": "platform_allocation",
       "title": "Invest in webhook this week",
       "trace": {
         "evidence": [
-          "obs_656b7985ddaa47fc",
-          "obs_40fd23722bcb2ba0",
-          "obs_4b6adf2d158a8722",
-          "obs_73f630ce02a53e0d",
-          "obs_3fa92aebbd6d2d7d"
+          "obs_b2b425b28a34f4a0",
+          "obs_cb552691a9ca3c4a",
+          "obs_8d8ad1d0820f13e3",
+          "obs_cd2e240af946dd60",
+          "obs_ac7e6bcd575cc72a"
         ],
         "hypothesis": "webhook is the highest-yield channel right now: 5 signals this week vs 0 prior (+500%), quality 85/100, avg intent 0.75.",
-        "reasoning": "3 of 3 people observed via webhook were active in the last 7 days and 100% are hot leads — the best engagement-per-person of 6 sources.",
-        "action": "Concentrate this week's content and outreach on webhook (top drivers: pricing_view, demo_request, form_submit)."
+        "reasoning": "3 of 3 people observed via webhook were active in the last 7 days and 100% are hot leads — the best engagement-per-person of 9 sources.",
+        "action": "Concentrate this week's content and outreach on webhook (top drivers: demo_request, pricing_view, form_submit)."
       },
       "confidence": 0.77,
       "baseConfidence": 0.77,
@@ -728,7 +1379,7 @@
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:04:30.313Z",
+      "createdAt": "2026-07-25T11:27:10.542Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -736,48 +1387,48 @@
       "outcome": null
     },
     {
-      "id": "dec_feb41a11173bc2b8",
+      "id": "dec_0829bf1c94adf7f1",
       "kind": "weekly_gtm",
-      "title": "Prioritize Enterprise: pricing view campaign + route 6 hot leads to outreach",
+      "title": "Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach",
       "trace": {
         "evidence": [
-          "obs_e3995f8303b9b22e",
-          "obs_6124d456d26c6acd",
-          "obs_6eccec060105b551",
-          "obs_6b224e1801881b44",
-          "obs_2bfe8a834799ed36",
-          "obs_656b7985ddaa47fc",
-          "obs_4b6adf2d158a8722",
-          "obs_3fa92aebbd6d2d7d",
-          "obs_40fd23722bcb2ba0",
-          "obs_994db03f2f072505",
-          "obs_c35a09bb32b4ae7d",
-          "obs_cddc24233ee75706"
+          "obs_cb552691a9ca3c4a",
+          "obs_3f6a6536ee7d77bf",
+          "obs_b3730915238eb65d",
+          "obs_e087747834cb476d",
+          "obs_8af4969ddc7b228e",
+          "obs_476bc02a7ab08691",
+          "obs_08cd27f17151d5ad",
+          "obs_b2b425b28a34f4a0",
+          "obs_cd2e240af946dd60",
+          "obs_8d8ad1d0820f13e3",
+          "obs_702b2ad5f78f97cb",
+          "obs_32841bd07245f0a5"
         ],
-        "hypothesis": "Enterprise engagement moved +1100% week over week (11 vs 0 signals), led by pricing view.",
-        "reasoning": "The strongest momentum is in Enterprise while Startups & SMB is at -25%. 6 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
-        "action": "Publish one pricing view-focused piece for Enterprise and start outreach with the 6 hot leads; open retention conversations with the 1 fading champions."
+        "hypothesis": "Startups & SMB engagement moved +205% week over week (64 vs 21 signals), led by website visit.",
+        "reasoning": "The strongest momentum is in Startups & SMB while Startups & SMB is at 205%. 10 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
+        "action": "Publish one website visit-focused piece for Startups & SMB and start outreach with the 10 hot leads; open retention conversations with the 1 fading champions."
       },
-      "confidence": 0.87,
-      "baseConfidence": 0.79,
+      "confidence": 0.94,
+      "baseConfidence": 0.85,
       "priors": [
         {
-          "decisionId": "dec_75e0dfad97ece893",
-          "title": "Prioritize Enterprise: newsletter click campaign + route 4 hot leads to outreach",
-          "similarity": 0.86,
+          "decisionId": "dec_ddc16c472753aaaf",
+          "title": "Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach",
+          "similarity": 0.98,
           "verdict": "winner",
-          "attainment": 1.5,
-          "outcome": "{\"achieved\":3}"
+          "attainment": 1.2,
+          "outcome": "{\"achieved\":6}"
         }
       ],
       "expected": {
         "metric": "qualified_conversations",
-        "target": 3
+        "target": 5
       },
       "status": "proposed",
       "model": "mock",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:04:30.312Z",
+      "createdAt": "2026-07-25T11:27:10.541Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -785,21 +1436,19 @@
       "outcome": null
     },
     {
-      "id": "dec_3f50c4a78f60ebcd",
+      "id": "dec_1f3b16956e74ca8b",
       "kind": "account_retention",
-      "title": "Retention: re-engage Nordwind Labs before it churns",
+      "title": "Retention: re-engage Pizza Corner before it churns",
       "trace": {
         "evidence": [
-          "obs_10a4239871b887fe",
-          "obs_73101bdcac4a8e6a",
-          "obs_d8e099f75428c181",
-          "obs_c3e597cc3b2834d6",
-          "obs_9a87469ee66986eb",
-          "obs_f4e23617e10c0e1c"
+          "obs_c68e66d6bb5654a7",
+          "obs_8b57843a5e228459",
+          "obs_0cac482344d9fb05",
+          "obs_2ba719d3849d65f9"
         ],
-        "hypothesis": "Nordwind Labs (1 contact, $1490 MRR observed) has gone quiet — engagement down 100% vs its prior baseline.",
+        "hypothesis": "Pizza Corner (1 contact, $6400 MRR observed) has gone quiet — engagement down 100% vs its prior baseline.",
         "reasoning": "Previously engaged accounts that stop engaging are the highest-probability revenue loss; 0 signals in the last 7 days while payments continue — usage decay precedes contraction.",
-        "action": "Schedule a retention check-in with Nordwind Labs this week; lead with what changed for them, not with product news."
+        "action": "Schedule a retention check-in with Pizza Corner this week; lead with what changed for them, not with product news."
       },
       "confidence": 0.85,
       "baseConfidence": 0.85,
@@ -811,7 +1460,7 @@
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:04:30.290Z",
+      "createdAt": "2026-07-25T11:27:10.497Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -819,32 +1468,35 @@
       "outcome": null
     },
     {
-      "id": "dec_e7b1c992cebecb00",
+      "id": "dec_47b24ecd117f695f",
       "kind": "platform_allocation",
-      "title": "Invest in github this week; reduce effort on crm_csv",
+      "title": "Invest in google this week",
       "trace": {
         "evidence": [
-          "obs_7a1b143c724abf0b",
-          "obs_a51cc975bb8de54f",
-          "obs_6b224e1801881b44",
-          "obs_dcca10e064c55b71",
-          "obs_2bfe8a834799ed36"
+          "obs_2c4195038373cb0d",
+          "obs_ba0aff404f0cf413",
+          "obs_de3e64f8be68e946",
+          "obs_5341bf9397e3d364",
+          "obs_8994d09be9393658",
+          "obs_28c82f120805882a",
+          "obs_2a4d5df68d70730b",
+          "obs_88999cb3f35acb5b"
         ],
-        "hypothesis": "github is the highest-yield channel right now: 5 signals this week vs 0 prior (+500%), quality 72/100, avg intent 0.53.",
-        "reasoning": "3 of 3 people observed via github were active in the last 7 days and 33% are hot leads — the best engagement-per-person of 5 sources. crm_csv shows 0% growth at quality 17/100 — effort there converts worst.",
-        "action": "Concentrate this week's content and outreach on github (top drivers: repo_star, repo_issue); pause discretionary effort on crm_csv."
+        "hypothesis": "google is the highest-yield channel right now: 6 signals this week vs 2 prior (+200%), quality 77/100, avg intent 0.71.",
+        "reasoning": "6 of 7 people observed via google were active in the last 7 days and 100% are hot leads — the best engagement-per-person of 8 sources.",
+        "action": "Concentrate this week's content and outreach on google (top drivers: pricing_view)."
       },
-      "confidence": 0.75,
-      "baseConfidence": 0.75,
+      "confidence": 0.83,
+      "baseConfidence": 0.83,
       "priors": [],
       "expected": {
-        "metric": "active_people_github",
-        "target": 4
+        "metric": "active_people_google",
+        "target": 8
       },
       "status": "proposed",
       "model": "rules",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:04:30.287Z",
+      "createdAt": "2026-07-25T11:27:10.492Z",
       "reused": false,
       "verdict": null,
       "attainment": null,
@@ -852,48 +1504,48 @@
       "outcome": null
     },
     {
-      "id": "dec_75e0dfad97ece893",
+      "id": "dec_ddc16c472753aaaf",
       "kind": "weekly_gtm",
-      "title": "Prioritize Enterprise: newsletter click campaign + route 4 hot leads to outreach",
+      "title": "Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach",
       "trace": {
         "evidence": [
-          "obs_e3995f8303b9b22e",
-          "obs_6124d456d26c6acd",
-          "obs_6eccec060105b551",
-          "obs_6b224e1801881b44",
-          "obs_2bfe8a834799ed36",
-          "obs_994db03f2f072505",
-          "obs_c35a09bb32b4ae7d",
-          "obs_cddc24233ee75706",
-          "obs_7a1b143c724abf0b",
-          "obs_a51cc975bb8de54f",
-          "obs_81f5cd6a2a12d3e5",
-          "obs_62bca0817999b44d"
+          "obs_702b2ad5f78f97cb",
+          "obs_32841bd07245f0a5",
+          "obs_ba3788e1ddbab7e0",
+          "obs_481a8e5057c576a8",
+          "obs_e087747834cb476d",
+          "obs_8af4969ddc7b228e",
+          "obs_476bc02a7ab08691",
+          "obs_3f6a6536ee7d77bf",
+          "obs_b3730915238eb65d",
+          "obs_ba0aff404f0cf413",
+          "obs_44d7dac375d5fda6",
+          "obs_2a4d5df68d70730b"
         ],
-        "hypothesis": "Enterprise engagement moved +800% week over week (8 vs 0 signals), led by newsletter click.",
-        "reasoning": "The strongest momentum is in Enterprise while Startups & SMB is at -25%. 4 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
-        "action": "Publish one newsletter click-focused piece for Enterprise and start outreach with the 4 hot leads; open retention conversations with the 1 fading champions."
+        "hypothesis": "Startups & SMB engagement moved +181% week over week (59 vs 21 signals), led by website visit.",
+        "reasoning": "The strongest momentum is in Startups & SMB while Startups & SMB is at 181%. 10 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.",
+        "action": "Publish one website visit-focused piece for Startups & SMB and start outreach with the 10 hot leads; open retention conversations with the 1 fading champions."
       },
-      "confidence": 0.76,
-      "baseConfidence": 0.76,
+      "confidence": 0.85,
+      "baseConfidence": 0.85,
       "priors": [],
       "expected": {
         "metric": "qualified_conversations",
-        "target": 2
+        "target": 5
       },
       "status": "completed",
       "model": "mock",
       "resolutionLevel": 0,
-      "createdAt": "2026-07-25T11:04:30.285Z",
+      "createdAt": "2026-07-25T11:27:10.490Z",
       "reused": false,
       "verdict": "winner",
-      "attainment": 1.5,
-      "calibrationError": -0.24,
+      "attainment": 1.2,
+      "calibrationError": -0.15,
       "outcome": {
         "metrics": {
-          "achieved": 3
+          "achieved": 6
         },
-        "note": "demo: outreach ran, conversations booked"
+        "note": "demo: outreach ran, merchant conversations booked"
       }
     }
   ],
@@ -904,22 +1556,22 @@
     "acceptanceRate": 1,
     "evaluated": 1,
     "successRate": 1,
-    "meanCalibrationError": 0.24,
+    "meanCalibrationError": 0.15,
     "costPerInsight": 0,
     "history": [
       {
-        "decisionId": "dec_75e0dfad97ece893",
-        "title": "Prioritize Enterprise: newsletter click campaign + route 4 hot leads to outreach",
+        "decisionId": "dec_ddc16c472753aaaf",
+        "title": "Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach",
         "expected": {
           "metric": "qualified_conversations",
-          "target": 2
+          "target": 5
         },
         "actual": {
-          "achieved": 3
+          "achieved": 6
         },
-        "attainment": 1.5,
+        "attainment": 1.2,
         "verdict": "winner",
-        "calibrationError": -0.24
+        "calibrationError": -0.15
       }
     ],
     "notMeasuredYet": [
@@ -938,50 +1590,50 @@
       {
         "level": 0,
         "label": "L0 rules/SQL",
-        "ops": 28,
-        "pct": 74,
+        "ops": 42,
+        "pct": 58,
         "costUsd": 0
       },
       {
         "level": 1,
         "label": "L1 embeddings",
         "ops": 5,
-        "pct": 13,
+        "pct": 7,
         "costUsd": 0
       },
       {
         "level": 2,
         "label": "L2 small LLM",
-        "ops": 5,
-        "pct": 13,
+        "ops": 26,
+        "pct": 36,
         "costUsd": 0
       }
     ],
     "totalSpendUsd": 0,
-    "insights": 18,
+    "insights": 35,
     "costPerInsight": 0,
-    "cacheHits": 0,
-    "cacheEntries": 7
+    "cacheHits": 1,
+    "cacheEntries": 27
   },
-  "digest": "# Weekly GTM digest\n\n**Audience:** 10 people · 10 companies · +10 people this week · 39 observations\n\n## Where to invest\n- webhook: 5 signals (+500%) · quality 85/100 · 3 people → **double down**\n- github: 5 signals (+500%) · quality 74/100 · 3 people → **double down**\n- newsletter: 4 signals (+33%) · quality 53/100 · 5 people → **double down**\n- website: 5 signals (+150%) · quality 48/100 · 5 people → **double down**\n- stripe: 1 signals (+0%) · quality 37/100 · 3 people → **nurture**\n- crm_csv: 0 signals (+0%) · quality 25/100 · 7 people → **nurture**\n\n**Allocation call:** Invest in webhook this week (confidence 0.77)\n> 3 of 3 people observed via webhook were active in the last 7 days and 100% are hot leads — the best engagement-per-person of 6 sources.\n\n## Segment momentum (7d vs prior 7d)\n- Enterprise: 11 signals (+1100%)\n- Mid-market: 6 signals (+200%)\n- Developers: 2 signals (+200%)\n- Startups & SMB: 1 signals (-75%)\n\n## Who to talk to this week\n1. **Maya Chen** — Head of Data Platform, LumenPay · intent 0.93 · Expansion conversation — active buying motion\n   signals: pricing_view×2, trial_started×1, docs_view×1, repo_issue×1, newsletter_click×1, newsletter_open×1, repo_star×1 · evidence: obs_e3995f8303b9b22e, obs_6124d456d26c6acd, obs_6eccec060105b551\n2. **Dana Wolf** — Head of Data, Skyforge Systems · intent 0.83 · Direct sales outreach — explicit hand-raise\n   signals: pricing_view×1, demo_request×1, form_submit×1 · evidence: obs_656b7985ddaa47fc, obs_4b6adf2d158a8722, obs_3fa92aebbd6d2d7d\n3. **Sam Okafor** — CTO, BrightQueue · intent 0.77 · Direct sales outreach — explicit hand-raise\n   signals: demo_request×1, newsletter_click×1, pricing_view×1, website_visit×1 · evidence: obs_40fd23722bcb2ba0, obs_994db03f2f072505, obs_c35a09bb32b4ae7d\n4. **Priya Nair** — Analytics Manager, Quanta Bio · intent 0.65 · Direct sales outreach — pricing intent\n   signals: pricing_view×2, newsletter_click×1, newsletter_open×1 · evidence: obs_73f630ce02a53e0d, obs_81f5cd6a2a12d3e5, obs_62bca0817999b44d\n5. **Karthik Iyer** — developer, unknown · intent 0.45 · Send integration/API onboarding material\n   signals: repo_issue×1, repo_star×1 · evidence: obs_7a1b143c724abf0b, obs_a51cc975bb8de54f\n\n## Going quiet\n- **Elena Petrova** (Nordwind Labs) — engagement down 100% · Retention check-in — engagement dropped sharply\n\n## Accounts to save\n- Retention: re-engage Nordwind Labs before it churns (confidence 0.85) — Schedule a retention check-in with Nordwind Labs this week; lead with what changed for them, not with product news.\n\n## Recommendation — Prioritize Enterprise: pricing view campaign + route 6 hot leads to outreach\n- Hypothesis: Enterprise engagement moved +1100% week over week (11 vs 0 signals), led by pricing view.\n- Reasoning: The strongest momentum is in Enterprise while Startups & SMB is at -25%. 6 people currently show high buying intent and 1 previously engaged people are going quiet — concentrating this week's outreach on the moving segment converts momentum while it exists.\n- Action: Publish one pricing view-focused piece for Enterprise and start outreach with the 6 hot leads; open retention conversations with the 1 fading champions.\n- Confidence: 0.87 · memory prior: 86% similar to a past winner\n- Expected: 3 qualified_conversations\n- Evidence: obs_e3995f8303b9b22e, obs_6124d456d26c6acd, obs_6eccec060105b551, obs_6b224e1801881b44, obs_2bfe8a834799ed36\n\n## Engine health\n- Decisions: 5 total · acceptance 1 · success 1 · mean calibration error 0.24\n- AI spend: $0 of $15 (full) · cost per insight $0 · cache hits 0\n- Work distribution: L0 rules/SQL 74% · L1 embeddings 13% · L2 small LLM 13%",
+  "digest": "# Weekly Growth Decisions\n\n1. **Invest in webhook this week** _(where to invest)_\n   Reason: webhook is the highest-yield channel right now: 5 signals this week vs 0 prior (+500%), quality 85/100, avg intent 0.75.\n   Action: Concentrate this week's content and outreach on webhook (top drivers: demo_request, pricing_view, form_submit).\n   Evidence: obs_b2b425b28a34f4a0, obs_cb552691a9ca3c4a, obs_8d8ad1d0820f13e3, obs_cd2e240af946dd60\n   Confidence: 0.77 · Expected: 4 active_people_webhook\n\n2. **Invest in google this week** _(where to invest)_\n   Reason: google is the highest-yield channel right now: 6 signals this week vs 2 prior (+200%), quality 77/100, avg intent 0.71.\n   Action: Concentrate this week's content and outreach on google (top drivers: pricing_view).\n   Evidence: obs_2c4195038373cb0d, obs_ba0aff404f0cf413, obs_de3e64f8be68e946, obs_5341bf9397e3d364\n   Confidence: 0.83 · Expected: 8 active_people_google\n\n3. **Prioritize Startups & SMB: website visit campaign + route 10 hot leads to outreach** _(who to contact)_\n   Reason: Startups & SMB engagement moved +205% week over week (64 vs 21 signals), led by website visit.\n   Action: Publish one website visit-focused piece for Startups & SMB and start outreach with the 10 hot leads; open retention conversations with the 1 fading champions.\n   Evidence: obs_cb552691a9ca3c4a, obs_3f6a6536ee7d77bf, obs_b3730915238eb65d, obs_e087747834cb476d\n   Confidence: 0.94 · Expected: 5 qualified_conversations · memory: 98% similar to a past winner\n\n4. **Retention: re-engage Pizza Corner before it churns** _(account to save)_\n   Reason: Pizza Corner (1 contact, $6400 MRR observed) has gone quiet — engagement down 100% vs its prior baseline.\n   Action: Schedule a retention check-in with Pizza Corner this week; lead with what changed for them, not with product news.\n   Evidence: obs_c68e66d6bb5654a7, obs_8b57843a5e228459, obs_0cac482344d9fb05, obs_2ba719d3849d65f9\n   Confidence: 0.85 · Expected: 2 reactivation_signals_14d\n\n## Platform comparison (observed engagement per source)\n- **webhook** — 3 people · 5 signals 7d (+500%) · quality 85/100 · intent 0.75 → **double down**\n- **google** — 7 people · 6 signals 7d (+200%) · quality 77/100 · intent 0.71 → **double down**\n- **newsletter** — 4 people · 7 signals 7d (+75%) · quality 73/100 · intent 0.55 → **double down**\n- **instagram** — 13 people · 12 signals 7d (+200%) · quality 70/100 · intent 0.6 → **double down**\n- **tiktok** — 10 people · 11 signals 7d (+267%) · quality 69/100 · intent 0.49 → **double down**\n- **orders** — 17 people · 14 signals 7d (+133%) · quality 68/100 · intent 0.58 → **double down**\n- **linkedin** — 4 people · 4 signals 7d (+300%) · quality 64/100 · intent 0.57 → **double down**\n- **referral** — 3 people · 2 signals 7d (+100%) · quality 51/100 · intent 0.41 → **double down**\n- **crm** — 12 people · 0 signals 7d (+0%) · quality 21/100 · intent 0.35 → **nurture**\n\n## Hot leads (evidence for the who-to-contact decision)\n1. **Ken Yamada** — Managing Director, Sushi Rocket · intent 0.83 · Expansion conversation — active buying motion\n   signals: demo_request×2, payment×1 · evidence: obs_cb552691a9ca3c4a, obs_3f6a6536ee7d77bf, obs_b3730915238eb65d\n2. **Sara Kim** — Founder & CEO, Green Bowl · intent 0.76 · Expansion conversation — active buying motion\n   signals: form_submit×3, payment×1 · evidence: obs_e087747834cb476d, obs_8af4969ddc7b228e, obs_476bc02a7ab08691\n3. **Eli Fischer** — Owner, Skybite Pizza · intent 0.83 · Direct sales outreach — explicit hand-raise\n   signals: form_submit×1, demo_request×1, pricing_view×1 · evidence: obs_b2b425b28a34f4a0, obs_cd2e240af946dd60, obs_8d8ad1d0820f13e3\n4. **Lena Ortiz** — Owner, Burger Factory · intent 0.82 · Expansion conversation — active buying motion\n   signals: form_submit×1, demo_request×1, payment×2 · evidence: obs_702b2ad5f78f97cb, obs_32841bd07245f0a5, obs_ba3788e1ddbab7e0\n5. **Ben Novak** — unknown, consumer · intent 0.89 · Expansion conversation — active buying motion\n   signals: payment×2, pricing_view×2, website_visit×4, newsletter_open×2, newsletter_click×1 · evidence: obs_ba0aff404f0cf413, obs_44d7dac375d5fda6, obs_2a4d5df68d70730b\n\n## Going quiet\n- **Marco Rossi** (Pizza Corner) — engagement down 100% · Retention check-in — engagement dropped sharply\n\n## Audience\n- 28 people · 13 restaurant partners · +28 people this week · 97 observations\n\n## Engine health\n- Decisions: 5 total · acceptance 1 · success 1 · mean calibration error 0.15\n- AI spend: $0 of $15 (full) · cost per insight $0 · cache hits 1\n- Work distribution: L0 rules/SQL 58% · L1 embeddings 7% · L2 small LLM 36%",
   "reviewQueue": [
     {
       "from": {
-        "id": "per_4611520ddda9f557",
-        "display_name": "Jorge R.",
-        "company": "Helios Cloud"
+        "id": "per_f27d27051461c381",
+        "display_name": "Sara K.",
+        "company": "Green Bowl"
       },
       "to": {
-        "id": "per_ef790c4a722aa2b6",
-        "display_name": "Jorge Rodriguez",
-        "company": "Helios Cloud"
+        "id": "per_7fabbc05a12ae212",
+        "display_name": "Sara Kim",
+        "company": "Green Bowl"
       },
       "confidence": 0.845,
       "evidence": [
-        "obs_dcca10e064c55b71"
+        "obs_08cd27f17151d5ad"
       ],
       "keys": [
-        "handle:github:jrodz"
+        "name:sara k."
       ]
     }
   ]

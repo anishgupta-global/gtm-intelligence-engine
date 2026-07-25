@@ -28,9 +28,9 @@ export function parseCsv(text: string): Record<string, string>[] {
 }
 
 /** CRM CSV import — every row becomes a crm_contact signal (the universal escape hatch: export from any CRM). */
-export function csvCrmConnector(file: string): Connector {
+export function csvCrmConnector(file: string, name = 'crm'): Connector {
   return {
-    name: 'crm_csv',
+    name,
     async fetch(): Promise<Signal[]> {
       return parseCsv(readFileSync(file, 'utf8')).map((r) => ({
         signalType: 'crm_contact' as const,

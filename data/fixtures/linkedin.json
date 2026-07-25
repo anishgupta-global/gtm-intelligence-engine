@@ -1,0 +1,7 @@
+[
+  { "signalType": "form_submit", "externalId": "li:f1", "daysAgo": 1, "actor": { "email": "sara@greenbowl.de", "name": "Sara Kim", "company": "Green Bowl" }, "props": { "form": "premium_placement" }, "consentBasis": "consent" },
+  { "signalType": "form_submit", "externalId": "li:f2", "daysAgo": 3, "actor": { "email": "arjun@goldencurry.de", "name": "Arjun Patel", "company": "Golden Curry" }, "props": { "form": "partner_growth" }, "consentBasis": "consent" },
+  { "signalType": "demo_request", "externalId": "li:d1", "daysAgo": 3, "actor": { "email": "ken@sushirocket.de", "name": "Ken Yamada", "company": "Sushi Rocket" }, "props": { "topic": "multi_location" }, "consentBasis": "consent" },
+  { "signalType": "form_submit", "externalId": "li:f3", "daysAgo": 5, "actor": { "name": "Sara K.", "company": "Green Bowl" }, "props": { "form": "partner_growth" }, "consentBasis": "consent" },
+  { "signalType": "form_submit", "externalId": "li:f4", "daysAgo": 9, "actor": { "email": "hiro@ramenrhapsody.de", "name": "Hiro Suzuki", "company": "Ramen Rhapsody" }, "props": { "form": "partner_growth" }, "consentBasis": "consent" }
+]

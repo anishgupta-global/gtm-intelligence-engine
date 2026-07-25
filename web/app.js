@@ -112,13 +112,13 @@ async function renderExecutive() {
 async function renderBusiness() {
   const companies = await api('/api/companies');
   document.getElementById('companies').innerHTML = companies.length ? `
-    <table><thead><tr><th>Company</th><th>Industry</th><th>People</th><th>Max intent</th><th>ICP</th><th>Churn risk</th><th>MRR</th><th>Action</th></tr></thead>
+    <table><thead><tr><th>Restaurant</th><th>Industry</th><th>Contacts</th><th>Max intent</th><th>ICP</th><th>Churn risk</th><th>Revenue (60d)</th><th>Action</th></tr></thead>
     <tbody>${companies.map((c) => `<tr>
       <td><strong>${esc(c.company)}</strong></td><td>${esc(c.industry)}</td><td>${c.people}</td>
       <td>${c.maxIntent}</td><td>${c.icpFit}</td>
       <td>${c.churnRisk > 0 ? `<span class="pill pill-red">${Math.round(c.churnRisk * 100)}%</span>` : '—'}</td>
-      <td>${c.mrr ? '$' + c.mrr : '—'}</td><td class="action-cell">${esc(c.action)}</td>
-    </tr>`).join('')}</tbody></table>` : '<div class="empty">No companies yet</div>';
+      <td>${c.mrr ? '€' + c.mrr.toLocaleString() : '—'}</td><td class="action-cell">${esc(c.action)}</td>
+    </tr>`).join('')}</tbody></table>` : '<div class="empty">No restaurants yet</div>';
 
   await renderHotLeads();
 
